@@ -26,12 +26,10 @@
 - [概要](#概要)
 - [主な機能](#主な機能)
 - [スクリーンショット](#スクリーンショット)
-- [技術スタック](#技術スタック)
 - [データ構造](#データ構造)
 - [セットアップ](#セットアップ)
 - [デプロイ](#デプロイ)
 - [データ更新フロー](#データ更新フロー)
-- [今後の拡張](#今後の拡張)
 - [ライセンス](#ライセンス)
 
 ---
@@ -71,46 +69,6 @@
 </table>
 
 > **Note:** スクリーンショットは MVP 実装後に追加予定
-
----
-
-## 技術スタック（2025年最新版）
-
-### パッケージマネージャー
-- **pnpm 9.x** - npmより3倍高速、ディスク効率的
-
-### フロントエンド
-
-| 技術 | バージョン | 用途 |
-|------|-----------|------|
-| Next.js | 15.x | React フレームワーク (App Router + Turbopack) |
-| React | **19.x** | UIライブラリ（Server Components, Actions） |
-| TypeScript | 5.x | 型安全な開発 |
-| Tailwind CSS | **v4** | ユーティリティファーストCSS（Lightning CSS統合） |
-| MapLibre GL JS | **5.9.x** | オープンソース地図ライブラリ |
-
-### PWA & 状態管理
-
-| 技術 | 用途 |
-|------|------|
-| next-pwa | Service Worker + Manifest 自動生成 |
-| SWR | データフェッチング & キャッシング |
-| Zustand | グローバル状態管理 |
-
-### 開発ツール
-
-| ツール | 用途 | 特徴 |
-|--------|------|------|
-| **Biome** | Lint + Format | ESLint/Prettierより20倍高速 |
-| **Vitest** | ユニットテスト | Jestより10倍高速 |
-| **Playwright MCP** | E2Eテスト | AI駆動テスト |
-
-### インフラ & CI/CD
-
-| サービス | 用途 |
-|----------|------|
-| Cloudflare Pages | 静的ホスティング & CDN |
-| GitHub Actions | データ自動更新 & デプロイ |
 
 ---
 
@@ -247,19 +205,6 @@ graph LR
 
 ---
 
-## 今後の拡張
-
-- [ ] 災害種別フィルタ（洪水/津波/土砂災害）
-- [ ] 現在地からの距離順ソート
-- [ ] ルート案内（Google Maps連携）
-- [ ] MapLibre Vector Tiles 対応（完全オフライン）
-- [ ] 多言語対応（英語/やさしい日本語）
-- [ ] 他市町村対応（徳島県全域など）
-- [ ] 避難所の詳細情報（開設状況、備蓄物資等）
-- [ ] プッシュ通知（災害情報）
-
----
-
 ## ライセンス
 
 MIT License
@@ -273,14 +218,3 @@ Copyright (c) 2025 Yusaku Matsukawa
 - **避難所データ:** [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html)
 - **地図タイル:** MapLibre Demo Tiles / [OpenStreetMap contributors](https://www.openstreetmap.org/copyright)
 
----
-
-## プロジェクトの目的
-
-「もしもの時に電波がなくても、身近な避難所がわかる」という課題を、エンジニアとして技術で解決したい。
-
-地方 × 防災 × Web の小さな実験として、誰でも使える形で公開します。
-
----
-
-**Built with ❤️ in Tokushima, Japan**
