@@ -32,8 +32,10 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "maplibre-gl": "^5.9.0",
+    "react-map-gl": "^8.0.0",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^2.5.0"
+    "tailwind-merge": "^2.5.0",
+    "@ducanh2912/next-pwa": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

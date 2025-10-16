@@ -1,0 +1,141 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.609, 34.173]
+      },
+      "properties": {
+        "id": "shelter-001",
+        "name": "鳴門市役所",
+        "type": "指定避難所",
+        "address": "徳島県鳴門市撫養町南浜字東浜170",
+        "disasterTypes": ["洪水", "津波", "地震"],
+        "capacity": 500,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.615, 34.180]
+      },
+      "properties": {
+        "id": "shelter-002",
+        "name": "鳴門市文化会館",
+        "type": "指定避難所",
+        "address": "徳島県鳴門市撫養町南浜字東浜34-4",
+        "disasterTypes": ["洪水", "地震", "火災"],
+        "capacity": 800,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.600, 34.165]
+      },
+      "properties": {
+        "id": "shelter-003",
+        "name": "撫養小学校",
+        "type": "緊急避難場所",
+        "address": "徳島県鳴門市撫養町斎田字北浜99",
+        "disasterTypes": ["津波", "地震"],
+        "capacity": 600,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.625, 34.175]
+      },
+      "properties": {
+        "id": "shelter-004",
+        "name": "鳴門東小学校",
+        "type": "両方",
+        "address": "徳島県鳴門市鳴門町高島字中島138",
+        "disasterTypes": ["洪水", "津波", "土砂災害", "地震"],
+        "capacity": 700,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.595, 34.185]
+      },
+      "properties": {
+        "id": "shelter-005",
+        "name": "鳴門市総合体育館",
+        "type": "指定避難所",
+        "address": "徳島県鳴門市撫養町木津字中道1-6",
+        "disasterTypes": ["洪水", "地震", "火災"],
+        "capacity": 1000,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.620, 34.168]
+      },
+      "properties": {
+        "id": "shelter-006",
+        "name": "鳴門中学校",
+        "type": "緊急避難場所",
+        "address": "徳島県鳴門市鳴門町高島字東潟20",
+        "disasterTypes": ["津波", "土砂災害", "地震"],
+        "capacity": 900,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.605, 34.178]
+      },
+      "properties": {
+        "id": "shelter-007",
+        "name": "鳴門市民会館",
+        "type": "両方",
+        "address": "徳島県鳴門市撫養町南浜字東浜165-10",
+        "disasterTypes": ["洪水", "津波", "地震", "火災"],
+        "capacity": 650,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [134.612, 34.172]
+      },
+      "properties": {
+        "id": "shelter-008",
+        "name": "鳴門高等学校",
+        "type": "指定避難所",
+        "address": "徳島県鳴門市鳴門町高島字蛭子山1",
+        "disasterTypes": ["洪水", "地震"],
+        "capacity": 1200,
+        "source": "鳴門市防災マップ",
+        "updatedAt": "2025-10-16"
+      }
+    }
+  ]
+}

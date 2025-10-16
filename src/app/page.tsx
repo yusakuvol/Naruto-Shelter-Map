@@ -1,13 +1,88 @@
+'use client';
+
+import { ShelterMap } from '@/components/map/Map';
+import { SearchBar } from '@/components/search/SearchBar';
+import { ShelterList } from '@/components/shelter/ShelterList';
+import { useShelters } from '@/hooks/useShelters';
+import { useMemo, useState } from 'react';
+
 export default function HomePage() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-gray-900">鳴門市避難所マップ</h1>
-      <p className="mt-4 text-gray-600">開発環境のセットアップが完了しました</p>
-      <div className="mt-8 rounded-lg bg-blue-50 p-6 text-center">
-        <p className="text-sm text-blue-600">
-          Next.js 15 + React 19 + Tailwind v4 + Biome + Vitest
-        </p>
+  const { data, isLoading, error } = useShelters();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // 検索フィルタリング
+  const filteredShelters = useMemo(() => {
+    if (!data?.features) return [];
+    if (!searchQuery.trim()) return data.features;
+
+    const query = searchQuery.toLowerCase();
+    return data.features.filter((shelter) => {
+      const { name, address, type, disasterTypes } = shelter.properties;
+      return (
+        name.toLowerCase().includes(query) ||
+        address.toLowerCase().includes(query) ||
+        type.toLowerCase().includes(query) ||
+        disasterTypes.some((dt) => dt.toLowerCase().includes(query))
+      );
+    });
+  }, [data, searchQuery]);
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center p-6">
+        <div className="max-w-md text-center">
+          <h2 className="text-2xl font-bold text-red-600">
+            エラーが発生しました
+          </h2>
+          <p className="mt-4 text-gray-600">{error.message}</p>
+        </div>
       </div>
-    </main>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
+          <p className="mt-4 text-gray-600">読み込み中...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-screen flex-col overflow-hidden lg:flex-row">
+      {/* サイドバー（モバイル: 上部、デスクトップ: 左側） */}
+      <div className="flex w-full flex-col border-b bg-white lg:h-full lg:w-96 lg:border-b-0 lg:border-r">
+        {/* ヘッダー */}
+        <div className="border-b p-4">
+          <h1 className="mb-2 text-2xl font-bold text-gray-900">
+            鳴門市避難所マップ
+          </h1>
+          <p className="text-sm text-gray-600">
+            {filteredShelters.length}件の避難所
+          </p>
+        </div>
+
+        {/* 検索バー */}
+        <div className="border-b p-4">
+          <SearchBar
+            onSearch={setSearchQuery}
+            placeholder="避難所名・住所・災害種別で検索..."
+          />
+        </div>
+
+        {/* 避難所リスト */}
+        <div className="flex-1 overflow-y-auto p-4">
+          <ShelterList shelters={filteredShelters} />
+        </div>
+      </div>
+
+      {/* 地図エリア */}
+      <div className="h-96 flex-1 lg:h-full">
+        <ShelterMap shelters={filteredShelters} />
+      </div>
+    </div>
   );
 }

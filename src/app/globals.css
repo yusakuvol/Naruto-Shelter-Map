@@ -21,3 +21,19 @@
     @apply bg-white text-gray-900;
   }
 }
+
+/* MapLibre Popup カスタムスタイル */
+.maplibregl-popup-content {
+  @apply rounded-lg shadow-lg;
+  padding: 0 !important;
+}
+
+.maplibregl-popup-tip {
+  display: none;
+}
+
+.shelter-popup .maplibregl-popup-close-button {
+  @apply text-gray-400 hover:text-gray-600;
+  font-size: 20px;
+  padding: 8px;
+}
