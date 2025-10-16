@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   title: '鳴門市避難所マップ',
   description: '徳島県鳴門市の避難所を地図上に可視化するPWAアプリ',
   manifest: '/manifest.json',
-  themeColor: '#3b82f6',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
 
 export default function RootLayout({
