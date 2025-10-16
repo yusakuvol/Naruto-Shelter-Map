@@ -63,7 +63,6 @@
 |--------|------|--------|
 | **Biome** | Lint + フォーマット（統一ツール） | ESLint+Prettierより20倍高速 |
 | **Vitest** | ユニットテスト | Jestより10倍高速 |
-| **Playwright MCP** | E2Eテスト（AI駆動） | アクセシビリティツリーベース |
 
 ### インフラ
 | サービス | 用途 |
@@ -121,11 +120,6 @@ naruto-shelter-map/
 │       └── useOffline.ts         # オフライン状態検出
 ├── scripts/                      # ビルド・データ処理スクリプト
 │   └── fetch_shelters.ts         # 国土地理院APIから避難所データ取得
-├── e2e/                          # Playwright E2Eテスト
-│   ├── shelter-map.spec.ts       # 地図表示テスト
-│   └── offline.spec.ts           # オフライン動作テスト
-├── vitest.config.mts             # Vitest設定
-├── playwright.config.ts          # Playwright設定
 ├── biome.json                    # Biome設定（Lint + Format）
 ├── next.config.js                # Next.js設定
 ├── package.json                  # パッケージ定義（pnpm）
@@ -247,8 +241,6 @@ types/
 hooks/
   useMap.ts            # camelCase + 'use' prefix（フック）
   useShelters.ts
-e2e/
-  shelter-map.spec.ts  # kebab-case（テストファイル）
 ```
 
 ### 変数・関数
@@ -315,50 +307,7 @@ describe('parseGeoJSON', () => {
 - ユーティリティ関数: 90%以上
 - Reactコンポーネント: 80%以上
 - フック: 85%以上
-
-### E2Eテスト（Playwright MCP）
-
-```typescript
-// e2e/shelter-map.spec.ts
-import { test, expect } from '@playwright/test';
-
-test('should display shelter map', async ({ page }) => {
-  await page.goto('/');
-
-  // アクセシビリティツリーベースのセレクタ（推奨）
-  const heading = page.getByRole('heading', { name: '鳴門市避難所マップ' });
-  await expect(heading).toBeVisible();
-
-  // 地図が表示される
-  const map = page.locator('.maplibregl-map');
-  await expect(map).toBeVisible();
-});
-
-test('should search shelters by name', async ({ page }) => {
-  await page.goto('/');
-
-  const searchInput = page.getByRole('textbox', { name: '避難所を検索' });
-  await searchInput.fill('○○小学校');
-
-  const searchResults = page.getByRole('list', { name: '検索結果' });
-  await expect(searchResults).toContainText('○○小学校');
-});
-```
-
-**テストコマンド:**
-```bash
-pnpm test              # Vitest ユニットテスト
-pnpm test --watch      # ウォッチモード
-pnpm test --coverage   # カバレッジ
-pnpm test --ui         # ブラウザUI
-
-pnpm run e2e           # Playwright E2E
-pnpm run e2e:ui        # E2E UI モード
-pnpm run e2e:debug     # デバッグモード
-```
-
 ---
-
 ## 🤖 AI Agent向けガイドライン
 
 ### コード生成時の注意点
@@ -442,7 +391,6 @@ Closes #123
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
 - [Vitest](https://vitest.dev/)
-- [Playwright](https://playwright.dev/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
 
 ### プロジェクト内ドキュメント

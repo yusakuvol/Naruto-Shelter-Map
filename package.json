@@ -22,10 +22,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui",
-    "e2e": "playwright test",
-    "e2e:ui": "playwright test --ui",
-    "e2e:debug": "playwright test --debug"
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "next": "^15.0.0",
@@ -44,7 +41,6 @@
     "@biomejs/biome": "^1.9.0",
     "typescript": "^5.6.0",
     "tailwindcss": "^4.0.0",
-    "@playwright/test": "^1.48.0",
     "vitest": "^2.1.0",
     "@vitejs/plugin-react": "^4.3.0",
     "@vitest/ui": "^2.1.0",

@@ -60,10 +60,6 @@ pnpm test --watch      # ウォッチモード
 pnpm test --coverage   # カバレッジ
 pnpm test --ui         # ブラウザUI
 
-# E2E（Playwright MCP）
-pnpm run e2e           # 実行
-pnpm run e2e:ui        # UIモード
-pnpm run e2e:debug     # デバッグモード
 ```
 
 ---
@@ -92,7 +88,6 @@ Claude Codeがコード生成前に参照すべきドキュメント：
    - React 19新機能（use, useActionState, useOptimistic, ref as props）
    - Tailwind v4 CSS-First設定
    - Biome設定方法
-   - Vitest + Playwright MCP使用方法
 
 4. **.docs/pnpm-guide.md** - pnpm完全ガイド
    - npmとの対応表
@@ -340,7 +335,6 @@ main          - 本番環境（Cloudflare Pages 自動デプロイ）
 
 3. **テスト作成**
    - ユニットテスト（Vitest）
-   - E2Eテスト（Playwright MCP）
 
 4. **コミット前**
    ```bash
@@ -356,7 +350,6 @@ main          - 本番環境（Cloudflare Pages 自動デプロイ）
 6. **プッシュ前**
    ```bash
    pnpm build       # ビルド確認
-   pnpm run e2e     # E2Eテスト
    ```
 
 ---
@@ -439,6 +432,9 @@ function MapContainer({ ref }: { ref: React.Ref<HTMLDivElement> }) {
 
 ---
 
+
+---
+
 ## 🔗 参考リンク
 
 ### プロジェクト内
@@ -454,7 +450,6 @@ function MapContainer({ ref }: { ref: React.Ref<HTMLDivElement> }) {
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
 - [Vitest](https://vitest.dev/)
-- [Playwright](https://playwright.dev/)
 
 ---
 
@@ -468,7 +463,7 @@ function MapContainer({ ref }: { ref: React.Ref<HTMLDivElement> }) {
 
 **Claude Codeへのメッセージ:**
 
-このプロジェクトは、2025年最新の技術スタック（pnpm, React 19, Tailwind v4, Biome, Vitest, Playwright MCP）を採用しています。
+このプロジェクトは、2025年最新の技術スタック（pnpm, React 19, Tailwind v4, Biome, Vitest）を採用しています。
 
 コード生成時は、必ず`AGENTS.md`のコーディング規約に従い、型安全性・アクセシビリティ・パフォーマンスを重視してください。
 
