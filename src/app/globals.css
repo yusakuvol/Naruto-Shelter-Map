@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+  /* カスタムカラーパレット（避難所マップ用） */
+  --color-primary-500: oklch(0.55 0.15 250);
+  --color-primary-600: oklch(0.5 0.18 250);
+  --color-primary-700: oklch(0.45 0.2 250);
+
+  /* 避難所種別カラー */
+  --color-shelter-designated: oklch(0.55 0.15 250); /* 指定避難所: 青 */
+  --color-shelter-emergency: oklch(0.55 0.22 25); /* 緊急避難場所: 赤 */
+  --color-shelter-both: oklch(0.55 0.18 290); /* 両方: 紫 */
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
