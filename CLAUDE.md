@@ -290,6 +290,52 @@ main          - 本番環境（Cloudflare Pages 自動デプロイ）
    └─ docs/update-readme          - ドキュメント更新
 ```
 
+### ⚠️ IMPORTANT: mainブランチ保護ルール（AI Agent必読）
+
+**mainブランチは保護されており、直接コミット禁止です。**
+
+**すべての変更は以下の手順で実施:**
+
+1. **作業ブランチを作成**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **変更をコミット**
+   ```bash
+   git add .
+   git commit -m "feat: your changes"
+   ```
+
+3. **リモートにプッシュ**
+   ```bash
+   git push -u origin feature/your-feature-name
+   ```
+
+4. **Pull Request作成**
+   ```bash
+   gh pr create --title "feat: Add new feature" --body "Description"
+   ```
+
+5. **マージ後、ブランチ削除**
+   ```bash
+   git checkout main
+   git pull
+   git branch -d feature/your-feature-name
+   ```
+
+**ブランチ命名規則:**
+- `feature/*` - 新機能追加
+- `fix/*` - バグ修正
+- `docs/*` - ドキュメント更新
+- `refactor/*` - リファクタリング
+- `chore/*` - ビルド・依存関係更新など
+
+**例:**
+- `feature/add-disaster-filter`
+- `fix/search-bug`
+- `docs/update-readme`
+
 ### タスク実行順序
 
 1. **機能開発前**
