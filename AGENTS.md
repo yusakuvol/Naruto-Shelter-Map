@@ -350,6 +350,108 @@ feat(map): Add globe rendering mode for MapLibre
 Closes #123
 ```
 
+### Git ワークフロー（必須）
+
+#### ⚠️ CRITICAL: mainブランチ保護
+
+**mainブランチは保護されており、直接コミットは禁止されています。**
+
+すべての変更は以下のワークフローに従ってください：
+
+**1. 作業ブランチの作成**
+```bash
+# 機能追加の場合
+git checkout -b feature/shelter-filter
+
+# バグ修正の場合
+git checkout -b fix/map-rendering-issue
+
+# ドキュメント更新の場合
+git checkout -b docs/api-documentation
+```
+
+**2. 変更のコミット**
+- Conventional Commits形式に従う
+- 1コミット1機能を心がける
+- コミット前に必ず`pnpm lint`と`pnpm type-check`を実行
+
+```bash
+git add .
+git commit -m "feat(filter): Add disaster type filter component
+
+- Implement filter UI with checkboxes
+- Add filter logic to useShelters hook
+- Update Map component to reflect filters
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+**3. リモートへのプッシュ**
+```bash
+git push -u origin feature/shelter-filter
+```
+
+**4. Pull Request作成**
+```bash
+gh pr create --title "feat(filter): Add disaster type filter" --body "$(cat <<'EOF'
+## Summary
+- Add disaster type filter component
+- Users can filter shelters by disaster type (flood, tsunami, earthquake, etc.)
+
+## Changes
+- New component: \`src/components/filter/DisasterTypeFilter.tsx\`
+- Updated: \`src/hooks/useShelters.ts\`
+- Updated: \`src/app/page.tsx\`
+
+## Test Plan
+- [ ] Filter UI displays correctly
+- [ ] Filters work for each disaster type
+- [ ] No console errors
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+EOF
+)"
+```
+
+**5. マージ後のクリーンアップ**
+```bash
+# mainブランチに戻る
+git checkout main
+
+# 最新の状態を取得
+git pull
+
+# 作業ブランチを削除
+git branch -d feature/shelter-filter
+```
+
+#### ブランチ命名規則
+
+| プレフィックス | 用途 | 例 |
+|--------------|------|-----|
+| `feature/*` | 新機能追加 | `feature/disaster-filter` |
+| `fix/*` | バグ修正 | `fix/map-marker-position` |
+| `docs/*` | ドキュメント | `docs/update-readme` |
+| `refactor/*` | リファクタリング | `refactor/extract-map-utils` |
+| `chore/*` | その他（依存関係更新など） | `chore/update-dependencies` |
+
+#### ⚠️ 絶対にやってはいけないこと
+
+- ❌ mainブランチに直接コミット
+- ❌ force push (`git push -f`)
+- ❌ 他人のブランチを勝手に書き換え
+- ❌ コミット履歴の改変（`git rebase -i`など）
+- ❌ Lint/型チェックを通さずにPush
+
+#### ✅ 推奨事項
+
+- ✅ 小さく頻繁にコミット
+- ✅ わかりやすいコミットメッセージ
+- ✅ PR作成前に`pnpm build`で確認
+- ✅ 変更内容をPR descriptionに明記
+
 ---
 
 ## 📚 参考リンク
