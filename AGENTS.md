@@ -62,7 +62,6 @@
 | ツール | 用途 | 従来比 |
 |--------|------|--------|
 | **Biome** | Lint + フォーマット（統一ツール） | ESLint+Prettierより20倍高速 |
-| **Vitest** | ユニットテスト | Jestより10倍高速 |
 
 ### インフラ
 | サービス | 用途 |
@@ -280,34 +279,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 ```
 
 ---
-
-## 🧪 テスト戦略
-
-### ユニットテスト（Vitest）
-
-```typescript
-// src/lib/__tests__/geojson.test.ts
-import { describe, it, expect } from 'vitest';
-import { parseGeoJSON } from '../geojson';
-
-describe('parseGeoJSON', () => {
-  it('should parse valid GeoJSON', () => {
-    const input = { type: 'FeatureCollection', features: [] };
-    const result = parseGeoJSON(input);
-    expect(result).toBeDefined();
-  });
-
-  it('should throw error for invalid GeoJSON', () => {
-    expect(() => parseGeoJSON(null)).toThrow();
-  });
-});
-```
-
-**カバレッジ目標:**
-- ユーティリティ関数: 90%以上
-- Reactコンポーネント: 80%以上
-- フック: 85%以上
----
 ## 🤖 AI Agent向けガイドライン
 
 ### コード生成時の注意点
@@ -366,7 +337,6 @@ describe('parseGeoJSON', () => {
 - `style`: コードスタイル（フォーマット）
 - `refactor`: リファクタリング
 - `perf`: パフォーマンス改善
-- `test`: テスト追加・修正
 - `chore`: ビルドプロセス・ツール変更
 
 **例:**
@@ -390,7 +360,6 @@ Closes #123
 - [Next.js 15](https://nextjs.org/docs)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
-- [Vitest](https://vitest.dev/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
 
 ### プロジェクト内ドキュメント

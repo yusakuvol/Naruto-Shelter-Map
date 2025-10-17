@@ -158,7 +158,6 @@ http://localhost:3000
 | `pnpm lint` | Biome Lint チェック |
 | `pnpm format` | Biome フォーマット |
 | `pnpm type-check` | TypeScript 型チェック |
-| `pnpm test` | Vitest ユニットテスト |
 
 ---
 

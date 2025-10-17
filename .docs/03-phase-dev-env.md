@@ -4,7 +4,7 @@
 > **難易度:** ⭐️⭐️⭐️ Hard
 > **期間:** 1-2日（約16時間）
 > **前提条件:** Phase 1, 2 完了推奨
-> **Tech Update:** 2025年最新版（pnpm, React 19, Tailwind v4, Biome, Vitest）
+> **Tech Update:** 2025年最新版（pnpm, React 19, Tailwind v4, Biome）
 
 ---
 
@@ -16,11 +16,10 @@
 2. ✅ Next.js 15 (Turbopack) + React 19 の基本設定
 3. ✅ TypeScript 厳格設定
 4. ✅ **Biome** によるコード品質管理（ESLint+Prettier置き換え）
-5. ✅ **Vitest** + **Playwright MCP** テスト環境
-6. ✅ Tailwind CSS v4 設定（CSS-First）
-7. ✅ 基本的なディレクトリ構造
-8. ✅ 環境変数テンプレート
-9. ✅ Git除外設定
+5. ✅ Tailwind CSS v4 設定（CSS-First）
+6. ✅ 基本的なディレクトリ構造
+7. ✅ 環境変数テンプレート
+8. ✅ Git除外設定
 
 ---
 
@@ -31,7 +30,7 @@
 - [ ] `.npmrc` ファイル作成（pnpm設定）
 - [ ] `package.json` ファイル作成（2025最新依存関係）
 - [ ] 依存関係（React 19, Tailwind v4, MapLibre 5.9）
-- [ ] 開発依存関係（Biome, Vitest, Playwright MCP）
+- [ ] 開発依存関係（Biome, Playwright MCP）
 - [ ] pnpm用スクリプト定義
 - [ ] `pnpm install` 実行確認
 
@@ -47,13 +46,7 @@
 - [ ] `biome.json` 作成（ESLint/Prettier置き換え）
 - [ ] `.editorconfig` 作成（Optional）
 
-### Part 4: テスト環境
-
-- [ ] `vitest.config.mts` 作成
-- [ ] `vitest-setup.ts` 作成
-- [ ] `playwright.config.ts` 作成（MCP統合）
-
-### Part 5: ディレクトリ構造
+### Part 4: ディレクトリ構造
 
 - [ ] `src/app/` 作成（App Router）
 - [ ] `src/components/` 作成
@@ -63,7 +56,7 @@
 - [ ] `public/` 作成
 - [ ] `scripts/` 作成
 
-### Part 6: その他
+### Part 5: その他
 
 - [ ] `.env.example` 作成
 - [ ] `.gitignore` 作成（pnpm対応）
@@ -110,15 +103,7 @@ shamefully-hoist=false
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "format:check": "biome format .",
-    "type-check": "tsc --noEmit",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui",
-    "e2e": "playwright test",
-    "e2e:ui": "playwright test --ui",
-    "e2e:debug": "playwright test --debug",
-    "prepare": "husky install"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^15.0.0",
@@ -138,18 +123,7 @@ shamefully-hoist=false
     "@biomejs/biome": "^1.9.0",
     "typescript": "^5.6.0",
     "tailwindcss": "^4.0.0",
-    "@next/bundle-analyzer": "^15.0.0",
-    "@playwright/test": "^1.48.0",
-    "vitest": "^2.1.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "@vitest/ui": "^2.1.0",
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.5.0",
-    "jsdom": "^25.0.0",
-    "husky": "^9.1.0",
-    "lint-staged": "^15.2.0",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0"
+    "@next/bundle-analyzer": "^15.0.0"
   }
 }
 ```

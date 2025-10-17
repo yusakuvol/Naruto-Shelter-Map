@@ -53,13 +53,6 @@ pnpm format:check # チェックのみ
 
 # 型チェック
 pnpm type-check
-
-# テスト（Vitest）
-pnpm test              # 実行
-pnpm test --watch      # ウォッチモード
-pnpm test --coverage   # カバレッジ
-pnpm test --ui         # ブラウザUI
-
 ```
 
 ---
@@ -75,7 +68,6 @@ Claude Codeがコード生成前に参照すべきドキュメント：
    - 技術スタック詳細
    - コーディング規約
    - 命名規則
-   - テスト戦略
 
 2. **.docs/00-MASTER-PLAN.md** - プロジェクト全体計画
    - フェーズ概要
@@ -188,29 +180,6 @@ export function parseGeoJSON(
 }
 ```
 
-#### 新規テスト作成
-```typescript
-// src/lib/__tests__/geojson.test.ts
-import { describe, it, expect } from 'vitest';
-import { parseGeoJSON } from '../geojson';
-
-describe('parseGeoJSON', () => {
-  it('should parse valid GeoJSON', () => {
-    const input = {
-      type: 'FeatureCollection',
-      features: [],
-    };
-    const result = parseGeoJSON(input);
-    expect(result).toBeDefined();
-    expect(result.type).toBe('FeatureCollection');
-  });
-
-  it('should throw error for invalid GeoJSON', () => {
-    expect(() => parseGeoJSON(null)).toThrow('Invalid GeoJSON data');
-  });
-});
-```
-
 ### 3. コミットメッセージ生成
 
 **Conventional Commits** 形式を厳守:
@@ -240,7 +209,6 @@ fix(search): Fix shelter search not filtering correctly
 
 - Add null check for shelter.name before filtering
 - Update search logic to support partial matches
-- Add test case for edge cases
 
 Fixes #42
 ```
@@ -333,21 +301,17 @@ main          - 本番環境（Cloudflare Pages 自動デプロイ）
    - Biomeルール準拠
    - アクセシビリティ対応
 
-3. **テスト作成**
-   - ユニットテスト（Vitest）
-
-4. **コミット前**
+3. **コミット前**
    ```bash
    pnpm lint        # Lint + Formatチェック
    pnpm type-check  # 型チェック
-   pnpm test        # ユニットテスト
    ```
 
-5. **コミット**
+4. **コミット**
    - Conventional Commits形式
    - 適切なスコープとタイプ
 
-6. **プッシュ前**
+5. **プッシュ前**
    ```bash
    pnpm build       # ビルド確認
    ```
@@ -365,8 +329,7 @@ main          - 本番環境（Cloudflare Pages 自動デプロイ）
 2. Server Componentで作成（デフォルト）
 3. TypeScriptで型安全に実装
 4. Tailwindでスタイリング
-5. テストファイル作成
-6. `pnpm lint`でチェック
+5. `pnpm lint`でチェック
 
 ### 例2: バグ修正
 
@@ -377,8 +340,7 @@ main          - 本番環境（Cloudflare Pages 自動デプロイ）
 2. 関連ファイル読み込み（`SearchBar.tsx`, `useShelters.ts`）
 3. デバッグ
 4. 修正コード提案
-5. テストケース追加
-6. `fix(search): ...` 形式でコミットメッセージ生成
+5. `fix(search): ...` 形式でコミットメッセージ生成
 
 ### 例3: ドキュメント更新
 
@@ -449,7 +411,6 @@ function MapContainer({ ref }: { ref: React.Ref<HTMLDivElement> }) {
 - [Next.js 15 Documentation](https://nextjs.org/docs)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
-- [Vitest](https://vitest.dev/)
 
 ---
 
@@ -463,7 +424,7 @@ function MapContainer({ ref }: { ref: React.Ref<HTMLDivElement> }) {
 
 **Claude Codeへのメッセージ:**
 
-このプロジェクトは、2025年最新の技術スタック（pnpm, React 19, Tailwind v4, Biome, Vitest）を採用しています。
+このプロジェクトは、2025年最新の技術スタック（pnpm, React 19, Tailwind v4, Biome）を採用しています。
 
 コード生成時は、必ず`AGENTS.md`のコーディング規約に従い、型安全性・アクセシビリティ・パフォーマンスを重視してください。
 
