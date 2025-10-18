@@ -12,10 +12,32 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: '#ffffff',
     theme_color: '#3b82f6',
     orientation: 'portrait-primary',
-    // TODO: Add PWA icons before production deployment
-    // Generate icons using: https://realfavicongenerator.net/
-    // or https://www.pwabuilder.com/imageGenerator
-    icons: [],
+    icons: [
+      {
+        src: '/icons/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-192-maskable.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: '/icons/icon-512-maskable.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+    ],
     categories: ['utilities', 'lifestyle', 'navigation'],
     lang: 'ja',
     dir: 'ltr',
