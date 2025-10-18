@@ -52,9 +52,9 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden lg:flex-row">
+    <div className="flex h-screen flex-col lg:flex-row lg:overflow-hidden">
       {/* サイドバー（モバイル: 上部、デスクトップ: 左側） */}
-      <div className="flex w-full flex-col border-b bg-white lg:h-full lg:w-96 lg:border-b-0 lg:border-r">
+      <div className="flex max-h-[50vh] w-full flex-col border-b bg-white lg:h-full lg:max-h-none lg:w-96 lg:border-b-0 lg:border-r">
         {/* ヘッダー */}
         <div className="border-b p-4">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">
@@ -74,7 +74,7 @@ export default function HomePage() {
         </div>
 
         {/* 避難所リスト */}
-        <div className="flex-1 overflow-y-auto p-4">
+        <div className="min-h-0 flex-1 overflow-y-auto p-4">
           <ShelterList shelters={filteredShelters} />
         </div>
       </div>
