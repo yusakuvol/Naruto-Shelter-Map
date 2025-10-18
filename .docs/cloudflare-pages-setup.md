@@ -82,13 +82,13 @@
 
 ### 4. ビルド設定
 
-**重要:** pnpmを使用するため、ビルドコマンドをカスタマイズします。
+**重要:** Cloudflare Pagesは`package.json`の`packageManager`フィールドからpnpmを自動検出します。
 
-#### 推奨設定（方法1: pnpmグローバルインストール）
+#### 推奨設定
 
 ```bash
 # Build command
-npm i -g pnpm && pnpm install && pnpm build
+pnpm build
 
 # Build output directory
 out
@@ -97,15 +97,7 @@ out
 (空欄)
 ```
 
-#### 代替設定（方法2: npx pnpm）
-
-```bash
-# Build command
-npx pnpm install && npx pnpm build
-
-# Build output directory
-out
-```
+**Note:** `pnpm install`はCloudflare Pagesが自動実行するため、ビルドコマンドには不要です。
 
 #### 環境変数（オプション）
 
