@@ -3,12 +3,15 @@
 import { ShelterMap } from '@/components/map/Map';
 import { SearchBar } from '@/components/search/SearchBar';
 import { ShelterList } from '@/components/shelter/ShelterList';
+import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
+import { SheetContent } from '@/components/mobile/SheetContent';
 import { useShelters } from '@/hooks/useShelters';
 import { useMemo, useState } from 'react';
 
 export default function HomePage() {
   const { data, isLoading, error } = useShelters();
   const [searchQuery, setSearchQuery] = useState('');
+  const [sheetState, setSheetState] = useState<SheetState>('half');
 
   // 検索フィルタリング
   const filteredShelters = useMemo(() => {
@@ -52,37 +55,71 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex h-screen flex-col lg:flex-row lg:overflow-hidden">
-      {/* サイドバー（モバイル: 上部、デスクトップ: 左側） */}
-      <div className="flex max-h-[50vh] w-full flex-col border-b bg-white lg:h-full lg:max-h-none lg:w-96 lg:border-b-0 lg:border-r">
-        {/* ヘッダー */}
-        <div className="border-b p-4">
-          <h1 className="mb-2 text-2xl font-bold text-gray-900">
-            鳴門市避難所マップ
-          </h1>
-          <p className="text-sm text-gray-600">
-            {filteredShelters.length}件の避難所
-          </p>
+    <>
+      {/* モバイルレイアウト（< 1024px） */}
+      <div className="flex h-screen flex-col lg:hidden">
+        {/* ヘッダー + 検索（sticky） */}
+        <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b">
+          <div className="p-4">
+            <h1 className="text-xl font-bold text-gray-900">
+              鳴門市避難所マップ
+            </h1>
+          </div>
+          <div className="px-4 pb-4">
+            <SearchBar
+              onSearch={setSearchQuery}
+              placeholder="避難所名・住所・災害種別で検索..."
+            />
+          </div>
+        </header>
+
+        {/* 地図エリア（フルスクリーン） */}
+        <div className="flex-1">
+          <ShelterMap shelters={filteredShelters} />
         </div>
 
-        {/* 検索バー */}
-        <div className="border-b p-4">
-          <SearchBar
-            onSearch={setSearchQuery}
-            placeholder="避難所名・住所・災害種別で検索..."
+        {/* Bottom Sheet */}
+        <BottomSheet state={sheetState} onStateChange={setSheetState}>
+          <SheetContent
+            shelters={filteredShelters}
+            onMapViewRequest={() => setSheetState('closed')}
           />
-        </div>
-
-        {/* 避難所リスト */}
-        <div className="min-h-0 flex-1 overflow-y-auto p-4">
-          <ShelterList shelters={filteredShelters} />
-        </div>
+        </BottomSheet>
       </div>
 
-      {/* 地図エリア */}
-      <div className="h-96 flex-1 lg:h-full">
-        <ShelterMap shelters={filteredShelters} />
+      {/* デスクトップレイアウト（>= 1024px） */}
+      <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
+        {/* サイドバー（左側） */}
+        <div className="flex h-full w-96 flex-col border-r bg-white">
+          {/* ヘッダー */}
+          <div className="border-b p-4">
+            <h1 className="mb-2 text-2xl font-bold text-gray-900">
+              鳴門市避難所マップ
+            </h1>
+            <p className="text-sm text-gray-600">
+              {filteredShelters.length}件の避難所
+            </p>
+          </div>
+
+          {/* 検索バー */}
+          <div className="border-b p-4">
+            <SearchBar
+              onSearch={setSearchQuery}
+              placeholder="避難所名・住所・災害種別で検索..."
+            />
+          </div>
+
+          {/* 避難所リスト */}
+          <div className="min-h-0 flex-1 overflow-y-auto p-4">
+            <ShelterList shelters={filteredShelters} />
+          </div>
+        </div>
+
+        {/* 地図エリア（右側） */}
+        <div className="h-full flex-1">
+          <ShelterMap shelters={filteredShelters} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
