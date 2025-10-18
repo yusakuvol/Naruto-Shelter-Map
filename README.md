@@ -182,10 +182,11 @@ http://localhost:3000
 3. GitHubリポジトリ **`Naruto-Shelter-Map`** を接続
 4. フレームワークプリセット: **`Next.js (Static HTML Export)`**
 5. ビルド設定:
-   - **ビルドコマンド:** `npm i -g pnpm && pnpm install && pnpm build`
+   - **ビルドコマンド:** `pnpm build`
    - **ビルド出力ディレクトリ:** `out`
-   - **Node.js バージョン:** `20`
 6. **「Save and Deploy」** をクリック
+
+> **Note:** pnpmは`package.json`の`packageManager`フィールドから自動検出されます。
 
 デプロイ完了後、`https://naruto-shelter-map.pages.dev` のようなURLが生成されます。
 
