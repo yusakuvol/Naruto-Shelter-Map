@@ -4,11 +4,7 @@
     "enabled": true
   },
   "files": {
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx",
-      "scripts/**/*.ts"
-    ],
+    "include": ["src/**/*.ts", "src/**/*.tsx", "scripts/**/*.ts"],
     "ignore": [
       "node_modules",
       ".next",

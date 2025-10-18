@@ -25,7 +25,7 @@ export function ViewModeTabs({
           'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
           mode === 'list'
             ? 'border-b-2 border-blue-600 text-blue-600'
-            : 'text-gray-600 hover:text-gray-900',
+            : 'text-gray-600 hover:text-gray-900'
         )}
         onClick={() => onModeChange('list')}
       >
@@ -53,7 +53,7 @@ export function ViewModeTabs({
           'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
           mode === 'map'
             ? 'border-b-2 border-blue-600 text-blue-600'
-            : 'text-gray-600 hover:text-gray-900',
+            : 'text-gray-600 hover:text-gray-900'
         )}
         onClick={() => onModeChange('map')}
       >
