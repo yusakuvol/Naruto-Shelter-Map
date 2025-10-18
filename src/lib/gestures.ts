@@ -9,7 +9,7 @@ export function getSheetHeight(
 ): number {
   switch (state) {
     case 'closed':
-      return 60; // タブバーのみ
+      return 80; // タブ表示エリア（アクセシビリティ向上）
     case 'peek':
       return 120; // タブバー + カード1枚の上部がちらっと見える
     case 'half':
@@ -17,7 +17,7 @@ export function getSheetHeight(
     case 'full':
       return viewportHeight * 0.9; // 90vh
     default:
-      return 60;
+      return 80;
   }
 }
 
