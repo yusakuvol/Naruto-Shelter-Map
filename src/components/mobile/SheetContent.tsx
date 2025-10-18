@@ -35,8 +35,27 @@ export function SheetContent({
 
       {/* リスト表示 */}
       {viewMode === 'list' && (
-        <div className="flex-1 overflow-y-auto p-4">
+        <div
+          role="tabpanel"
+          id="list-panel"
+          aria-labelledby="list-tab"
+          className="flex-1 overflow-y-auto p-4"
+        >
           <ShelterList shelters={shelters} />
+        </div>
+      )}
+
+      {/* 地図表示（実際には閉じるだけ） */}
+      {viewMode === 'map' && (
+        <div
+          role="tabpanel"
+          id="map-panel"
+          aria-labelledby="map-tab"
+          className="flex-1 p-4"
+        >
+          <p className="text-center text-gray-600">
+            地図を表示しています
+          </p>
         </div>
       )}
     </div>
