@@ -12,6 +12,7 @@ export default function HomePage() {
   const { data, isLoading, error } = useShelters();
   const [searchQuery, setSearchQuery] = useState('');
   const [sheetState, setSheetState] = useState<SheetState>('peek');
+  const [selectedShelterId, setSelectedShelterId] = useState<string | null>(null);
 
   // 検索フィルタリング
   const filteredShelters = useMemo(() => {
@@ -75,13 +76,22 @@ export default function HomePage() {
 
         {/* 地図エリア（フルスクリーン） */}
         <div className="flex-1">
-          <ShelterMap shelters={filteredShelters} />
+          <ShelterMap
+            shelters={filteredShelters}
+            selectedShelterId={selectedShelterId}
+            onShelterSelect={setSelectedShelterId}
+          />
         </div>
 
         {/* Bottom Sheet */}
         <BottomSheet state={sheetState} onStateChange={setSheetState}>
           <SheetContent
             shelters={filteredShelters}
+            selectedShelterId={selectedShelterId}
+            onShelterSelect={(id) => {
+              setSelectedShelterId(id);
+              setSheetState('closed'); // カードクリック時に地図を見せる
+            }}
             onMapViewRequest={() => setSheetState('closed')}
           />
         </BottomSheet>
@@ -111,13 +121,21 @@ export default function HomePage() {
 
           {/* 避難所リスト */}
           <div className="min-h-0 flex-1 overflow-y-auto p-4">
-            <ShelterList shelters={filteredShelters} />
+            <ShelterList
+              shelters={filteredShelters}
+              selectedShelterId={selectedShelterId}
+              onShelterSelect={setSelectedShelterId}
+            />
           </div>
         </div>
 
         {/* 地図エリア（右側） */}
         <div className="h-full flex-1">
-          <ShelterMap shelters={filteredShelters} />
+          <ShelterMap
+            shelters={filteredShelters}
+            selectedShelterId={selectedShelterId}
+            onShelterSelect={setSelectedShelterId}
+          />
         </div>
       </div>
     </>
