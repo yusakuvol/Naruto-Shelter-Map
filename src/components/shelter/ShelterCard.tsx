@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 interface ShelterCardProps {
   shelter: ShelterFeature;
+  isSelected?: boolean;
   onClick?: () => void;
 }
 
@@ -19,7 +20,7 @@ function getShelterTypeColor(type: string): string {
   }
 }
 
-export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
+export function ShelterCard({ shelter, isSelected, onClick }: ShelterCardProps) {
   const { name, type, address, disasterTypes, capacity } = shelter.properties;
   const typeColor = getShelterTypeColor(type);
 
@@ -27,7 +28,8 @@ export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
     <div
       className={clsx(
         'cursor-pointer rounded-lg border bg-white p-3 shadow-sm transition-all hover:shadow-md',
-        onClick && 'hover:border-blue-300'
+        onClick && 'hover:border-blue-300',
+        isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
       )}
       onClick={onClick}
       onKeyDown={(e) => {

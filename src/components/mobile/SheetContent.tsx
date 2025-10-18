@@ -7,11 +7,15 @@ import { type ViewMode, ViewModeTabs } from './ViewModeTabs';
 
 interface SheetContentProps {
   shelters: ShelterFeature[];
+  selectedShelterId?: string | null | undefined;
+  onShelterSelect?: (id: string) => void;
   onMapViewRequest: () => void;
 }
 
 export function SheetContent({
   shelters,
+  selectedShelterId,
+  onShelterSelect,
   onMapViewRequest,
 }: SheetContentProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('list');
@@ -41,7 +45,11 @@ export function SheetContent({
           aria-labelledby="list-tab"
           className="flex-1 overflow-y-auto p-4"
         >
-          <ShelterList shelters={shelters} />
+          <ShelterList
+            shelters={shelters}
+            selectedShelterId={selectedShelterId}
+            {...(onShelterSelect && { onShelterSelect })}
+          />
         </div>
       )}
 

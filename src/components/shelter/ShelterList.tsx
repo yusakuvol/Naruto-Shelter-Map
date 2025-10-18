@@ -3,10 +3,12 @@ import { ShelterCard } from './ShelterCard';
 
 interface ShelterListProps {
   shelters: ShelterFeature[];
+  selectedShelterId?: string | null | undefined;
+  onShelterSelect?: (id: string) => void;
   onShelterClick?: (shelter: ShelterFeature) => void;
 }
 
-export function ShelterList({ shelters, onShelterClick }: ShelterListProps) {
+export function ShelterList({ shelters, selectedShelterId, onShelterSelect, onShelterClick }: ShelterListProps) {
   if (shelters.length === 0) {
     return (
       <div className="flex h-full items-center justify-center p-8 text-center">
@@ -38,7 +40,11 @@ export function ShelterList({ shelters, onShelterClick }: ShelterListProps) {
         <ShelterCard
           key={shelter.properties.id}
           shelter={shelter}
-          onClick={() => onShelterClick?.(shelter)}
+          isSelected={selectedShelterId === shelter.properties.id}
+          onClick={() => {
+            onShelterSelect?.(shelter.properties.id);
+            onShelterClick?.(shelter);
+          }}
         />
       ))}
     </div>

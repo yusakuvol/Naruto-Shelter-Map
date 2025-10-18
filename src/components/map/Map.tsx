@@ -1,12 +1,14 @@
 'use client';
 
 import type { ShelterFeature } from '@/types/shelter';
-import { useCallback, useState } from 'react';
-import MapGL, { Marker, Popup, NavigationControl } from 'react-map-gl/maplibre';
+import { useCallback, useState, useEffect } from 'react';
+import MapGL, { Marker, Popup, NavigationControl, useMap } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
   shelters: ShelterFeature[];
+  selectedShelterId?: string | null | undefined;
+  onShelterSelect?: (id: string) => void;
 }
 
 // 避難所種別に応じたマーカー色
@@ -23,18 +25,52 @@ function getShelterColor(type: string): string {
   }
 }
 
-export function ShelterMap({ shelters }: MapProps) {
+// 地図の移動を制御する内部コンポーネント
+function MapController({ selectedShelterId, shelters }: { selectedShelterId?: string | null | undefined; shelters: ShelterFeature[] }) {
+  const { current: map } = useMap();
+
+  useEffect(() => {
+    if (!selectedShelterId || !map) return;
+
+    const shelter = shelters.find(s => s.properties.id === selectedShelterId);
+    if (!shelter) return;
+
+    const [lng, lat] = shelter.geometry.coordinates;
+
+    // 地図を滑らかに移動
+    map.flyTo({
+      center: [lng, lat],
+      zoom: 16,
+      duration: 1000,
+    });
+  }, [selectedShelterId, shelters, map]);
+
+  return null;
+}
+
+export function ShelterMap({ shelters, selectedShelterId, onShelterSelect }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
 
   const handleMarkerClick = useCallback((shelter: ShelterFeature) => {
     setSelectedShelter(shelter);
-  }, []);
+    onShelterSelect?.(shelter.properties.id);
+  }, [onShelterSelect]);
 
   const handleClosePopup = useCallback(() => {
     setSelectedShelter(null);
   }, []);
+
+  // selectedShelterIdが変更されたらポップアップを表示
+  useEffect(() => {
+    if (!selectedShelterId) return;
+
+    const shelter = shelters.find(s => s.properties.id === selectedShelterId);
+    if (!shelter) return;
+
+    setSelectedShelter(shelter);
+  }, [selectedShelterId, shelters]);
 
   return (
     <div className="h-full w-full">
@@ -47,11 +83,13 @@ export function ShelterMap({ shelters }: MapProps) {
         style={{ width: '100%', height: '100%' }}
         mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
       >
+        <MapController selectedShelterId={selectedShelterId} shelters={shelters} />
         <NavigationControl position="top-right" />
 
         {shelters.map((shelter) => {
           const [lng, lat] = shelter.geometry.coordinates;
           const color = getShelterColor(shelter.properties.type);
+          const isSelected = selectedShelterId === shelter.properties.id;
 
           return (
             <Marker
@@ -62,7 +100,11 @@ export function ShelterMap({ shelters }: MapProps) {
               onClick={() => handleMarkerClick(shelter)}
             >
               <div
-                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-2 border-white shadow-lg transition-transform hover:scale-110"
+                className={`flex cursor-pointer items-center justify-center rounded-full border-2 shadow-lg transition-all hover:scale-110 ${
+                  isSelected
+                    ? 'h-10 w-10 border-blue-500 ring-2 ring-blue-300'
+                    : 'h-8 w-8 border-white'
+                }`}
                 style={{ backgroundColor: color }}
               >
                 <svg
