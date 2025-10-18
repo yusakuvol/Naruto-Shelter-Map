@@ -26,7 +26,7 @@ export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
   return (
     <div
       className={clsx(
-        'cursor-pointer rounded-lg border bg-white p-4 shadow-sm transition-all hover:shadow-md',
+        'cursor-pointer rounded-lg border bg-white p-3 shadow-sm transition-all hover:shadow-md',
         onClick && 'hover:border-blue-300'
       )}
       onClick={onClick}
@@ -40,11 +40,12 @@ export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
       tabIndex={0}
       aria-label={`${name}の詳細`}
     >
-      <div className="mb-2 flex items-start justify-between gap-2">
-        <h3 className="flex-1 font-bold text-gray-900">{name}</h3>
+      {/* ヘッダー: 名前 + タイプバッジ */}
+      <div className="mb-1.5 flex items-start justify-between gap-2">
+        <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">{name}</h3>
         <span
           className={clsx(
-            'rounded-full border px-2 py-1 text-xs font-medium',
+            'rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
             typeColor
           )}
         >
@@ -52,36 +53,41 @@ export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
         </span>
       </div>
 
-      <div className="space-y-1 text-sm text-gray-600">
-        <p className="flex items-start gap-1">
-          <svg
-            className="mt-0.5 h-4 w-4 flex-shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          <span className="flex-1">{address}</span>
-        </p>
+      {/* 住所（常に表示） */}
+      <p className="flex items-start gap-1 text-xs text-gray-600 mb-1">
+        <svg
+          className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+        <span className="flex-1 leading-tight">{address}</span>
+      </p>
 
-        <p className="flex items-center gap-1">
+      {/* 追加情報（コンパクトに1行で表示） */}
+      <div className="flex items-center gap-3 text-xs text-gray-500">
+        {/* 災害種別 */}
+        <span className="flex items-center gap-1">
           <svg
-            className="h-4 w-4 flex-shrink-0"
+            className="h-3.5 w-3.5 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -90,16 +96,18 @@ export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
               d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
             />
           </svg>
-          <span>{disasterTypes.join('・')}</span>
-        </p>
+          <span className="truncate">{disasterTypes.join('・')}</span>
+        </span>
 
+        {/* 収容人数（ある場合のみ） */}
         {capacity && (
-          <p className="flex items-center gap-1">
+          <span className="flex items-center gap-1 whitespace-nowrap">
             <svg
-              className="h-4 w-4 flex-shrink-0"
+              className="h-3.5 w-3.5 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -108,8 +116,8 @@ export function ShelterCard({ shelter, onClick }: ShelterCardProps) {
                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span>収容人数: {capacity}人</span>
-          </p>
+            <span>{capacity}人</span>
+          </span>
         )}
       </div>
     </div>
