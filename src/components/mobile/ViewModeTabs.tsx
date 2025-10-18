@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { type KeyboardEvent } from 'react';
 
 export type ViewMode = 'list' | 'map';
 
@@ -15,11 +16,24 @@ export function ViewModeTabs({
   onModeChange,
   shelterCount,
 }: ViewModeTabsProps) {
+  // 矢印キーでタブ間移動
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      onModeChange(mode === 'list' ? 'map' : 'list');
+    }
+  };
+
   return (
-    <div className="flex items-center border-b bg-white">
+    <div role="tablist" aria-label="表示モード" className="flex items-center border-b bg-white">
       {/* リストタブ */}
       <button
         type="button"
+        role="tab"
+        aria-selected={mode === 'list'}
+        aria-controls="list-panel"
+        id="list-tab"
+        tabIndex={mode === 'list' ? 0 : -1}
         className={cn(
           'flex-1 py-3 px-4 font-medium transition-all duration-200',
           'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
@@ -28,6 +42,7 @@ export function ViewModeTabs({
             : 'text-gray-600 hover:text-gray-900'
         )}
         onClick={() => onModeChange('list')}
+        onKeyDown={handleKeyDown}
       >
         <svg
           className="inline h-5 w-5 mr-2"
@@ -48,6 +63,11 @@ export function ViewModeTabs({
       {/* 地図タブ */}
       <button
         type="button"
+        role="tab"
+        aria-selected={mode === 'map'}
+        aria-controls="map-panel"
+        id="map-tab"
+        tabIndex={mode === 'map' ? 0 : -1}
         className={cn(
           'flex-1 py-3 px-4 font-medium transition-all duration-200',
           'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
@@ -56,6 +76,7 @@ export function ViewModeTabs({
             : 'text-gray-600 hover:text-gray-900'
         )}
         onClick={() => onModeChange('map')}
+        onKeyDown={handleKeyDown}
       >
         <svg
           className="inline h-5 w-5 mr-2"
