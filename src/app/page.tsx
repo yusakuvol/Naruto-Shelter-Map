@@ -11,7 +11,7 @@ import { useMemo, useState } from 'react';
 export default function HomePage() {
   const { data, isLoading, error } = useShelters();
   const [searchQuery, setSearchQuery] = useState('');
-  const [sheetState, setSheetState] = useState<SheetState>('half');
+  const [sheetState, setSheetState] = useState<SheetState>('peek');
 
   // 検索フィルタリング
   const filteredShelters = useMemo(() => {

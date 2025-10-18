@@ -7,7 +7,7 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { AnimatePresence, type PanInfo, motion } from 'framer-motion';
 import { type ReactNode, type KeyboardEvent, useEffect, useState } from 'react';
 
-export type SheetState = 'closed' | 'half' | 'full';
+export type SheetState = 'closed' | 'peek' | 'half' | 'full';
 
 interface BottomSheetProps {
   state: SheetState;
@@ -27,8 +27,10 @@ export function BottomSheet({
   // モーション設定を検出
   const shouldReduceMotion = useReducedMotion();
 
-  // フォーカストラップ（シートが開いている時）
-  const sheetRef = useFocusTrap<HTMLDivElement>(state !== 'closed');
+  // フォーカストラップ（half/full状態の時のみ有効）
+  const sheetRef = useFocusTrap<HTMLDivElement>(
+    state === 'half' || state === 'full'
+  );
 
   // ビューポートの高さを監視
   useEffect(() => {
@@ -40,9 +42,9 @@ export function BottomSheet({
     return () => window.removeEventListener('resize', updateHeight);
   }, []);
 
-  // スクロールロック（シートが開いている時）
+  // スクロールロック（half/full状態の時のみ）
   useEffect(() => {
-    if (state !== 'closed') {
+    if (state === 'half' || state === 'full') {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -71,9 +73,10 @@ export function BottomSheet({
     }
   };
 
-  // クリック時のハンドラー（従来の動作を維持）
+  // クリック時のハンドラー（4状態をサイクル）
   const handleHandleClick = (): void => {
-    if (state === 'closed') onStateChange('half');
+    if (state === 'closed') onStateChange('peek');
+    else if (state === 'peek') onStateChange('half');
     else if (state === 'half') onStateChange('full');
     else onStateChange('closed');
   };
@@ -84,10 +87,16 @@ export function BottomSheet({
       onStateChange('closed');
     } else if (e.key === 'ArrowUp' && state !== 'full') {
       e.preventDefault();
-      onStateChange(state === 'closed' ? 'half' : 'full');
+      // closed → peek → half → full
+      if (state === 'closed') onStateChange('peek');
+      else if (state === 'peek') onStateChange('half');
+      else onStateChange('full');
     } else if (e.key === 'ArrowDown' && state !== 'closed') {
       e.preventDefault();
-      onStateChange(state === 'full' ? 'half' : 'closed');
+      // full → half → peek → closed
+      if (state === 'full') onStateChange('half');
+      else if (state === 'half') onStateChange('peek');
+      else onStateChange('closed');
     }
   };
 
@@ -96,6 +105,8 @@ export function BottomSheet({
     switch (state) {
       case 'closed':
         return 'シートを閉じています';
+      case 'peek':
+        return 'シートをプレビュー表示しています';
       case 'half':
         return 'シートを半分開いています';
       case 'full':
@@ -108,6 +119,8 @@ export function BottomSheet({
     switch (state) {
       case 'closed':
         return 0;
+      case 'peek':
+        return 25;
       case 'half':
         return 50;
       case 'full':
@@ -119,9 +132,9 @@ export function BottomSheet({
 
   return (
     <>
-      {/* オーバーレイ（closed以外で表示） */}
+      {/* オーバーレイ（half/full状態で表示） */}
       <AnimatePresence>
-        {state !== 'closed' && (
+        {(state === 'half' || state === 'full') && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -142,7 +155,7 @@ export function BottomSheet({
       <motion.div
         ref={sheetRef}
         role="dialog"
-        aria-modal={state !== 'closed'}
+        aria-modal={state === 'half' || state === 'full'}
         aria-labelledby="sheet-title"
         aria-hidden={state === 'closed'}
         drag="y"

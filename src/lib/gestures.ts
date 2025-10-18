@@ -10,6 +10,8 @@ export function getSheetHeight(
   switch (state) {
     case 'closed':
       return 60; // タブバーのみ
+    case 'peek':
+      return 120; // タブバー + カード1枚の上部がちらっと見える
     case 'half':
       return viewportHeight * 0.5; // 50vh
     case 'full':
@@ -33,33 +35,39 @@ export function calculateSnapPoint(
   const velocityThreshold = 500; // px/s
 
   const closedHeight = getSheetHeight('closed', viewportHeight);
+  const peekHeight = getSheetHeight('peek', viewportHeight);
   const halfHeight = getSheetHeight('half', viewportHeight);
   const fullHeight = getSheetHeight('full', viewportHeight);
 
   // 勢いよく上スワイプ → 展開
   if (velocity < -velocityThreshold) {
     if (currentY < halfHeight) return 'full';
-    return 'half';
+    if (currentY < peekHeight) return 'half';
+    return 'peek';
   }
 
   // 勢いよく下スワイプ → 閉じる
   if (velocity > velocityThreshold) {
-    if (currentY > halfHeight) return 'closed';
+    if (currentY > halfHeight) return 'peek';
+    if (currentY > peekHeight) return 'closed';
     return 'half';
   }
 
   // 速度が遅い場合は最も近い状態へスナップ
   const distanceToClosed = Math.abs(currentY - closedHeight);
+  const distanceToPeek = Math.abs(currentY - peekHeight);
   const distanceToHalf = Math.abs(currentY - halfHeight);
   const distanceToFull = Math.abs(currentY - fullHeight);
 
   const minDistance = Math.min(
     distanceToClosed,
+    distanceToPeek,
     distanceToHalf,
     distanceToFull
   );
 
   if (minDistance === distanceToClosed) return 'closed';
+  if (minDistance === distanceToPeek) return 'peek';
   if (minDistance === distanceToFull) return 'full';
   return 'half';
 }
