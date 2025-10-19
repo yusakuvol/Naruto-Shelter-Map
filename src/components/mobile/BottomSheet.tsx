@@ -157,6 +157,10 @@ export function BottomSheet({
         dragMomentum={false}
         onDragEnd={handleDragEnd}
         onKeyDown={handleKeyDown}
+        onTouchStart={(e) => {
+          // BottomSheet内のタッチイベントが地図に伝播するのを防ぐ
+          e.stopPropagation();
+        }}
         animate={{ height: currentHeight }}
         transition={
           shouldReduceMotion
@@ -176,7 +180,7 @@ export function BottomSheet({
         }}
       >
         {/* ドラッグハンドル */}
-        <motion.div
+        <div
           role="slider"
           aria-label="シートの高さを調整"
           aria-valuenow={getStateValue()}
@@ -184,15 +188,25 @@ export function BottomSheet({
           aria-valuemax={100}
           aria-valuetext={getStateLabel()}
           tabIndex={0}
-          className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+          className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset touch-pan-y"
           onClick={handleHandleClick}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleHandleClick();
+            }
+          }}
           onPointerDown={(e) => {
+            e.stopPropagation();
             dragControls.start(e);
           }}
-          whileTap={shouldReduceMotion ? {} : { scale: 1.05 }}
+          onTouchStart={(e) => {
+            e.stopPropagation();
+          }}
+          style={{ touchAction: 'none' }}
         >
           <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />
-        </motion.div>
+        </div>
 
         {/* コンテンツ */}
         <div id="sheet-content" className="h-[calc(100%-40px)] overflow-hidden">
