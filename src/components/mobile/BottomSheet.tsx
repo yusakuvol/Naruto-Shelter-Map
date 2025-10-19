@@ -58,11 +58,14 @@ export function BottomSheet({
     _: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ): void => {
-    const currentHeight = getSheetHeight(state, viewportHeight);
-    const newHeight = currentHeight - info.offset.y; // offsetは下向きが正
+    const currentH = getSheetHeight(state, viewportHeight);
+    // info.offset.yは上向きが負、下向きが正
+    // シートの高さは上にドラッグすると増える（画面下から上に向かって高さが増える）
+    // なので、offset.yが負（上向き）の時、高さは増える
+    const newHeight = currentH + Math.abs(info.offset.y) * (info.offset.y < 0 ? 1 : -1);
     const newState = calculateSnapPoint(
       newHeight,
-      -info.velocity.y,
+      -info.velocity.y, // 上向きが正のvelocityになるように反転
       viewportHeight
     );
 
@@ -142,6 +145,7 @@ export function BottomSheet({
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={shouldReduceMotion ? 0 : 0.1}
+        dragMomentum={false}
         onDragEnd={handleDragEnd}
         onKeyDown={handleKeyDown}
         animate={{ height: currentHeight }}
@@ -156,7 +160,6 @@ export function BottomSheet({
         }
         className={cn(
           'fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-50 lg:hidden',
-          'touch-none', // タッチイベントを適切に処理
           'focus:outline-none' // フォーカスリングはコンテンツに表示
         )}
         style={{
@@ -176,7 +179,7 @@ export function BottomSheet({
           onClick={handleHandleClick}
           whileTap={shouldReduceMotion ? {} : { scale: 1.05 }}
         >
-          <div className="w-12 h-1 bg-gray-300 rounded-full" />
+          <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />
         </motion.div>
 
         {/* コンテンツ */}
