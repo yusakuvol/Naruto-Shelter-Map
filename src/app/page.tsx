@@ -11,7 +11,7 @@ import { useMemo, useState } from 'react';
 export default function HomePage() {
   const { data, isLoading, error } = useShelters();
   const [searchQuery, setSearchQuery] = useState('');
-  const [sheetState, setSheetState] = useState<SheetState>('peek');
+  const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(null);
 
   // 検索フィルタリング
@@ -90,9 +90,9 @@ export default function HomePage() {
             selectedShelterId={selectedShelterId}
             onShelterSelect={(id) => {
               setSelectedShelterId(id);
-              setSheetState('closed'); // カードクリック時に地図を見せる
+              setSheetState('minimized'); // カードクリック時に地図を見せる
             }}
-            onMapViewRequest={() => setSheetState('closed')}
+            onMapViewRequest={() => setSheetState('minimized')}
           />
         </BottomSheet>
       </div>
