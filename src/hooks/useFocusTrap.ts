@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject } from 'react';
+import { type RefObject, useEffect, useRef } from 'react';
 
 /**
  * フォーカストラップフック
@@ -8,7 +8,7 @@ import { useEffect, useRef, type RefObject } from 'react';
  * @returns コンテナ要素のref
  */
 export function useFocusTrap<T extends HTMLElement>(
-  isActive: boolean,
+  isActive: boolean
 ): RefObject<T | null> {
   const containerRef = useRef<T | null>(null);
   const previouslyFocusedElement = useRef<HTMLElement | null>(null);
@@ -91,6 +91,6 @@ function getFocusableElements(container: HTMLElement): HTMLElement[] {
         element.offsetHeight > 0 &&
         getComputedStyle(element).visibility !== 'hidden'
       );
-    },
+    }
   );
 }

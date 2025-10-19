@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * ユーザーのprefers-reduced-motion設定を検出するカスタムフック

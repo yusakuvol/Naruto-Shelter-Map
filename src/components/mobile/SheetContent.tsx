@@ -61,9 +61,7 @@ export function SheetContent({
           aria-labelledby="map-tab"
           className="flex-1 p-4"
         >
-          <p className="text-center text-gray-600">
-            地図を表示しています
-          </p>
+          <p className="text-center text-gray-600">地図を表示しています</p>
         </div>
       )}
     </div>

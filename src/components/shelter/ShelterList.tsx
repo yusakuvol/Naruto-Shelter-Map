@@ -8,7 +8,12 @@ interface ShelterListProps {
   onShelterClick?: (shelter: ShelterFeature) => void;
 }
 
-export function ShelterList({ shelters, selectedShelterId, onShelterSelect, onShelterClick }: ShelterListProps) {
+export function ShelterList({
+  shelters,
+  selectedShelterId,
+  onShelterSelect,
+  onShelterClick,
+}: ShelterListProps) {
   if (shelters.length === 0) {
     return (
       <div className="flex h-full items-center justify-center p-8 text-center">
@@ -26,9 +31,7 @@ export function ShelterList({ shelters, selectedShelterId, onShelterSelect, onSh
               d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <p className="mt-4 text-gray-600">
-            検索条件に一致する避難所が見つかりませんでした
-          </p>
+          <p className="mt-4 text-gray-600">避難所データがありません</p>
         </div>
       </div>
     );

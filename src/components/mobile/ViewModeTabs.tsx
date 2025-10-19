@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { type KeyboardEvent } from 'react';
+import type { KeyboardEvent } from 'react';
 
 export type ViewMode = 'list' | 'map';
 
@@ -25,7 +25,11 @@ export function ViewModeTabs({
   };
 
   return (
-    <div role="tablist" aria-label="表示モード" className="flex items-center border-b bg-white">
+    <div
+      role="tablist"
+      aria-label="表示モード"
+      className="flex items-center border-b bg-white"
+    >
       {/* リストタブ */}
       <button
         type="button"
