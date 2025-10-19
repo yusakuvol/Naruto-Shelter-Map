@@ -4,12 +4,7 @@ import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { calculateSnapPoint, getSheetHeight } from '@/lib/gestures';
 import { cn } from '@/lib/utils';
-import {
-  AnimatePresence,
-  type PanInfo,
-  motion,
-  useDragControls,
-} from 'framer-motion';
+import { AnimatePresence, type PanInfo, motion } from 'framer-motion';
 import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
 
 export type SheetState = 'minimized' | 'expanded';
@@ -31,9 +26,6 @@ export function BottomSheet({
 
   // モーション設定を検出
   const shouldReduceMotion = useReducedMotion();
-
-  // ドラッグコントロール
-  const dragControls = useDragControls();
 
   // フォーカストラップ（expanded状態の時のみ有効）
   const sheetRef = useFocusTrap<HTMLDivElement>(state === 'expanded');
@@ -149,18 +141,7 @@ export function BottomSheet({
         aria-modal={state === 'expanded'}
         aria-labelledby="sheet-title"
         aria-hidden={state === 'minimized'}
-        drag="y"
-        dragControls={dragControls}
-        dragListener={false}
-        dragConstraints={{ top: 0, bottom: 0 }}
-        dragElastic={shouldReduceMotion ? 0 : 0.1}
-        dragMomentum={false}
-        onDragEnd={handleDragEnd}
         onKeyDown={handleKeyDown}
-        onTouchStart={(e) => {
-          // BottomSheet内のタッチイベントが地図に伝播するのを防ぐ
-          e.stopPropagation();
-        }}
         animate={{ height: currentHeight }}
         transition={
           shouldReduceMotion
@@ -180,7 +161,7 @@ export function BottomSheet({
         }}
       >
         {/* ドラッグハンドル */}
-        <div
+        <motion.div
           role="slider"
           aria-label="シートの高さを調整"
           aria-valuenow={getStateValue()}
@@ -188,7 +169,12 @@ export function BottomSheet({
           aria-valuemax={100}
           aria-valuetext={getStateLabel()}
           tabIndex={0}
-          className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset touch-pan-y"
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={0}
+          dragMomentum={false}
+          onDragEnd={handleDragEnd}
+          className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
           onClick={handleHandleClick}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -196,17 +182,10 @@ export function BottomSheet({
               handleHandleClick();
             }
           }}
-          onPointerDown={(e) => {
-            e.stopPropagation();
-            dragControls.start(e);
-          }}
-          onTouchStart={(e) => {
-            e.stopPropagation();
-          }}
-          style={{ touchAction: 'none' }}
+          style={{ touchAction: 'pan-y' }}
         >
           <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />
-        </div>
+        </motion.div>
 
         {/* コンテンツ */}
         <div id="sheet-content" className="h-[calc(100%-40px)] overflow-hidden">
