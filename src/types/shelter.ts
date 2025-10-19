@@ -19,6 +19,7 @@ export interface Shelter {
   coordinates: [number, number]; // [経度, 緯度]
   disasterTypes: DisasterType[];
   capacity?: number;
+  contact?: string;
   source: string;
   updatedAt: string;
 }
