@@ -3,33 +3,18 @@
 import { ShelterMap } from '@/components/map/Map';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
-import { SearchBar } from '@/components/search/SearchBar';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { useShelters } from '@/hooks/useShelters';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 export default function HomePage() {
   const { data, isLoading, error } = useShelters();
-  const [searchQuery, setSearchQuery] = useState('');
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
-  const [selectedShelterId, setSelectedShelterId] = useState<string | null>(null);
+  const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
+    null
+  );
 
-  // 検索フィルタリング
-  const filteredShelters = useMemo(() => {
-    if (!data?.features) return [];
-    if (!searchQuery.trim()) return data.features;
-
-    const query = searchQuery.toLowerCase();
-    return data.features.filter((shelter) => {
-      const { name, address, type, disasterTypes } = shelter.properties;
-      return (
-        name.toLowerCase().includes(query) ||
-        address.toLowerCase().includes(query) ||
-        type.toLowerCase().includes(query) ||
-        disasterTypes.some((dt) => dt.toLowerCase().includes(query))
-      );
-    });
-  }, [data, searchQuery]);
+  const shelters = data?.features ?? [];
 
   if (error) {
     return (
@@ -59,25 +44,10 @@ export default function HomePage() {
     <>
       {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
-        {/* ヘッダー + 検索（sticky） */}
-        <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b">
-          <div className="p-4">
-            <h1 className="text-xl font-bold text-gray-900">
-              鳴門市避難所マップ
-            </h1>
-          </div>
-          <div className="px-4 pb-4">
-            <SearchBar
-              onSearch={setSearchQuery}
-              placeholder="避難所名・住所・災害種別で検索..."
-            />
-          </div>
-        </header>
-
         {/* 地図エリア（フルスクリーン） */}
         <div className="flex-1">
           <ShelterMap
-            shelters={filteredShelters}
+            shelters={shelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
           />
@@ -86,7 +56,7 @@ export default function HomePage() {
         {/* Bottom Sheet */}
         <BottomSheet state={sheetState} onStateChange={setSheetState}>
           <SheetContent
-            shelters={filteredShelters}
+            shelters={shelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={(id) => {
               setSelectedShelterId(id);
@@ -106,23 +76,13 @@ export default function HomePage() {
             <h1 className="mb-2 text-2xl font-bold text-gray-900">
               鳴門市避難所マップ
             </h1>
-            <p className="text-sm text-gray-600">
-              {filteredShelters.length}件の避難所
-            </p>
-          </div>
-
-          {/* 検索バー */}
-          <div className="border-b p-4">
-            <SearchBar
-              onSearch={setSearchQuery}
-              placeholder="避難所名・住所・災害種別で検索..."
-            />
+            <p className="text-sm text-gray-600">{shelters.length}件の避難所</p>
           </div>
 
           {/* 避難所リスト */}
           <div className="min-h-0 flex-1 overflow-y-auto p-4">
             <ShelterList
-              shelters={filteredShelters}
+              shelters={shelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
             />
@@ -132,7 +92,7 @@ export default function HomePage() {
         {/* 地図エリア（右側） */}
         <div className="h-full flex-1">
           <ShelterMap
-            shelters={filteredShelters}
+            shelters={shelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
           />

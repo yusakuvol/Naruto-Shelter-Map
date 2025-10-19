@@ -1,11 +1,16 @@
 'use client';
 
-import { calculateSnapPoint, getSheetHeight } from '@/lib/gestures';
-import { cn } from '@/lib/utils';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { AnimatePresence, type PanInfo, motion } from 'framer-motion';
-import { type ReactNode, type KeyboardEvent, useEffect, useState } from 'react';
+import { calculateSnapPoint, getSheetHeight } from '@/lib/gestures';
+import { cn } from '@/lib/utils';
+import {
+  AnimatePresence,
+  type PanInfo,
+  motion,
+  useDragControls,
+} from 'framer-motion';
+import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
 
 export type SheetState = 'minimized' | 'expanded';
 
@@ -26,6 +31,9 @@ export function BottomSheet({
 
   // モーション設定を検出
   const shouldReduceMotion = useReducedMotion();
+
+  // ドラッグコントロール
+  const dragControls = useDragControls();
 
   // フォーカストラップ（expanded状態の時のみ有効）
   const sheetRef = useFocusTrap<HTMLDivElement>(state === 'expanded');
@@ -62,7 +70,8 @@ export function BottomSheet({
     // info.offset.yは上向きが負、下向きが正
     // シートの高さは上にドラッグすると増える（画面下から上に向かって高さが増える）
     // なので、offset.yが負（上向き）の時、高さは増える
-    const newHeight = currentH + Math.abs(info.offset.y) * (info.offset.y < 0 ? 1 : -1);
+    const newHeight =
+      currentH + Math.abs(info.offset.y) * (info.offset.y < 0 ? 1 : -1);
     const newState = calculateSnapPoint(
       newHeight,
       -info.velocity.y, // 上向きが正のvelocityになるように反転
@@ -124,9 +133,7 @@ export function BottomSheet({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={
-              shouldReduceMotion
-                ? { duration: 0 }
-                : { duration: 0.2 }
+              shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }
             }
             className="fixed inset-0 bg-black/20 z-40 lg:hidden"
             onClick={() => onStateChange('minimized')}
@@ -143,6 +150,8 @@ export function BottomSheet({
         aria-labelledby="sheet-title"
         aria-hidden={state === 'minimized'}
         drag="y"
+        dragControls={dragControls}
+        dragListener={false}
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={shouldReduceMotion ? 0 : 0.1}
         dragMomentum={false}
@@ -177,6 +186,9 @@ export function BottomSheet({
           tabIndex={0}
           className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
           onClick={handleHandleClick}
+          onPointerDown={(e) => {
+            dragControls.start(e);
+          }}
           whileTap={shouldReduceMotion ? {} : { scale: 1.05 }}
         >
           <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />

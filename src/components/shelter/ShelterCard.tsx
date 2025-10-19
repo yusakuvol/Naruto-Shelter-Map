@@ -20,7 +20,11 @@ function getShelterTypeColor(type: string): string {
   }
 }
 
-export function ShelterCard({ shelter, isSelected, onClick }: ShelterCardProps) {
+export function ShelterCard({
+  shelter,
+  isSelected,
+  onClick,
+}: ShelterCardProps) {
   const { name, type, address, disasterTypes, capacity } = shelter.properties;
   const typeColor = getShelterTypeColor(type);
 
@@ -44,7 +48,9 @@ export function ShelterCard({ shelter, isSelected, onClick }: ShelterCardProps) 
     >
       {/* ヘッダー: 名前 + タイプバッジ */}
       <div className="mb-1.5 flex items-start justify-between gap-2">
-        <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">{name}</h3>
+        <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">
+          {name}
+        </h3>
         <span
           className={clsx(
             'rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',

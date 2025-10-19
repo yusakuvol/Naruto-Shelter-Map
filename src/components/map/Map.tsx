@@ -1,8 +1,13 @@
 'use client';
 
 import type { ShelterFeature } from '@/types/shelter';
-import { useCallback, useState, useEffect } from 'react';
-import MapGL, { Marker, Popup, NavigationControl, useMap } from 'react-map-gl/maplibre';
+import { useCallback, useEffect, useState } from 'react';
+import MapGL, {
+  Marker,
+  Popup,
+  NavigationControl,
+  useMap,
+} from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
@@ -26,13 +31,19 @@ function getShelterColor(type: string): string {
 }
 
 // 地図の移動を制御する内部コンポーネント
-function MapController({ selectedShelterId, shelters }: { selectedShelterId?: string | null | undefined; shelters: ShelterFeature[] }) {
+function MapController({
+  selectedShelterId,
+  shelters,
+}: {
+  selectedShelterId?: string | null | undefined;
+  shelters: ShelterFeature[];
+}) {
   const { current: map } = useMap();
 
   useEffect(() => {
     if (!selectedShelterId || !map) return;
 
-    const shelter = shelters.find(s => s.properties.id === selectedShelterId);
+    const shelter = shelters.find((s) => s.properties.id === selectedShelterId);
     if (!shelter) return;
 
     const [lng, lat] = shelter.geometry.coordinates;
@@ -48,15 +59,22 @@ function MapController({ selectedShelterId, shelters }: { selectedShelterId?: st
   return null;
 }
 
-export function ShelterMap({ shelters, selectedShelterId, onShelterSelect }: MapProps) {
+export function ShelterMap({
+  shelters,
+  selectedShelterId,
+  onShelterSelect,
+}: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
 
-  const handleMarkerClick = useCallback((shelter: ShelterFeature) => {
-    setSelectedShelter(shelter);
-    onShelterSelect?.(shelter.properties.id);
-  }, [onShelterSelect]);
+  const handleMarkerClick = useCallback(
+    (shelter: ShelterFeature) => {
+      setSelectedShelter(shelter);
+      onShelterSelect?.(shelter.properties.id);
+    },
+    [onShelterSelect]
+  );
 
   const handleClosePopup = useCallback(() => {
     setSelectedShelter(null);
@@ -66,7 +84,7 @@ export function ShelterMap({ shelters, selectedShelterId, onShelterSelect }: Map
   useEffect(() => {
     if (!selectedShelterId) return;
 
-    const shelter = shelters.find(s => s.properties.id === selectedShelterId);
+    const shelter = shelters.find((s) => s.properties.id === selectedShelterId);
     if (!shelter) return;
 
     setSelectedShelter(shelter);
@@ -83,7 +101,10 @@ export function ShelterMap({ shelters, selectedShelterId, onShelterSelect }: Map
         style={{ width: '100%', height: '100%' }}
         mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
       >
-        <MapController selectedShelterId={selectedShelterId} shelters={shelters} />
+        <MapController
+          selectedShelterId={selectedShelterId}
+          shelters={shelters}
+        />
         <NavigationControl position="top-right" />
 
         {shelters.map((shelter) => {
