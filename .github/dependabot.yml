@@ -1,0 +1,52 @@
+version: 2
+updates:
+  # npm（pnpm）パッケージの更新
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '03:00'
+      timezone: 'Asia/Tokyo'
+    open-pull-requests-limit: 10
+    reviewers:
+      - 'yusakuvol'
+    labels:
+      - 'dependencies'
+      - 'automated'
+    commit-message:
+      prefix: 'chore(deps)'
+      prefix-development: 'chore(deps-dev)'
+    # セマンティックバージョニングごとにグループ化
+    groups:
+      # パッチバージョン（バグ修正）をまとめる
+      patch-updates:
+        patterns:
+          - '*'
+        update-types:
+          - 'patch'
+
+      # マイナーバージョン（機能追加）をまとめる
+      minor-updates:
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+
+  # GitHub Actionsの更新
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '03:00'
+      timezone: 'Asia/Tokyo'
+    open-pull-requests-limit: 5
+    reviewers:
+      - 'yusakuvol'
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+      - 'automated'
+    commit-message:
+      prefix: 'chore(ci)'

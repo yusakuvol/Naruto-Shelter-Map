@@ -40,6 +40,9 @@ next-env.d.ts
 /blob-report/
 /playwright/.cache/
 
+# lighthouse ci
+.lighthouseci/
+
 # IDE
 .idea
 *.swp
