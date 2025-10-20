@@ -20,6 +20,12 @@
   body {
     @apply bg-white text-gray-900;
   }
+
+  /* 地図コンテナのCLS対策 */
+  .map-container {
+    contain: layout style paint;
+    content-visibility: auto;
+  }
 }
 
 /* MapLibre Popup カスタムスタイル */

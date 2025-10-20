@@ -7,6 +7,8 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   variable: '--font-noto-sans-jp',
   weight: ['400', '700'],
+  display: 'swap', // フォント読み込み中のレイアウトシフトを防ぐ
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
