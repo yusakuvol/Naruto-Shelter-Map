@@ -24,14 +24,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className={notoSansJP.variable}>
-      <head>
-        {/* MapLibre GL CSSを事前読み込みしてCLS問題を防ぐ */}
-        <link
-          rel="preload"
-          href="/_next/static/css/maplibre-gl.css"
-          as="style"
-        />
-      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );
