@@ -7,6 +7,8 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   variable: '--font-noto-sans-jp',
   weight: ['400', '700'],
+  display: 'swap', // フォント読み込み中のレイアウトシフトを防ぐ
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -22,6 +24,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className={notoSansJP.variable}>
+      <head>
+        {/* MapLibre GL CSSを事前読み込みしてCLS問題を防ぐ */}
+        <link
+          rel="preload"
+          href="/_next/static/css/maplibre-gl.css"
+          as="style"
+        />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

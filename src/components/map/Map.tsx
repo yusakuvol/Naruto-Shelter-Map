@@ -1,7 +1,7 @@
 'use client';
 
 import type { ShelterFeature } from '@/types/shelter';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import MapGL, {
   Marker,
   Popup,
@@ -90,8 +90,46 @@ export function ShelterMap({
     setSelectedShelter(shelter);
   }, [selectedShelterId, shelters]);
 
+  // マーカーをメモ化してレンダリング最適化（CLS削減）
+  const markers = useMemo(
+    () =>
+      shelters.map((shelter) => {
+        const [lng, lat] = shelter.geometry.coordinates;
+        const color = getShelterColor(shelter.properties.type);
+        const isSelected = selectedShelterId === shelter.properties.id;
+
+        return (
+          <Marker
+            key={shelter.properties.id}
+            longitude={lng}
+            latitude={lat}
+            anchor="bottom"
+            onClick={() => handleMarkerClick(shelter)}
+          >
+            <div
+              className={`flex cursor-pointer items-center justify-center rounded-full border-2 shadow-lg transition-all hover:scale-110 ${
+                isSelected
+                  ? 'h-10 w-10 border-blue-500 ring-2 ring-blue-300'
+                  : 'h-8 w-8 border-white'
+              }`}
+              style={{ backgroundColor: color }}
+            >
+              <svg
+                className="h-5 w-5 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>
+          </Marker>
+        );
+      }),
+    [shelters, selectedShelterId, handleMarkerClick]
+  );
+
   return (
-    <div className="h-full w-full">
+    <div className="map-container h-full w-full">
       <MapGL
         initialViewState={{
           longitude: 134.609,
@@ -107,38 +145,7 @@ export function ShelterMap({
         />
         <NavigationControl position="top-right" />
 
-        {shelters.map((shelter) => {
-          const [lng, lat] = shelter.geometry.coordinates;
-          const color = getShelterColor(shelter.properties.type);
-          const isSelected = selectedShelterId === shelter.properties.id;
-
-          return (
-            <Marker
-              key={shelter.properties.id}
-              longitude={lng}
-              latitude={lat}
-              anchor="bottom"
-              onClick={() => handleMarkerClick(shelter)}
-            >
-              <div
-                className={`flex cursor-pointer items-center justify-center rounded-full border-2 shadow-lg transition-all hover:scale-110 ${
-                  isSelected
-                    ? 'h-10 w-10 border-blue-500 ring-2 ring-blue-300'
-                    : 'h-8 w-8 border-white'
-                }`}
-                style={{ backgroundColor: color }}
-              >
-                <svg
-                  className="h-5 w-5 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                </svg>
-              </div>
-            </Marker>
-          );
-        })}
+        {markers}
 
         {selectedShelter && (
           <Popup
