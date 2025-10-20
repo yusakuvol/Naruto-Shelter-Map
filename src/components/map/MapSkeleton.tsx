@@ -1,8 +1,10 @@
+import type { ReactElement } from 'react';
+
 /**
  * 地図読み込み中のSkeletonコンポーネント
  * CLSを防ぐために地図と同じサイズでプレースホルダーを表示
  */
-export function MapSkeleton(): JSX.Element {
+export function MapSkeleton(): ReactElement {
   return (
     <div className="h-full w-full animate-pulse bg-gray-200">
       <div className="flex h-full w-full items-center justify-center">
