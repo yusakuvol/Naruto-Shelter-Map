@@ -1,10 +1,10 @@
 'use client';
 
-import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { calculateSnapPoint, getSheetHeight } from '@/lib/gestures';
+import { getSheetHeight } from '@/lib/gestures';
 import { cn } from '@/lib/utils';
 
 export type SheetState = 'minimized' | 'expanded';
@@ -53,28 +53,6 @@ export function BottomSheet({
     };
   }, [state]);
 
-  // ドラッグ終了時のハンドラー
-  const handleDragEnd = (
-    _: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ): void => {
-    const currentH = getSheetHeight(state, viewportHeight);
-    // info.offset.yは上向きが負、下向きが正
-    // シートの高さは上にドラッグすると増える（画面下から上に向かって高さが増える）
-    // なので、offset.yが負（上向き）の時、高さは増える
-    const newHeight =
-      currentH + Math.abs(info.offset.y) * (info.offset.y < 0 ? 1 : -1);
-    const newState = calculateSnapPoint(
-      newHeight,
-      -info.velocity.y, // 上向きが正のvelocityになるように反転
-      viewportHeight
-    );
-
-    if (newState !== state) {
-      onStateChange(newState);
-    }
-  };
-
   // クリック時のハンドラー（2状態をトグル）
   const handleHandleClick = (): void => {
     onStateChange(state === 'minimized' ? 'expanded' : 'minimized');
@@ -122,11 +100,6 @@ export function BottomSheet({
         aria-labelledby="sheet-title"
         aria-hidden={state === 'minimized'}
         onKeyDown={handleKeyDown}
-        drag="y"
-        dragConstraints={{ top: 0, bottom: 0 }}
-        dragElastic={0.1}
-        dragMomentum={false}
-        onDragEnd={handleDragEnd}
         animate={{ height: currentHeight }}
         transition={
           shouldReduceMotion
@@ -143,32 +116,62 @@ export function BottomSheet({
         )}
         style={{
           willChange: 'height',
-          touchAction: 'none',
         }}
       >
-        {/* ドラッグハンドル */}
-        <div
-          role="button"
-          aria-label="シートを展開・最小化"
-          tabIndex={0}
-          className="flex items-center justify-center py-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
-          onClick={handleHandleClick}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              handleHandleClick();
+        {/* ヘッダー部分（ハンドルバー + トグルボタン） */}
+        <div className="flex items-center justify-between px-4 py-3 border-b">
+          {/* 左側: ハンドルバー（視覚的な装飾のみ） */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="w-12 h-1 bg-gray-300 rounded-full" />
+          </div>
+
+          {/* 右側: トグルボタン */}
+          <button
+            type="button"
+            onClick={handleHandleClick}
+            className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+            aria-label={
+              state === 'minimized' ? 'シートを展開' : 'シートを最小化'
             }
-          }}
-        >
-          <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />
+          >
+            {state === 'minimized' ? (
+              // 上向き矢印（展開）
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            ) : (
+              // 下向き矢印（最小化）
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            )}
+          </button>
         </div>
 
         {/* コンテンツ */}
-        <div
-          id="sheet-content"
-          className="h-[calc(100%-40px)] overflow-hidden"
-          style={{ touchAction: 'auto' }}
-        >
+        <div id="sheet-content" className="h-[calc(100%-57px)] overflow-hidden">
           <h2 id="sheet-title" className="sr-only">
             避難所情報
           </h2>
