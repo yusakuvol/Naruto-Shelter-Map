@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import type { ShelterFeature } from '@/types/shelter';
 import { type ViewMode, ViewModeTabs } from './ViewModeTabs';
@@ -50,6 +51,18 @@ export function SheetContent({
             selectedShelterId={selectedShelterId}
             {...(onShelterSelect && { onShelterSelect })}
           />
+        </div>
+      )}
+
+      {/* フィルタ表示 */}
+      {viewMode === 'filter' && (
+        <div
+          role="tabpanel"
+          id="filter-panel"
+          aria-labelledby="filter-tab"
+          className="flex-1 overflow-y-auto p-4"
+        >
+          <DisasterTypeFilter />
         </div>
       )}
 

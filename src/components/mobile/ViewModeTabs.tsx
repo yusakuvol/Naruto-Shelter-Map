@@ -3,7 +3,7 @@
 import type { KeyboardEvent } from 'react';
 import { cn } from '@/lib/utils';
 
-export type ViewMode = 'list' | 'map';
+export type ViewMode = 'list' | 'map' | 'filter';
 
 interface ViewModeTabsProps {
   mode: ViewMode;
@@ -20,7 +20,13 @@ export function ViewModeTabs({
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       e.preventDefault();
-      onModeChange(mode === 'list' ? 'map' : 'list');
+      const modes: ViewMode[] = ['list', 'filter', 'map'];
+      const currentIndex = modes.indexOf(mode);
+      const newIndex =
+        e.key === 'ArrowRight'
+          ? (currentIndex + 1) % modes.length
+          : (currentIndex - 1 + modes.length) % modes.length;
+      onModeChange(modes[newIndex] as ViewMode);
     }
   };
 
@@ -62,6 +68,40 @@ export function ViewModeTabs({
           />
         </svg>
         リスト ({shelterCount}件)
+      </button>
+
+      {/* フィルタタブ */}
+      <button
+        type="button"
+        role="tab"
+        aria-selected={mode === 'filter'}
+        aria-controls="filter-panel"
+        id="filter-tab"
+        tabIndex={mode === 'filter' ? 0 : -1}
+        className={cn(
+          'flex-1 py-3 px-4 font-medium transition-all duration-200',
+          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+          mode === 'filter'
+            ? 'border-b-2 border-blue-600 text-blue-600'
+            : 'text-gray-600 hover:text-gray-900'
+        )}
+        onClick={() => onModeChange('filter')}
+        onKeyDown={handleKeyDown}
+      >
+        <svg
+          className="inline h-5 w-5 mr-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+          />
+        </svg>
+        フィルタ
       </button>
 
       {/* 地図タブ */}
