@@ -1,5 +1,5 @@
-import type { ShelterFeature } from '@/types/shelter';
 import { clsx } from 'clsx';
+import type { ShelterFeature } from '@/types/shelter';
 
 interface ShelterCardProps {
   shelter: ShelterFeature;

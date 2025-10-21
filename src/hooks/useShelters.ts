@@ -1,5 +1,5 @@
-import type { ShelterGeoJSON } from '@/types/shelter';
 import { useEffect, useState } from 'react';
+import type { ShelterGeoJSON } from '@/types/shelter';
 
 export function useShelters() {
   const [data, setData] = useState<ShelterGeoJSON | null>(null);

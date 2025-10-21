@@ -1,13 +1,13 @@
 'use client';
 
-import type { ShelterFeature } from '@/types/shelter';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MapGL, {
   Marker,
-  Popup,
   NavigationControl,
+  Popup,
   useMap,
 } from 'react-map-gl/maplibre';
+import type { ShelterFeature } from '@/types/shelter';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
