@@ -1,20 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterMap } from '@/components/map/Map';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterList } from '@/components/shelter/ShelterList';
+import { FilterProvider } from '@/contexts/FilterContext';
+import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useShelters } from '@/hooks/useShelters';
 
-export default function HomePage() {
+function HomePageContent() {
   const { data, isLoading, error } = useShelters();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
   );
 
-  const shelters = data?.features ?? [];
+  const allShelters = data?.features ?? [];
+  const filteredShelters = useFilteredShelters(allShelters);
 
   if (error) {
     return (
@@ -47,7 +51,7 @@ export default function HomePage() {
         {/* 地図エリア（フルスクリーン） */}
         <div className="flex-1 min-h-0">
           <ShelterMap
-            shelters={shelters}
+            shelters={filteredShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
           />
@@ -56,7 +60,7 @@ export default function HomePage() {
         {/* Bottom Sheet */}
         <BottomSheet state={sheetState} onStateChange={setSheetState}>
           <SheetContent
-            shelters={shelters}
+            shelters={filteredShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={(id) => {
               setSelectedShelterId(id);
@@ -76,13 +80,25 @@ export default function HomePage() {
             <h1 className="mb-2 text-2xl font-bold text-gray-900">
               鳴門市避難所マップ
             </h1>
-            <p className="text-sm text-gray-600">{shelters.length}件の避難所</p>
+            <p className="text-sm text-gray-600">
+              {filteredShelters.length}件の避難所
+              {filteredShelters.length !== allShelters.length && (
+                <span className="ml-1 text-gray-500">
+                  （全{allShelters.length}件中）
+                </span>
+              )}
+            </p>
+          </div>
+
+          {/* フィルタ */}
+          <div className="border-b p-4">
+            <DisasterTypeFilter />
           </div>
 
           {/* 避難所リスト */}
           <div className="min-h-0 flex-1 overflow-y-auto p-4">
             <ShelterList
-              shelters={shelters}
+              shelters={filteredShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
             />
@@ -92,12 +108,20 @@ export default function HomePage() {
         {/* 地図エリア（右側） */}
         <div className="h-full flex-1">
           <ShelterMap
-            shelters={shelters}
+            shelters={filteredShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
           />
         </div>
       </div>
     </>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <FilterProvider>
+      <HomePageContent />
+    </FilterProvider>
   );
 }
