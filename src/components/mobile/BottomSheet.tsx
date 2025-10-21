@@ -93,26 +93,6 @@ export function BottomSheet({
     }
   };
 
-  // 状態のラベルを取得
-  const getStateLabel = (): string => {
-    switch (state) {
-      case 'minimized':
-        return 'シートを最小化しています';
-      case 'expanded':
-        return 'シートを展開しています';
-    }
-  };
-
-  // 状態の数値（0-100）
-  const getStateValue = (): number => {
-    switch (state) {
-      case 'minimized':
-        return 0;
-      case 'expanded':
-        return 100;
-    }
-  };
-
   const currentHeight = getSheetHeight(state, viewportHeight);
 
   return (
@@ -142,6 +122,11 @@ export function BottomSheet({
         aria-labelledby="sheet-title"
         aria-hidden={state === 'minimized'}
         onKeyDown={handleKeyDown}
+        drag="y"
+        dragConstraints={{ top: 0, bottom: 0 }}
+        dragElastic={0.1}
+        dragMomentum={false}
+        onDragEnd={handleDragEnd}
         animate={{ height: currentHeight }}
         transition={
           shouldReduceMotion
@@ -158,23 +143,15 @@ export function BottomSheet({
         )}
         style={{
           willChange: 'height',
+          touchAction: 'none',
         }}
       >
         {/* ドラッグハンドル */}
-        <motion.div
-          role="slider"
-          aria-label="シートの高さを調整"
-          aria-valuenow={getStateValue()}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuetext={getStateLabel()}
+        <div
+          role="button"
+          aria-label="シートを展開・最小化"
           tabIndex={0}
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={0}
-          dragMomentum={false}
-          onDragEnd={handleDragEnd}
-          className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+          className="flex items-center justify-center py-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
           onClick={handleHandleClick}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -182,13 +159,16 @@ export function BottomSheet({
               handleHandleClick();
             }
           }}
-          style={{ touchAction: 'pan-y' }}
         >
           <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />
-        </motion.div>
+        </div>
 
         {/* コンテンツ */}
-        <div id="sheet-content" className="h-[calc(100%-40px)] overflow-hidden">
+        <div
+          id="sheet-content"
+          className="h-[calc(100%-40px)] overflow-hidden"
+          style={{ touchAction: 'auto' }}
+        >
           <h2 id="sheet-title" className="sr-only">
             避難所情報
           </h2>
