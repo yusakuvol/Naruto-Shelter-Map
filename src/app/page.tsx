@@ -67,6 +67,12 @@ function HomePageContent() {
               setSheetState('minimized'); // カードクリック時に地図を見せる
             }}
             onMapViewRequest={() => setSheetState('minimized')}
+            sheetState={sheetState}
+            onSheetToggle={() =>
+              setSheetState(
+                sheetState === 'expanded' ? 'minimized' : 'expanded'
+              )
+            }
           />
         </BottomSheet>
       </div>

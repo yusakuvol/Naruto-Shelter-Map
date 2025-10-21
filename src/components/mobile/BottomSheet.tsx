@@ -53,11 +53,6 @@ export function BottomSheet({
     };
   }, [state]);
 
-  // クリック時のハンドラー（2状態をトグル）
-  const handleHandleClick = (): void => {
-    onStateChange(state === 'minimized' ? 'expanded' : 'minimized');
-  };
-
   // キーボードハンドラー
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (e.key === 'Escape' && state === 'expanded') {
@@ -118,55 +113,8 @@ export function BottomSheet({
           willChange: 'height',
         }}
       >
-        {/* ヘッダー部分（トグルボタン） */}
-        <div className="flex items-center justify-end px-4 py-3 border-b">
-          {/* トグルボタン */}
-          <button
-            type="button"
-            onClick={handleHandleClick}
-            className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-            aria-label={
-              state === 'minimized' ? 'シートを展開' : 'シートを最小化'
-            }
-          >
-            {state === 'minimized' ? (
-              // 上向き矢印（展開）
-              <svg
-                className="w-6 h-6 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 15l7-7 7 7"
-                />
-              </svg>
-            ) : (
-              // 下向き矢印（最小化）
-              <svg
-                className="w-6 h-6 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            )}
-          </button>
-        </div>
-
         {/* コンテンツ */}
-        <div id="sheet-content" className="h-[calc(100%-57px)] overflow-hidden">
+        <div id="sheet-content" className="h-full overflow-hidden">
           <h2 id="sheet-title" className="sr-only">
             避難所情報
           </h2>
