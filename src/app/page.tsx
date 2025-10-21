@@ -1,11 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { ShelterMap } from '@/components/map/Map';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { useShelters } from '@/hooks/useShelters';
-import { useState } from 'react';
 
 export default function HomePage() {
   const { data, isLoading, error } = useShelters();

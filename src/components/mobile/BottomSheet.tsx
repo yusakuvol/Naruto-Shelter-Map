@@ -1,11 +1,11 @@
 'use client';
 
+import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
+import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { calculateSnapPoint, getSheetHeight } from '@/lib/gestures';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, type PanInfo, motion } from 'framer-motion';
-import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
 
 export type SheetState = 'minimized' | 'expanded';
 

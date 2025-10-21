@@ -1,7 +1,7 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import type { KeyboardEvent } from 'react';
+import { cn } from '@/lib/utils';
 
 export type ViewMode = 'list' | 'map';
 
