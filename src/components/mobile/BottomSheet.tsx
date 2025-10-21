@@ -118,14 +118,9 @@ export function BottomSheet({
           willChange: 'height',
         }}
       >
-        {/* ヘッダー部分（ハンドルバー + トグルボタン） */}
-        <div className="flex items-center justify-between px-4 py-3 border-b">
-          {/* 左側: ハンドルバー（視覚的な装飾のみ） */}
-          <div className="flex-1 flex items-center justify-center">
-            <div className="w-12 h-1 bg-gray-300 rounded-full" />
-          </div>
-
-          {/* 右側: トグルボタン */}
+        {/* ヘッダー部分（トグルボタン） */}
+        <div className="flex items-center justify-end px-4 py-3 border-b">
+          {/* トグルボタン */}
           <button
             type="button"
             onClick={handleHandleClick}
