@@ -3,7 +3,7 @@
 > **Document Version:** 2.0
 > **Last Updated:** 2025-10-16
 > **Author:** Yusaku Matsukawa
-> **Tech Stack Update:** 2025年最新版（pnpm, React 19, Tailwind v4, Biome, Vitest）
+> **Tech Stack Update:** 2025年最新版（pnpm, React 19, Tailwind v4, Biome）
 
 ---
 
@@ -77,8 +77,8 @@
 | ツール | 用途 | 従来比 |
 |--------|------|--------|
 | **Biome** | Lint + フォーマット（統一ツール） | ESLint+Prettierより20倍高速 |
-| **Vitest** | ユニットテスト | Jestより10倍高速 |
 | **Playwright MCP** | E2Eテスト（AI駆動） | アクセシビリティツリーベース |
+| **Chrome DevTools MCP** | ブラウザ自動化・パフォーマンステスト | - |
 | TypeScript Strict Mode | 厳格な型チェック | - |
 | Husky + lint-staged | Git hooks（コミット前チェック） | - |
 
@@ -154,8 +154,6 @@ naruto-shelter-map/
 ├── next.config.js              # Next.js設定
 ├── tsconfig.json               # TypeScript設定
 ├── biome.json                  # Biome設定（Lint + Format）
-├── vitest.config.mts           # Vitest設定
-├── playwright.config.ts        # Playwright MCP設定
 ├── .env.example                # 環境変数サンプル
 └── .gitignore                  # Git除外設定
 ```
@@ -239,8 +237,6 @@ naruto-shelter-map/
 - [ ] `next.config.js` 作成（Turbopack設定）
 - [ ] `tsconfig.json` 作成
 - [ ] `biome.json` 作成（ESLint/Prettier置き換え）
-- [ ] `vitest.config.mts` 作成
-- [ ] `playwright.config.ts` 作成（MCP統合）
 - [ ] `src/` ディレクトリ構造作成
 - [ ] Tailwind CSS v4設定（CSS-First）
 - [ ] `.env.example` 作成
@@ -255,8 +251,6 @@ naruto-shelter-map/
 - `next.config.js` (Turbopack)
 - `tsconfig.json`
 - `biome.json`
-- `vitest.config.mts`
-- `playwright.config.ts`
 - `.env.example`
 - `.gitignore`
 - `src/` (基本構造 + Tailwind v4設定)
@@ -324,24 +318,18 @@ graph LR
 
 ## 🧪 テスト戦略（2025年最新）
 
-### ユニットテスト
+### E2Eテスト & パフォーマンステスト
 
-- **対象:** `lib/`, `hooks/`
-- **ツール:** **Vitest** + React Testing Library
-- **理由:** Jestより10倍高速、Vite駆動、Next.js公式サポート
-- **カバレッジ目標:** 80%以上
-- **コマンド:** `pnpm test`
-
-### E2Eテスト
-
-- **対象:** 主要ユーザーフロー
-- **ツール:** **Playwright MCP** (Model Context Protocol)
-- **特徴:** AI駆動テスト、アクセシビリティツリーベース
+- **対象:** 主要ユーザーフロー、パフォーマンス計測
+- **ツール:**
+  - **Playwright MCP** (Model Context Protocol) - E2Eテスト
+  - **Chrome DevTools MCP** - パフォーマンス計測、デバッグ
+- **特徴:** AI駆動テスト、アクセシビリティツリーベース、Core Web Vitals計測
 - **シナリオ:**
   - 地図表示
   - 避難所検索
   - オフライン動作
-- **コマンド:** `pnpm run e2e`
+  - CLS/LCP/TTFB計測
 
 ### PWAテスト
 
@@ -390,8 +378,8 @@ graph LR
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
 - [Biome](https://biomejs.dev/)
-- [Vitest](https://vitest.dev/)
 - [Playwright](https://playwright.dev/)
+- [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)
 - [pnpm](https://pnpm.io/)
 - [next-pwa](https://github.com/shadowwalker/next-pwa)
 - [Cloudflare Pages](https://developers.cloudflare.com/pages/)
