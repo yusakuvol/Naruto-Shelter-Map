@@ -17,9 +17,9 @@
 
 **「もしもの時に電波がなくても、身近な避難所がわかる」** ― そんな課題を、2025年最新のWeb技術で解決します。
 
-> **デモサイト:** https://4d4aca8a.naruto-shelter-map.pages.dev/
+> **デモサイト:** https://naruto-shelter-map.pages.dev
 >
-> [![デモサイトを開く](https://img.shields.io/badge/🌐_デモサイト-Open-blue?style=for-the-badge)](https://4d4aca8a.naruto-shelter-map.pages.dev/)
+> [![デモサイトを開く](https://img.shields.io/badge/🌐_デモサイト-Open-blue?style=for-the-badge)](https://naruto-shelter-map.pages.dev)
 
 ---
 
