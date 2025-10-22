@@ -222,7 +222,7 @@ export function ShelterMap({
       </MapGL>
 
       {/* 現在地ボタン */}
-      <div className="absolute bottom-4 left-4 z-10 lg:bottom-auto lg:left-auto lg:right-4 lg:top-32">
+      <div className="absolute right-4 top-32 z-10">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}

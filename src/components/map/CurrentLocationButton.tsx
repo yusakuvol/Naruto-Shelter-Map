@@ -145,7 +145,7 @@ export const CurrentLocationButton: FC<CurrentLocationButtonProps> = ({
       aria-live="polite"
     >
       {icon}
-      <span className="sr-only lg:not-sr-only lg:inline">{label}</span>
+      <span className="sr-only">{label}</span>
     </button>
   );
 };
