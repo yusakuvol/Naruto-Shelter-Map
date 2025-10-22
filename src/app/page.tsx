@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterMap } from '@/components/map/Map';
+import { MapSearchBar } from '@/components/map/MapSearchBar';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterList } from '@/components/shelter/ShelterList';
@@ -16,9 +17,24 @@ function HomePageContent() {
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
   );
+  const [searchQuery, setSearchQuery] = useState('');
 
   const allShelters = data?.features ?? [];
   const filteredShelters = useFilteredShelters(allShelters);
+
+  // 検索クエリでさらにフィルタリング
+  const searchedShelters = useMemo(() => {
+    if (!searchQuery.trim()) return filteredShelters;
+
+    const query = searchQuery.toLowerCase();
+    return filteredShelters.filter((shelter) => {
+      const { name, address } = shelter.properties;
+      return (
+        name.toLowerCase().includes(query) ||
+        address.toLowerCase().includes(query)
+      );
+    });
+  }, [filteredShelters, searchQuery]);
 
   if (error) {
     return (
@@ -49,18 +65,24 @@ function HomePageContent() {
       {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
         {/* 地図エリア（フルスクリーン） */}
-        <div className="flex-1 min-h-0">
+        <div className="relative flex-1 min-h-0">
           <ShelterMap
-            shelters={filteredShelters}
+            shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
+          />
+
+          {/* Googleマップ風検索バー */}
+          <MapSearchBar
+            onSearch={setSearchQuery}
+            placeholder="避難所を検索..."
           />
         </div>
 
         {/* Bottom Sheet */}
         <BottomSheet state={sheetState} onStateChange={setSheetState}>
           <SheetContent
-            shelters={filteredShelters}
+            shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={(id) => {
               setSelectedShelterId(id);
@@ -112,11 +134,17 @@ function HomePageContent() {
         </div>
 
         {/* 地図エリア（右側） */}
-        <div className="h-full flex-1">
+        <div className="relative h-full flex-1">
           <ShelterMap
-            shelters={filteredShelters}
+            shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
+          />
+
+          {/* Googleマップ風検索バー */}
+          <MapSearchBar
+            onSearch={setSearchQuery}
+            placeholder="避難所を検索..."
           />
         </div>
       </div>
