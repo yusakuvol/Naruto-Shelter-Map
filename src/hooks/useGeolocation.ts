@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { Coordinates } from '@/lib/geo';
 
 /**
@@ -150,15 +150,11 @@ export function useGeolocation(): UseGeolocationReturn {
     setState('loading');
     setError(null);
 
-    const id = navigator.geolocation.watchPosition(
-      handleSuccess,
-      handleError,
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0,
-      }
-    );
+    const id = navigator.geolocation.watchPosition(handleSuccess, handleError, {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    });
 
     setWatchId(id);
   }, [isSupported, watchId, handleSuccess, handleError]);

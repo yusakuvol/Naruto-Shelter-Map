@@ -28,10 +28,7 @@ export interface Coordinates {
  * console.log(distance); // 約12.5km
  * ```
  */
-export function calculateDistance(
-  from: Coordinates,
-  to: Coordinates
-): number {
+export function calculateDistance(from: Coordinates, to: Coordinates): number {
   const R = 6371; // 地球の半径 (km)
 
   const lat1 = toRadians(from.latitude);
