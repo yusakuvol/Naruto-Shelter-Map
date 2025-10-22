@@ -9,12 +9,16 @@ interface ViewModeTabsProps {
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
   shelterCount: number;
+  sheetState: 'minimized' | 'expanded' | undefined;
+  onSheetToggle: (() => void) | undefined;
 }
 
 export function ViewModeTabs({
   mode,
   onModeChange,
   shelterCount,
+  sheetState,
+  onSheetToggle,
 }: ViewModeTabsProps) {
   // 矢印キーでタブ間移動
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
@@ -31,119 +35,161 @@ export function ViewModeTabs({
   };
 
   return (
-    <div
-      role="tablist"
-      aria-label="表示モード"
-      className="flex items-center border-b bg-white"
-    >
-      {/* リストタブ */}
-      <button
-        type="button"
-        role="tab"
-        aria-selected={mode === 'list'}
-        aria-controls="list-panel"
-        aria-label={`リスト表示 (${shelterCount}件)`}
-        id="list-tab"
-        tabIndex={mode === 'list' ? 0 : -1}
-        className={cn(
-          'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
-          mode === 'list'
-            ? 'border-b-2 border-blue-600 text-blue-600'
-            : 'text-gray-600 hover:text-gray-900'
-        )}
-        onClick={() => onModeChange('list')}
-        onKeyDown={handleKeyDown}
+    <div className="flex items-center border-b bg-white">
+      <div
+        role="tablist"
+        aria-label="表示モード"
+        className="flex flex-1 items-center"
       >
-        <svg
-          className="h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+        {/* リストタブ */}
+        <button
+          type="button"
+          role="tab"
+          aria-selected={mode === 'list'}
+          aria-controls="list-panel"
+          aria-label={`リスト表示 (${shelterCount}件)`}
+          id="list-tab"
+          tabIndex={mode === 'list' ? 0 : -1}
+          className={cn(
+            'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
+            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            mode === 'list'
+              ? 'border-b-2 border-blue-600 text-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          )}
+          onClick={() => onModeChange('list')}
+          onKeyDown={handleKeyDown}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 10h16M4 14h16M4 18h16"
-          />
-        </svg>
-        <span className="text-xs">リスト</span>
-        <span className="text-xs">({shelterCount}件)</span>
-      </button>
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 10h16M4 14h16M4 18h16"
+            />
+          </svg>
+          <span className="text-xs">リスト</span>
+          <span className="text-xs">({shelterCount}件)</span>
+        </button>
 
-      {/* フィルタタブ */}
-      <button
-        type="button"
-        role="tab"
-        aria-selected={mode === 'filter'}
-        aria-controls="filter-panel"
-        aria-label="フィルタ"
-        id="filter-tab"
-        tabIndex={mode === 'filter' ? 0 : -1}
-        className={cn(
-          'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
-          mode === 'filter'
-            ? 'border-b-2 border-blue-600 text-blue-600'
-            : 'text-gray-600 hover:text-gray-900'
-        )}
-        onClick={() => onModeChange('filter')}
-        onKeyDown={handleKeyDown}
-      >
-        <svg
-          className="h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+        {/* フィルタタブ */}
+        <button
+          type="button"
+          role="tab"
+          aria-selected={mode === 'filter'}
+          aria-controls="filter-panel"
+          aria-label="フィルタ"
+          id="filter-tab"
+          tabIndex={mode === 'filter' ? 0 : -1}
+          className={cn(
+            'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
+            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            mode === 'filter'
+              ? 'border-b-2 border-blue-600 text-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          )}
+          onClick={() => onModeChange('filter')}
+          onKeyDown={handleKeyDown}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-          />
-        </svg>
-        <span className="text-xs">フィルタ</span>
-      </button>
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+            />
+          </svg>
+          <span className="text-xs">フィルタ</span>
+        </button>
 
-      {/* 地図タブ */}
-      <button
-        type="button"
-        role="tab"
-        aria-selected={mode === 'map'}
-        aria-controls="map-panel"
-        aria-label="地図表示"
-        id="map-tab"
-        tabIndex={mode === 'map' ? 0 : -1}
-        className={cn(
-          'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
-          mode === 'map'
-            ? 'border-b-2 border-blue-600 text-blue-600'
-            : 'text-gray-600 hover:text-gray-900'
-        )}
-        onClick={() => onModeChange('map')}
-        onKeyDown={handleKeyDown}
-      >
-        <svg
-          className="h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+        {/* 地図タブ */}
+        <button
+          type="button"
+          role="tab"
+          aria-selected={mode === 'map'}
+          aria-controls="map-panel"
+          aria-label="地図表示"
+          id="map-tab"
+          tabIndex={mode === 'map' ? 0 : -1}
+          className={cn(
+            'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
+            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            mode === 'map'
+              ? 'border-b-2 border-blue-600 text-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          )}
+          onClick={() => onModeChange('map')}
+          onKeyDown={handleKeyDown}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-          />
-        </svg>
-        <span className="text-xs">地図</span>
-      </button>
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+            />
+          </svg>
+          <span className="text-xs">地図</span>
+        </button>
+      </div>
+
+      {/* シート開閉トグルボタン */}
+      {onSheetToggle ? (
+        <button
+          type="button"
+          onClick={onSheetToggle}
+          className={cn(
+            'px-4 py-3 text-gray-600 hover:text-gray-900 transition-colors',
+            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset'
+          )}
+          aria-label={
+            sheetState === 'expanded' ? 'シートを最小化' : 'シートを展開'
+          }
+          aria-expanded={sheetState === 'expanded'}
+        >
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            {sheetState === 'expanded' ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 15l7-7 7 7"
+              />
+            )}
+          </svg>
+        </button>
+      ) : null}
     </div>
   );
 }

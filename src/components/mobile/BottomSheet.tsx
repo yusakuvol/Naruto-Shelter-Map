@@ -1,10 +1,10 @@
 'use client';
 
-import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { calculateSnapPoint, getSheetHeight } from '@/lib/gestures';
+import { getSheetHeight } from '@/lib/gestures';
 import { cn } from '@/lib/utils';
 
 export type SheetState = 'minimized' | 'expanded';
@@ -53,33 +53,6 @@ export function BottomSheet({
     };
   }, [state]);
 
-  // ドラッグ終了時のハンドラー
-  const handleDragEnd = (
-    _: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ): void => {
-    const currentH = getSheetHeight(state, viewportHeight);
-    // info.offset.yは上向きが負、下向きが正
-    // シートの高さは上にドラッグすると増える（画面下から上に向かって高さが増える）
-    // なので、offset.yが負（上向き）の時、高さは増える
-    const newHeight =
-      currentH + Math.abs(info.offset.y) * (info.offset.y < 0 ? 1 : -1);
-    const newState = calculateSnapPoint(
-      newHeight,
-      -info.velocity.y, // 上向きが正のvelocityになるように反転
-      viewportHeight
-    );
-
-    if (newState !== state) {
-      onStateChange(newState);
-    }
-  };
-
-  // クリック時のハンドラー（2状態をトグル）
-  const handleHandleClick = (): void => {
-    onStateChange(state === 'minimized' ? 'expanded' : 'minimized');
-  };
-
   // キーボードハンドラー
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (e.key === 'Escape' && state === 'expanded') {
@@ -90,26 +63,6 @@ export function BottomSheet({
     } else if (e.key === 'ArrowDown' && state === 'expanded') {
       e.preventDefault();
       onStateChange('minimized');
-    }
-  };
-
-  // 状態のラベルを取得
-  const getStateLabel = (): string => {
-    switch (state) {
-      case 'minimized':
-        return 'シートを最小化しています';
-      case 'expanded':
-        return 'シートを展開しています';
-    }
-  };
-
-  // 状態の数値（0-100）
-  const getStateValue = (): number => {
-    switch (state) {
-      case 'minimized':
-        return 0;
-      case 'expanded':
-        return 100;
     }
   };
 
@@ -160,35 +113,8 @@ export function BottomSheet({
           willChange: 'height',
         }}
       >
-        {/* ドラッグハンドル */}
-        <motion.div
-          role="slider"
-          aria-label="シートの高さを調整"
-          aria-valuenow={getStateValue()}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuetext={getStateLabel()}
-          tabIndex={0}
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={0}
-          dragMomentum={false}
-          onDragEnd={handleDragEnd}
-          className="flex items-center justify-center py-3 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
-          onClick={handleHandleClick}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              handleHandleClick();
-            }
-          }}
-          style={{ touchAction: 'pan-y' }}
-        >
-          <div className="w-12 h-1 bg-gray-300 rounded-full pointer-events-none" />
-        </motion.div>
-
         {/* コンテンツ */}
-        <div id="sheet-content" className="h-[calc(100%-40px)] overflow-hidden">
+        <div id="sheet-content" className="h-full overflow-hidden">
           <h2 id="sheet-title" className="sr-only">
             避難所情報
           </h2>

@@ -11,6 +11,8 @@ interface SheetContentProps {
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
   onMapViewRequest: () => void;
+  sheetState?: 'minimized' | 'expanded';
+  onSheetToggle?: () => void;
 }
 
 export function SheetContent({
@@ -18,6 +20,8 @@ export function SheetContent({
   selectedShelterId,
   onShelterSelect,
   onMapViewRequest,
+  sheetState,
+  onSheetToggle,
 }: SheetContentProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('list');
 
@@ -36,6 +40,8 @@ export function SheetContent({
         mode={viewMode}
         onModeChange={handleModeChange}
         shelterCount={shelters.length}
+        sheetState={sheetState}
+        onSheetToggle={onSheetToggle}
       />
 
       {/* リスト表示 */}
