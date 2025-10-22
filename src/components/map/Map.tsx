@@ -162,11 +162,7 @@ export function ShelterMap({
           selectedShelterId={selectedShelterId}
           shelters={shelters}
         />
-
-        {/* ナビゲーションコントロール - デスクトップのみ表示 */}
-        <div className="hidden lg:block">
-          <NavigationControl position="top-right" />
-        </div>
+        <NavigationControl position="top-right" />
 
         {markers}
 
@@ -225,8 +221,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - 右下（モバイルはBottom Sheetの上） */}
-      <div className="absolute bottom-28 right-4 z-10 lg:bottom-4">
+      {/* 現在地ボタン - モバイル: 右下（タブバーの上）、PC: 右下 */}
+      <div className="absolute bottom-20 right-4 z-10 lg:bottom-20 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}
