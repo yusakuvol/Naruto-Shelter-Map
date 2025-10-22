@@ -15,7 +15,7 @@
 
 国土地理院・国土交通省のオープンデータを活用し、地図上に避難所の位置・種別・災害対応情報を表示します。スマートフォンにインストールしておけば、電波がない状況でも最後に閲覧した地図範囲と避難所情報を保持できます。
 
-**「もしもの時に電波がなくても、身近な避難所がわかる」** ― そんな課題を、2025年最新のWeb技術で解決します。
+オフライン環境でも動作するPWA技術により、いつでも避難所情報を確認できます。
 
 > **デモサイト:** https://naruto-shelter-map.pages.dev
 >
@@ -52,24 +52,17 @@
 <table>
   <tr>
     <td align="center">
-      <img src="./docs/images/screenshot-map.png" width="300" alt="地図画面">
+      <img src="./docs/images/screenshot-desktop.png" width="600" alt="デスクトップ画面">
       <br>
-      <sub>📍 地図画面</sub>
+      <sub>🖥️ デスクトップ表示</sub>
     </td>
     <td align="center">
-      <img src="./docs/images/screenshot-search.png" width="300" alt="検索画面">
+      <img src="./docs/images/screenshot-mobile.png" width="250" alt="モバイル画面">
       <br>
-      <sub>🔍 検索機能</sub>
-    </td>
-    <td align="center">
-      <img src="./docs/images/screenshot-offline.png" width="300" alt="オフライン動作">
-      <br>
-      <sub>📶 オフライン動作</sub>
+      <sub>📱 モバイル表示</sub>
     </td>
   </tr>
 </table>
-
-> **Note:** スクリーンショットは MVP 実装後に追加予定
 
 ---
 
