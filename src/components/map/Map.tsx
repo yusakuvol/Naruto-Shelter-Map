@@ -7,7 +7,9 @@ import MapGL, {
   Popup,
   useMap,
 } from 'react-map-gl/maplibre';
+import { useGeolocation } from '@/hooks/useGeolocation';
 import type { ShelterFeature } from '@/types/shelter';
+import { CurrentLocationButton } from './CurrentLocationButton';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
@@ -67,6 +69,8 @@ export function ShelterMap({
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
+  const { position, state, error, getCurrentPosition } = useGeolocation();
+  const { current: map } = useMap();
 
   const handleMarkerClick = useCallback(
     (shelter: ShelterFeature) => {
@@ -79,6 +83,21 @@ export function ShelterMap({
   const handleClosePopup = useCallback(() => {
     setSelectedShelter(null);
   }, []);
+
+  const handleLocationButtonClick = useCallback(() => {
+    getCurrentPosition();
+  }, [getCurrentPosition]);
+
+  // 現在地を取得したら地図を移動
+  useEffect(() => {
+    if (!position || !map) return;
+
+    map.flyTo({
+      center: [position.longitude, position.latitude],
+      zoom: 15,
+      duration: 1000,
+    });
+  }, [position, map]);
 
   // selectedShelterIdが変更されたらポップアップを表示
   useEffect(() => {
@@ -129,7 +148,7 @@ export function ShelterMap({
   );
 
   return (
-    <div className="map-container h-full w-full">
+    <div className="map-container relative h-full w-full">
       <MapGL
         initialViewState={{
           longitude: 134.609,
@@ -146,6 +165,22 @@ export function ShelterMap({
         <NavigationControl position="top-right" />
 
         {markers}
+
+        {/* 現在地マーカー */}
+        {position && (
+          <Marker
+            longitude={position.longitude}
+            latitude={position.latitude}
+            anchor="center"
+          >
+            <div className="relative flex h-6 w-6 items-center justify-center">
+              {/* 外側のパルスアニメーション */}
+              <div className="absolute h-6 w-6 animate-ping rounded-full bg-blue-400 opacity-75" />
+              {/* 内側の固定円 */}
+              <div className="relative h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-lg" />
+            </div>
+          </Marker>
+        )}
 
         {selectedShelter && (
           <Popup
@@ -185,6 +220,15 @@ export function ShelterMap({
           </Popup>
         )}
       </MapGL>
+
+      {/* 現在地ボタン - モバイル: 右下（タブバーの上）、PC: 右下 */}
+      <div className="absolute bottom-20 right-4 z-10 lg:bottom-20 lg:right-4">
+        <CurrentLocationButton
+          onClick={handleLocationButtonClick}
+          state={state}
+          error={error}
+        />
+      </div>
     </div>
   );
 }

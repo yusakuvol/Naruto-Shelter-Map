@@ -43,3 +43,10 @@
   font-size: 20px;
   padding: 8px;
 }
+
+/* モバイルでナビゲーションコントロールを非表示 */
+@media (max-width: 1023px) {
+  .maplibregl-ctrl-top-right {
+    display: none !important;
+  }
+}
