@@ -221,8 +221,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - Googleマップ風に右下配置 */}
-      <div className="absolute bottom-20 right-4 z-10 lg:bottom-4">
+      {/* 現在地ボタン - モバイル: 左下、デスクトップ: 右下 */}
+      <div className="absolute bottom-20 left-4 z-10 lg:bottom-4 lg:left-auto lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}
