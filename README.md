@@ -1,5 +1,6 @@
 # 鳴門市避難所マップ (Naruto Shelter Map)
 
+[![CI](https://github.com/yusakuvol/Naruto-Shelter-Map/actions/workflows/ci.yml/badge.svg)](https://github.com/yusakuvol/Naruto-Shelter-Map/actions/workflows/ci.yml)
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/deploy-cloudflare-orange)](https://pages.cloudflare.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![pnpm](https://img.shields.io/badge/pnpm-9.x-orange)](https://pnpm.io/)
