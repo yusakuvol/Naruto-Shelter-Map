@@ -16,7 +16,12 @@ import { calculateDistance, toCoordinates } from '@/lib/geo';
 
 function HomePageContent() {
   const { data, isLoading, error } = useShelters();
-  const { position } = useGeolocation();
+  const {
+    position,
+    state: geolocationState,
+    error: geolocationError,
+    getCurrentPosition,
+  } = useGeolocation();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
@@ -108,6 +113,10 @@ function HomePageContent() {
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
+            position={position}
+            geolocationState={geolocationState}
+            geolocationError={geolocationError}
+            onGetCurrentPosition={getCurrentPosition}
           />
 
           {/* Googleマップ風検索バー */}
@@ -189,6 +198,10 @@ function HomePageContent() {
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
+            position={position}
+            geolocationState={geolocationState}
+            geolocationError={geolocationError}
+            onGetCurrentPosition={getCurrentPosition}
           />
 
           {/* Googleマップ風検索バー */}

@@ -7,7 +7,11 @@ import MapGL, {
   Popup,
   useMap,
 } from 'react-map-gl/maplibre';
-import { useGeolocation } from '@/hooks/useGeolocation';
+import type {
+  Coordinates,
+  GeolocationError,
+  GeolocationState,
+} from '@/hooks/useGeolocation';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -16,6 +20,10 @@ interface MapProps {
   shelters: ShelterFeature[];
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
+  position?: Coordinates | null;
+  geolocationState?: GeolocationState;
+  geolocationError?: GeolocationError | null;
+  onGetCurrentPosition?: () => void;
 }
 
 // 避難所種別に応じたマーカー色
@@ -65,12 +73,20 @@ export function ShelterMap({
   shelters,
   selectedShelterId,
   onShelterSelect,
+  position: externalPosition,
+  geolocationState,
+  geolocationError,
+  onGetCurrentPosition,
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
-  const { position, state, error, getCurrentPosition } = useGeolocation();
   const { current: map } = useMap();
+
+  // 外部から渡された位置情報を使用、なければフォールバック
+  const position = externalPosition ?? null;
+  const state = geolocationState ?? 'idle';
+  const error = geolocationError ?? null;
 
   const handleMarkerClick = useCallback(
     (shelter: ShelterFeature) => {
@@ -85,8 +101,8 @@ export function ShelterMap({
   }, []);
 
   const handleLocationButtonClick = useCallback(() => {
-    getCurrentPosition();
-  }, [getCurrentPosition]);
+    onGetCurrentPosition?.();
+  }, [onGetCurrentPosition]);
 
   // 現在地を取得したら地図を移動
   useEffect(() => {

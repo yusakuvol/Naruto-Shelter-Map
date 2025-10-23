@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import type { Coordinates } from '@/lib/geo';
+import type { Coordinates as GeoCoordinates } from '@/lib/geo';
+
+// Coordinatesをre-export
+export type { Coordinates } from '@/lib/geo';
 
 /**
  * Geolocation APIの状態
@@ -25,7 +28,7 @@ export type GeolocationError =
  */
 export interface UseGeolocationReturn {
   /** 現在地の座標 */
-  position: Coordinates | null;
+  position: GeoCoordinates | null;
   /** 取得状態 */
   state: GeolocationState;
   /** エラー理由 */
@@ -70,7 +73,7 @@ export interface UseGeolocationReturn {
  * ```
  */
 export function useGeolocation(): UseGeolocationReturn {
-  const [position, setPosition] = useState<Coordinates | null>(null);
+  const [position, setPosition] = useState<GeoCoordinates | null>(null);
   const [state, setState] = useState<GeolocationState>('idle');
   const [error, setError] = useState<GeolocationError | null>(null);
   const [watchId, setWatchId] = useState<number | null>(null);
