@@ -1,10 +1,12 @@
 import { clsx } from 'clsx';
+import { formatDistance } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 
 interface ShelterCardProps {
   shelter: ShelterFeature;
   isSelected?: boolean;
   onClick?: () => void;
+  distance?: number | null;
 }
 
 function getShelterTypeColor(type: string): string {
@@ -24,6 +26,7 @@ export function ShelterCard({
   shelter,
   isSelected,
   onClick,
+  distance,
 }: ShelterCardProps) {
   const { name, type, address, disasterTypes, capacity } = shelter.properties;
   const typeColor = getShelterTypeColor(type);
@@ -85,6 +88,22 @@ export function ShelterCard({
         </svg>
         <span className="flex-1 leading-tight">{address}</span>
       </p>
+
+      {/* 距離表示（現在地がある場合のみ） */}
+      {distance !== null && distance !== undefined && (
+        <p className="flex items-center gap-1 text-xs text-blue-600 font-medium mb-1">
+          <svg
+            className="h-3.5 w-3.5 flex-shrink-0"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            {/* Material Design my_location icon */}
+            <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
+          </svg>
+          <span>{formatDistance(distance)}</span>
+        </p>
+      )}
 
       {/* 追加情報（コンパクトに1行で表示） */}
       <div className="flex items-center gap-3 text-xs text-gray-500">
