@@ -3,16 +3,25 @@
 import { useState } from 'react';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterList } from '@/components/shelter/ShelterList';
+import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
 import type { ShelterFeature } from '@/types/shelter';
 import { type ViewMode, ViewModeTabs } from './ViewModeTabs';
 
+interface ShelterWithDistance {
+  shelter: ShelterFeature;
+  distance: number | null;
+}
+
 interface SheetContentProps {
-  shelters: ShelterFeature[];
+  shelters: ShelterWithDistance[];
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
   onMapViewRequest: () => void;
   sheetState?: 'minimized' | 'expanded';
   onSheetToggle?: () => void;
+  sortMode?: SortMode;
+  onSortModeChange?: (mode: SortMode) => void;
+  hasPosition?: boolean;
 }
 
 export function SheetContent({
@@ -22,6 +31,9 @@ export function SheetContent({
   onMapViewRequest,
   sheetState,
   onSheetToggle,
+  sortMode = 'name',
+  onSortModeChange,
+  hasPosition = false,
 }: SheetContentProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('list');
 
@@ -50,13 +62,26 @@ export function SheetContent({
           role="tabpanel"
           id="list-panel"
           aria-labelledby="list-tab"
-          className="flex-1 overflow-y-auto p-4"
+          className="flex-1 overflow-y-auto"
         >
-          <ShelterList
-            shelters={shelters}
-            selectedShelterId={selectedShelterId}
-            {...(onShelterSelect && { onShelterSelect })}
-          />
+          {/* ソート切り替え */}
+          {onSortModeChange && (
+            <div className="border-b p-4">
+              <SortToggle
+                mode={sortMode}
+                onModeChange={onSortModeChange}
+                disabled={!hasPosition}
+              />
+            </div>
+          )}
+
+          <div className="p-4">
+            <ShelterList
+              shelters={shelters}
+              selectedShelterId={selectedShelterId}
+              {...(onShelterSelect && { onShelterSelect })}
+            />
+          </div>
         </div>
       )}
 

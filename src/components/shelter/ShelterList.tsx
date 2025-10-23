@@ -1,8 +1,13 @@
 import type { ShelterFeature } from '@/types/shelter';
 import { ShelterCard } from './ShelterCard';
 
+interface ShelterWithDistance {
+  shelter: ShelterFeature;
+  distance: number | null;
+}
+
 interface ShelterListProps {
-  shelters: ShelterFeature[];
+  shelters: ShelterWithDistance[];
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
   onShelterClick?: (shelter: ShelterFeature) => void;
@@ -39,10 +44,11 @@ export function ShelterList({
 
   return (
     <div className="space-y-3">
-      {shelters.map((shelter) => (
+      {shelters.map(({ shelter, distance }) => (
         <ShelterCard
           key={shelter.properties.id}
           shelter={shelter}
+          distance={distance}
           isSelected={selectedShelterId === shelter.properties.id}
           onClick={() => {
             onShelterSelect?.(shelter.properties.id);

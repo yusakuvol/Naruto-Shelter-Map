@@ -7,17 +7,22 @@ import { MapSearchBar } from '@/components/map/MapSearchBar';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterList } from '@/components/shelter/ShelterList';
+import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
 import { FilterProvider } from '@/contexts/FilterContext';
 import { useFilteredShelters } from '@/hooks/useFilteredShelters';
+import { useGeolocation } from '@/hooks/useGeolocation';
 import { useShelters } from '@/hooks/useShelters';
+import { calculateDistance, toCoordinates } from '@/lib/geo';
 
 function HomePageContent() {
   const { data, isLoading, error } = useShelters();
+  const { position } = useGeolocation();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
   );
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortMode, setSortMode] = useState<SortMode>('name');
 
   const allShelters = data?.features ?? [];
   const filteredShelters = useFilteredShelters(allShelters);
@@ -35,6 +40,39 @@ function HomePageContent() {
       );
     });
   }, [filteredShelters, searchQuery]);
+
+  // 距離計算とソート
+  const sortedShelters = useMemo(() => {
+    // 距離を含む拡張データを作成
+    const sheltersWithDistance = searchedShelters.map((shelter) => ({
+      shelter,
+      distance:
+        position && shelter.geometry.coordinates
+          ? calculateDistance(
+              position,
+              toCoordinates(shelter.geometry.coordinates)
+            )
+          : null,
+    }));
+
+    // ソート
+    if (sortMode === 'distance' && position) {
+      return sheltersWithDistance
+        .filter((item) => item.distance !== null)
+        .sort((a, b) => {
+          if (a.distance === null || b.distance === null) return 0;
+          return a.distance - b.distance;
+        });
+    }
+
+    // 名前順（デフォルト）
+    return sheltersWithDistance.sort((a, b) =>
+      a.shelter.properties.name.localeCompare(
+        b.shelter.properties.name,
+        'ja-JP'
+      )
+    );
+  }, [searchedShelters, sortMode, position]);
 
   if (error) {
     return (
@@ -82,7 +120,7 @@ function HomePageContent() {
         {/* Bottom Sheet */}
         <BottomSheet state={sheetState} onStateChange={setSheetState}>
           <SheetContent
-            shelters={searchedShelters}
+            shelters={sortedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={(id) => {
               setSelectedShelterId(id);
@@ -95,6 +133,9 @@ function HomePageContent() {
                 sheetState === 'expanded' ? 'minimized' : 'expanded'
               )
             }
+            sortMode={sortMode}
+            onSortModeChange={setSortMode}
+            hasPosition={!!position}
           />
         </BottomSheet>
       </div>
@@ -123,10 +164,19 @@ function HomePageContent() {
             <DisasterTypeFilter />
           </div>
 
+          {/* ソート切り替え */}
+          <div className="border-b p-4">
+            <SortToggle
+              mode={sortMode}
+              onModeChange={setSortMode}
+              disabled={!position}
+            />
+          </div>
+
           {/* 避難所リスト */}
           <div className="min-h-0 flex-1 overflow-y-auto p-4">
             <ShelterList
-              shelters={filteredShelters}
+              shelters={sortedShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
             />
