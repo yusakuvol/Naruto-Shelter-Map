@@ -40,8 +40,13 @@ export function SheetContent({
   const handleModeChange = (mode: ViewMode): void => {
     setViewMode(mode);
     if (mode === 'map') {
-      // 地図タブ選択時はシートを閉じる
+      // 地図タブ選択時はシートを最小化
       onMapViewRequest();
+    } else {
+      // リスト・フィルタタブ選択時はシートを展開
+      if (sheetState === 'minimized' && onSheetToggle) {
+        onSheetToggle();
+      }
     }
   };
 
@@ -52,8 +57,6 @@ export function SheetContent({
         mode={viewMode}
         onModeChange={handleModeChange}
         shelterCount={shelters.length}
-        sheetState={sheetState}
-        onSheetToggle={onSheetToggle}
       />
 
       {/* リスト表示 */}

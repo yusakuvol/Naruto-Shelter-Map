@@ -9,16 +9,12 @@ interface ViewModeTabsProps {
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
   shelterCount: number;
-  sheetState: 'minimized' | 'expanded' | undefined;
-  onSheetToggle: (() => void) | undefined;
 }
 
 export function ViewModeTabs({
   mode,
   onModeChange,
   shelterCount,
-  sheetState,
-  onSheetToggle,
 }: ViewModeTabsProps) {
   // 矢印キーでタブ間移動
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
@@ -150,46 +146,6 @@ export function ViewModeTabs({
           <span className="text-xs">地図</span>
         </button>
       </div>
-
-      {/* シート開閉トグルボタン */}
-      {onSheetToggle ? (
-        <button
-          type="button"
-          onClick={onSheetToggle}
-          className={cn(
-            'px-4 py-3 text-gray-600 hover:text-gray-900 transition-colors',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset'
-          )}
-          aria-label={
-            sheetState === 'expanded' ? 'シートを最小化' : 'シートを展開'
-          }
-          aria-expanded={sheetState === 'expanded'}
-        >
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            {sheetState === 'expanded' ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 15l7-7 7 7"
-              />
-            )}
-          </svg>
-        </button>
-      ) : null}
     </div>
   );
 }
