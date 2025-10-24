@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
@@ -35,13 +35,19 @@ export function SheetContent({
   onSortModeChange,
   hasPosition = false,
 }: SheetContentProps) {
+  const id = useId();
   const [viewMode, setViewMode] = useState<ViewMode>('list');
 
   const handleModeChange = (mode: ViewMode): void => {
     setViewMode(mode);
     if (mode === 'map') {
-      // 地図タブ選択時はシートを閉じる
+      // 地図タブ選択時はシートを最小化
       onMapViewRequest();
+    } else {
+      // リスト・フィルタタブ選択時はシートを展開
+      if (sheetState === 'minimized' && onSheetToggle) {
+        onSheetToggle();
+      }
     }
   };
 
@@ -51,17 +57,15 @@ export function SheetContent({
       <ViewModeTabs
         mode={viewMode}
         onModeChange={handleModeChange}
-        shelterCount={shelters.length}
-        sheetState={sheetState}
-        onSheetToggle={onSheetToggle}
+        idPrefix={id}
       />
 
       {/* リスト表示 */}
       {viewMode === 'list' && (
         <div
           role="tabpanel"
-          id="list-panel"
-          aria-labelledby="list-tab"
+          id={`${id}-list-panel`}
+          aria-labelledby={`${id}-list-tab`}
           className="flex-1 overflow-y-auto"
         >
           {/* ソート切り替え */}
@@ -89,8 +93,8 @@ export function SheetContent({
       {viewMode === 'filter' && (
         <div
           role="tabpanel"
-          id="filter-panel"
-          aria-labelledby="filter-tab"
+          id={`${id}-filter-panel`}
+          aria-labelledby={`${id}-filter-tab`}
           className="flex-1 overflow-y-auto p-4"
         >
           <DisasterTypeFilter />
@@ -101,8 +105,8 @@ export function SheetContent({
       {viewMode === 'map' && (
         <div
           role="tabpanel"
-          id="map-panel"
-          aria-labelledby="map-tab"
+          id={`${id}-map-panel`}
+          aria-labelledby={`${id}-map-tab`}
           className="flex-1 p-4"
         >
           <p className="text-center text-gray-600">地図を表示しています</p>

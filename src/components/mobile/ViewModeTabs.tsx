@@ -1,6 +1,6 @@
 'use client';
 
-import type { KeyboardEvent } from 'react';
+import { type KeyboardEvent, useId } from 'react';
 import { cn } from '@/lib/utils';
 
 export type ViewMode = 'list' | 'map' | 'filter';
@@ -8,18 +8,16 @@ export type ViewMode = 'list' | 'map' | 'filter';
 interface ViewModeTabsProps {
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
-  shelterCount: number;
-  sheetState: 'minimized' | 'expanded' | undefined;
-  onSheetToggle: (() => void) | undefined;
+  idPrefix?: string;
 }
 
 export function ViewModeTabs({
   mode,
   onModeChange,
-  shelterCount,
-  sheetState,
-  onSheetToggle,
+  idPrefix,
 }: ViewModeTabsProps) {
+  const generatedId = useId();
+  const id = idPrefix || generatedId;
   // 矢印キーでタブ間移動
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
@@ -46,15 +44,15 @@ export function ViewModeTabs({
           type="button"
           role="tab"
           aria-selected={mode === 'list'}
-          aria-controls="list-panel"
-          aria-label={`リスト表示 (${shelterCount}件)`}
-          id="list-tab"
+          aria-controls={`${id}-list-panel`}
+          aria-label="リスト表示"
+          id={`${id}-list-tab`}
           tabIndex={mode === 'list' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            'focus:outline-none relative',
             mode === 'list'
-              ? 'border-b-2 border-blue-600 text-blue-600'
+              ? 'text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
           )}
           onClick={() => onModeChange('list')}
@@ -75,7 +73,10 @@ export function ViewModeTabs({
             />
           </svg>
           <span className="text-xs">リスト</span>
-          <span className="text-xs">({shelterCount}件)</span>
+          {/* 選択インジケーター - Google Maps風 */}
+          {mode === 'list' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+          )}
         </button>
 
         {/* フィルタタブ */}
@@ -83,15 +84,15 @@ export function ViewModeTabs({
           type="button"
           role="tab"
           aria-selected={mode === 'filter'}
-          aria-controls="filter-panel"
+          aria-controls={`${id}-filter-panel`}
           aria-label="フィルタ"
-          id="filter-tab"
+          id={`${id}-filter-tab`}
           tabIndex={mode === 'filter' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            'focus:outline-none relative',
             mode === 'filter'
-              ? 'border-b-2 border-blue-600 text-blue-600'
+              ? 'text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
           )}
           onClick={() => onModeChange('filter')}
@@ -112,6 +113,10 @@ export function ViewModeTabs({
             />
           </svg>
           <span className="text-xs">フィルタ</span>
+          {/* 選択インジケーター - Google Maps風 */}
+          {mode === 'filter' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+          )}
         </button>
 
         {/* 地図タブ */}
@@ -119,15 +124,15 @@ export function ViewModeTabs({
           type="button"
           role="tab"
           aria-selected={mode === 'map'}
-          aria-controls="map-panel"
+          aria-controls={`${id}-map-panel`}
           aria-label="地図表示"
-          id="map-tab"
+          id={`${id}-map-tab`}
           tabIndex={mode === 'map' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            'focus:outline-none relative',
             mode === 'map'
-              ? 'border-b-2 border-blue-600 text-blue-600'
+              ? 'text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
           )}
           onClick={() => onModeChange('map')}
@@ -148,48 +153,12 @@ export function ViewModeTabs({
             />
           </svg>
           <span className="text-xs">地図</span>
+          {/* 選択インジケーター - Google Maps風 */}
+          {mode === 'map' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+          )}
         </button>
       </div>
-
-      {/* シート開閉トグルボタン */}
-      {onSheetToggle ? (
-        <button
-          type="button"
-          onClick={onSheetToggle}
-          className={cn(
-            'px-4 py-3 text-gray-600 hover:text-gray-900 transition-colors',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset'
-          )}
-          aria-label={
-            sheetState === 'expanded' ? 'シートを最小化' : 'シートを展開'
-          }
-          aria-expanded={sheetState === 'expanded'}
-        >
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            {sheetState === 'expanded' ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 15l7-7 7 7"
-              />
-            )}
-          </svg>
-        </button>
-      ) : null}
     </div>
   );
 }
