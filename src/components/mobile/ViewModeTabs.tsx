@@ -48,7 +48,7 @@ export function ViewModeTabs({
           tabIndex={mode === 'list' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            'focus:outline-none',
             mode === 'list'
               ? 'border-b-2 border-blue-600 text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
@@ -85,7 +85,7 @@ export function ViewModeTabs({
           tabIndex={mode === 'filter' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            'focus:outline-none',
             mode === 'filter'
               ? 'border-b-2 border-blue-600 text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
@@ -121,7 +121,7 @@ export function ViewModeTabs({
           tabIndex={mode === 'map' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset',
+            'focus:outline-none',
             mode === 'map'
               ? 'border-b-2 border-blue-600 text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
