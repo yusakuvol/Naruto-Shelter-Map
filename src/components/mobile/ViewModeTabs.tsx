@@ -1,6 +1,6 @@
 'use client';
 
-import type { KeyboardEvent } from 'react';
+import { type KeyboardEvent, useId } from 'react';
 import { cn } from '@/lib/utils';
 
 export type ViewMode = 'list' | 'map' | 'filter';
@@ -8,9 +8,16 @@ export type ViewMode = 'list' | 'map' | 'filter';
 interface ViewModeTabsProps {
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
+  idPrefix?: string;
 }
 
-export function ViewModeTabs({ mode, onModeChange }: ViewModeTabsProps) {
+export function ViewModeTabs({
+  mode,
+  onModeChange,
+  idPrefix,
+}: ViewModeTabsProps) {
+  const generatedId = useId();
+  const id = idPrefix || generatedId;
   // 矢印キーでタブ間移動
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
@@ -37,9 +44,9 @@ export function ViewModeTabs({ mode, onModeChange }: ViewModeTabsProps) {
           type="button"
           role="tab"
           aria-selected={mode === 'list'}
-          aria-controls="list-panel"
+          aria-controls={`${id}-list-panel`}
           aria-label="リスト表示"
-          id="list-tab"
+          id={`${id}-list-tab`}
           tabIndex={mode === 'list' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
@@ -77,9 +84,9 @@ export function ViewModeTabs({ mode, onModeChange }: ViewModeTabsProps) {
           type="button"
           role="tab"
           aria-selected={mode === 'filter'}
-          aria-controls="filter-panel"
+          aria-controls={`${id}-filter-panel`}
           aria-label="フィルタ"
-          id="filter-tab"
+          id={`${id}-filter-tab`}
           tabIndex={mode === 'filter' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
@@ -117,9 +124,9 @@ export function ViewModeTabs({ mode, onModeChange }: ViewModeTabsProps) {
           type="button"
           role="tab"
           aria-selected={mode === 'map'}
-          aria-controls="map-panel"
+          aria-controls={`${id}-map-panel`}
           aria-label="地図表示"
-          id="map-tab"
+          id={`${id}-map-tab`}
           tabIndex={mode === 'map' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',

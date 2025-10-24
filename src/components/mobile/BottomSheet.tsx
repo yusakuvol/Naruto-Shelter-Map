@@ -1,7 +1,13 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { type KeyboardEvent, type ReactNode, useEffect, useState } from 'react';
+import {
+  type KeyboardEvent,
+  type ReactNode,
+  useEffect,
+  useId,
+  useState,
+} from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { getSheetHeight } from '@/lib/gestures';
@@ -20,6 +26,7 @@ export function BottomSheet({
   onStateChange,
   children,
 }: BottomSheetProps) {
+  const id = useId();
   const [viewportHeight, setViewportHeight] = useState(
     typeof window !== 'undefined' ? window.innerHeight : 667
   );
@@ -114,8 +121,8 @@ export function BottomSheet({
         }}
       >
         {/* コンテンツ */}
-        <div id="sheet-content" className="h-full overflow-hidden">
-          <h2 id="sheet-title" className="sr-only">
+        <div id={`${id}-sheet-content`} className="h-full overflow-hidden">
+          <h2 id={`${id}-sheet-title`} className="sr-only">
             避難所情報
           </h2>
           {children}
