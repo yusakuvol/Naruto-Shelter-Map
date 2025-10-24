@@ -53,10 +53,7 @@ export function SheetContent({
   return (
     <div className="flex h-full flex-col">
       {/* タブ */}
-      <ViewModeTabs
-        mode={viewMode}
-        onModeChange={handleModeChange}
-      />
+      <ViewModeTabs mode={viewMode} onModeChange={handleModeChange} />
 
       {/* リスト表示 */}
       {viewMode === 'list' && (

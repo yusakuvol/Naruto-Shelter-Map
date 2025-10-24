@@ -10,10 +10,7 @@ interface ViewModeTabsProps {
   onModeChange: (mode: ViewMode) => void;
 }
 
-export function ViewModeTabs({
-  mode,
-  onModeChange,
-}: ViewModeTabsProps) {
+export function ViewModeTabs({ mode, onModeChange }: ViewModeTabsProps) {
   // 矢印キーでタブ間移動
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
