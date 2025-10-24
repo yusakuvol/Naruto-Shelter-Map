@@ -56,7 +56,6 @@ export function SheetContent({
       <ViewModeTabs
         mode={viewMode}
         onModeChange={handleModeChange}
-        shelterCount={shelters.length}
       />
 
       {/* リスト表示 */}

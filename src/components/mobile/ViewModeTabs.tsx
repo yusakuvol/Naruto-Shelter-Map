@@ -8,13 +8,11 @@ export type ViewMode = 'list' | 'map' | 'filter';
 interface ViewModeTabsProps {
   mode: ViewMode;
   onModeChange: (mode: ViewMode) => void;
-  shelterCount: number;
 }
 
 export function ViewModeTabs({
   mode,
   onModeChange,
-  shelterCount,
 }: ViewModeTabsProps) {
   // 矢印キーでタブ間移動
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
@@ -43,14 +41,14 @@ export function ViewModeTabs({
           role="tab"
           aria-selected={mode === 'list'}
           aria-controls="list-panel"
-          aria-label={`リスト表示 (${shelterCount}件)`}
+          aria-label="リスト表示"
           id="list-tab"
           tabIndex={mode === 'list' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none',
+            'focus:outline-none relative',
             mode === 'list'
-              ? 'border-b-2 border-blue-600 text-blue-600'
+              ? 'text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
           )}
           onClick={() => onModeChange('list')}
@@ -71,7 +69,10 @@ export function ViewModeTabs({
             />
           </svg>
           <span className="text-xs">リスト</span>
-          <span className="text-xs">({shelterCount}件)</span>
+          {/* 選択インジケーター - Google Maps風 */}
+          {mode === 'list' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+          )}
         </button>
 
         {/* フィルタタブ */}
@@ -85,9 +86,9 @@ export function ViewModeTabs({
           tabIndex={mode === 'filter' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none',
+            'focus:outline-none relative',
             mode === 'filter'
-              ? 'border-b-2 border-blue-600 text-blue-600'
+              ? 'text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
           )}
           onClick={() => onModeChange('filter')}
@@ -108,6 +109,10 @@ export function ViewModeTabs({
             />
           </svg>
           <span className="text-xs">フィルタ</span>
+          {/* 選択インジケーター - Google Maps風 */}
+          {mode === 'filter' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+          )}
         </button>
 
         {/* 地図タブ */}
@@ -121,9 +126,9 @@ export function ViewModeTabs({
           tabIndex={mode === 'map' ? 0 : -1}
           className={cn(
             'flex-1 py-3 px-2 font-medium transition-all duration-200 flex flex-col items-center gap-1',
-            'focus:outline-none',
+            'focus:outline-none relative',
             mode === 'map'
-              ? 'border-b-2 border-blue-600 text-blue-600'
+              ? 'text-blue-600'
               : 'text-gray-600 hover:text-gray-900'
           )}
           onClick={() => onModeChange('map')}
@@ -144,6 +149,10 @@ export function ViewModeTabs({
             />
           </svg>
           <span className="text-xs">地図</span>
+          {/* 選択インジケーター - Google Maps風 */}
+          {mode === 'map' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+          )}
         </button>
       </div>
     </div>
