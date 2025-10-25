@@ -102,7 +102,15 @@ export function ShelterMap({
 
   const handleLocationButtonClick = useCallback(() => {
     onGetCurrentPosition?.();
-  }, [onGetCurrentPosition]);
+    // 現在位置が既に取得されている場合は、すぐに地図を中心に移動
+    if (position && map) {
+      map.flyTo({
+        center: [position.longitude, position.latitude],
+        zoom: 15,
+        duration: 1000,
+      });
+    }
+  }, [onGetCurrentPosition, position, map]);
 
   // 現在地を取得したら地図を移動
   useEffect(() => {
@@ -237,8 +245,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - モバイル: 右下（タブバーの上）、PC: 右下 */}
-      <div className="absolute bottom-20 right-4 z-10 lg:bottom-20 lg:right-4">
+      {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + 16px margin）、PC: 右下 */}
+      <div className="absolute bottom-24 right-4 z-10 lg:bottom-20 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}

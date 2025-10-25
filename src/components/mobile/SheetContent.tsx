@@ -83,7 +83,13 @@ export function SheetContent({
             <ShelterList
               shelters={shelters}
               selectedShelterId={selectedShelterId}
-              {...(onShelterSelect && { onShelterSelect })}
+              {...(onShelterSelect && {
+                onShelterSelect: (id: string) => {
+                  onShelterSelect(id);
+                  // リストからアイテムを選択したら地図タブに切り替える
+                  setViewMode('map');
+                },
+              })}
             />
           </div>
         </div>
