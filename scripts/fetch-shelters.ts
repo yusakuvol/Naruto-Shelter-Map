@@ -12,7 +12,12 @@
 
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ShelterGeoJSON, ShelterFeature, DisasterType, ShelterType } from '../src/types/shelter';
+import type {
+  DisasterType,
+  ShelterFeature,
+  ShelterGeoJSON,
+  ShelterType,
+} from '../src/types/shelter';
 
 // 国土地理院 避難所ダウンロードサイト
 // NOTE: 国土地理院は直接APIを提供していないため、以下のサイトから手動ダウンロードが必要
@@ -31,7 +36,8 @@ import type { ShelterGeoJSON, ShelterFeature, DisasterType, ShelterType } from '
 const GSI_SHELTER_DOWNLOAD_SITE = 'https://hinanmap.gsi.go.jp/index.html';
 
 // 鳴門市の行政コード（徳島県鳴門市）
-const NARUTO_CITY_CODE = '36202';
+// NOTE: 現在は住所フィルタリングを使用しているため未使用
+// const NARUTO_CITY_CODE = '36202';
 
 /**
  * 国土地理院からダウンロードした避難所データを読み込む
@@ -70,7 +76,10 @@ function filterNarutoCity(data: unknown): unknown[] {
 
   const geoJSON = data as { type?: string; features?: unknown[] };
 
-  if (geoJSON.type !== 'FeatureCollection' || !Array.isArray(geoJSON.features)) {
+  if (
+    geoJSON.type !== 'FeatureCollection' ||
+    !Array.isArray(geoJSON.features)
+  ) {
     throw new Error('Not a valid GeoJSON FeatureCollection');
   }
 
@@ -146,7 +155,10 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
       if (f.type !== 'Feature' || !f.geometry || !f.properties) return null;
 
       const props = f.properties;
-      const geometry = f.geometry as { type: string; coordinates: [number, number] };
+      const geometry = f.geometry as {
+        type: string;
+        coordinates: [number, number];
+      };
 
       // 座標の取得
       if (geometry.type !== 'Point' || !Array.isArray(geometry.coordinates)) {
@@ -155,10 +167,21 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
 
       // プロパティの抽出（国土地理院の形式に対応）
       const name = (props.name || props.名称 || props.施設名 || '') as string;
-      const address = (props.address || props.住所 || props.所在地 || '') as string;
-      const type = (props.type || props.種別 || props.施設種別 || '両方') as string;
-      const contact = (props.contact || props.連絡先 || props.電話番号 || null) as string | null;
-      const capacity = (props.capacity || props.収容人数 || null) as number | null;
+      const address = (props.address ||
+        props.住所 ||
+        props.所在地 ||
+        '') as string;
+      const type = (props.type ||
+        props.種別 ||
+        props.施設種別 ||
+        '両方') as string;
+      const contact = (props.contact ||
+        props.連絡先 ||
+        props.電話番号 ||
+        null) as string | null;
+      const capacity = (props.capacity || props.収容人数 || null) as
+        | number
+        | null;
 
       // 災害種別の抽出と正規化
       let disasterTypes: DisasterType[] = [];
@@ -230,9 +253,13 @@ async function main(): Promise<void> {
     const inputFilePath = args[0];
 
     if (!inputFilePath) {
-      console.error('❌ 使用方法: pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパス>');
+      console.error(
+        '❌ 使用方法: pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパス>'
+      );
       console.error('');
-      console.error('例: pnpm tsx scripts/fetch-shelters.ts ./downloads/naruto-shelters.geojson');
+      console.error(
+        '例: pnpm tsx scripts/fetch-shelters.ts ./downloads/naruto-shelters.geojson'
+      );
       console.error('');
       console.error('国土地理院からのダウンロード手順:');
       console.error(`1. ${GSI_SHELTER_DOWNLOAD_SITE} にアクセス`);
@@ -261,7 +288,6 @@ async function main(): Promise<void> {
 
     console.log('---');
     console.log('🎉 完了');
-
   } catch (error) {
     console.error('---');
     console.error('❌ エラーが発生しました:', error);
