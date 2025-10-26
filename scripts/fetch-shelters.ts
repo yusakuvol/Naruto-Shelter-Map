@@ -14,6 +14,7 @@ import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import type {
   DisasterType,
+  Shelter,
   ShelterFeature,
   ShelterGeoJSON,
   ShelterType,
@@ -139,7 +140,7 @@ function normalizeShelterType(type: string): ShelterType {
 function normalizeData(features: unknown[]): ShelterFeature[] {
   console.log('🔄 データを正規化中...');
 
-  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+  const today: string = new Date().toISOString().split('T')[0] as string; // YYYY-MM-DD
 
   const normalized = features
     .map((feature, index): ShelterFeature | null => {
@@ -166,11 +167,10 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
       }
 
       // プロパティの抽出（国土地理院の形式に対応）
-      const name = (props.name || props.名称 || props.施設名 || '') as string;
-      const address = (props.address ||
-        props.住所 ||
-        props.所在地 ||
-        '') as string;
+      const name = String(props.name || props.名称 || props.施設名 || '');
+      const address = String(
+        props.address || props.住所 || props.所在地 || ''
+      );
       const type = (props.type ||
         props.種別 ||
         props.施設種別 ||
@@ -178,10 +178,10 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
       const contact = (props.contact ||
         props.連絡先 ||
         props.電話番号 ||
-        null) as string | null;
-      const capacity = (props.capacity || props.収容人数 || null) as
+        undefined) as string | undefined;
+      const capacity = (props.capacity || props.収容人数 || undefined) as
         | number
-        | null;
+        | undefined;
 
       // 災害種別の抽出と正規化
       let disasterTypes: DisasterType[] = [];
@@ -200,23 +200,32 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
         disasterTypes = ['地震']; // デフォルトで地震を設定
       }
 
+      // オプショナルフィールドの処理（exactOptionalPropertyTypes対応）
+      const properties: Omit<Shelter, 'coordinates'> = {
+        id: `shelter-${String(index + 1).padStart(3, '0')}`,
+        name,
+        type: normalizeShelterType(type),
+        address,
+        disasterTypes,
+        source: '国土地理院',
+        updatedAt: today,
+      };
+
+      // オプショナルフィールドは値がある場合のみ設定
+      if (capacity !== undefined) {
+        properties.capacity = capacity;
+      }
+      if (contact !== undefined) {
+        properties.contact = contact;
+      }
+
       return {
         type: 'Feature',
         geometry: {
           type: 'Point',
           coordinates: geometry.coordinates,
         },
-        properties: {
-          id: `shelter-${String(index + 1).padStart(3, '0')}`,
-          name,
-          type: normalizeShelterType(type),
-          address,
-          disasterTypes,
-          capacity,
-          contact,
-          source: '国土地理院',
-          updatedAt: today,
-        },
+        properties,
       };
     })
     .filter((f): f is ShelterFeature => f !== null);
