@@ -166,16 +166,14 @@ on:
 
 ### プロジェクト名の変更
 
-異なるプロジェクト名でデプロイしたい場合、以下を編集：
+異なるプロジェクト名でデプロイしたい場合、`.github/workflows/deploy.yml` の環境変数を編集：
 
 ```yaml
-- name: Deploy to Cloudflare Pages
-  uses: cloudflare/wrangler-action@v3
-  with:
-    apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-    accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-    command: pages deploy out --project-name=your-project-name # 変更
+env:
+  CLOUDFLARE_PROJECT_NAME: your-project-name # ここを変更
 ```
+
+この設定により、デプロイURLやコマンド内のプロジェクト名が自動的に更新されます。
 
 ### 通知の追加
 
