@@ -168,9 +168,7 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
 
       // プロパティの抽出（国土地理院の形式に対応）
       const name = String(props.name || props.名称 || props.施設名 || '');
-      const address = String(
-        props.address || props.住所 || props.所在地 || ''
-      );
+      const address = String(props.address || props.住所 || props.所在地 || '');
       const type = (props.type ||
         props.種別 ||
         props.施設種別 ||
