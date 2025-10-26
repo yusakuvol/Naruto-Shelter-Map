@@ -27,7 +27,6 @@
 
 - [概要](#概要)
 - [主な機能](#主な機能)
-- [スクリーンショット](#スクリーンショット)
 - [データ構造](#データ構造)
 - [セットアップ](#セットアップ)
 - [データ更新フロー](#データ更新フロー)
@@ -44,25 +43,6 @@
 - 📱 **PWA対応** - ホーム画面に追加してアプリのように使用可能
 - 🗺️ **MapLibre GL JS** - オープンソース地図ライブラリで高速レンダリング
 - ♿ **アクセシビリティ** - キーボード操作・スクリーンリーダー対応
-
----
-
-## スクリーンショット
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="./docs/images/screenshot-desktop.png" width="600" alt="デスクトップ画面">
-      <br>
-      <sub>🖥️ デスクトップ表示</sub>
-    </td>
-    <td align="center">
-      <img src="./docs/images/screenshot-mobile.png" width="250" alt="モバイル画面">
-      <br>
-      <sub>📱 モバイル表示</sub>
-    </td>
-  </tr>
-</table>
 
 ---
 
