@@ -60,13 +60,68 @@ async function loadGSIData(filePath: string): Promise<unknown> {
 /**
  * 鳴門市のデータのみをフィルタリング
  */
-function filterNarutoCity(data: unknown): ShelterFeature[] {
+function filterNarutoCity(data: unknown): unknown[] {
   console.log('🔍 鳴門市のデータを抽出中...');
 
-  // TODO: GeoJSONデータから鳴門市のフィーチャーを抽出
-  // 行政コード or 住所で判定
+  // GeoJSON形式のバリデーション
+  if (!data || typeof data !== 'object') {
+    throw new Error('Invalid GeoJSON data');
+  }
 
-  return [];
+  const geoJSON = data as { type?: string; features?: unknown[] };
+
+  if (geoJSON.type !== 'FeatureCollection' || !Array.isArray(geoJSON.features)) {
+    throw new Error('Not a valid GeoJSON FeatureCollection');
+  }
+
+  // 鳴門市のデータを抽出（住所に「鳴門市」を含むもの）
+  const narutoFeatures = geoJSON.features.filter((feature: unknown) => {
+    if (!feature || typeof feature !== 'object') return false;
+
+    const f = feature as { properties?: { address?: string; 住所?: string } };
+    const address = f.properties?.address || f.properties?.住所 || '';
+
+    return address.includes('鳴門市');
+  });
+
+  console.log(`✅ 鳴門市のデータ: ${narutoFeatures.length}件`);
+
+  return narutoFeatures;
+}
+
+/**
+ * 災害種別を正規化
+ */
+function normalizeDisasterType(type: string): DisasterType | null {
+  const mapping: Record<string, DisasterType> = {
+    洪水: '洪水',
+    津波: '津波',
+    土砂災害: '土砂災害',
+    土石流: '土砂災害',
+    がけ崩れ: '土砂災害',
+    地滑り: '土砂災害',
+    地震: '地震',
+    大規模な火事: '火災',
+    火災: '火災',
+  };
+
+  return mapping[type] || null;
+}
+
+/**
+ * 避難所種別を正規化
+ */
+function normalizeShelterType(type: string): ShelterType {
+  if (type.includes('指定避難所') && type.includes('指定緊急避難場所')) {
+    return '両方';
+  }
+  if (type.includes('指定避難所')) {
+    return '指定避難所';
+  }
+  if (type.includes('指定緊急避難場所') || type.includes('緊急避難場所')) {
+    return '緊急避難場所';
+  }
+  return '両方'; // デフォルト
 }
 
 /**
@@ -75,9 +130,77 @@ function filterNarutoCity(data: unknown): ShelterFeature[] {
 function normalizeData(features: unknown[]): ShelterFeature[] {
   console.log('🔄 データを正規化中...');
 
-  // TODO: 国土地理院のデータ形式から本プロジェクトの形式に変換
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
-  return [];
+  const normalized = features
+    .map((feature, index): ShelterFeature | null => {
+      if (!feature || typeof feature !== 'object') return null;
+
+      const f = feature as {
+        type?: string;
+        geometry?: { type?: string; coordinates?: unknown };
+        properties?: Record<string, unknown>;
+      };
+
+      // 基本バリデーション
+      if (f.type !== 'Feature' || !f.geometry || !f.properties) return null;
+
+      const props = f.properties;
+      const geometry = f.geometry as { type: string; coordinates: [number, number] };
+
+      // 座標の取得
+      if (geometry.type !== 'Point' || !Array.isArray(geometry.coordinates)) {
+        return null;
+      }
+
+      // プロパティの抽出（国土地理院の形式に対応）
+      const name = (props.name || props.名称 || props.施設名 || '') as string;
+      const address = (props.address || props.住所 || props.所在地 || '') as string;
+      const type = (props.type || props.種別 || props.施設種別 || '両方') as string;
+      const contact = (props.contact || props.連絡先 || props.電話番号 || null) as string | null;
+      const capacity = (props.capacity || props.収容人数 || null) as number | null;
+
+      // 災害種別の抽出と正規化
+      let disasterTypes: DisasterType[] = [];
+      if (Array.isArray(props.disasterTypes)) {
+        disasterTypes = props.disasterTypes
+          .map((t) => normalizeDisasterType(String(t)))
+          .filter((t): t is DisasterType => t !== null);
+      } else if (Array.isArray(props.災害種別)) {
+        disasterTypes = props.災害種別
+          .map((t) => normalizeDisasterType(String(t)))
+          .filter((t): t is DisasterType => t !== null);
+      }
+
+      // 災害種別が空の場合はスキップ
+      if (disasterTypes.length === 0) {
+        disasterTypes = ['地震']; // デフォルトで地震を設定
+      }
+
+      return {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: geometry.coordinates,
+        },
+        properties: {
+          id: `shelter-${String(index + 1).padStart(3, '0')}`,
+          name,
+          type: normalizeShelterType(type),
+          address,
+          disasterTypes,
+          capacity,
+          contact,
+          source: '国土地理院',
+          updatedAt: today,
+        },
+      };
+    })
+    .filter((f): f is ShelterFeature => f !== null);
+
+  console.log(`✅ 正規化完了: ${normalized.length}件`);
+
+  return normalized;
 }
 
 /**
