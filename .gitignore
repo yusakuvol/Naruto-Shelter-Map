@@ -52,6 +52,12 @@ next-env.d.ts
 # OS
 Thumbs.db
 
+# Development screenshots (keep only in docs/ or specific folders)
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+
 # PWA auto-generated files
 public/sw.js
 public/sw.js.map
