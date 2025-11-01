@@ -13,13 +13,13 @@ interface ShelterCardProps {
 function getShelterTypeColor(type: string): string {
   switch (type) {
     case '指定避難所':
-      return 'bg-blue-100 text-blue-700 border-blue-200';
+      return 'bg-blue-50 text-blue-900 border-blue-200';
     case '緊急避難場所':
-      return 'bg-red-100 text-red-700 border-red-200';
+      return 'bg-red-50 text-red-900 border-red-200';
     case '両方':
-      return 'bg-purple-100 text-purple-700 border-purple-200';
+      return 'bg-purple-50 text-purple-900 border-purple-200';
     default:
-      return 'bg-gray-100 text-gray-700 border-gray-200';
+      return 'bg-gray-50 text-gray-900 border-gray-200';
   }
 }
 
@@ -61,7 +61,7 @@ export function ShelterCard({
       </div>
 
       {/* 住所（常に表示） */}
-      <p className="flex items-start gap-1 text-xs text-gray-600 mb-1">
+      <p className="flex items-start gap-1 text-xs text-gray-700 mb-1">
         <svg
           className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
           fill="none"
@@ -102,7 +102,7 @@ export function ShelterCard({
       )}
 
       {/* 追加情報（コンパクトに1行で表示） */}
-      <div className="flex items-center gap-3 text-xs text-gray-500">
+      <div className="flex items-center gap-3 text-xs text-gray-700">
         {/* 災害種別 */}
         <span className="flex items-center gap-1">
           <svg
