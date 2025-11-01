@@ -11,12 +11,11 @@ import type { FC } from 'react';
  * @see https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
  */
 export const SkipLink: FC = () => {
-	return (
-		<>
-			{/* biome-ignore lint/security/noDangerouslySetInnerHtml: Safe static CSS for skip link styling */}
-			<style
-				dangerouslySetInnerHTML={{
-					__html: `
+  return (
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
 				.skip-link {
 					position: fixed;
 					left: 1rem;
@@ -38,11 +37,11 @@ export const SkipLink: FC = () => {
 					outline-offset: 2px;
 				}
 			`,
-				}}
-			/>
-			<a href="#main-content" className="skip-link">
-				メインコンテンツへスキップ
-			</a>
-		</>
-	);
+        }}
+      />
+      <a href="#main-content" className="skip-link">
+        メインコンテンツへスキップ
+      </a>
+    </>
+  );
 };
