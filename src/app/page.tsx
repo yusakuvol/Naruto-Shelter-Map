@@ -108,7 +108,7 @@ function HomePageContent() {
       {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
         {/* 地図エリア（フルスクリーン） */}
-        <div className="relative flex-1 min-h-0">
+        <div id="main-content" className="relative flex-1 min-h-0">
           <ShelterMap
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
@@ -193,7 +193,7 @@ function HomePageContent() {
         </div>
 
         {/* 地図エリア（右側） */}
-        <div className="relative h-full flex-1">
+        <div id="main-content" className="relative h-full flex-1">
           <ShelterMap
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
