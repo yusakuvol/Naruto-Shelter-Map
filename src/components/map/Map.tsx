@@ -12,6 +12,7 @@ import type {
   GeolocationError,
   GeolocationState,
 } from '@/hooks/useGeolocation';
+import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -160,14 +161,9 @@ export function ShelterMap({
               aria-label={`${shelter.properties.name}（${shelter.properties.type}）`}
               aria-pressed={isSelected}
             >
-              <svg
-                className="h-5 w-5 text-white"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
+              {getShelterIcon(shelter.properties.type, {
+                className: 'h-5 w-5 text-white',
+              })}
             </button>
           </Marker>
         );

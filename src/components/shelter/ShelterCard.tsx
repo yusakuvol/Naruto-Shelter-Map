@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { formatDistance } from '@/lib/geo';
+import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 
 interface ShelterCardProps {
@@ -50,11 +51,12 @@ export function ShelterCard({
         </h3>
         <span
           className={clsx(
-            'rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
+            'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
             typeColor
           )}
         >
-          {type}
+          {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
+          <span>{type}</span>
         </span>
       </div>
 
