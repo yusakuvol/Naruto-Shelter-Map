@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import type { ReactNode } from 'react';
+import { SkipLink } from '@/components/a11y/SkipLink';
 import './globals.css';
 
 const notoSansJP = Noto_Sans_JP({
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja" className={notoSansJP.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <SkipLink />
+        {children}
+      </body>
     </html>
   );
 }
