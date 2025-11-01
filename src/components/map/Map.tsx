@@ -149,22 +149,26 @@ export function ShelterMap({
             anchor="bottom"
             onClick={() => handleMarkerClick(shelter)}
           >
-            <div
-              className={`flex cursor-pointer items-center justify-center rounded-full border-2 shadow-lg transition-all hover:scale-110 ${
+            <button
+              type="button"
+              className={`flex cursor-pointer items-center justify-center rounded-full border-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
                 isSelected
                   ? 'h-10 w-10 border-blue-500 ring-2 ring-blue-300'
                   : 'h-8 w-8 border-white'
               }`}
               style={{ backgroundColor: color }}
+              aria-label={`${shelter.properties.name}（${shelter.properties.type}）`}
+              aria-pressed={isSelected}
             >
               <svg
                 className="h-5 w-5 text-white"
                 fill="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
               </svg>
-            </div>
+            </button>
           </Marker>
         );
       }),
@@ -173,6 +177,13 @@ export function ShelterMap({
 
   return (
     <div className="map-container relative h-full w-full">
+      {/* スクリーンリーダー用の説明 */}
+      <div className="sr-only" role="status" aria-live="polite">
+        地図: 鳴門市の避難所を表示しています。
+        矢印キーで地図を移動、+/-キーでズーム、
+        Tabキーで避難所マーカーを選択できます。
+      </div>
+
       <MapGL
         initialViewState={{
           longitude: 134.609,
@@ -197,11 +208,21 @@ export function ShelterMap({
             latitude={position.latitude}
             anchor="center"
           >
-            <div className="relative flex h-6 w-6 items-center justify-center">
+            <div
+              className="relative flex h-6 w-6 items-center justify-center"
+              role="img"
+              aria-label="現在地"
+            >
               {/* 外側のパルスアニメーション */}
-              <div className="absolute h-6 w-6 animate-ping rounded-full bg-blue-400 opacity-75" />
+              <div
+                className="absolute h-6 w-6 animate-ping rounded-full bg-blue-400 opacity-75"
+                aria-hidden="true"
+              />
               {/* 内側の固定円 */}
-              <div className="relative h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-lg" />
+              <div
+                className="relative h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-lg"
+                aria-hidden="true"
+              />
             </div>
           </Marker>
         )}
