@@ -32,22 +32,16 @@ export function ShelterCard({
   const typeColor = getShelterTypeColor(type);
 
   return (
-    <div
+    <button
+      type="button"
       className={clsx(
-        'cursor-pointer rounded-lg border bg-white p-3 shadow-sm transition-all hover:shadow-md',
+        'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
         onClick && 'hover:border-blue-300',
         isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
       )}
       onClick={onClick}
-      onKeyDown={(e) => {
-        if (onClick && (e.key === 'Enter' || e.key === ' ')) {
-          e.preventDefault();
-          onClick();
-        }
-      }}
-      role="button"
-      tabIndex={0}
       aria-label={`${name}の詳細`}
+      aria-pressed={isSelected}
     >
       {/* ヘッダー: 名前 + タイプバッジ */}
       <div className="mb-1.5 flex items-start justify-between gap-2">
@@ -147,6 +141,6 @@ export function ShelterCard({
           </span>
         )}
       </div>
-    </div>
+    </button>
   );
 }

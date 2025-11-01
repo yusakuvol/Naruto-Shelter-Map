@@ -108,7 +108,7 @@ function HomePageContent() {
       {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
         {/* 地図エリア（フルスクリーン） */}
-        <div id="main-content" className="relative flex-1 min-h-0">
+        <main id="main-content" className="relative flex-1 min-h-0">
           <ShelterMap
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
@@ -120,11 +120,13 @@ function HomePageContent() {
           />
 
           {/* Googleマップ風検索バー */}
-          <MapSearchBar
-            onSearch={setSearchQuery}
-            placeholder="避難所を検索..."
-          />
-        </div>
+          <nav aria-label="避難所検索">
+            <MapSearchBar
+              onSearch={setSearchQuery}
+              placeholder="避難所を検索..."
+            />
+          </nav>
+        </main>
 
         {/* Bottom Sheet */}
         <BottomSheet state={sheetState} onStateChange={setSheetState}>
@@ -152,9 +154,12 @@ function HomePageContent() {
       {/* デスクトップレイアウト（>= 1024px） */}
       <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
         {/* サイドバー（左側） */}
-        <div className="flex h-full w-96 flex-col border-r bg-white">
+        <aside
+          className="flex h-full w-96 flex-col border-r bg-white"
+          aria-label="避難所フィルタとリスト"
+        >
           {/* ヘッダー */}
-          <div className="border-b p-4">
+          <header className="border-b p-4">
             <h1 className="mb-2 text-2xl font-bold text-gray-900">
               鳴門市避難所マップ
             </h1>
@@ -166,12 +171,12 @@ function HomePageContent() {
                 </span>
               )}
             </p>
-          </div>
+          </header>
 
           {/* フィルタ */}
-          <div className="border-b p-4">
+          <nav aria-label="災害種別フィルタ" className="border-b p-4">
             <DisasterTypeFilter />
-          </div>
+          </nav>
 
           {/* ソート切り替え */}
           <div className="border-b p-4">
@@ -183,17 +188,20 @@ function HomePageContent() {
           </div>
 
           {/* 避難所リスト */}
-          <div className="min-h-0 flex-1 overflow-y-auto p-4">
+          <nav
+            aria-label="避難所一覧"
+            className="min-h-0 flex-1 overflow-y-auto p-4"
+          >
             <ShelterList
               shelters={sortedShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
             />
-          </div>
-        </div>
+          </nav>
+        </aside>
 
         {/* 地図エリア（右側） */}
-        <div id="main-content" className="relative h-full flex-1">
+        <main id="main-content" className="relative h-full flex-1">
           <ShelterMap
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
@@ -205,11 +213,13 @@ function HomePageContent() {
           />
 
           {/* Googleマップ風検索バー */}
-          <MapSearchBar
-            onSearch={setSearchQuery}
-            placeholder="避難所を検索..."
-          />
-        </div>
+          <nav aria-label="避難所検索">
+            <MapSearchBar
+              onSearch={setSearchQuery}
+              placeholder="避難所を検索..."
+            />
+          </nav>
+        </main>
       </div>
     </>
   );
