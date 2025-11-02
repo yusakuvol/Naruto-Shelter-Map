@@ -234,10 +234,10 @@ export function ShelterMap({
             className="shelter-popup"
           >
             <div className="p-2">
-              <h3 className="mb-2 font-bold text-gray-900">
+              <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100">
                 {selectedShelter.properties.name}
               </h3>
-              <div className="space-y-1 text-sm text-gray-600">
+              <div className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                 <p>
                   <span className="font-semibold">種別:</span>{' '}
                   {selectedShelter.properties.type}
