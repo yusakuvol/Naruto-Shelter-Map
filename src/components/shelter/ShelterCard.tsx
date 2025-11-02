@@ -13,13 +13,13 @@ interface ShelterCardProps {
 function getShelterTypeColor(type: string): string {
   switch (type) {
     case '指定避難所':
-      return 'bg-blue-50 text-blue-900 border-blue-200';
+      return 'bg-blue-50 text-blue-900 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800';
     case '緊急避難場所':
-      return 'bg-red-50 text-red-900 border-red-200';
+      return 'bg-red-50 text-red-900 border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800';
     case '両方':
-      return 'bg-purple-50 text-purple-900 border-purple-200';
+      return 'bg-purple-50 text-purple-900 border-purple-200 dark:bg-purple-900/20 dark:text-purple-300 dark:border-purple-800';
     default:
-      return 'bg-gray-50 text-gray-900 border-gray-200';
+      return 'bg-gray-50 text-gray-900 border-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700';
   }
 }
 
@@ -36,9 +36,11 @@ export function ShelterCard({
     <button
       type="button"
       className={clsx(
-        'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
-        onClick && 'hover:border-blue-300',
-        isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
+        'w-full cursor-pointer rounded-lg border bg-white dark:bg-gray-800 p-3 shadow-sm text-left transition-all hover:shadow-md',
+        'dark:border-gray-700',
+        onClick && 'hover:border-blue-300 dark:hover:border-blue-600',
+        isSelected &&
+          'ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-600'
       )}
       onClick={onClick}
       aria-label={`${name}の詳細`}
@@ -46,7 +48,7 @@ export function ShelterCard({
     >
       {/* ヘッダー: 名前 + タイプバッジ */}
       <div className="mb-1.5 flex items-start justify-between gap-2">
-        <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">
+        <h3 className="flex-1 text-sm font-bold text-gray-900 dark:text-gray-100 leading-tight">
           {name}
         </h3>
         <span
@@ -61,7 +63,7 @@ export function ShelterCard({
       </div>
 
       {/* 住所（常に表示） */}
-      <p className="flex items-start gap-1 text-xs text-gray-700 mb-1">
+      <p className="flex items-start gap-1 text-xs text-gray-700 dark:text-gray-300 mb-1">
         <svg
           className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
           fill="none"
@@ -87,7 +89,7 @@ export function ShelterCard({
 
       {/* 距離表示（現在地がある場合のみ） */}
       {distance !== null && distance !== undefined && (
-        <p className="flex items-center gap-1 text-xs text-blue-600 font-medium mb-1">
+        <p className="flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 font-medium mb-1">
           <svg
             className="h-3.5 w-3.5 flex-shrink-0"
             fill="currentColor"
@@ -102,7 +104,7 @@ export function ShelterCard({
       )}
 
       {/* 追加情報（コンパクトに1行で表示） */}
-      <div className="flex items-center gap-3 text-xs text-gray-700">
+      <div className="flex items-center gap-3 text-xs text-gray-700 dark:text-gray-300">
         {/* 災害種別 */}
         <span className="flex items-center gap-1">
           <svg
