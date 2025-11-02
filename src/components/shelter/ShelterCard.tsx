@@ -8,6 +8,8 @@ interface ShelterCardProps {
   isSelected?: boolean;
   onClick?: () => void;
   distance?: number | null;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
 function getShelterTypeColor(type: string): string {
@@ -28,8 +30,11 @@ export function ShelterCard({
   isSelected,
   onClick,
   distance,
+  isFavorite = false,
+  onToggleFavorite,
 }: ShelterCardProps) {
-  const { name, type, address, disasterTypes, capacity } = shelter.properties;
+  const { name, type, address, disasterTypes, capacity, id } =
+    shelter.properties;
   const typeColor = getShelterTypeColor(type);
 
   return (
@@ -46,20 +51,65 @@ export function ShelterCard({
       aria-label={`${name}の詳細`}
       aria-pressed={isSelected}
     >
-      {/* ヘッダー: 名前 + タイプバッジ */}
+      {/* ヘッダー: 名前 + タイプバッジ + お気に入りボタン */}
       <div className="mb-1.5 flex items-start justify-between gap-2">
         <h3 className="flex-1 text-sm font-bold text-gray-900 dark:text-gray-100 leading-tight">
           {name}
         </h3>
-        <span
-          className={clsx(
-            'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
-            typeColor
+        <div className="flex items-center gap-1.5">
+          {/* お気に入りボタン */}
+          {onToggleFavorite && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFavorite(id);
+              }}
+              className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+              aria-label={
+                isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
+              }
+            >
+              {isFavorite ? (
+                <svg
+                  className="h-5 w-5 fill-red-500"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-5 w-5 stroke-gray-400 dark:stroke-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              )}
+            </button>
           )}
-        >
-          {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
-          <span>{type}</span>
-        </span>
+          {/* タイプバッジ */}
+          <span
+            className={clsx(
+              'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
+              typeColor
+            )}
+          >
+            {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
+            <span>{type}</span>
+          </span>
+        </div>
       </div>
 
       {/* 住所（常に表示） */}

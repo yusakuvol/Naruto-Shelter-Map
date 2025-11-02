@@ -9,6 +9,7 @@ import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
 import { FilterProvider } from '@/contexts/FilterContext';
+import { useFavorites } from '@/hooks/useFavorites';
 import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useShelters } from '@/hooks/useShelters';
@@ -22,6 +23,7 @@ function HomePageContent() {
     error: geolocationError,
     getCurrentPosition,
   } = useGeolocation();
+  const { favorites, toggleFavorite } = useFavorites();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
@@ -147,6 +149,8 @@ function HomePageContent() {
             sortMode={sortMode}
             onSortModeChange={setSortMode}
             hasPosition={!!position}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
           />
         </BottomSheet>
       </div>
@@ -199,6 +203,8 @@ function HomePageContent() {
               shelters={sortedShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}
             />
           </nav>
         </aside>
