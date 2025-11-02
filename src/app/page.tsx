@@ -159,18 +159,18 @@ function HomePageContent() {
       <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
         {/* サイドバー（左側） */}
         <aside
-          className="flex h-full w-96 flex-col border-r bg-white dark:bg-gray-900 dark:border-gray-700"
+          className="flex h-full w-96 flex-col border-r bg-white"
           aria-label="避難所フィルタとリスト"
         >
           {/* ヘッダー */}
-          <header className="border-b dark:border-gray-700 p-4">
-            <h1 className="mb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
+          <header className="border-b p-4">
+            <h1 className="mb-2 text-2xl font-bold text-gray-900">
               鳴門市避難所マップ
             </h1>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+            <p className="text-sm text-gray-700">
               {filteredShelters.length}件の避難所
               {filteredShelters.length !== allShelters.length && (
-                <span className="ml-1 text-gray-700 dark:text-gray-400">
+                <span className="ml-1 text-gray-700">
                   （全{allShelters.length}件中）
                 </span>
               )}
@@ -178,15 +178,12 @@ function HomePageContent() {
           </header>
 
           {/* フィルタ */}
-          <nav
-            aria-label="災害種別フィルタ"
-            className="border-b dark:border-gray-700 p-4"
-          >
+          <nav aria-label="災害種別フィルタ" className="border-b p-4">
             <DisasterTypeFilter />
           </nav>
 
           {/* ソート切り替え */}
-          <div className="border-b dark:border-gray-700 p-4">
+          <div className="border-b p-4">
             <SortToggle
               mode={sortMode}
               onModeChange={setSortMode}

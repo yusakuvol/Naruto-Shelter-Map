@@ -235,10 +235,10 @@ export function ShelterMap({
             className="shelter-popup"
           >
             <div className="p-3">
-              <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100">
+              <h3 className="mb-2 font-bold text-gray-900">
                 {selectedShelter.properties.name}
               </h3>
-              <div className="space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-3">
+              <div className="space-y-1 text-sm text-gray-700 mb-3">
                 <p>
                   <span className="font-semibold">種別:</span>{' '}
                   {selectedShelter.properties.type}
@@ -269,7 +269,7 @@ export function ShelterMap({
                   );
                   window.open(url, '_blank', 'noopener,noreferrer');
                 }}
-                className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={`${selectedShelter.properties.name}への経路案内`}
               >
                 <svg

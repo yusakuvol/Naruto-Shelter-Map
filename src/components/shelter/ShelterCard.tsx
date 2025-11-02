@@ -21,13 +21,13 @@ interface ShelterCardProps {
 function getShelterTypeColor(type: string): string {
   switch (type) {
     case '指定避難所':
-      return 'bg-blue-50 text-blue-900 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800';
+      return 'bg-blue-50 text-blue-900 border-blue-200';
     case '緊急避難場所':
-      return 'bg-red-50 text-red-900 border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800';
+      return 'bg-red-50 text-red-900 border-red-200';
     case '両方':
-      return 'bg-purple-50 text-purple-900 border-purple-200 dark:bg-purple-900/20 dark:text-purple-300 dark:border-purple-800';
+      return 'bg-purple-50 text-purple-900 border-purple-200';
     default:
-      return 'bg-gray-50 text-gray-900 border-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700';
+      return 'bg-gray-50 text-gray-900 border-gray-200';
   }
 }
 
@@ -47,11 +47,9 @@ export function ShelterCard({
     <button
       type="button"
       className={clsx(
-        'w-full cursor-pointer rounded-lg border bg-white dark:bg-gray-800 p-3 shadow-sm text-left transition-all hover:shadow-md',
-        'dark:border-gray-700',
-        onClick && 'hover:border-blue-300 dark:hover:border-blue-600',
-        isSelected &&
-          'ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-600'
+        'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
+        onClick && 'hover:border-blue-300',
+        isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
       )}
       onClick={onClick}
       aria-label={`${name}の詳細`}
@@ -59,7 +57,7 @@ export function ShelterCard({
     >
       {/* ヘッダー: 名前 + タイプバッジ + お気に入りボタン */}
       <div className="mb-1.5 flex items-start justify-between gap-2">
-        <h3 className="flex-1 text-sm font-bold text-gray-900 dark:text-gray-100 leading-tight">
+        <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">
           {name}
         </h3>
         <div className="flex items-center gap-1.5">
@@ -71,7 +69,7 @@ export function ShelterCard({
                 e.stopPropagation();
                 onToggleFavorite(id);
               }}
-              className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+              className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
               aria-label={
                 isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
               }
@@ -90,7 +88,7 @@ export function ShelterCard({
                 </svg>
               ) : (
                 <svg
-                  className="h-5 w-5 stroke-gray-400 dark:stroke-gray-500"
+                  className="h-5 w-5 stroke-gray-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={2}
@@ -119,7 +117,7 @@ export function ShelterCard({
       </div>
 
       {/* 住所（常に表示） */}
-      <p className="flex items-start gap-1 text-xs text-gray-700 dark:text-gray-300 mb-1">
+      <p className="flex items-start gap-1 text-xs text-gray-700 mb-1">
         <svg
           className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
           fill="none"
@@ -145,7 +143,7 @@ export function ShelterCard({
 
       {/* 距離表示（現在地がある場合のみ） */}
       {distance !== null && distance !== undefined && (
-        <p className="flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 font-medium mb-1">
+        <p className="flex items-center gap-1 text-xs text-blue-600 font-medium mb-1">
           <svg
             className="h-3.5 w-3.5 flex-shrink-0"
             fill="currentColor"
@@ -160,7 +158,7 @@ export function ShelterCard({
       )}
 
       {/* 追加情報（コンパクトに1行で表示） */}
-      <div className="flex items-center gap-3 text-xs text-gray-700 dark:text-gray-300 mb-2">
+      <div className="flex items-center gap-3 text-xs text-gray-700 mb-2">
         {/* 災害種別 */}
         <span className="flex items-center gap-1">
           <svg
@@ -204,7 +202,7 @@ export function ShelterCard({
 
       {/* 経路案内ボタン（距離がある場合のみ） */}
       {distance !== null && distance !== undefined && (
-        <div className="flex items-center gap-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex items-center gap-2 pt-2 border-t border-gray-200">
           <button
             type="button"
             onClick={(e) => {
@@ -217,7 +215,7 @@ export function ShelterCard({
               );
               window.open(url, '_blank', 'noopener,noreferrer');
             }}
-            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
             aria-label={`${name}への経路案内`}
           >
             <svg
@@ -236,14 +234,14 @@ export function ShelterCard({
             </svg>
             <span className="truncate">経路案内</span>
           </button>
-          <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+          <div className="flex items-center gap-2 text-xs text-gray-600">
             <span
               className="whitespace-nowrap"
               title={`徒歩: ${formatTravelTime(estimateWalkingTime(distance))}`}
             >
               🚶 {formatTravelTime(estimateWalkingTime(distance))}
             </span>
-            <span className="text-gray-400 dark:text-gray-600">|</span>
+            <span className="text-gray-400">|</span>
             <span
               className="whitespace-nowrap"
               title={`車: ${formatTravelTime(estimateDrivingTime(distance))}`}
