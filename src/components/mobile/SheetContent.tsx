@@ -22,6 +22,8 @@ interface SheetContentProps {
   sortMode?: SortMode;
   onSortModeChange?: (mode: SortMode) => void;
   hasPosition?: boolean;
+  favorites?: Set<string>;
+  onToggleFavorite?: (id: string) => void;
 }
 
 export function SheetContent({
@@ -34,6 +36,8 @@ export function SheetContent({
   sortMode = 'name',
   onSortModeChange,
   hasPosition = false,
+  favorites,
+  onToggleFavorite,
 }: SheetContentProps) {
   const id = useId();
   const [viewMode, setViewMode] = useState<ViewMode>('list');
@@ -90,6 +94,8 @@ export function SheetContent({
                   setViewMode('map');
                 },
               })}
+              {...(favorites && { favorites })}
+              {...(onToggleFavorite && { onToggleFavorite })}
             />
           </div>
         </div>

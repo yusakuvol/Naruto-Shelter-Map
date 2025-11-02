@@ -11,6 +11,8 @@ interface ShelterListProps {
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
   onShelterClick?: (shelter: ShelterFeature) => void;
+  favorites?: Set<string>;
+  onToggleFavorite?: (id: string) => void;
 }
 
 export function ShelterList({
@@ -18,6 +20,8 @@ export function ShelterList({
   selectedShelterId,
   onShelterSelect,
   onShelterClick,
+  favorites,
+  onToggleFavorite,
 }: ShelterListProps) {
   if (shelters.length === 0) {
     return (
@@ -54,6 +58,8 @@ export function ShelterList({
             onShelterSelect?.(shelter.properties.id);
             onShelterClick?.(shelter);
           }}
+          isFavorite={favorites ? favorites.has(shelter.properties.id) : false}
+          {...(onToggleFavorite && { onToggleFavorite })}
         />
       ))}
     </div>
