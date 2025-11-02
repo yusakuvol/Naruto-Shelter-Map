@@ -1,5 +1,11 @@
 import { clsx } from 'clsx';
 import { formatDistance } from '@/lib/geo';
+import {
+  estimateDrivingTime,
+  estimateWalkingTime,
+  formatTravelTime,
+  generateNavigationURL,
+} from '@/lib/navigation';
 import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 
@@ -154,7 +160,7 @@ export function ShelterCard({
       )}
 
       {/* 追加情報（コンパクトに1行で表示） */}
-      <div className="flex items-center gap-3 text-xs text-gray-700 dark:text-gray-300">
+      <div className="flex items-center gap-3 text-xs text-gray-700 dark:text-gray-300 mb-2">
         {/* 災害種別 */}
         <span className="flex items-center gap-1">
           <svg
@@ -195,6 +201,58 @@ export function ShelterCard({
           </span>
         )}
       </div>
+
+      {/* 経路案内ボタン（距離がある場合のみ） */}
+      {distance !== null && distance !== undefined && (
+        <div className="flex items-center gap-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              const [lng, lat] = shelter.geometry.coordinates;
+              const url = generateNavigationURL(
+                { latitude: lat, longitude: lng },
+                undefined,
+                'walking'
+              );
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }}
+            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+            aria-label={`${name}への経路案内`}
+          >
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+              />
+            </svg>
+            <span className="truncate">経路案内</span>
+          </button>
+          <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+            <span
+              className="whitespace-nowrap"
+              title={`徒歩: ${formatTravelTime(estimateWalkingTime(distance))}`}
+            >
+              🚶 {formatTravelTime(estimateWalkingTime(distance))}
+            </span>
+            <span className="text-gray-400 dark:text-gray-600">|</span>
+            <span
+              className="whitespace-nowrap"
+              title={`車: ${formatTravelTime(estimateDrivingTime(distance))}`}
+            >
+              🚗 {formatTravelTime(estimateDrivingTime(distance))}
+            </span>
+          </div>
+        </div>
+      )}
     </button>
   );
 }
