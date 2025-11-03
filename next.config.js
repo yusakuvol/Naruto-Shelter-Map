@@ -59,6 +59,10 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
+  // Turbopack設定（Next.js 16+）
+  // 空のturbopack設定でwebpack設定との共存エラーを回避
+  turbopack: {},
+
   // Webpack設定（MapLibre GL JS用）
   webpack: (config, { isServer }) => {
     // MapLibre GL JSのcanvasモジュールをIgnore（サーバー側でエラーになるため）
