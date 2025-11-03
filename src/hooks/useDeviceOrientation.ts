@@ -60,11 +60,7 @@ export function useDeviceOrientation(): UseDeviceOrientationReturn {
 
   // ブラウザ対応チェック
   const isSupported =
-    typeof window !== 'undefined' &&
-    'DeviceOrientationEvent' in window &&
-    // @ts-expect-error - webkitCompassHeadingはiOS Safari固有
-    ('ondeviceorientationabsolute' in window ||
-      'webkitCompassHeading' in window.DeviceOrientationEvent.prototype);
+    typeof window !== 'undefined' && 'DeviceOrientationEvent' in window;
 
   /**
    * Device Orientationイベントハンドラ
@@ -106,14 +102,15 @@ export function useDeviceOrientation(): UseDeviceOrientationReturn {
 
     try {
       // iOS 13+: 明示的な許可が必要
+      // biome-ignore lint/suspicious/noExplicitAny: iOS Safari固有のrequestPermission APIのため
+      const DeviceOrientationEventAny = DeviceOrientationEvent as any;
+
       if (
         typeof DeviceOrientationEvent !== 'undefined' &&
-        // @ts-expect-error - requestPermissionはiOS Safari固有
-        typeof DeviceOrientationEvent.requestPermission === 'function'
+        typeof DeviceOrientationEventAny.requestPermission === 'function'
       ) {
-        // @ts-expect-error - requestPermissionはiOS Safari固有
         const permissionState =
-          await DeviceOrientationEvent.requestPermission();
+          await DeviceOrientationEventAny.requestPermission();
 
         if (permissionState === 'granted') {
           setState('granted');
