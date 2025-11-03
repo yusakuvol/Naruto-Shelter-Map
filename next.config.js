@@ -60,8 +60,10 @@ const nextConfig = {
   },
 
   // FIXME: Next.js 16のTurbopackでnext/font/googleに問題があるため
-  // 当面はwebpack専用で運用（Issue #107参照）
+  // 空のturbopack設定でwebpackとの共存エラーを回避
   // https://github.com/vercel/next.js/issues/71920
+  // TODO: Turbopackでフォント問題が解決したらwebpack設定を削除（Issue #107）
+  turbopack: {},
 
   // Webpack設定（MapLibre GL JS用）
   webpack: (config, { isServer }) => {
