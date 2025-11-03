@@ -59,9 +59,9 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
-  // Turbopack設定（Next.js 16+）
-  // 空のturbopack設定でwebpack設定との共存エラーを回避
-  turbopack: {},
+  // FIXME: Next.js 16のTurbopackでnext/font/googleに問題があるため
+  // 当面はwebpack専用で運用（Issue #107参照）
+  // https://github.com/vercel/next.js/issues/71920
 
   // Webpack設定（MapLibre GL JS用）
   webpack: (config, { isServer }) => {
