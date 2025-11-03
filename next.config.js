@@ -60,10 +60,11 @@ const nextConfig = {
   },
 
   // FIXME: Next.js 16のTurbopackでnext/font/googleに問題があるため
-  // 空のturbopack設定でwebpackとの共存エラーを回避
+  // 環境変数でTurbopackを無効化できるようにする
+  // Cloudflare Pagesでは DISABLE_TURBOPACK=1 を設定
   // https://github.com/vercel/next.js/issues/71920
   // TODO: Turbopackでフォント問題が解決したらwebpack設定を削除（Issue #107）
-  turbopack: {},
+  ...(process.env.DISABLE_TURBOPACK !== '1' && { turbopack: {} }),
 
   // Webpack設定（MapLibre GL JS用）
   webpack: (config, { isServer }) => {
