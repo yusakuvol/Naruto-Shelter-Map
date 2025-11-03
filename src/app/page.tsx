@@ -151,6 +151,7 @@ function HomePageContent() {
             hasPosition={!!position}
             favorites={favorites}
             onToggleFavorite={toggleFavorite}
+            userPosition={position}
           />
         </BottomSheet>
       </div>
@@ -202,6 +203,7 @@ function HomePageContent() {
               onShelterSelect={setSelectedShelterId}
               favorites={favorites}
               onToggleFavorite={toggleFavorite}
+              userPosition={position}
             />
           </nav>
         </aside>
