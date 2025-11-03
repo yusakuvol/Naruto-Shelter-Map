@@ -22,7 +22,7 @@ interface ShelterCardProps {
   distance?: number | null;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
-  userPosition?: Coordinates | null;
+  userPosition?: Coordinates | null | undefined;
 }
 
 function getShelterTypeColor(type: string): string {

@@ -1,3 +1,4 @@
+import type { Coordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 import { ShelterCard } from './ShelterCard';
 
@@ -13,6 +14,7 @@ interface ShelterListProps {
   onShelterClick?: (shelter: ShelterFeature) => void;
   favorites?: Set<string>;
   onToggleFavorite?: (id: string) => void;
+  userPosition?: Coordinates | null | undefined;
 }
 
 export function ShelterList({
@@ -22,6 +24,7 @@ export function ShelterList({
   onShelterClick,
   favorites,
   onToggleFavorite,
+  userPosition,
 }: ShelterListProps) {
   if (shelters.length === 0) {
     return (
@@ -60,6 +63,7 @@ export function ShelterList({
           }}
           isFavorite={favorites ? favorites.has(shelter.properties.id) : false}
           {...(onToggleFavorite && { onToggleFavorite })}
+          userPosition={userPosition}
         />
       ))}
     </div>

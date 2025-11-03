@@ -4,6 +4,7 @@ import { useId, useState } from 'react';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
+import type { Coordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 import { type ViewMode, ViewModeTabs } from './ViewModeTabs';
 
@@ -24,6 +25,7 @@ interface SheetContentProps {
   hasPosition?: boolean;
   favorites?: Set<string>;
   onToggleFavorite?: (id: string) => void;
+  userPosition?: Coordinates | null | undefined;
 }
 
 export function SheetContent({
@@ -38,6 +40,7 @@ export function SheetContent({
   hasPosition = false,
   favorites,
   onToggleFavorite,
+  userPosition,
 }: SheetContentProps) {
   const id = useId();
   const [viewMode, setViewMode] = useState<ViewMode>('list');
@@ -96,6 +99,7 @@ export function SheetContent({
               })}
               {...(favorites && { favorites })}
               {...(onToggleFavorite && { onToggleFavorite })}
+              userPosition={userPosition}
             />
           </div>
         </div>
