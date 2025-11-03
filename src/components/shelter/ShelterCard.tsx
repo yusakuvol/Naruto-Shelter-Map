@@ -1,5 +1,11 @@
 import { clsx } from 'clsx';
-import { formatDistance } from '@/lib/geo';
+import type { Coordinates } from '@/lib/geo';
+import {
+  calculateBearing,
+  formatDistance,
+  getCompassDirection,
+  getJapaneseDirection,
+} from '@/lib/geo';
 import {
   estimateDrivingTime,
   estimateWalkingTime,
@@ -16,6 +22,7 @@ interface ShelterCardProps {
   distance?: number | null;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
+  userPosition?: Coordinates | null;
 }
 
 function getShelterTypeColor(type: string): string {
@@ -38,10 +45,24 @@ export function ShelterCard({
   distance,
   isFavorite = false,
   onToggleFavorite,
+  userPosition,
 }: ShelterCardProps) {
   const { name, type, address, disasterTypes, capacity, id } =
     shelter.properties;
   const typeColor = getShelterTypeColor(type);
+
+  // 方位角と方向を計算
+  const bearing =
+    userPosition && shelter.geometry.coordinates
+      ? calculateBearing(userPosition, {
+          latitude: shelter.geometry.coordinates[1],
+          longitude: shelter.geometry.coordinates[0],
+        })
+      : null;
+
+  const direction = bearing !== null ? getCompassDirection(bearing) : null;
+  const directionJa =
+    direction !== null ? getJapaneseDirection(direction) : null;
 
   return (
     <button
@@ -141,7 +162,7 @@ export function ShelterCard({
         <span className="flex-1 leading-tight">{address}</span>
       </p>
 
-      {/* 距離表示（現在地がある場合のみ） */}
+      {/* 距離・方向表示（現在地がある場合のみ） */}
       {distance !== null && distance !== undefined && (
         <p className="flex items-center gap-1 text-xs text-blue-600 font-medium mb-1">
           <svg
@@ -153,7 +174,12 @@ export function ShelterCard({
             {/* Material Design my_location icon */}
             <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
           </svg>
-          <span>{formatDistance(distance)}</span>
+          <span>
+            {formatDistance(distance)}
+            {directionJa && (
+              <span className="ml-1 text-gray-600">({directionJa})</span>
+            )}
+          </span>
         </p>
       )}
 
