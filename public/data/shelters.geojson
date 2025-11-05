@@ -18,10 +18,30 @@
         "disasterTypes": [
           "地震"
         ],
-        "capacity": null,
+        "capacity": 500,
         "contact": "088-684-1330",
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-10-19",
+        "facilities": {
+          "toilet": true,
+          "water": true,
+          "electricity": true,
+          "heating": true,
+          "airConditioning": true,
+          "wifi": true
+        },
+        "accessibility": {
+          "wheelchairAccessible": true,
+          "elevator": true,
+          "multipurposeToilet": true,
+          "brailleBlocks": false,
+          "signLanguageSupport": false
+        },
+        "pets": {
+          "allowed": true,
+          "separateArea": true,
+          "notes": "ペット専用スペースあり（屋外）"
+        }
       }
     },
     {
