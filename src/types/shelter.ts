@@ -9,6 +9,47 @@ export type ShelterType = '指定避難所' | '緊急避難場所' | '両方';
 export type DisasterType = '洪水' | '津波' | '土砂災害' | '地震' | '火災';
 
 /**
+ * 設備情報
+ */
+export interface Facilities {
+  toilet?: boolean;
+  water?: boolean;
+  electricity?: boolean;
+  heating?: boolean;
+  airConditioning?: boolean;
+  wifi?: boolean;
+}
+
+/**
+ * バリアフリー情報
+ */
+export interface Accessibility {
+  wheelchairAccessible?: boolean;
+  elevator?: boolean;
+  multipurposeToilet?: boolean;
+  brailleBlocks?: boolean;
+  signLanguageSupport?: boolean;
+}
+
+/**
+ * ペット情報
+ */
+export interface PetPolicy {
+  allowed?: boolean;
+  separateArea?: boolean;
+  notes?: string;
+}
+
+/**
+ * 開設状況
+ */
+export interface OperationStatus {
+  isOpen?: boolean;
+  lastUpdated?: string;
+  notes?: string;
+}
+
+/**
  * 避難所情報
  */
 export interface Shelter {
@@ -22,6 +63,12 @@ export interface Shelter {
   contact?: string;
   source: string;
   updatedAt: string;
+  // 拡張情報（Phase 8.3）
+  facilities?: Facilities;
+  accessibility?: Accessibility;
+  pets?: PetPolicy;
+  operationStatus?: OperationStatus;
+  photos?: string[];
 }
 
 /**
