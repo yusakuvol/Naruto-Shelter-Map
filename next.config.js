@@ -59,7 +59,18 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
-  // Webpack設定（MapLibre GL JS用）
+  // Turbopack設定（Next.js 15.5+）
+  turbopack: {
+    // MapLibre GL JSの互換性設定
+    resolveAlias: {
+      // クライアント側でNode.js組み込みモジュールを無効化
+      fs: './empty.js',
+      net: './empty.js',
+      tls: './empty.js',
+    },
+  },
+
+  // Webpack設定（本番ビルド用: next buildはまだwebpack使用）
   webpack: (config, { isServer }) => {
     // MapLibre GL JSのcanvasモジュールをIgnore（サーバー側でエラーになるため）
     if (!isServer) {
