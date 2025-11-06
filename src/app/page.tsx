@@ -6,6 +6,7 @@ import { ShelterMap } from '@/components/map/Map';
 import { MapSearchBar } from '@/components/map/MapSearchBar';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
+import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
 import { FilterProvider } from '@/contexts/FilterContext';
@@ -14,6 +15,7 @@ import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useShelters } from '@/hooks/useShelters';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
+import type { ShelterFeature } from '@/types/shelter';
 
 function HomePageContent() {
   const { data, isLoading, error } = useShelters();
@@ -30,6 +32,8 @@ function HomePageContent() {
   );
   const [searchQuery, setSearchQuery] = useState('');
   const [sortMode, setSortMode] = useState<SortMode>('name');
+  const [detailModalShelter, setDetailModalShelter] =
+    useState<ShelterFeature | null>(null);
 
   const allShelters = data?.features ?? [];
   const filteredShelters = useFilteredShelters(allShelters);
@@ -115,6 +119,7 @@ function HomePageContent() {
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
+            onShowDetail={setDetailModalShelter}
             position={position}
             geolocationState={geolocationState}
             geolocationError={geolocationError}
@@ -214,6 +219,7 @@ function HomePageContent() {
             shelters={searchedShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
+            onShowDetail={setDetailModalShelter}
             position={position}
             geolocationState={geolocationState}
             geolocationError={geolocationError}
@@ -229,6 +235,26 @@ function HomePageContent() {
           </nav>
         </main>
       </div>
+
+      {/* 詳細モーダル（マップポップアップから開く） */}
+      {detailModalShelter && (
+        <ShelterDetailModal
+          shelter={detailModalShelter}
+          isOpen={!!detailModalShelter}
+          onClose={() => setDetailModalShelter(null)}
+          distance={
+            position
+              ? calculateDistance(
+                  position,
+                  toCoordinates(detailModalShelter.geometry.coordinates)
+                )
+              : null
+          }
+          userPosition={position}
+          isFavorite={favorites.has(detailModalShelter.properties.id)}
+          onToggleFavorite={toggleFavorite}
+        />
+      )}
     </>
   );
 }
