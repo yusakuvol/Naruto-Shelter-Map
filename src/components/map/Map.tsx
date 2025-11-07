@@ -22,6 +22,7 @@ interface MapProps {
   shelters: ShelterFeature[];
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
+  onShowDetail?: (shelter: ShelterFeature) => void;
   position?: Coordinates | null;
   geolocationState?: GeolocationState;
   geolocationError?: GeolocationError | null;
@@ -75,6 +76,7 @@ export function ShelterMap({
   shelters,
   selectedShelterId,
   onShelterSelect,
+  onShowDetail,
   position: externalPosition,
   geolocationState,
   geolocationError,
@@ -258,36 +260,62 @@ export function ShelterMap({
                   </p>
                 )}
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  const [lng, lat] = selectedShelter.geometry.coordinates;
-                  const url = generateNavigationURL(
-                    { latitude: lat, longitude: lng },
-                    undefined,
-                    'walking'
-                  );
-                  window.open(url, '_blank', 'noopener,noreferrer');
-                }}
-                className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-                aria-label={`${selectedShelter.properties.name}への経路案内`}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+              <div className="flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onShowDetail?.(selectedShelter);
+                  }}
+                  className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                  aria-label={`${selectedShelter.properties.name}の詳細を見る`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-                <span>経路案内を開く</span>
-              </button>
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span>詳細を見る</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const [lng, lat] = selectedShelter.geometry.coordinates;
+                    const url = generateNavigationURL(
+                      { latitude: lat, longitude: lng },
+                      undefined,
+                      'walking'
+                    );
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }}
+                  className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                  aria-label={`${selectedShelter.properties.name}への経路案内`}
+                >
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                    />
+                  </svg>
+                  <span>経路案内を開く</span>
+                </button>
+              </div>
             </div>
           </Popup>
         )}
