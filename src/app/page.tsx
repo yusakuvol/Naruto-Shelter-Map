@@ -1,10 +1,10 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
-import { ShelterMap } from '@/components/map/Map';
 import { MapSearchBar } from '@/components/map/MapSearchBar';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
@@ -18,6 +18,23 @@ import { useGeolocation } from '@/hooks/useGeolocation';
 import { useShelters } from '@/hooks/useShelters';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
+
+// 地図コンポーネントを動的インポート（LCP改善のため）
+const ShelterMap = dynamic(
+  () =>
+    import('@/components/map/Map').then((mod) => ({ default: mod.ShelterMap })),
+  {
+    ssr: false, // 地図はクライアントサイドのみで動作
+    loading: () => (
+      <div className="flex h-full w-full items-center justify-center bg-gray-100">
+        <div className="text-center">
+          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
+          <p className="mt-4 text-gray-600">地図を読み込んでいます...</p>
+        </div>
+      </div>
+    ),
+  }
+);
 
 function HomePageContent() {
   const { data, isLoading, error, retry } = useShelters();
