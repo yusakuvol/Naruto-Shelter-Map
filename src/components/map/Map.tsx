@@ -284,6 +284,7 @@ export function ShelterMap({
   return (
     <div className="map-container relative h-full w-full">
       {/* スクリーンリーダー用の説明 */}
+      {/* biome-ignore lint/a11y/useSemanticElements: スクリーンリーダー用のステータス表示のためrole="status"が適切 */}
       <div className="sr-only" role="status" aria-live="polite">
         地図: 鳴門市の避難所を表示しています。
         矢印キーで地図を移動、+/-キーでズーム、

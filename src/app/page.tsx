@@ -1,6 +1,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { ErrorBoundary } from '@/components/error/ErrorBoundary';
+import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterMap } from '@/components/map/Map';
 import { MapSearchBar } from '@/components/map/MapSearchBar';
@@ -18,7 +20,7 @@ import { calculateDistance, toCoordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 
 function HomePageContent() {
-  const { data, isLoading, error } = useShelters();
+  const { data, isLoading, error, retry } = useShelters();
   const {
     position,
     state: geolocationState,
@@ -87,13 +89,8 @@ function HomePageContent() {
 
   if (error) {
     return (
-      <div className="flex min-h-screen items-center justify-center p-6">
-        <div className="max-w-md text-center">
-          <h2 className="text-2xl font-bold text-red-600">
-            エラーが発生しました
-          </h2>
-          <p className="mt-4 text-gray-600">{error.message}</p>
-        </div>
+      <div className="flex min-h-screen items-center justify-center">
+        <NetworkError message={error.message} onRetry={retry} />
       </div>
     );
   }
@@ -261,8 +258,10 @@ function HomePageContent() {
 
 export default function HomePage() {
   return (
-    <FilterProvider>
-      <HomePageContent />
-    </FilterProvider>
+    <ErrorBoundary>
+      <FilterProvider>
+        <HomePageContent />
+      </FilterProvider>
+    </ErrorBoundary>
   );
 }
