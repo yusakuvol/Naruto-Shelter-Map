@@ -12,10 +12,12 @@ import type {
   GeolocationError,
   GeolocationState,
 } from '@/hooks/useGeolocation';
+import { useMapStyle } from '@/hooks/useMapStyle';
 import { generateNavigationURL } from '@/lib/navigation';
 import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
+import { MapStyleSwitcher } from './MapStyleSwitcher';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
@@ -86,6 +88,7 @@ export function ShelterMap({
     null
   );
   const { current: map } = useMap();
+  const { styleType, styleUrl, setStyleType } = useMapStyle();
 
   // 外部から渡された位置情報を使用、なければフォールバック
   const position = externalPosition ?? null;
@@ -190,7 +193,7 @@ export function ShelterMap({
           zoom: 12,
         }}
         style={{ width: '100%', height: '100%' }}
-        mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
+        mapStyle={styleUrl}
       >
         <MapController
           selectedShelterId={selectedShelterId}
@@ -320,6 +323,14 @@ export function ShelterMap({
           </Popup>
         )}
       </MapGL>
+
+      {/* 地図スタイル切り替えボタン - 右上 */}
+      <div className="absolute top-4 right-4 z-10">
+        <MapStyleSwitcher
+          currentStyle={styleType}
+          onStyleChange={setStyleType}
+        />
+      </div>
 
       {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + 16px margin）、PC: 右下 */}
       <div className="absolute bottom-24 right-4 z-10 lg:bottom-20 lg:right-4">
