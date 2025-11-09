@@ -38,13 +38,13 @@ interface MapProps {
 function getShelterColor(type: string): string {
   switch (type) {
     case '指定避難所':
-      return '#3b82f6'; // 青
+      return '#2563eb'; // 青（blue-600）
     case '緊急避難場所':
-      return '#ef4444'; // 赤
+      return '#dc2626'; // 赤（red-600）
     case '両方':
-      return '#8b5cf6'; // 紫
+      return '#7c3aed'; // 紫（violet-600）
     default:
-      return '#6b7280'; // グレー
+      return '#4b5563'; // グレー（gray-600）
   }
 }
 

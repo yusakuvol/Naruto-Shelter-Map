@@ -38,7 +38,7 @@ function getShelterTypeColor(type: string): string {
     case '緊急避難場所':
       return 'bg-red-50 text-red-900 border-red-200';
     case '両方':
-      return 'bg-purple-50 text-purple-900 border-purple-200';
+      return 'bg-purple-50 text-purple-950 border-purple-200';
     default:
       return 'bg-gray-50 text-gray-900 border-gray-200';
   }
@@ -156,7 +156,7 @@ export function ShelterCard({
         </div>
 
         {/* 住所（常に表示） */}
-        <p className="flex items-start gap-1 text-xs text-gray-700 mb-1">
+        <p className="flex items-start gap-1 text-sm text-gray-800 mb-1">
           <svg
             className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
             fill="none"
@@ -182,7 +182,7 @@ export function ShelterCard({
 
         {/* 距離・方向表示（現在地がある場合のみ） */}
         {distance !== null && distance !== undefined && (
-          <p className="flex items-center gap-1 text-xs text-blue-600 font-medium mb-1">
+          <p className="flex items-center gap-1 text-sm text-blue-700 font-medium mb-1">
             {/* コンパス矢印（デバイスの向きが取得できている場合） */}
             {orientationState === 'granted' && deviceHeading !== null ? (
               <CompassArrow
@@ -205,14 +205,14 @@ export function ShelterCard({
             <span>
               {formatDistance(distance)}
               {directionJa && (
-                <span className="ml-1 text-gray-600">({directionJa})</span>
+                <span className="ml-1 text-gray-700">({directionJa})</span>
               )}
             </span>
           </p>
         )}
 
         {/* 追加情報（コンパクトに1行で表示） */}
-        <div className="flex items-center gap-3 text-xs text-gray-700 mb-2">
+        <div className="flex items-center gap-3 text-sm text-gray-800 mb-2">
           {/* 災害種別 */}
           <span className="flex items-center gap-1">
             <svg
@@ -317,14 +317,14 @@ export function ShelterCard({
                 </svg>
                 <span className="truncate">経路案内</span>
               </button>
-              <div className="flex items-center gap-2 text-xs text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-gray-700">
                 <span
                   className="whitespace-nowrap"
                   title={`徒歩: ${formatTravelTime(estimateWalkingTime(distance))}`}
                 >
                   🚶 {formatTravelTime(estimateWalkingTime(distance))}
                 </span>
-                <span className="text-gray-400">|</span>
+                <span className="text-gray-500">|</span>
                 <span
                   className="whitespace-nowrap"
                   title={`車: ${formatTravelTime(estimateDrivingTime(distance))}`}
