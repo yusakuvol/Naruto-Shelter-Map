@@ -21,13 +21,13 @@ interface ShelterDetailModalProps {
 function getShelterTypeColor(type: string): string {
   switch (type) {
     case '指定避難所':
-      return 'bg-blue-50 text-blue-700 border-blue-200';
+      return 'bg-blue-50 text-blue-800 border-blue-200';
     case '緊急避難場所':
-      return 'bg-red-50 text-red-700 border-red-200';
+      return 'bg-red-50 text-red-800 border-red-200';
     case '両方':
-      return 'bg-purple-50 text-purple-700 border-purple-200';
+      return 'bg-purple-50 text-purple-900 border-purple-200';
     default:
-      return 'bg-gray-50 text-gray-700 border-gray-200';
+      return 'bg-gray-50 text-gray-800 border-gray-200';
   }
 }
 
@@ -549,12 +549,12 @@ export function ShelterDetailModal({
                       ペット同伴可
                     </p>
                     {shelter.properties.pets.separateArea && (
-                      <p className="mt-1 text-xs text-green-700">
+                      <p className="mt-1 text-sm text-green-800">
                         専用スペースあり
                       </p>
                     )}
                     {shelter.properties.pets.notes && (
-                      <p className="mt-1 text-xs text-green-700">
+                      <p className="mt-1 text-sm text-green-800">
                         {shelter.properties.pets.notes}
                       </p>
                     )}
@@ -573,7 +573,7 @@ export function ShelterDetailModal({
                       ペット同伴不可
                     </p>
                     {shelter.properties.pets.notes && (
-                      <p className="mt-1 text-xs text-red-700">
+                      <p className="mt-1 text-sm text-red-800">
                         {shelter.properties.pets.notes}
                       </p>
                     )}
@@ -618,13 +618,13 @@ export function ShelterDetailModal({
                       開設中
                     </p>
                     {shelter.properties.operationStatus.lastUpdated && (
-                      <p className="mt-1 text-xs text-green-700">
+                      <p className="mt-1 text-sm text-green-800">
                         最終更新:{' '}
                         {shelter.properties.operationStatus.lastUpdated}
                       </p>
                     )}
                     {shelter.properties.operationStatus.notes && (
-                      <p className="mt-1 text-xs text-green-700">
+                      <p className="mt-1 text-sm text-green-800">
                         {shelter.properties.operationStatus.notes}
                       </p>
                     )}
@@ -643,13 +643,13 @@ export function ShelterDetailModal({
                       閉鎖中
                     </p>
                     {shelter.properties.operationStatus.lastUpdated && (
-                      <p className="mt-1 text-xs text-gray-700">
+                      <p className="mt-1 text-sm text-gray-800">
                         最終更新:{' '}
                         {shelter.properties.operationStatus.lastUpdated}
                       </p>
                     )}
                     {shelter.properties.operationStatus.notes && (
-                      <p className="mt-1 text-xs text-gray-700">
+                      <p className="mt-1 text-sm text-gray-800">
                         {shelter.properties.operationStatus.notes}
                       </p>
                     )}
@@ -661,7 +661,7 @@ export function ShelterDetailModal({
 
           {/* データソース */}
           <section className="border-t border-gray-200 pt-4">
-            <p className="text-xs text-gray-500">
+            <p className="text-sm text-gray-600">
               データ提供: {shelter.properties.source}
               <br />
               更新日: {shelter.properties.updatedAt}
