@@ -1,7 +1,7 @@
 'use client';
 
-import { type ReactElement, useState } from 'react';
 import { clsx } from 'clsx';
+import { type ReactElement, useState } from 'react';
 import { MAP_STYLES, type MapStyleType } from '@/types/map';
 
 interface MapStyleSwitcherProps {
