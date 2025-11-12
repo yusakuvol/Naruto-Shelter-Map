@@ -1,7 +1,7 @@
 /**
  * 地図スタイルの種類
  */
-export type MapStyleType = 'standard' | 'satellite' | 'terrain' | 'dark';
+export type MapStyleType = 'standard' | 'satellite' | 'terrain';
 
 /**
  * 地図スタイル設定
@@ -23,28 +23,23 @@ export const MAP_STYLES: Record<MapStyleType, MapStyle> = {
     name: '標準',
     url: 'https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json',
     icon: '🗺️',
-    description: 'OpenStreetMap標準スタイル（日本語）',
+    description: '標準地図',
   },
   satellite: {
     id: 'satellite',
     name: '衛星写真',
-    url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', // 仮URL（後で調整）
+    // MapTiler Satellite Style JSON (無料プラン、APIキー不要のデモURL)
+    url: 'https://api.maptiler.com/maps/satellite/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
     icon: '🛰️',
     description: '航空写真・衛星画像',
   },
   terrain: {
     id: 'terrain',
     name: '地形',
-    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // 仮URL（後で調整）
+    // MapTiler Terrain Style JSON (無料プラン、APIキー不要のデモURL)
+    url: 'https://api.maptiler.com/maps/topo-v2/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
     icon: '🏔️',
     description: '地形図・等高線表示',
-  },
-  dark: {
-    id: 'dark',
-    name: 'ダーク',
-    url: 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', // Stadia Maps Dark
-    icon: '🌙',
-    description: 'ダークモード用スタイル',
   },
 };
 

@@ -430,8 +430,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 地図スタイル切り替えボタン - 右上 */}
-      <div className="absolute top-4 right-4 z-10">
+      {/* 地図スタイル切り替えボタン - モバイル: 検索バーの下、PC: 右上 */}
+      <div className="absolute top-20 right-4 z-30 lg:top-4">
         <MapStyleSwitcher
           currentStyle={styleType}
           onStyleChange={setStyleType}
