@@ -83,6 +83,7 @@ export function ShelterCard({
 
   return (
     <>
+      {/* biome-ignore lint/a11y/useSemanticElements: ボタンネストを避けるためdivを使用 */}
       <div
         className={clsx(
           'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
