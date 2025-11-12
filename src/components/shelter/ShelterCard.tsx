@@ -83,15 +83,22 @@ export function ShelterCard({
 
   return (
     <>
-      <button
-        type="button"
+      <div
         className={clsx(
           'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
           onClick && 'hover:border-blue-300',
           isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
         )}
         onClick={onClick}
-        aria-label={`${name}の詳細`}
+        role="button"
+        tabIndex={onClick ? 0 : undefined}
+        onKeyDown={(e) => {
+          if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            onClick();
+          }
+        }}
+        aria-label={onClick ? `${name}の詳細` : undefined}
         aria-pressed={isSelected}
       >
         {/* ヘッダー: 名前 + タイプバッジ + お気に入りボタン */}
@@ -335,7 +342,7 @@ export function ShelterCard({
             </>
           )}
         </div>
-      </button>
+      </div>
 
       {/* 詳細モーダル */}
       <ShelterDetailModal
