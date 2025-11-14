@@ -4,7 +4,7 @@
 >
 > このドキュメントは、AI Coding Agents（Claude, Cursor, GitHub Copilot, etc.）がプロジェクトを理解し、適切なコードを生成するための標準規格です。
 
-**Last Updated:** 2025-10-16
+**Last Updated:** 2025-11-14
 **Project Version:** 1.0.0
 **AI Agent Compatibility:** Claude Code, Cursor, GitHub Copilot, Windsurf
 
@@ -47,7 +47,7 @@
 ### フロントエンド
 | 技術 | バージョン | 用途 |
 |------|-----------|------|
-| **Next.js** | 15.x | React フレームワーク（App Router + Turbopack） |
+| **Next.js** | 16.x | React フレームワーク（App Router + Turbopack + MCP対応） |
 | **React** | 19.x | UI ライブラリ（Server Components, Actions対応） |
 | **TypeScript** | 5.x | 型安全性 |
 | **Tailwind CSS** | v4 | スタイリング（Lightning CSS統合） |
@@ -126,7 +126,6 @@ naruto-shelter-map/
 ├── .npmrc                        # pnpm設定
 ├── tsconfig.json                 # TypeScript設定
 ├── AGENTS.md                     # このファイル（AI Agent規格）
-├── CLAUDE.md                     # Claude Code専用設定
 └── README.md                     # プロジェクトREADME
 ```
 
@@ -284,7 +283,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 ### コード生成時の注意点
 
 1. **Server Components優先**
-   - Next.js 15では、デフォルトでServer Componentを使用
+   - Next.js 16では、デフォルトでServer Componentを使用
    - インタラクティブな要素が必要な場合のみ`'use client'`を追加
 
 2. **React 19新機能の活用**
@@ -307,6 +306,11 @@ import 'maplibre-gl/dist/maplibre-gl.css';
    - `npm install` → `pnpm add`
    - `npm run dev` → `pnpm dev`
    - `npm uninstall` → `pnpm remove`
+
+6. **Next.js MCP活用（Next.js 16+）**
+   - Next.js 16では、開発サーバーが自動的にMCPエンドポイントを提供
+   - `/_next/mcp`でリアルタイムエラー監視、ルート情報取得などが可能
+   - AI Agentは`nextjs_runtime`ツールを活用して開発効率を向上
 
 ### 生成するコードの品質基準
 
@@ -459,7 +463,7 @@ git branch -d feature/shelter-filter
 ### 公式ドキュメント
 - [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev/)
-- [Next.js 15](https://nextjs.org/docs)
+- [Next.js 16](https://nextjs.org/docs)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
@@ -468,7 +472,6 @@ git branch -d feature/shelter-filter
 - `.docs/00-MASTER-PLAN.md` - プロジェクト全体計画
 - `.docs/tech-updates-2025.md` - 2025年技術スタック更新ガイド
 - `.docs/pnpm-guide.md` - pnpm完全ガイド
-- `CLAUDE.md` - Claude Code専用設定
 
 ---
 
@@ -476,6 +479,7 @@ git branch -d feature/shelter-filter
 
 | バージョン | 日付 | 変更内容 |
 |-----------|------|---------|
+| 1.1.0 | 2025-11-14 | Next.js 16へのアップグレード、Next.js MCP対応、CLAUDE.md統合 |
 | 1.0.0 | 2025-10-16 | 初版作成（2025年最新技術スタック対応） |
 
 ---
