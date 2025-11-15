@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 // Service Worker登録の型（ブラウザAPIの型を使用）
 type ServiceWorkerRegistrationType = ServiceWorkerRegistration;
@@ -15,7 +15,7 @@ export function useServiceWorkerUpdate() {
     useState<ServiceWorkerRegistrationType | null>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
+    if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
       return;
     }
 
@@ -39,8 +39,8 @@ export function useServiceWorkerUpdate() {
           if (reg.installing) {
             const installingWorker = reg.installing;
 
-            installingWorker.addEventListener("statechange", () => {
-              if (installingWorker.state === "installed") {
+            installingWorker.addEventListener('statechange', () => {
+              if (installingWorker.state === 'installed') {
                 // アクティブなService Workerがある場合、更新が利用可能
                 if (reg.active) {
                   setIsUpdateAvailable(true);
@@ -51,10 +51,13 @@ export function useServiceWorkerUpdate() {
         };
 
         // 定期的に更新をチェック（5分ごと）
-        const intervalId = setInterval(() => {
-          reg.update();
-          checkForUpdate();
-        }, 5 * 60 * 1000);
+        const intervalId = setInterval(
+          () => {
+            reg.update();
+            checkForUpdate();
+          },
+          5 * 60 * 1000
+        );
 
         // 初回チェック
         checkForUpdate();
@@ -65,15 +68,15 @@ export function useServiceWorkerUpdate() {
           checkForUpdate();
         };
 
-        window.addEventListener("focus", handleFocus);
+        window.addEventListener('focus', handleFocus);
 
         return () => {
           clearInterval(intervalId);
-          window.removeEventListener("focus", handleFocus);
+          window.removeEventListener('focus', handleFocus);
         };
       })
       .catch((error) => {
-        console.error("Service Worker registration error:", error);
+        console.error('Service Worker registration error:', error);
       });
   }, []);
 
@@ -86,18 +89,18 @@ export function useServiceWorkerUpdate() {
 
     if (reg.waiting) {
       // 待機中のService Workerにメッセージを送信してスキップ待機を促す
-      reg.waiting.postMessage({ type: "SKIP_WAITING" });
+      reg.waiting.postMessage({ type: 'SKIP_WAITING' });
 
       // Service Workerがアクティブになるのを待つ
       const handleStateChange = (e: Event): void => {
         const worker = e.target as ServiceWorker;
-        if (worker.state === "activated") {
+        if (worker.state === 'activated') {
           // ページをリロードして新しいService Workerを有効化
           window.location.reload();
         }
       };
 
-      reg.waiting.addEventListener("statechange", handleStateChange);
+      reg.waiting.addEventListener('statechange', handleStateChange);
 
       // タイムアウト（5秒後に強制的にリロード）
       setTimeout(() => {
@@ -110,7 +113,7 @@ export function useServiceWorkerUpdate() {
         // 更新後、ページをリロード
         window.location.reload();
       } catch (error) {
-        console.error("Service Worker update error:", error);
+        console.error('Service Worker update error:', error);
       }
     }
   };
