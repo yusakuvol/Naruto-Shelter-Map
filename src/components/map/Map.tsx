@@ -305,7 +305,7 @@ export function ShelterMap({
           selectedShelterId={selectedShelterId}
           shelters={shelters}
         />
-        <NavigationControl position="top-right" />
+        <NavigationControl position="top-left" />
 
         {markers}
 
