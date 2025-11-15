@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { SkipLink } from '@/components/a11y/SkipLink';
+import { InstallPrompt } from '@/components/pwa/InstallPrompt';
+import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
 import './globals.css';
 
 const notoSansJP = Noto_Sans_JP({
@@ -24,6 +26,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="font-sans antialiased">
         <SkipLink />
         {children}
+        <OfflineIndicator />
+        <InstallPrompt />
       </body>
     </html>
   );
