@@ -1,7 +1,7 @@
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   register: true,
-  skipWaiting: true,
+  skipWaiting: false, // ユーザーが手動で更新を承認できるようにする
   disable: process.env.NODE_ENV === "development",
   runtimeCaching: [
     {
