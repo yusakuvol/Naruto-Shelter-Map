@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { SkipLink } from '@/components/a11y/SkipLink';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
 import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
+import { viewport } from './viewport';
 import './globals.css';
 
 const notoSansJP = Noto_Sans_JP({
@@ -19,6 +20,8 @@ export const metadata: Metadata = {
   description: '徳島県鳴門市の避難所を地図上に可視化するPWAアプリ',
   manifest: '/manifest.json',
 };
+
+export { viewport };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
