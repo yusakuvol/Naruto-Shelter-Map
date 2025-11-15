@@ -375,11 +375,41 @@ git checkout -b docs/api-documentation
 ```
 
 **2. 変更のコミット**
-- Conventional Commits形式に従う
-- 1コミット1機能を心がける
-- コミット前に必ず`pnpm lint`と`pnpm type-check`を実行
+
+⚠️ **CRITICAL: コミット前の必須チェック**
+
+CIの失敗を防ぐため、**コミット前に必ず以下のチェックを実行**してください。すべてのチェックが成功してからコミットします。
 
 ```bash
+# 1. Lintチェック（フォーマットとリント）
+pnpm lint
+
+# エラーがある場合は自動修正を試みる
+pnpm lint:fix
+
+# 2. 型チェック
+pnpm type-check
+
+# 3. ビルドチェック（オプションだが推奨）
+pnpm build
+```
+
+**チェック手順:**
+1. `pnpm lint`を実行 → エラーがあれば`pnpm lint:fix`で自動修正
+2. `pnpm type-check`を実行 → TypeScriptエラーがないことを確認
+3. すべてのチェックが成功したことを確認してからコミット
+
+**チェックが失敗した場合:**
+- ❌ エラーを修正せずにコミットしない
+- ❌ CIに任せて後で修正しない
+- ✅ ローカルでエラーを修正してからコミット
+
+**コミット例:**
+```bash
+# チェック実行
+pnpm lint && pnpm type-check
+
+# すべて成功したらコミット
 git add .
 git commit -m "feat(filter): Add disaster type filter component
 
@@ -453,6 +483,7 @@ git branch -d feature/shelter-filter
 
 - ✅ 小さく頻繁にコミット
 - ✅ わかりやすいコミットメッセージ
+- ✅ **コミット前に必ず`pnpm lint`と`pnpm type-check`を実行**（CI失敗を防ぐ）
 - ✅ PR作成前に`pnpm build`で確認
 - ✅ 変更内容をPR descriptionに明記
 
