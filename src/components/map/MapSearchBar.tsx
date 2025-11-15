@@ -35,7 +35,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
   return (
     <div
       className={`
-        absolute left-4 right-4 top-4 z-20
+        absolute left-14 right-4 top-4 z-20
         lg:left-1/2 lg:right-auto lg:w-[600px] lg:-translate-x-1/2
       `}
     >
