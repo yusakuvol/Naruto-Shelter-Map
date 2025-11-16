@@ -8,6 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: '鳴門避難所',
     description: '徳島県鳴門市の避難所を地図上に可視化するPWAアプリ',
     start_url: '/',
+    scope: '/', // PWAのスコープを明示的に設定
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#3b82f6',
