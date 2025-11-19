@@ -99,12 +99,12 @@ export function ShelterMap({
     134.5, 34.1, 134.7, 34.25,
   ] as BBox);
 
-  // クラスタリング
+  // クラスタリング（無効化）
   const { clusters, supercluster } = useClustering({
     shelters,
     zoom,
     bounds,
-    enabled: true,
+    enabled: false, // クラスタリングを無効化
   });
 
   // 外部から渡された位置情報を使用、なければフォールバック
