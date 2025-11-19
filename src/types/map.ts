@@ -1,7 +1,7 @@
 /**
  * 地図スタイルの種類
  */
-export type MapStyleType = 'standard' | 'satellite' | 'terrain';
+export type MapStyleType = 'standard' | 'satellite' | 'terrain' | 'dark';
 
 /**
  * 地図スタイル設定
@@ -40,6 +40,14 @@ export const MAP_STYLES: Record<MapStyleType, MapStyle> = {
     url: 'https://api.maptiler.com/maps/topo-v2/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
     icon: '🏔️',
     description: '地形図・等高線表示',
+  },
+  dark: {
+    id: 'dark',
+    name: 'ダーク',
+    // MapTiler Dark Style JSON (無料プラン、APIキー不要のデモURL)
+    url: 'https://api.maptiler.com/maps/basic-dark/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+    icon: '🌙',
+    description: 'ダークモード地図',
   },
 };
 
