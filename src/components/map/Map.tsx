@@ -49,6 +49,21 @@ function getShelterColor(type: string): string {
   }
 }
 
+// 避難所種別に応じたマーカー形状
+// WCAG 1.4.1 Use of Color (Level A) に対応: 色だけでなく形状でも区別可能にする
+function getShelterShape(type: string): string {
+  switch (type) {
+    case '指定避難所':
+      return 'rounded-full'; // 円形
+    case '緊急避難場所':
+      return 'rounded-sm'; // 四角形（角丸）
+    case '両方':
+      return 'rounded-full'; // 円形（星アイコンで区別）
+    default:
+      return 'rounded-full'; // 円形
+  }
+}
+
 // 地図の移動を制御する内部コンポーネント
 function MapController({
   selectedShelterId,
@@ -245,6 +260,7 @@ export function ShelterMap({
         if (!shelter) return null;
 
         const color = getShelterColor(shelter.properties.type);
+        const shape = getShelterShape(shelter.properties.type);
         const isSelected = selectedShelterId === shelter.properties.id;
 
         return (
@@ -257,7 +273,7 @@ export function ShelterMap({
           >
             <button
               type="button"
-              className={`flex cursor-pointer items-center justify-center rounded-full border-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
+              className={`flex cursor-pointer items-center justify-center border-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${shape} ${
                 isSelected
                   ? 'h-10 w-10 border-blue-500 ring-2 ring-blue-300'
                   : 'h-8 w-8 border-white'
@@ -265,6 +281,7 @@ export function ShelterMap({
               style={{ backgroundColor: color }}
               aria-label={`${shelter.properties.name}（${shelter.properties.type}）`}
               aria-pressed={isSelected}
+              title={`${shelter.properties.name} - ${shelter.properties.type}`}
             >
               {getShelterIcon(shelter.properties.type, {
                 className: 'h-5 w-5 text-white',
