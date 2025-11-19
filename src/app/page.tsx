@@ -186,10 +186,12 @@ function HomePageContent() {
           {/* ヘッダー */}
           <header className="border-b p-4 dark:border-gray-700">
             <div className="mb-2 flex items-center justify-between gap-2">
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900 dark:text-gray-100">
                 鳴門市避難所マップ
               </h1>
-              <DarkModeToggle />
+              <div className="flex-shrink-0">
+                <DarkModeToggle />
+              </div>
             </div>
             <p className="text-sm text-gray-700 dark:text-gray-300">
               {filteredShelters.length}件の避難所

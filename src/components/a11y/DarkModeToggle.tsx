@@ -92,7 +92,7 @@ export function DarkModeToggle(): ReactElement {
       type="button"
       onClick={handleToggle}
       className={clsx(
-        'flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+        'flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap',
         'bg-white text-gray-700 shadow-md',
         'hover:bg-gray-50 hover:shadow-lg',
         'focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2',
