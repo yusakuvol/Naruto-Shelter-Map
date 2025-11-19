@@ -87,8 +87,10 @@ export function ShelterCard({
       <div
         className={clsx(
           'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
-          onClick && 'hover:border-blue-300',
-          isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
+          'dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600',
+          onClick && 'hover:border-blue-300 dark:hover:border-blue-500',
+          isSelected &&
+            'ring-2 ring-blue-500 bg-blue-50 border-blue-300 dark:bg-blue-900/30 dark:border-blue-500'
         )}
         onClick={onClick}
         role="button"
@@ -104,7 +106,7 @@ export function ShelterCard({
       >
         {/* ヘッダー: 名前 + タイプバッジ + お気に入りボタン */}
         <div className="mb-1.5 flex items-start justify-between gap-2">
-          <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">
+          <h3 className="flex-1 text-sm font-bold text-gray-900 dark:text-gray-100 leading-tight">
             {name}
           </h3>
           <div className="flex items-center gap-1.5">
@@ -116,7 +118,7 @@ export function ShelterCard({
                   e.stopPropagation();
                   onToggleFavorite(id);
                 }}
-                className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={
                   isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
                 }
@@ -164,7 +166,7 @@ export function ShelterCard({
         </div>
 
         {/* 住所（常に表示） */}
-        <p className="flex items-start gap-1 text-sm text-gray-800 mb-1">
+        <p className="flex items-start gap-1 text-sm text-gray-800 dark:text-gray-200 mb-1">
           <svg
             className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
             fill="none"

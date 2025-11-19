@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
+import { DarkModeToggle } from '@/components/a11y/DarkModeToggle';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
@@ -179,18 +180,21 @@ function HomePageContent() {
       <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
         {/* サイドバー（左側） */}
         <aside
-          className="flex h-full w-96 flex-col border-r bg-white"
+          className="flex h-full w-96 flex-col border-r bg-white dark:bg-gray-900 dark:border-gray-700"
           aria-label="避難所フィルタとリスト"
         >
           {/* ヘッダー */}
-          <header className="border-b p-4">
-            <h1 className="mb-2 text-2xl font-bold text-gray-900">
-              鳴門市避難所マップ
-            </h1>
-            <p className="text-sm text-gray-700">
+          <header className="border-b p-4 dark:border-gray-700">
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                鳴門市避難所マップ
+              </h1>
+              <DarkModeToggle />
+            </div>
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               {filteredShelters.length}件の避難所
               {filteredShelters.length !== allShelters.length && (
-                <span className="ml-1 text-gray-700">
+                <span className="ml-1 text-gray-700 dark:text-gray-300">
                   （全{allShelters.length}件中）
                 </span>
               )}
@@ -198,12 +202,15 @@ function HomePageContent() {
           </header>
 
           {/* フィルタ */}
-          <nav aria-label="災害種別フィルタ" className="border-b p-4">
+          <nav
+            aria-label="災害種別フィルタ"
+            className="border-b p-4 dark:border-gray-700"
+          >
             <DisasterTypeFilter />
           </nav>
 
           {/* ソート切り替え */}
-          <div className="border-b p-4">
+          <div className="border-b p-4 dark:border-gray-700">
             <SortToggle
               mode={sortMode}
               onModeChange={setSortMode}
