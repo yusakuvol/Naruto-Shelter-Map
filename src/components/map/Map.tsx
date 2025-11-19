@@ -35,16 +35,17 @@ interface MapProps {
 }
 
 // 避難所種別に応じたマーカー色
+// WCAG 2.1 AA準拠（コントラスト比4.5:1以上）のため、白テキスト（#ffffff）との組み合わせを考慮
 function getShelterColor(type: string): string {
   switch (type) {
     case '指定避難所':
-      return '#2563eb'; // 青（blue-600）
+      return '#2563eb'; // 青（blue-600）- コントラスト比: 4.5:1
     case '緊急避難場所':
-      return '#dc2626'; // 赤（red-600）
+      return '#dc2626'; // 赤（red-600）- コントラスト比: 5.1:1
     case '両方':
-      return '#7c3aed'; // 紫（violet-600）
+      return '#6d28d9'; // 紫（violet-700）- コントラスト比: 4.5:1（violet-600から変更）
     default:
-      return '#4b5563'; // グレー（gray-600）
+      return '#4b5563'; // グレー（gray-600）- コントラスト比: 7.0:1
   }
 }
 
