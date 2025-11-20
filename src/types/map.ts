@@ -44,8 +44,9 @@ export const MAP_STYLES: Record<MapStyleType, MapStyle> = {
   dark: {
     id: 'dark',
     name: 'ダーク',
-    // MapTiler Dark Style JSON (無料プラン、APIキー不要のデモURL)
-    url: 'https://api.maptiler.com/maps/basic-dark/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+    // OpenStreetMap Dark Style (CartoDB Dark Matter)
+    // APIキー不要、無料で使用可能
+    url: 'https://tile.openstreetmap.jp/styles/dark-matter/style.json',
     icon: '🌙',
     description: 'ダークモード地図',
   },
