@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   MAP_STYLE_STORAGE_KEY,
   MAP_STYLES,
   type MapStyleType,
-} from "@/types/map";
+} from '@/types/map';
 
 /**
  * 地図スタイル管理フック
@@ -19,7 +19,7 @@ export function useMapStyle(): {
   styleUrl: string;
   setStyleType: (styleType: MapStyleType) => void;
 } {
-  const [styleType, setStyleTypeState] = useState<MapStyleType>("standard");
+  const [styleType, setStyleTypeState] = useState<MapStyleType>('standard');
   const [isInitialized, setIsInitialized] = useState(false);
 
   // 初回マウント時にLocalStorageから読み込み
@@ -36,7 +36,7 @@ export function useMapStyle(): {
         setStyleTypeState(savedStyle);
       }
     } catch (error) {
-      console.error("Failed to load map style from localStorage:", error);
+      console.error('Failed to load map style from localStorage:', error);
     }
 
     setIsInitialized(true);
@@ -50,7 +50,7 @@ export function useMapStyle(): {
     try {
       localStorage.setItem(MAP_STYLE_STORAGE_KEY, newStyleType);
     } catch (error) {
-      console.error("Failed to save map style to localStorage:", error);
+      console.error('Failed to save map style to localStorage:', error);
     }
   }, []);
 
