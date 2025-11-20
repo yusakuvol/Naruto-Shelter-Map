@@ -25,30 +25,40 @@ export function useMapStyle(): {
   const [styleType, setStyleTypeState] = useState<MapStyleType>('standard');
   const [userSelectedStyle, setUserSelectedStyle] =
     useState<MapStyleType | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // 初回マウント時にLocalStorageから読み込み
   // ただし、自動切り替えを優先するため、userSelectedStyleは設定しない
   useEffect(() => {
+    if (isInitialized) {
+      return;
+    }
+
     try {
       const saved = localStorage.getItem(MAP_STYLE_STORAGE_KEY);
       if (saved && saved in MAP_STYLES) {
         const savedStyle = saved as MapStyleType;
-        // 保存されたスタイルが'dark'または'standard'の場合は、自動切り替えの対象とする
-        // それ以外（'satellite', 'terrain'）の場合は、ユーザーが明示的に選択したものとして扱う
+        // 保存されたスタイルが'satellite'または'terrain'の場合は、ユーザーが明示的に選択したものとして扱う
         if (savedStyle === 'satellite' || savedStyle === 'terrain') {
           setStyleTypeState(savedStyle);
           setUserSelectedStyle(savedStyle);
         }
-        // 'dark'または'standard'の場合は、ダークモードに応じて自動切り替え
+        // 'dark'または'standard'の場合は、ダークモードに応じて自動切り替え（下記のuseEffectで処理）
       }
     } catch (error) {
       console.error('Failed to load map style from localStorage:', error);
     }
-  }, []);
+
+    setIsInitialized(true);
+  }, [isInitialized]);
 
   // ダークモードに応じてスタイルを自動切り替え
   // ユーザーが手動で選択したスタイル（satellite, terrain）がある場合は、それを優先
   useEffect(() => {
+    if (!isInitialized) {
+      return;
+    }
+
     if (userSelectedStyle !== null) {
       // ユーザーが手動で選択したスタイルを使用
       setStyleTypeState(userSelectedStyle);
@@ -61,7 +71,7 @@ export function useMapStyle(): {
     } else {
       setStyleTypeState('standard');
     }
-  }, [isDark, userSelectedStyle]);
+  }, [isDark, userSelectedStyle, isInitialized]);
 
   // スタイル変更処理
   const setStyleType = useCallback((newStyleType: MapStyleType): void => {
