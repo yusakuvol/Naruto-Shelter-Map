@@ -328,14 +328,18 @@ export function ShelterCard({
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <span
                   className="whitespace-nowrap"
-                  title={`徒歩: ${formatTravelTime(estimateWalkingTime(distance))}`}
+                  title={`徒歩: ${formatTravelTime(
+                    estimateWalkingTime(distance)
+                  )}`}
                 >
                   🚶 {formatTravelTime(estimateWalkingTime(distance))}
                 </span>
                 <span className="text-gray-500">|</span>
                 <span
                   className="whitespace-nowrap"
-                  title={`車: ${formatTravelTime(estimateDrivingTime(distance))}`}
+                  title={`車: ${formatTravelTime(
+                    estimateDrivingTime(distance)
+                  )}`}
                 >
                   🚗 {formatTravelTime(estimateDrivingTime(distance))}
                 </span>

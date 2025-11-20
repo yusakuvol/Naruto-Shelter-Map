@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   /* カスタムカラーパレット（避難所マップ用） */
@@ -22,7 +22,7 @@
   }
 
   /* リンクのデフォルトスタイル */
-  a:not(.skip-link):not([class*='maplibre']) {
+  a:not(.skip-link):not([class*="maplibre"]) {
     @apply underline underline-offset-2;
     @apply text-blue-600 hover:text-blue-700;
   }

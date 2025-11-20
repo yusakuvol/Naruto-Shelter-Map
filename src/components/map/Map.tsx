@@ -310,6 +310,7 @@ export function ShelterMap({
       </div>
 
       <MapGL
+        key={styleUrl}
         initialViewState={{
           longitude: 134.609,
           latitude: 34.173,
