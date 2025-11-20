@@ -1,29 +1,28 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-import { useMemo, useState } from 'react';
-import { DarkModeToggle } from '@/components/a11y/DarkModeToggle';
-import { ErrorBoundary } from '@/components/error/ErrorBoundary';
-import { NetworkError } from '@/components/error/NetworkError';
-import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
-import { MapSearchBar } from '@/components/map/MapSearchBar';
-import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
-import { SheetContent } from '@/components/mobile/SheetContent';
-import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
-import { ShelterList } from '@/components/shelter/ShelterList';
-import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
-import { FilterProvider } from '@/contexts/FilterContext';
-import { useFavorites } from '@/hooks/useFavorites';
-import { useFilteredShelters } from '@/hooks/useFilteredShelters';
-import { useGeolocation } from '@/hooks/useGeolocation';
-import { useShelters } from '@/hooks/useShelters';
-import { calculateDistance, toCoordinates } from '@/lib/geo';
-import type { ShelterFeature } from '@/types/shelter';
+import dynamic from "next/dynamic";
+import { useMemo, useState } from "react";
+import { ErrorBoundary } from "@/components/error/ErrorBoundary";
+import { NetworkError } from "@/components/error/NetworkError";
+import { DisasterTypeFilter } from "@/components/filter/DisasterTypeFilter";
+import { MapSearchBar } from "@/components/map/MapSearchBar";
+import { BottomSheet, type SheetState } from "@/components/mobile/BottomSheet";
+import { SheetContent } from "@/components/mobile/SheetContent";
+import { ShelterDetailModal } from "@/components/shelter/ShelterDetailModal";
+import { ShelterList } from "@/components/shelter/ShelterList";
+import { type SortMode, SortToggle } from "@/components/shelter/SortToggle";
+import { FilterProvider } from "@/contexts/FilterContext";
+import { useFavorites } from "@/hooks/useFavorites";
+import { useFilteredShelters } from "@/hooks/useFilteredShelters";
+import { useGeolocation } from "@/hooks/useGeolocation";
+import { useShelters } from "@/hooks/useShelters";
+import { calculateDistance, toCoordinates } from "@/lib/geo";
+import type { ShelterFeature } from "@/types/shelter";
 
 // 地図コンポーネントを動的インポート（LCP改善のため）
 const ShelterMap = dynamic(
   () =>
-    import('@/components/map/Map').then((mod) => ({ default: mod.ShelterMap })),
+    import("@/components/map/Map").then((mod) => ({ default: mod.ShelterMap })),
   {
     ssr: false, // 地図はクライアントサイドのみで動作
     loading: () => (
@@ -46,12 +45,12 @@ function HomePageContent() {
     getCurrentPosition,
   } = useGeolocation();
   const { favorites, toggleFavorite } = useFavorites();
-  const [sheetState, setSheetState] = useState<SheetState>('minimized');
+  const [sheetState, setSheetState] = useState<SheetState>("minimized");
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
   );
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortMode, setSortMode] = useState<SortMode>('name');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortMode, setSortMode] = useState<SortMode>("name");
   const [detailModalShelter, setDetailModalShelter] =
     useState<ShelterFeature | null>(null);
 
@@ -87,7 +86,7 @@ function HomePageContent() {
     }));
 
     // ソート
-    if (sortMode === 'distance' && position) {
+    if (sortMode === "distance" && position) {
       return sheltersWithDistance
         .filter((item) => item.distance !== null)
         .sort((a, b) => {
@@ -100,7 +99,7 @@ function HomePageContent() {
     return sheltersWithDistance.sort((a, b) =>
       a.shelter.properties.name.localeCompare(
         b.shelter.properties.name,
-        'ja-JP'
+        "ja-JP"
       )
     );
   }, [searchedShelters, sortMode, position]);
@@ -157,13 +156,13 @@ function HomePageContent() {
             selectedShelterId={selectedShelterId}
             onShelterSelect={(id) => {
               setSelectedShelterId(id);
-              setSheetState('minimized'); // カードクリック時に地図を見せる
+              setSheetState("minimized"); // カードクリック時に地図を見せる
             }}
-            onMapViewRequest={() => setSheetState('minimized')}
+            onMapViewRequest={() => setSheetState("minimized")}
             sheetState={sheetState}
             onSheetToggle={() =>
               setSheetState(
-                sheetState === 'expanded' ? 'minimized' : 'expanded'
+                sheetState === "expanded" ? "minimized" : "expanded"
               )
             }
             sortMode={sortMode}
@@ -180,23 +179,20 @@ function HomePageContent() {
       <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
         {/* サイドバー（左側） */}
         <aside
-          className="flex h-full w-96 flex-col border-r bg-white dark:bg-gray-900 dark:border-gray-700"
+          className="flex h-full w-96 flex-col border-r bg-white"
           aria-label="避難所フィルタとリスト"
         >
           {/* ヘッダー */}
-          <header className="border-b p-4 dark:border-gray-700">
+          <header className="border-b p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
-              <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900 dark:text-gray-100">
+              <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900">
                 鳴門市避難所マップ
               </h1>
-              <div className="flex-shrink-0">
-                <DarkModeToggle />
-              </div>
             </div>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+            <p className="text-sm text-gray-700">
               {filteredShelters.length}件の避難所
               {filteredShelters.length !== allShelters.length && (
-                <span className="ml-1 text-gray-700 dark:text-gray-300">
+                <span className="ml-1 text-gray-700">
                   （全{allShelters.length}件中）
                 </span>
               )}
@@ -204,15 +200,12 @@ function HomePageContent() {
           </header>
 
           {/* フィルタ */}
-          <nav
-            aria-label="災害種別フィルタ"
-            className="border-b p-4 dark:border-gray-700"
-          >
+          <nav aria-label="災害種別フィルタ" className="border-b p-4">
             <DisasterTypeFilter />
           </nav>
 
           {/* ソート切り替え */}
-          <div className="border-b p-4 dark:border-gray-700">
+          <div className="border-b p-4">
             <SortToggle
               mode={sortMode}
               onModeChange={setSortMode}

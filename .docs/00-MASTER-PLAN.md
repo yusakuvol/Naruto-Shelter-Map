@@ -1,9 +1,10 @@
 # 鳴門市避難所マップ - マスタープラン
 
-> **Document Version:** 2.0
-> **Last Updated:** 2025-10-16
+> **Document Version:** 2.1
+> **Last Updated:** 2025-11-20
 > **Author:** Yusaku Matsukawa
-> **Tech Stack Update:** 2025年最新版（pnpm, React 19, Tailwind v4, Biome）
+> **Tech Stack Update:** 2025 年最新版（pnpm, React 19, Tailwind v4, Biome）
+> **Note:** ダークモード機能は削除されました（2025-11-20）
 
 ---
 
@@ -13,13 +14,13 @@
 
 徳島県鳴門市の公的避難所を地図上に可視化し、**オフライン環境でも避難情報を確認できる** Progressive Web App (PWA) を構築する。
 
-地方 × 防災 × Web技術 の実験的プロジェクトとして、誰でも使える形で公開し、技術的な学びと社会貢献を両立させる。
+地方 × 防災 × Web 技術 の実験的プロジェクトとして、誰でも使える形で公開し、技術的な学びと社会貢献を両立させる。
 
 ### コアバリュー
 
 1. **オフラインファースト**: 電波がなくても避難所情報にアクセス可能
 2. **オープンデータ活用**: 国土地理院・国土交通省の公開データを利用
-3. **最新Web技術**: Next.js 15, React 19, Tailwind CSS v4, TypeScript, MapLibre GL JS
+3. **最新 Web 技術**: Next.js 15, React 19, Tailwind CSS v4, TypeScript, MapLibre GL JS
 4. **自動更新**: GitHub Actions で毎日データを自動更新
 5. **オープンソース**: MIT License で誰でも利用・改変可能
 
@@ -32,63 +33,63 @@
 - [ ] 鳴門市内の避難所を地図上に表示
 - [ ] 避難所の基本情報（名称、住所、災害種別）を表示
 - [ ] オフライン動作（Service Worker + Cache API）
-- [ ] PWAとしてインストール可能
+- [ ] PWA としてインストール可能
 - [ ] レスポンシブデザイン（スマホ対応）
 
 ### Future Enhancements
 
 - [ ] 災害種別フィルタ（洪水/津波/土砂災害）
 - [ ] 現在地からの距離順ソート
-- [ ] ルート案内（Google Maps連携）
+- [ ] ルート案内（Google Maps 連携）
 - [ ] MapLibre Vector Tiles 対応（完全オフライン）
 - [ ] 多言語対応（英語/やさしい日本語）
 - [ ] 他市町村対応（徳島県全域など）
 
 ---
 
-## 🏗️ 技術スタック（2025年最新版）
+## 🏗️ 技術スタック（2025 年最新版）
 
 ### パッケージマネージャー
 
-| 技術 | バージョン | 特徴 |
-|------|-----------|------|
-| **pnpm** | 9.x | npmより3倍高速、ディスク効率的、厳密な依存関係管理 |
+| 技術     | バージョン | 特徴                                                  |
+| -------- | ---------- | ----------------------------------------------------- |
+| **pnpm** | 9.x        | npm より 3 倍高速、ディスク効率的、厳密な依存関係管理 |
 
 ### フロントエンド
 
-| 技術 | バージョン | 用途 | 2025更新内容 |
-|------|-----------|------|-------------|
-| Next.js | 15.x | React フレームワーク (App Router) | Turbopack標準、キャッシュ戦略明示化 |
-| React | **19.x** | UIライブラリ | `use` hook, Server Components, Actions |
-| TypeScript | 5.x | 型安全な開発 | Strict Mode必須 |
-| Tailwind CSS | **v4** | ユーティリティファーストCSS | Lightning CSS統合、CSS-First設定 |
-| MapLibre GL JS | **5.9.x** | オープンソース地図ライブラリ | Globe rendering mode対応 |
+| 技術           | バージョン | 用途                              | 2025 更新内容                          |
+| -------------- | ---------- | --------------------------------- | -------------------------------------- |
+| Next.js        | 15.x       | React フレームワーク (App Router) | Turbopack 標準、キャッシュ戦略明示化   |
+| React          | **19.x**   | UI ライブラリ                     | `use` hook, Server Components, Actions |
+| TypeScript     | 5.x        | 型安全な開発                      | Strict Mode 必須                       |
+| Tailwind CSS   | **v4**     | ユーティリティファースト CSS      | Lightning CSS 統合、CSS-First 設定     |
+| MapLibre GL JS | **5.9.x**  | オープンソース地図ライブラリ      | Globe rendering mode 対応              |
 
 ### PWA & 状態管理
 
-| 技術 | 用途 |
-|------|------|
-| next-pwa | Service Worker + Manifest 自動生成 |
-| SWR | データフェッチング & キャッシング |
-| Zustand (optional) | グローバル状態管理 |
+| 技術               | 用途                               |
+| ------------------ | ---------------------------------- |
+| next-pwa           | Service Worker + Manifest 自動生成 |
+| SWR                | データフェッチング & キャッシング  |
+| Zustand (optional) | グローバル状態管理                 |
 
-### 開発ツール（2025最新）
+### 開発ツール（2025 最新）
 
-| ツール | 用途 | 従来比 |
-|--------|------|--------|
-| **Biome** | Lint + フォーマット（統一ツール） | ESLint+Prettierより20倍高速 |
-| **Playwright MCP** | E2Eテスト（AI駆動） | アクセシビリティツリーベース |
-| **Chrome DevTools MCP** | ブラウザ自動化・パフォーマンステスト | - |
-| TypeScript Strict Mode | 厳格な型チェック | - |
-| Husky + lint-staged | Git hooks（コミット前チェック） | - |
+| ツール                  | 用途                                 | 従来比                         |
+| ----------------------- | ------------------------------------ | ------------------------------ |
+| **Biome**               | Lint + フォーマット（統一ツール）    | ESLint+Prettier より 20 倍高速 |
+| **Playwright MCP**      | E2E テスト（AI 駆動）                | アクセシビリティツリーベース   |
+| **Chrome DevTools MCP** | ブラウザ自動化・パフォーマンステスト | -                              |
+| TypeScript Strict Mode  | 厳格な型チェック                     | -                              |
+| Husky + lint-staged     | Git hooks（コミット前チェック）      | -                              |
 
 ### インフラ & CI/CD
 
-| サービス | 用途 |
-|----------|------|
-| Cloudflare Pages | 静的ホスティング & CDN |
-| GitHub Actions | データ自動更新 & デプロイ |
-| GitHub | ソースコード管理 |
+| サービス         | 用途                      |
+| ---------------- | ------------------------- |
+| Cloudflare Pages | 静的ホスティング & CDN    |
+| GitHub Actions   | データ自動更新 & デプロイ |
+| GitHub           | ソースコード管理          |
 
 ---
 
@@ -164,25 +165,25 @@ naruto-shelter-map/
 
 ### Phase 0: 環境整備（このドキュメント群の実装）
 
-**期間:** 1日
+**期間:** 1 日
 **ゴール:** 開発に必要なドキュメント・設定ファイルを整備
 
 - [x] `.docs/` フォルダ作成
-- [ ] プランドキュメント作成（5ファイル）
+- [ ] プランドキュメント作成（5 ファイル）
 - [ ] 各フェーズの実行準備完了
 
 ---
 
-### Phase 1: README更新 ⭐️ **最優先**
+### Phase 1: README 更新 ⭐️ **最優先**
 
-**期間:** 0.5日
+**期間:** 0.5 日
 **難易度:** ⭐️ (Easy)
-**ゴール:** プロジェクトの顔となるREADMEを整備
+**ゴール:** プロジェクトの顔となる README を整備
 
 #### タスク
 
 - [ ] 現在の `README.md` を提供されたアイデア文書ベースに更新
-- [ ] プロジェクトバッジ追加（React 19, Tailwind v4, pnpmなど）
+- [ ] プロジェクトバッジ追加（React 19, Tailwind v4, pnpm など）
 - [ ] 目次追加
 - [ ] スクリーンショット枠追加
 
@@ -196,27 +197,27 @@ naruto-shelter-map/
 
 ---
 
-### Phase 2: AI環境整備 ⭐️⭐️
+### Phase 2: AI 環境整備 ⭐️⭐️
 
-**期間:** 1日
+**期間:** 1 日
 **難易度:** ⭐️⭐️ (Medium)
-**ゴール:** AI駆動開発のための規約・ドキュメント整備
+**ゴール:** AI 駆動開発のための規約・ドキュメント整備
 
 #### タスク
 
-- [ ] `AGENTS.md` 作成（AI Agent標準規格2025）
-- [ ] `CLAUDE.md` 作成（Claude Code設定）
+- [ ] `AGENTS.md` 作成（AI Agent 標準規格 2025）
+- [ ] `CLAUDE.md` 作成（Claude Code 設定）
 - [ ] `.docs/system/` ドキュメント作成
-- [ ] `.docs/architecture/` ADR作成
+- [ ] `.docs/architecture/` ADR 作成
 - [ ] `.docs/sop/` 作業手順書作成
 
 #### 成果物
 
 - `AGENTS.md`
 - `CLAUDE.md`
-- `.docs/system/` (3ファイル)
-- `.docs/architecture/` (3ファイル)
-- `.docs/sop/` (3ファイル)
+- `.docs/system/` (3 ファイル)
+- `.docs/architecture/` (3 ファイル)
+- `.docs/sop/` (3 ファイル)
 
 #### 詳細計画
 
@@ -226,19 +227,19 @@ naruto-shelter-map/
 
 ### Phase 3: 開発環境整備 ⭐️⭐️⭐️
 
-**期間:** 1-2日
+**期間:** 1-2 日
 **難易度:** ⭐️⭐️⭐️ (Hard)
 **ゴール:** ローカルで `pnpm dev` が動作する状態にする
 
 #### タスク
 
-- [ ] `package.json` 作成（pnpm対応、最新依存関係）
-- [ ] `.npmrc` 作成（pnpm設定）
-- [ ] `next.config.js` 作成（Turbopack設定）
+- [ ] `package.json` 作成（pnpm 対応、最新依存関係）
+- [ ] `.npmrc` 作成（pnpm 設定）
+- [ ] `next.config.js` 作成（Turbopack 設定）
 - [ ] `tsconfig.json` 作成
-- [ ] `biome.json` 作成（ESLint/Prettier置き換え）
+- [ ] `biome.json` 作成（ESLint/Prettier 置き換え）
 - [ ] `src/` ディレクトリ構造作成
-- [ ] Tailwind CSS v4設定（CSS-First）
+- [ ] Tailwind CSS v4 設定（CSS-First）
 - [ ] `.env.example` 作成
 - [ ] `.gitignore` 作成
 - [ ] `pnpm install` 実行確認
@@ -253,7 +254,7 @@ naruto-shelter-map/
 - `biome.json`
 - `.env.example`
 - `.gitignore`
-- `src/` (基本構造 + Tailwind v4設定)
+- `src/` (基本構造 + Tailwind v4 設定)
 - `public/` (基本構造)
 
 #### 詳細計画
@@ -262,32 +263,32 @@ naruto-shelter-map/
 
 ---
 
-### Phase 4: MVP実装（Phase 3完了後）
+### Phase 4: MVP 実装（Phase 3 完了後）
 
-**期間:** 1週間
+**期間:** 1 週間
 **難易度:** ⭐️⭐️⭐️⭐️
-**ゴール:** 動作するMVPをデプロイ
+**ゴール:** 動作する MVP をデプロイ
 
 #### タスク
 
-- [ ] MapLibre地図コンポーネント実装
+- [ ] MapLibre 地図コンポーネント実装
 - [ ] 避難所データ表示機能
-- [ ] PWA設定（Service Worker, Manifest）
+- [ ] PWA 設定（Service Worker, Manifest）
 - [ ] オフライン動作確認
 - [ ] レスポンシブデザイン
 - [ ] Cloudflare Pages デプロイ
 
 #### 詳細計画
 
-→ Phase 3完了後に `.docs/04-phase-mvp.md` として作成
+→ Phase 3 完了後に `.docs/04-phase-mvp.md` として作成
 
 ---
 
-### Phase 5: データ自動更新（MVP完了後）
+### Phase 5: データ自動更新（MVP 完了後）
 
-**期間:** 3日
+**期間:** 3 日
 **難易度:** ⭐️⭐️⭐️
-**ゴール:** GitHub Actionsで毎日自動更新
+**ゴール:** GitHub Actions で毎日自動更新
 
 #### タスク
 
@@ -297,7 +298,7 @@ naruto-shelter-map/
 
 #### 詳細計画
 
-→ MVP完了後に `.docs/05-phase-automation.md` として作成
+→ MVP 完了後に `.docs/05-phase-automation.md` として作成
 
 ---
 
@@ -316,22 +317,22 @@ graph LR
 
 ---
 
-## 🧪 テスト戦略（2025年最新）
+## 🧪 テスト戦略（2025 年最新）
 
-### E2Eテスト & パフォーマンステスト
+### E2E テスト & パフォーマンステスト
 
 - **対象:** 主要ユーザーフロー、パフォーマンス計測
 - **ツール:**
-  - **Playwright MCP** (Model Context Protocol) - E2Eテスト
+  - **Playwright MCP** (Model Context Protocol) - E2E テスト
   - **Chrome DevTools MCP** - パフォーマンス計測、デバッグ
-- **特徴:** AI駆動テスト、アクセシビリティツリーベース、Core Web Vitals計測
+- **特徴:** AI 駆動テスト、アクセシビリティツリーベース、Core Web Vitals 計測
 - **シナリオ:**
   - 地図表示
   - 避難所検索
   - オフライン動作
-  - CLS/LCP/TTFB計測
+  - CLS/LCP/TTFB 計測
 
-### PWAテスト
+### PWA テスト
 
 - **ツール:** Lighthouse CI
 - **目標スコア:**
@@ -348,7 +349,7 @@ graph LR
 ### データ
 
 - **個人情報:** 一切収集しない
-- **位置情報:** ブラウザAPIのみ使用（サーバー送信なし）
+- **位置情報:** ブラウザ API のみ使用（サーバー送信なし）
 - **分析:** 不要（プライバシーファースト）
 
 ### 依存関係
@@ -365,13 +366,13 @@ graph LR
 - [ ] Lighthouse PWA スコア 100
 - [ ] Core Web Vitals 全項目 Good
 - [ ] オフライン動作率 100%
-- [ ] TypeScript エラー 0件
+- [ ] TypeScript エラー 0 件
 
 ---
 
 ## 🔗 参考リンク
 
-### 技術ドキュメント（2025年最新）
+### 技術ドキュメント（2025 年最新）
 
 - [Next.js 15 Documentation](https://nextjs.org/docs)
 - [React 19 Documentation](https://react.dev/)
@@ -389,7 +390,7 @@ graph LR
 - [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html)
 - [国土数値情報（避難施設データ）](https://nlftp.mlit.go.jp/ksj/)
 
-### AI開発
+### AI 開発
 
 - [AGENTS.md Best Practices](https://www.builder.io/blog/agents-md)
 - [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)
@@ -405,4 +406,13 @@ MIT License - 誰でも自由に使用・改変・配布可能
 
 ---
 
-**Next Step:** [Phase 1: README更新](./.01-phase-readme.md) に進む
+## 📝 変更履歴
+
+| バージョン | 日付       | 変更内容                           |
+| ---------- | ---------- | ---------------------------------- |
+| 2.1        | 2025-11-20 | ダークモード機能削除（不要と判断） |
+| 2.0        | 2025-10-16 | 2025 年最新技術スタック対応        |
+
+---
+
+**Next Step:** [Phase 1: README 更新](./.01-phase-readme.md) に進む

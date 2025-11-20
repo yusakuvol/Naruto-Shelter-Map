@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { clsx } from 'clsx';
-import { useState } from 'react';
-import { CompassArrow } from '@/components/icons/CompassArrow';
-import { useDeviceOrientation } from '@/hooks/useDeviceOrientation';
-import type { Coordinates } from '@/lib/geo';
+import { clsx } from "clsx";
+import { useState } from "react";
+import { CompassArrow } from "@/components/icons/CompassArrow";
+import { useDeviceOrientation } from "@/hooks/useDeviceOrientation";
+import type { Coordinates } from "@/lib/geo";
 import {
   calculateBearing,
   formatDistance,
   getCompassDirection,
   getJapaneseDirection,
-} from '@/lib/geo';
+} from "@/lib/geo";
 import {
   estimateDrivingTime,
   estimateWalkingTime,
   formatTravelTime,
   generateNavigationURL,
-} from '@/lib/navigation';
-import { getShelterIcon } from '@/lib/shelterIcons';
-import type { ShelterFeature } from '@/types/shelter';
-import { ShelterDetailModal } from './ShelterDetailModal';
+} from "@/lib/navigation";
+import { getShelterIcon } from "@/lib/shelterIcons";
+import type { ShelterFeature } from "@/types/shelter";
+import { ShelterDetailModal } from "./ShelterDetailModal";
 
 interface ShelterCardProps {
   shelter: ShelterFeature;
@@ -33,14 +33,14 @@ interface ShelterCardProps {
 
 function getShelterTypeColor(type: string): string {
   switch (type) {
-    case '指定避難所':
-      return 'bg-blue-50 text-blue-900 border-blue-200';
-    case '緊急避難場所':
-      return 'bg-red-50 text-red-900 border-red-200';
-    case '両方':
-      return 'bg-purple-50 text-purple-950 border-purple-200';
+    case "指定避難所":
+      return "bg-blue-50 text-blue-900 border-blue-200";
+    case "緊急避難場所":
+      return "bg-red-50 text-red-900 border-red-200";
+    case "両方":
+      return "bg-purple-50 text-purple-950 border-purple-200";
     default:
-      return 'bg-gray-50 text-gray-900 border-gray-200';
+      return "bg-gray-50 text-gray-900 border-gray-200";
   }
 }
 
@@ -79,24 +79,22 @@ export function ShelterCard({
   const compassRotation =
     bearing !== null && deviceHeading !== null
       ? bearing - deviceHeading
-      : (bearing ?? 0);
+      : bearing ?? 0;
 
   return (
     <>
       {/* biome-ignore lint/a11y/useSemanticElements: ボタンネストを避けるためdivを使用 */}
       <div
         className={clsx(
-          'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
-          'dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600',
-          onClick && 'hover:border-blue-300 dark:hover:border-blue-500',
-          isSelected &&
-            'ring-2 ring-blue-500 bg-blue-50 border-blue-300 dark:bg-blue-900/30 dark:border-blue-500'
+          "w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md",
+          onClick && "hover:border-blue-300",
+          isSelected && "ring-2 ring-blue-500 bg-blue-50 border-blue-300"
         )}
         onClick={onClick}
         role="button"
         tabIndex={onClick ? 0 : undefined}
         onKeyDown={(e) => {
-          if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+          if (onClick && (e.key === "Enter" || e.key === " ")) {
             e.preventDefault();
             onClick();
           }
@@ -106,7 +104,7 @@ export function ShelterCard({
       >
         {/* ヘッダー: 名前 + タイプバッジ + お気に入りボタン */}
         <div className="mb-1.5 flex items-start justify-between gap-2">
-          <h3 className="flex-1 text-sm font-bold text-gray-900 dark:text-gray-100 leading-tight">
+          <h3 className="flex-1 text-sm font-bold text-gray-900 leading-tight">
             {name}
           </h3>
           <div className="flex items-center gap-1.5">
@@ -118,9 +116,9 @@ export function ShelterCard({
                   e.stopPropagation();
                   onToggleFavorite(id);
                 }}
-                className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={
-                  isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
+                  isFavorite ? "お気に入りから削除" : "お気に入りに追加"
                 }
               >
                 {isFavorite ? (
@@ -155,18 +153,18 @@ export function ShelterCard({
             {/* タイプバッジ */}
             <span
               className={clsx(
-                'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
+                "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap",
                 typeColor
               )}
             >
-              {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
+              {getShelterIcon(type, { className: "h-3.5 w-3.5" })}
               <span>{type}</span>
             </span>
           </div>
         </div>
 
         {/* 住所（常に表示） */}
-        <p className="flex items-start gap-1 text-sm text-gray-800 dark:text-gray-200 mb-1">
+        <p className="flex items-start gap-1 text-sm text-gray-800 mb-1">
           <svg
             className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
             fill="none"
@@ -194,7 +192,7 @@ export function ShelterCard({
         {distance !== null && distance !== undefined && (
           <p className="flex items-center gap-1 text-sm text-blue-700 font-medium mb-1">
             {/* コンパス矢印（デバイスの向きが取得できている場合） */}
-            {orientationState === 'granted' && deviceHeading !== null ? (
+            {orientationState === "granted" && deviceHeading !== null ? (
               <CompassArrow
                 rotation={compassRotation}
                 size={14}
@@ -239,7 +237,7 @@ export function ShelterCard({
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
-            <span className="truncate">{disasterTypes.join('・')}</span>
+            <span className="truncate">{disasterTypes.join("・")}</span>
           </span>
 
           {/* 収容人数（ある場合のみ） */}
@@ -304,9 +302,9 @@ export function ShelterCard({
                   const url = generateNavigationURL(
                     { latitude: lat, longitude: lng },
                     undefined,
-                    'walking'
+                    "walking"
                   );
-                  window.open(url, '_blank', 'noopener,noreferrer');
+                  window.open(url, "_blank", "noopener,noreferrer");
                 }}
                 className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={`${name}への経路案内`}
@@ -330,14 +328,18 @@ export function ShelterCard({
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <span
                   className="whitespace-nowrap"
-                  title={`徒歩: ${formatTravelTime(estimateWalkingTime(distance))}`}
+                  title={`徒歩: ${formatTravelTime(
+                    estimateWalkingTime(distance)
+                  )}`}
                 >
                   🚶 {formatTravelTime(estimateWalkingTime(distance))}
                 </span>
                 <span className="text-gray-500">|</span>
                 <span
                   className="whitespace-nowrap"
-                  title={`車: ${formatTravelTime(estimateDrivingTime(distance))}`}
+                  title={`車: ${formatTravelTime(
+                    estimateDrivingTime(distance)
+                  )}`}
                 >
                   🚗 {formatTravelTime(estimateDrivingTime(distance))}
                 </span>
