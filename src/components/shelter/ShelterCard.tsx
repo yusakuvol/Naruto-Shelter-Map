@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { clsx } from 'clsx';
-import { useState } from 'react';
-import { CompassArrow } from '@/components/icons/CompassArrow';
-import { useDeviceOrientation } from '@/hooks/useDeviceOrientation';
-import type { Coordinates } from '@/lib/geo';
+import { clsx } from "clsx";
+import { useState } from "react";
+import { CompassArrow } from "@/components/icons/CompassArrow";
+import { useDeviceOrientation } from "@/hooks/useDeviceOrientation";
+import type { Coordinates } from "@/lib/geo";
 import {
   calculateBearing,
   formatDistance,
   getCompassDirection,
   getJapaneseDirection,
-} from '@/lib/geo';
+} from "@/lib/geo";
 import {
   estimateDrivingTime,
   estimateWalkingTime,
   formatTravelTime,
   generateNavigationURL,
-} from '@/lib/navigation';
-import { getShelterIcon } from '@/lib/shelterIcons';
-import type { ShelterFeature } from '@/types/shelter';
-import { ShelterDetailModal } from './ShelterDetailModal';
+} from "@/lib/navigation";
+import { getShelterIcon } from "@/lib/shelterIcons";
+import type { ShelterFeature } from "@/types/shelter";
+import { ShelterDetailModal } from "./ShelterDetailModal";
 
 interface ShelterCardProps {
   shelter: ShelterFeature;
@@ -33,14 +33,14 @@ interface ShelterCardProps {
 
 function getShelterTypeColor(type: string): string {
   switch (type) {
-    case '指定避難所':
-      return 'bg-blue-50 text-blue-900 border-blue-200';
-    case '緊急避難場所':
-      return 'bg-red-50 text-red-900 border-red-200';
-    case '両方':
-      return 'bg-purple-50 text-purple-950 border-purple-200';
+    case "指定避難所":
+      return "bg-blue-50 text-blue-900 border-blue-200";
+    case "緊急避難場所":
+      return "bg-red-50 text-red-900 border-red-200";
+    case "両方":
+      return "bg-purple-50 text-purple-950 border-purple-200";
     default:
-      return 'bg-gray-50 text-gray-900 border-gray-200';
+      return "bg-gray-50 text-gray-900 border-gray-200";
   }
 }
 
@@ -79,22 +79,22 @@ export function ShelterCard({
   const compassRotation =
     bearing !== null && deviceHeading !== null
       ? bearing - deviceHeading
-      : (bearing ?? 0);
+      : bearing ?? 0;
 
   return (
     <>
       {/* biome-ignore lint/a11y/useSemanticElements: ボタンネストを避けるためdivを使用 */}
       <div
         className={clsx(
-          'w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md',
-          onClick && 'hover:border-blue-300',
-          isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
+          "w-full cursor-pointer rounded-lg border bg-white p-3 shadow-sm text-left transition-all hover:shadow-md",
+          onClick && "hover:border-blue-300",
+          isSelected && "ring-2 ring-blue-500 bg-blue-50 border-blue-300"
         )}
         onClick={onClick}
         role="button"
         tabIndex={onClick ? 0 : undefined}
         onKeyDown={(e) => {
-          if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+          if (onClick && (e.key === "Enter" || e.key === " ")) {
             e.preventDefault();
             onClick();
           }
@@ -118,7 +118,7 @@ export function ShelterCard({
                 }}
                 className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={
-                  isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
+                  isFavorite ? "お気に入りから削除" : "お気に入りに追加"
                 }
               >
                 {isFavorite ? (
@@ -153,11 +153,11 @@ export function ShelterCard({
             {/* タイプバッジ */}
             <span
               className={clsx(
-                'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap',
+                "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap",
                 typeColor
               )}
             >
-              {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
+              {getShelterIcon(type, { className: "h-3.5 w-3.5" })}
               <span>{type}</span>
             </span>
           </div>
@@ -166,7 +166,7 @@ export function ShelterCard({
         {/* 住所（常に表示） */}
         <p className="flex items-start gap-1 text-sm text-gray-800 mb-1">
           <svg
-            className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
+            className="mt-0.5 h-3.5 w-3.5 shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -192,16 +192,16 @@ export function ShelterCard({
         {distance !== null && distance !== undefined && (
           <p className="flex items-center gap-1 text-sm text-blue-700 font-medium mb-1">
             {/* コンパス矢印（デバイスの向きが取得できている場合） */}
-            {orientationState === 'granted' && deviceHeading !== null ? (
+            {orientationState === "granted" && deviceHeading !== null ? (
               <CompassArrow
                 rotation={compassRotation}
                 size={14}
-                className="flex-shrink-0 text-blue-600"
+                className="shrink-0 text-blue-600"
                 aria-hidden="true"
               />
             ) : (
               <svg
-                className="h-3.5 w-3.5 flex-shrink-0"
+                className="h-3.5 w-3.5 shrink-0"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -220,11 +220,11 @@ export function ShelterCard({
         )}
 
         {/* 追加情報（コンパクトに1行で表示） */}
-        <div className="flex items-center gap-3 text-sm text-gray-800 mb-2">
+        <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-gray-800">
           {/* 災害種別 */}
           <span className="flex items-center gap-1">
             <svg
-              className="h-3.5 w-3.5 flex-shrink-0"
+              className="h-3.5 w-3.5 shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -237,14 +237,14 @@ export function ShelterCard({
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
-            <span className="truncate">{disasterTypes.join('・')}</span>
+            <span className="truncate">{disasterTypes.join("・")}</span>
           </span>
 
           {/* 収容人数（ある場合のみ） */}
           {capacity && (
             <span className="flex items-center gap-1 whitespace-nowrap">
               <svg
-                className="h-3.5 w-3.5 flex-shrink-0"
+                className="h-3.5 w-3.5 shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -258,6 +258,115 @@ export function ShelterCard({
                 />
               </svg>
               <span>{capacity}人</span>
+            </span>
+          )}
+
+          {/* 設備情報アイコン（コンパクト表示） */}
+          {shelter.properties.facilities && (
+            <>
+              {shelter.properties.facilities.toilet && (
+                <span
+                  className="flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-xs text-green-700"
+                  title="トイレあり"
+                >
+                  <svg
+                    className="h-3.5 w-3.5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 5h2v9H5zm7 0h-1v9h1zm4 0h-2v9h2zM8 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z" />
+                  </svg>
+                  <span className="sr-only">トイレあり</span>
+                </span>
+              )}
+              {shelter.properties.facilities.water && (
+                <span
+                  className="flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700"
+                  title="水道あり"
+                >
+                  <svg
+                    className="h-3.5 w-3.5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  </svg>
+                  <span className="sr-only">水道あり</span>
+                </span>
+              )}
+              {shelter.properties.facilities.electricity && (
+                <span
+                  className="flex items-center gap-1 rounded-full bg-yellow-50 px-2 py-0.5 text-xs text-yellow-700"
+                  title="電気あり"
+                >
+                  <svg
+                    className="h-3.5 w-3.5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+                  </svg>
+                  <span className="sr-only">電気あり</span>
+                </span>
+              )}
+            </>
+          )}
+
+          {/* バリアフリー情報アイコン（コンパクト表示） */}
+          {shelter.properties.accessibility?.wheelchairAccessible && (
+            <span
+              className="flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700"
+              title="車椅子対応"
+            >
+              <svg
+                className="h-3.5 w-3.5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9c0-1.1.9-2 2-2h3c1.1 0 2 .9 2 2v3h5v5h2V9z" />
+              </svg>
+              <span className="sr-only">車椅子対応</span>
+            </span>
+          )}
+
+          {/* ペット情報アイコン（コンパクト表示） */}
+          {shelter.properties.pets && (
+            <span
+              className={clsx(
+                "flex items-center gap-1 rounded-full px-2 py-0.5 text-xs",
+                shelter.properties.pets.allowed
+                  ? "bg-green-50 text-green-700"
+                  : "bg-gray-50 text-gray-500"
+              )}
+              title={
+                shelter.properties.pets.allowed
+                  ? "ペット同伴可"
+                  : "ペット同伴不可"
+              }
+            >
+              <svg
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span className="sr-only">
+                {shelter.properties.pets.allowed
+                  ? "ペット同伴可"
+                  : "ペット同伴不可"}
+              </span>
             </span>
           )}
         </div>
@@ -302,9 +411,9 @@ export function ShelterCard({
                   const url = generateNavigationURL(
                     { latitude: lat, longitude: lng },
                     undefined,
-                    'walking'
+                    "walking"
                   );
-                  window.open(url, '_blank', 'noopener,noreferrer');
+                  window.open(url, "_blank", "noopener,noreferrer");
                 }}
                 className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={`${name}への経路案内`}
