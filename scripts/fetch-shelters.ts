@@ -217,6 +217,31 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
         properties.contact = contact;
       }
 
+      // 拡張情報（設備、バリアフリー、ペット、開設状況）
+      // 国土地理院のデータに含まれている場合は保持
+      const facilities = props.facilities;
+      if (facilities && typeof facilities === 'object') {
+        (properties as { facilities?: Shelter['facilities'] }).facilities =
+          facilities as Shelter['facilities'];
+      }
+      const accessibility = props.accessibility;
+      if (accessibility && typeof accessibility === 'object') {
+        (
+          properties as { accessibility?: Shelter['accessibility'] }
+        ).accessibility = accessibility as Shelter['accessibility'];
+      }
+      const pets = props.pets;
+      if (pets && typeof pets === 'object') {
+        (properties as { pets?: Shelter['pets'] }).pets =
+          pets as Shelter['pets'];
+      }
+      const operationStatus = props.operationStatus;
+      if (operationStatus && typeof operationStatus === 'object') {
+        (
+          properties as { operationStatus?: Shelter['operationStatus'] }
+        ).operationStatus = operationStatus as Shelter['operationStatus'];
+      }
+
       return {
         type: 'Feature',
         geometry: {
