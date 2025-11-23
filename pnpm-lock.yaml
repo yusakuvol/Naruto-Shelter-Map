@@ -18,8 +18,8 @@ importers:
         specifier: ^12.23.24
         version: 12.23.24(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       maplibre-gl:
-        specifier: ^5.12.0
-        version: 5.12.0
+        specifier: ^5.13.0
+        version: 5.13.0
       next:
         specifier: ^16.0.3
         version: 16.0.3(@babel/core@7.28.4)(@playwright/test@1.56.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -31,7 +31,7 @@ importers:
         version: 19.2.0(react@19.2.0)
       react-map-gl:
         specifier: ^8.0.0
-        version: 8.1.0(maplibre-gl@5.12.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 8.1.0(maplibre-gl@5.13.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       supercluster:
         specifier: ^8.0.1
         version: 8.0.1
@@ -2079,8 +2079,8 @@ packages:
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
-  maplibre-gl@5.12.0:
-    resolution: {integrity: sha512-2B/H+DpjDO2NzsvNQYVIuKPyijhYJW/Hk3W+6BloAzXhm6nqXC3gVrntPPgP6hRH8f8j23nbNLOtM6OKplHwRQ==}
+  maplibre-gl@5.13.0:
+    resolution: {integrity: sha512-UsIVP34rZdM4TjrjhwBAhbC3HT7AzFx9p/draiAPlLr8/THozZF6WmJnZ9ck4q94uO55z7P7zoGCh+AZVoagsQ==}
     engines: {node: '>=16.14.0', npm: '>=8.1.0'}
 
   math-intrinsics@1.1.0:
@@ -3971,13 +3971,13 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@vis.gl/react-maplibre@8.1.0(maplibre-gl@5.12.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@vis.gl/react-maplibre@8.1.0(maplibre-gl@5.13.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@maplibre/maplibre-gl-style-spec': 19.3.3
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
     optionalDependencies:
-      maplibre-gl: 5.12.0
+      maplibre-gl: 5.13.0
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -4836,7 +4836,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  maplibre-gl@5.12.0:
+  maplibre-gl@5.13.0:
     dependencies:
       '@mapbox/geojson-rewind': 0.5.2
       '@mapbox/jsonlint-lines-primitives': 2.0.2
@@ -5013,14 +5013,14 @@ snapshots:
       react: 19.2.0
       scheduler: 0.27.0
 
-  react-map-gl@8.1.0(maplibre-gl@5.12.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  react-map-gl@8.1.0(maplibre-gl@5.13.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@vis.gl/react-mapbox': 8.1.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@vis.gl/react-maplibre': 8.1.0(maplibre-gl@5.12.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@vis.gl/react-maplibre': 8.1.0(maplibre-gl@5.13.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
     optionalDependencies:
-      maplibre-gl: 5.12.0
+      maplibre-gl: 5.13.0
 
   react@19.2.0: {}
 
