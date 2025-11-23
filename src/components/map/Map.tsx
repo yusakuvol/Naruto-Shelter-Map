@@ -9,6 +9,7 @@ import MapGL, {
   useMap,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre';
+import { EvacuationLayer } from '@/components/disaster/EvacuationLayer';
 import { useClustering } from '@/hooks/useClustering';
 import type {
   Coordinates,
@@ -18,6 +19,7 @@ import type {
 import { useMapStyle } from '@/hooks/useMapStyle';
 import { generateNavigationURL } from '@/lib/navigation';
 import { getShelterIcon } from '@/lib/shelterIcons';
+import type { EvacuationInfo } from '@/types/disaster';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
 import { MapStyleSwitcher } from './MapStyleSwitcher';
@@ -32,6 +34,7 @@ interface MapProps {
   geolocationState?: GeolocationState;
   geolocationError?: GeolocationError | null;
   onGetCurrentPosition?: () => void;
+  evacuationInfo?: EvacuationInfo[];
 }
 
 // 避難所種別に応じたマーカー色
@@ -102,6 +105,7 @@ export function ShelterMap({
   geolocationState,
   geolocationError,
   onGetCurrentPosition,
+  evacuationInfo = [],
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
@@ -325,6 +329,11 @@ export function ShelterMap({
           shelters={shelters}
         />
         <NavigationControl position="top-left" />
+
+        {/* 避難情報レイヤー */}
+        {evacuationInfo.length > 0 && (
+          <EvacuationLayer evacuationInfo={evacuationInfo} />
+        )}
 
         {markers}
 
