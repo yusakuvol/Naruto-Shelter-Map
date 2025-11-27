@@ -13,6 +13,7 @@ import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
 import { FilterProvider } from '@/contexts/FilterContext';
+import { useEvacuationInfo } from '@/hooks/useEvacuationInfo';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useGeolocation } from '@/hooks/useGeolocation';
@@ -48,6 +49,7 @@ function HomePageContent() {
   } = useGeolocation();
   const { favorites, toggleFavorite } = useFavorites();
   const { data: weatherData } = useWeatherWarnings();
+  const { data: evacuationInfo } = useEvacuationInfo();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
@@ -149,6 +151,7 @@ function HomePageContent() {
             geolocationState={geolocationState}
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
+            evacuationInfo={evacuationInfo ?? []}
           />
 
           {/* Googleマップ風検索バー */}
@@ -251,6 +254,7 @@ function HomePageContent() {
             geolocationState={geolocationState}
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
+            evacuationInfo={evacuationInfo ?? []}
           />
 
           {/* Googleマップ風検索バー */}
