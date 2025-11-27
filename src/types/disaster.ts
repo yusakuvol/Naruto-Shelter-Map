@@ -95,3 +95,46 @@ export const EVACUATION_LEVEL_DESCRIPTIONS: Record<EvacuationLevel, string> = {
   4: '避難指示',
   5: '緊急安全確保',
 };
+
+/**
+ * 河川水位レベル
+ */
+export type RiverWaterLevel = 1 | 2 | 3 | 4;
+
+/**
+ * 河川水位情報
+ */
+export interface RiverWaterLevelInfo {
+  riverName: string;
+  observationPoint: string;
+  currentLevel: number; // 現在の水位（m）
+  warningLevel: number; // 氾濫注意水位（m）
+  dangerLevel: number; // 氾濫危険水位（m）
+  level: RiverWaterLevel; // 水位レベル（1-4）
+  updatedAt: string;
+  coordinates?: [number, number]; // [経度, 緯度]
+  geometry?: {
+    type: 'LineString' | 'MultiLineString';
+    coordinates: number[][] | number[][][];
+  };
+}
+
+/**
+ * 河川水位レベルと色のマッピング
+ */
+export const RIVER_WATER_LEVEL_COLORS: Record<RiverWaterLevel, string> = {
+  1: '#6B7280', // グレー: 通常（水防団待機水位）
+  2: '#FCD34D', // 黄色: 氾濫注意水位
+  3: '#FB923C', // オレンジ: 避難判断水位
+  4: '#EF4444', // 赤: 氾濫危険水位
+};
+
+/**
+ * 河川水位レベルの説明
+ */
+export const RIVER_WATER_LEVEL_DESCRIPTIONS: Record<RiverWaterLevel, string> = {
+  1: '通常（水防団待機水位）',
+  2: '氾濫注意水位',
+  3: '避難判断水位',
+  4: '氾濫危険水位',
+};
