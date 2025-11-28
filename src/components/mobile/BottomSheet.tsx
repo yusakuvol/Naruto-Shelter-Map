@@ -121,11 +121,14 @@ export function BottomSheet({
         }}
       >
         {/* コンテンツ */}
-        <div id={`${id}-sheet-content`} className="h-full overflow-hidden">
+        <div
+          id={`${id}-sheet-content`}
+          className="h-full flex flex-col overflow-hidden"
+        >
           <h2 id={`${id}-sheet-title`} className="sr-only">
             避難所情報
           </h2>
-          {children}
+          <div className="flex-1 overflow-y-auto">{children}</div>
         </div>
       </motion.div>
     </>

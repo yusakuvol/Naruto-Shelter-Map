@@ -17,13 +17,12 @@ import type {
   GeolocationError,
   GeolocationState,
 } from '@/hooks/useGeolocation';
-import { useMapStyle } from '@/hooks/useMapStyle';
 import { generateNavigationURL } from '@/lib/navigation';
 import { getShelterIcon } from '@/lib/shelterIcons';
 import type { EvacuationInfo, RiverWaterLevelInfo } from '@/types/disaster';
+import { MAP_STYLES } from '@/types/map';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
-import { MapStyleSwitcher } from './MapStyleSwitcher';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
@@ -114,7 +113,8 @@ export function ShelterMap({
     null
   );
   const { current: map } = useMap();
-  const { styleType, styleUrl, setStyleType } = useMapStyle();
+  // 標準地図のみを使用
+  const styleUrl = MAP_STYLES.standard.url;
 
   // 地図のズームレベルと表示領域を追跡
   const [zoom, setZoom] = useState(12);
@@ -317,7 +317,6 @@ export function ShelterMap({
       </div>
 
       <MapGL
-        key={styleUrl}
         initialViewState={{
           longitude: 134.609,
           latitude: 34.173,
@@ -465,14 +464,6 @@ export function ShelterMap({
           </Popup>
         )}
       </MapGL>
-
-      {/* 地図スタイル切り替えボタン - モバイル: 検索バーの下、PC: 右上 */}
-      <div className="absolute top-20 right-4 z-30 lg:top-4">
-        <MapStyleSwitcher
-          currentStyle={styleType}
-          onStyleChange={setStyleType}
-        />
-      </div>
 
       {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + 16px margin）、PC: 右下 */}
       <div className="absolute bottom-24 right-4 z-10 lg:bottom-20 lg:right-4">

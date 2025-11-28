@@ -15,10 +15,14 @@
 @layer base {
   html {
     @apply antialiased;
+    height: 100%;
+    overflow: hidden;
   }
 
   body {
     @apply bg-white text-gray-900;
+    height: 100%;
+    overflow: hidden;
   }
 
   /* リンクのデフォルトスタイル */
