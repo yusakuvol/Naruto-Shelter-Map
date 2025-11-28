@@ -707,27 +707,17 @@ Error: Multiple versions of pnpm specified:
 
 ## 📝 既知の問題・制限事項
 
-### 制限事項
+### 制限事項（2025-11-28時点）
 
-1. **検索機能なし**
-   - 現在は避難所リストのみ
-   - Phase 5で実装予定（Issue #13）
-
-2. **災害種別フィルタなし**
-   - データ構造は対応済み
-   - UI未実装（Issue #13）
-
-3. **現在地表示なし**
-   - Geolocation API未使用
-   - Phase 5で実装予定（Issue #14）
-
-4. **距離順ソートなし**
-   - 現在は登録順
-   - Phase 5で実装予定（Issue #15）
-
-5. **完全オフライン未対応**
+1. **完全オフライン未対応**
    - 地図タイルはオンライン必須
    - MapLibre Vector Tiles 化で将来対応可能
+
+**注記:** 以下の機能は Phase 5-8 で実装済み：
+- ✅ 検索機能（避難所名・住所で検索）
+- ✅ 災害種別フィルタ機能
+- ✅ 現在地表示機能
+- ✅ 距離順ソート機能
 
 ### 既知のバグ
 
@@ -735,17 +725,20 @@ Error: Multiple versions of pnpm specified:
 
 ---
 
-## 🔄 Next Steps (Phase 5)
+## 🔄 Next Steps
 
-Phase 4（MVP）完了後、以下の機能拡張を実施予定：
+Phase 4（MVP）完了後、Phase 5-8 で以下の機能拡張を実装済み：
 
-1. **災害種別フィルタ機能** (Issue #13)
-2. **現在地表示機能** (Issue #14)
-3. **距離順ソート機能** (Issue #15)
-4. **GitHub Actions - データ自動更新** (Issue #12)
-5. **MapLibre Vector Tiles対応**（完全オフライン化）
+1. ✅ **災害種別フィルタ機能** - 完了
+2. ✅ **現在地表示機能** - 完了
+3. ✅ **距離順ソート機能** - 完了
+4. ✅ **GitHub Actions - データ自動更新** - 完了
+5. ✅ **検索機能** - 完了
+6. ✅ **ルート案内機能** - 完了
+7. ✅ **PWA対応** - 完了
+8. ✅ **災害情報統合** - 完了
 
-詳細は Phase 5完了後に `.docs/05-phase-enhancements.md` として作成予定。
+詳細は `.docs/05-phase-enhancements.md` を参照。
 
 ---
 
