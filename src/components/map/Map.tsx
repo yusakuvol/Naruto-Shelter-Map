@@ -244,7 +244,7 @@ export function ShelterMap({
           selectedShelterId={selectedShelterId}
           shelters={shelters}
         />
-        <NavigationControl position="top-left" />
+        <NavigationControl position="top-right" />
 
         {/* 避難情報レイヤー */}
         {evacuationInfo.length > 0 && (
@@ -384,8 +384,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + 16px margin）、PC: 右下 */}
-      <div className="absolute bottom-24 right-4 z-10 lg:bottom-20 lg:right-4">
+      {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + マージン）、PC: 右下 */}
+      <div className="absolute bottom-28 right-4 z-10 lg:bottom-20 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}
