@@ -13,7 +13,7 @@
 | 項目 | 結果 | スコア | 備考 |
 |------|------|--------|------|
 | **Manifest読み込み** | ✅ 成功 | 100% | 正常に読み込まれています |
-| **Service Worker登録** | ❌ 失敗 | 0% | 登録されていません |
+| **Service Worker登録** | ✅ 成功 | 100% | 正常に登録されています |
 | **インストールプロンプト** | ✅ 表示 | 100% | 正常に表示されています |
 | **ページ表示** | ✅ 成功 | 100% | 正常に表示されています |
 
@@ -40,25 +40,23 @@
 
 ---
 
-### 2. Service Worker登録 ❌
+### 2. Service Worker登録 ✅
 
 **テスト方法:** JavaScript評価（`navigator.serviceWorker.getRegistration()`）
 
 **結果:**
-- ❌ Service Workerが登録されていない
-- ❌ `serviceWorkerRegistered: false`
+- ✅ Service Workerが正常に登録されている
+- ✅ `serviceWorkerRegistered: true`
+- ✅ `serviceWorkerState: "activated"`
+- ✅ `serviceWorkerScope: "http://localhost:3000/"`
+- ✅ `serviceWorkerScriptURL: "http://localhost:3000/sw.js"`
 
-**原因調査:**
-- `next.config.js`で`disable: process.env.NODE_ENV === "development"`となっているため、開発環境では無効
-- 本番ビルド（`pnpm build`）でもService Workerが登録されていない
-- `out/sw.js`ファイルは存在するが、自動登録されていない可能性
+**修正内容:**
+- `ServiceWorkerRegistration`コンポーネントを追加
+- 静的エクスポート環境でもService Workerが確実に登録されるように修正
+- 本番環境でのみ登録を実行（開発環境では無効）
 
-**評価:** ❌ **不合格** - Service Workerの登録が必要です
-
-**推奨対応:**
-1. `@ducanh2912/next-pwa`の設定を確認
-2. Service Workerの自動登録が有効になっているか確認
-3. 本番環境でのService Worker登録を確認
+**評価:** ✅ **合格** - Service Workerが正常に登録されています
 
 ---
 
@@ -114,8 +112,8 @@
 
 **期待される結果:**
 - Manifest displays correctly: ✅
-- Service Worker registered: ❌（現在未登録のため）
-- Offline support: ❌（Service Worker未登録のため）
+- Service Worker registered: ✅（修正済み）
+- Offline support: ✅（Service Worker登録済み）
 - Page is installable: ✅
 - Uses HTTPS: ⚠️（ローカル環境のため、本番環境で確認が必要）
 
@@ -125,10 +123,10 @@
 
 ### 優先度: 🔥 HIGH
 
-1. **Service Worker登録の修正**
-   - `@ducanh2912/next-pwa`の設定を確認
-   - Service Workerの自動登録が有効になっているか確認
-   - 本番環境でのService Worker登録を確認
+1. ~~**Service Worker登録の修正**~~ ✅ **完了**
+   - ✅ `ServiceWorkerRegistration`コンポーネントを追加
+   - ✅ 静的エクスポート環境でもService Workerが確実に登録されるように修正
+   - ✅ 本番環境でのService Worker登録を確認済み
 
 ### 優先度: 🔶 MEDIUM
 
