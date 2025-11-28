@@ -49,7 +49,7 @@
 
 ### 進行中（🚧 In Progress）
 
-- [ ] **Phase 10:** エコシステム化・持続可能性
+- [ ] **Phase 10:** CI/CD 強化
 
 ---
 
@@ -72,10 +72,10 @@
 ## 🗺️ ロードマップ概要
 
 ```
-Phase 6      Phase 7    Phase 8    Phase 10+
-PWA対応      UX改善     多機能化   エコシステム化
+Phase 6      Phase 7    Phase 8    Phase 10
+PWA対応      UX改善     多機能化   CI/CD強化
 
-[基盤強化] → [体験向上] → [機能拡張] → [持続可能性]
+[基盤強化] → [体験向上] → [機能拡張] → [品質向上]
 ```
 
 ---
@@ -256,65 +256,35 @@ PWA対応      UX改善     多機能化   エコシステム化
 
 ---
 
-## Phase 10: エコシステム化・持続可能性 ⭐️⭐️⭐️⭐️⭐️
+## Phase 10: CI/CD 強化 ⭐️⭐️⭐️⭐️⭐️
 
-**ゴール:** オープンソースプロジェクトとしての成熟
+**ゴール:** 自動テストとパフォーマンス監視の実装
 **優先度:** 🔵 LOW（長期的）
 
 ### 目標
 
-- コミュニティ主導の開発
-- 持続可能な運用体制
+- コード品質の向上
+- 自動化による開発効率向上
 
 ### タスク
 
-#### 10.1 オープンソースコミュニティ構築
-
-- [ ] Contribution Guide 作成
-- [ ] Code of Conduct 策定
-- [ ] Issue Template 整備
-- [ ] PR Template 整備
-- [ ] GitHub Discussions 開設
-
-#### 10.2 技術ドキュメント充実
-
-- [ ] Architecture Decision Records（ADR）
-- [ ] API Documentation
-- [ ] Component Storybook
-- [ ] E2E テスト（Playwright）
-
-#### 10.3 CI/CD 強化
+#### 10.1 CI/CD 強化
 
 - [ ] 自動テスト（Unit, Integration, E2E）
 - [ ] Visual Regression Testing
 - [ ] パフォーマンス監視（Lighthouse CI）
 - [ ] セキュリティスキャン（Dependabot, Snyk）
 
-#### 10.4 運用体制構築
-
-- [ ] モニタリング（Sentry, Google Analytics 代替）
-- [ ] ユーザーフィードバック収集
-- [ ] バグトリアージプロセス
-- [ ] リリースサイクル確立（Semantic Versioning）
-
-#### 10.5 プラットフォーム化
-
-- [ ] 避難所データ API 公開
-- [ ] WebHook 通知機能
-- [ ] サードパーティ連携
-- [ ] プラグインシステム
-
 ### 成果物
 
-- オープンソースコミュニティ
-- API 公開プラットフォーム
-- 持続可能な運用体制
+- 自動テストスイート
+- CI/CD パイプライン
+- パフォーマンス監視システム
 
 ### 成功指標（KPI）
 
-- 👥 GitHub Stars: **100 以上**
-- 🔀 Contributors: **10 人以上**
-- 📊 月間アクティブユーザー: **1,000 人以上**
+- ✅ テストカバレッジ: **80%以上**
+- ✅ CI/CD パイプライン成功率: **95%以上**
 
 ---
 
