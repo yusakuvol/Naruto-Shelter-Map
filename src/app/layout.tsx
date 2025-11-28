@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { SkipLink } from '@/components/a11y/SkipLink';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
 import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
+import { ServiceWorkerRegistration } from '@/components/pwa/ServiceWorkerRegistration';
 import { UpdateNotification } from '@/components/pwa/UpdateNotification';
 import { viewport } from './viewport';
 import './globals.css';
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ja" className={notoSansJP.variable}>
       <body className="font-sans antialiased">
         <SkipLink />
+        <ServiceWorkerRegistration />
         {children}
         <OfflineIndicator />
         <InstallPrompt />

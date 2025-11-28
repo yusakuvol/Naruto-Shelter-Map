@@ -104,17 +104,20 @@ PWA対応      UX改善     多機能化   地域展開   エコシステム化
 
 #### 6.4 PWA テスト
 
-- [ ] Lighthouse PWA 監査（目標: 100 点）
-- [ ] Chrome DevTools Application タブでの確認
-- [ ] 実機テスト（iOS Safari, Android Chrome）
-- [ ] オフライン動作テスト
+- [x] PWAテストガイド作成（完了）
+- [ ] Lighthouse PWA 監査（目標: 100 点）※本番環境で実施
+- [ ] Chrome DevTools Application タブでの確認※本番環境で実施
+- [ ] 実機テスト（iOS Safari, Android Chrome）※本番環境で実施
+- [ ] オフライン動作テスト※本番環境で実施
+
+**テストガイド:** [`.docs/pwa-test-guide.md`](.docs/pwa-test-guide.md)
 
 ### 成果物
 
-- Service Worker（`src/app/sw.ts` or `public/sw.js`）
+- Service Worker（`public/sw.js` - 自動生成）
 - PWA Manifest（`src/app/manifest.ts`）
-- オフライン UI コンポーネント
-- PWA インストールガイド
+- オフライン UI コンポーネント（`OfflineIndicator`, `UpdateNotification`, `InstallPrompt`）
+- PWA テストガイド（`.docs/pwa-test-guide.md`）
 
 ### 技術選定
 
