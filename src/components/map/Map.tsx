@@ -1,6 +1,5 @@
 'use client';
 
-import type { BBox } from 'geojson';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MapGL, {
   Marker,
@@ -12,7 +11,6 @@ import MapGL, {
 import { EvacuationLayer } from '@/components/disaster/EvacuationLayer';
 import { HazardMapLayer } from '@/components/disaster/HazardMapLayer';
 import { RiverWaterLevelLayer } from '@/components/disaster/RiverWaterLevelLayer';
-import { useClustering } from '@/hooks/useClustering';
 import type {
   Coordinates,
   GeolocationError,
@@ -123,20 +121,6 @@ export function ShelterMap({
   // 標準地図のみを使用
   const styleUrl = MAP_STYLES.standard.url;
 
-  // 地図のズームレベルと表示領域を追跡
-  const [zoom, setZoom] = useState(12);
-  const [bounds, setBounds] = useState<BBox>([
-    134.5, 34.1, 134.7, 34.25,
-  ] as BBox);
-
-  // クラスタリング（無効化）
-  const { clusters, supercluster } = useClustering({
-    shelters,
-    zoom,
-    bounds,
-    enabled: false, // クラスタリングを無効化
-  });
-
   // 外部から渡された位置情報を使用、なければフォールバック
   const position = externalPosition ?? null;
   const state = geolocationState ?? 'idle';
@@ -166,40 +150,10 @@ export function ShelterMap({
     }
   }, [onGetCurrentPosition, position, map]);
 
-  // 地図のズームレベルと表示領域の変更を追跡
-  const handleMove = useCallback((evt: ViewStateChangeEvent) => {
-    const { viewState } = evt;
-    setZoom(viewState.zoom);
-
-    // 地図の表示領域（BBox）を取得
-    const mapInstance = evt.target;
-    const mapBounds = mapInstance.getBounds();
-    const bbox: BBox = [
-      mapBounds.getWest(),
-      mapBounds.getSouth(),
-      mapBounds.getEast(),
-      mapBounds.getNorth(),
-    ];
-    setBounds(bbox);
+  // 地図の移動を追跡（必要に応じて）
+  const handleMove = useCallback((_evt: ViewStateChangeEvent) => {
+    // クラスタリング削除により、ズームレベルと表示領域の追跡は不要
   }, []);
-
-  // クラスターをクリックした時の処理
-  const handleClusterClick = useCallback(
-    (clusterId: number, longitude: number, latitude: number) => {
-      if (!supercluster || !map) return;
-
-      // クラスターの展開ズームレベルを取得
-      const expansionZoom = supercluster.getClusterExpansionZoom(clusterId);
-
-      // そのズームレベルまでズームイン
-      map.flyTo({
-        center: [longitude, latitude],
-        zoom: expansionZoom,
-        duration: 500,
-      });
-    },
-    [supercluster, map]
-  );
 
   // 現在地を取得したら地図を移動
   useEffect(() => {
@@ -222,56 +176,15 @@ export function ShelterMap({
     setSelectedShelter(shelter);
   }, [selectedShelterId, shelters]);
 
-  // クラスター/マーカーをメモ化してレンダリング最適化
+  // マーカーをメモ化してレンダリング最適化
   const markers = useMemo(
     () =>
-      clusters.map((cluster) => {
-        const coordinates = cluster.geometry.coordinates;
+      shelters.map((shelter) => {
+        const coordinates = shelter.geometry.coordinates;
         const lng = coordinates[0];
         const lat = coordinates[1];
 
         if (lng === undefined || lat === undefined) return null;
-
-        const { cluster: isCluster, point_count: pointCount } =
-          cluster.properties;
-
-        // クラスターの場合
-        if (isCluster) {
-          const clusterId = cluster.properties.cluster_id;
-          if (!clusterId) return null;
-
-          const count = pointCount ?? 0;
-
-          return (
-            <Marker
-              key={`cluster-${clusterId}`}
-              longitude={lng}
-              latitude={lat}
-              anchor="center"
-            >
-              <button
-                type="button"
-                onClick={() => handleClusterClick(clusterId, lng, lat)}
-                className="flex items-center justify-center rounded-full border-2 border-white bg-purple-500 text-white shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
-                style={{
-                  width: `${30 + count / 10}px`,
-                  height: `${30 + count / 10}px`,
-                  fontSize: `${14 + count / 30}px`,
-                }}
-                aria-label={`${count}件の避難所クラスター`}
-              >
-                <span className="font-bold">{count}</span>
-              </button>
-            </Marker>
-          );
-        }
-
-        // 個別マーカーの場合
-        const shelterId = cluster.properties.shelterId;
-        if (!shelterId) return null;
-
-        const shelter = shelters.find((s) => s.properties.id === shelterId);
-        if (!shelter) return null;
 
         const color = getShelterColor(shelter.properties.type);
         const shape = getShelterShape(shelter.properties.type);
@@ -304,13 +217,7 @@ export function ShelterMap({
           </Marker>
         );
       }),
-    [
-      clusters,
-      shelters,
-      selectedShelterId,
-      handleMarkerClick,
-      handleClusterClick,
-    ]
+    [shelters, selectedShelterId, handleMarkerClick]
   );
 
   return (
