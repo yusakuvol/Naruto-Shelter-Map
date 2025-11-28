@@ -6,7 +6,6 @@ import { WeatherWarningBanner } from '@/components/disaster/WeatherWarningBanner
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
-import { MapSearchBar } from '@/components/map/MapSearchBar';
 import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
 import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
@@ -56,7 +55,6 @@ function HomePageContent() {
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
   );
-  const [searchQuery, setSearchQuery] = useState('');
   const [sortMode, setSortMode] = useState<SortMode>('name');
   const [detailModalShelter, setDetailModalShelter] =
     useState<ShelterFeature | null>(null);
@@ -64,24 +62,10 @@ function HomePageContent() {
   const allShelters = data?.features ?? [];
   const filteredShelters = useFilteredShelters(allShelters);
 
-  // 検索クエリでさらにフィルタリング
-  const searchedShelters = useMemo(() => {
-    if (!searchQuery.trim()) return filteredShelters;
-
-    const query = searchQuery.toLowerCase();
-    return filteredShelters.filter((shelter) => {
-      const { name, address } = shelter.properties;
-      return (
-        name.toLowerCase().includes(query) ||
-        address.toLowerCase().includes(query)
-      );
-    });
-  }, [filteredShelters, searchQuery]);
-
   // 距離計算とソート
   const sortedShelters = useMemo(() => {
     // 距離を含む拡張データを作成
-    const sheltersWithDistance = searchedShelters.map((shelter) => ({
+    const sheltersWithDistance = filteredShelters.map((shelter) => ({
       shelter,
       distance:
         position && shelter.geometry.coordinates
@@ -109,7 +93,7 @@ function HomePageContent() {
         'ja-JP'
       )
     );
-  }, [searchedShelters, sortMode, position]);
+  }, [filteredShelters, sortMode, position]);
 
   if (error) {
     return (
@@ -145,7 +129,7 @@ function HomePageContent() {
         {/* 地図エリア（フルスクリーン） */}
         <main id="main-content" className="relative flex-1 min-h-0">
           <ShelterMap
-            shelters={searchedShelters}
+            shelters={filteredShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
             onShowDetail={setDetailModalShelter}
@@ -156,14 +140,6 @@ function HomePageContent() {
             evacuationInfo={evacuationInfo ?? []}
             riverWaterLevels={riverWaterLevels ?? []}
           />
-
-          {/* Googleマップ風検索バー */}
-          <nav aria-label="避難所検索">
-            <MapSearchBar
-              onSearch={setSearchQuery}
-              placeholder="避難所を検索..."
-            />
-          </nav>
         </main>
 
         {/* Bottom Sheet */}
@@ -249,7 +225,7 @@ function HomePageContent() {
         {/* 地図エリア（右側） */}
         <main id="main-content" className="relative h-full flex-1">
           <ShelterMap
-            shelters={searchedShelters}
+            shelters={filteredShelters}
             selectedShelterId={selectedShelterId}
             onShelterSelect={setSelectedShelterId}
             onShowDetail={setDetailModalShelter}
@@ -260,14 +236,6 @@ function HomePageContent() {
             evacuationInfo={evacuationInfo ?? []}
             riverWaterLevels={riverWaterLevels ?? []}
           />
-
-          {/* Googleマップ風検索バー */}
-          <nav aria-label="避難所検索">
-            <MapSearchBar
-              onSearch={setSearchQuery}
-              placeholder="避難所を検索..."
-            />
-          </nav>
         </main>
       </div>
 
