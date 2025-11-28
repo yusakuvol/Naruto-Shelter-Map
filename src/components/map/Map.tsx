@@ -244,7 +244,7 @@ export function ShelterMap({
           selectedShelterId={selectedShelterId}
           shelters={shelters}
         />
-        <NavigationControl position="top-left" />
+        <NavigationControl position="top-right" />
 
         {/* 避難情報レイヤー */}
         {evacuationInfo.length > 0 && (
