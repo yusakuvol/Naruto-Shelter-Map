@@ -385,7 +385,7 @@ export function ShelterMap({
       </MapGL>
 
       {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + マージン）、PC: 右下 */}
-      <div className="absolute bottom-28 right-4 z-10 lg:bottom-20 lg:right-4">
+      <div className="absolute bottom-32 right-4 z-10 lg:bottom-20 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}
