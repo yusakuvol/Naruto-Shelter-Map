@@ -7,8 +7,17 @@ import type { HazardMapInfo } from '@/types/disaster';
  * ハザードマップ情報を取得するカスタムフック
  *
  * 現在はプレースホルダー実装。
- * 将来的には国土地理院のハザードマップAPIや
- * 鳴門市のハザードマップデータと連携する予定。
+ * 将来的には以下のAPIと連携する予定：
+ *
+ * - 国土交通省「不動産情報ライブラリ」防災情報API
+ *   - 洪水浸水想定区域、土砂災害警戒区域、津波浸水想定、高潮浸水想定区域を提供
+ *   - https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo17_hh_000001_00068.html
+ *
+ * - 全国避難所ガイド「全国ハザードデータベースAPI」
+ *   - 土砂災害警戒区域、洪水浸水想定区域、津波浸水想定区域のデータを提供
+ *   - https://www.hinanjyo.jp/api.html
+ *
+ * 実装時は、エンドポイントURL、認証方法、データ形式を確認してから実装すること。
  */
 export function useHazardMaps(): {
   data: HazardMapInfo[] | null;
@@ -27,15 +36,11 @@ export function useHazardMaps(): {
       setError(null);
 
       // TODO: 実際のAPIエンドポイントを実装
+      // 利用可能なAPI:
+      // - 国土交通省「不動産情報ライブラリ」防災情報API
+      // - 全国避難所ガイド「全国ハザードデータベースAPI」
+      // 実装時は、エンドポイントURL、認証方法、データ形式を確認してから実装すること。
       // 現時点では、モックデータまたは空の配列を返す
-      // 実際のAPIが利用可能になったら、以下のように実装:
-      //
-      // const response = await fetch('https://api.example.com/hazard-maps');
-      // if (!response.ok) {
-      //   throw new Error(`ハザードマップ情報の取得に失敗しました (HTTP ${response.status})`);
-      // }
-      // const json = await response.json();
-      // setData(json);
 
       // 現時点では空の配列を返す（ハザードマップ情報がない状態）
       setData([]);
