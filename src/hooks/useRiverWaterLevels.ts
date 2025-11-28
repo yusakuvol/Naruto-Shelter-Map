@@ -6,10 +6,14 @@ import type { RiverWaterLevelInfo } from '@/types/disaster';
 /**
  * 河川水位情報を取得するフック
  *
- * 国土交通省の川の防災情報APIから鳴門市周辺の河川（旧吉野川、今切川）の水位情報を取得します。
- * API: https://www.river.go.jp/
+ * 国土交通省の川の防災情報から鳴門市周辺の河川（旧吉野川、今切川）の水位情報を取得します。
+ * データは公開されているが、REST APIの詳細なエンドポイントは要確認。
  *
- * 注意: 実際のAPIエンドポイントは調査が必要です。
+ * 参考:
+ * - 国土交通省「川の防災情報」: https://www.river.go.jp/
+ * - 各河川管理事務所が個別にAPIを提供している場合あり
+ *
+ * 実装時は、エンドポイントURL、認証方法、データ形式を確認してから実装すること。
  * 現時点では、将来の実装のための構造を提供します。
  */
 export function useRiverWaterLevels(): {
@@ -25,6 +29,7 @@ export function useRiverWaterLevels(): {
 
   // 鳴門市周辺の河川観測所
   // TODO: 実際の観測所コードを調査
+  // 国土交通省「川の防災情報」から観測所情報を取得する必要がある
   // const OBSERVATION_POINTS = [
   //   {
   //     riverName: '旧吉野川',
@@ -44,15 +49,9 @@ export function useRiverWaterLevels(): {
       setError(null);
 
       // TODO: 実際のAPIエンドポイントを実装
+      // 国土交通省「川の防災情報」のREST APIエンドポイントを調査して実装すること。
+      // 実装時は、エンドポイントURL、認証方法、データ形式を確認してから実装すること。
       // 現時点では、モックデータまたは空の配列を返す
-      // 実際のAPIが利用可能になったら、以下のように実装:
-      //
-      // const response = await fetch('https://api.river.go.jp/water-levels');
-      // if (!response.ok) {
-      //   throw new Error(`河川水位情報の取得に失敗しました (HTTP ${response.status})`);
-      // }
-      // const json = await response.json();
-      // setData(json);
 
       // 現時点では空の配列を返す（水位情報がない状態）
       setData([]);
