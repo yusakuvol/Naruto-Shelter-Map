@@ -17,6 +17,7 @@ import { useEvacuationInfo } from '@/hooks/useEvacuationInfo';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useGeolocation } from '@/hooks/useGeolocation';
+import { useRiverWaterLevels } from '@/hooks/useRiverWaterLevels';
 import { useShelters } from '@/hooks/useShelters';
 import { useWeatherWarnings } from '@/hooks/useWeatherWarnings';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
@@ -50,6 +51,7 @@ function HomePageContent() {
   const { favorites, toggleFavorite } = useFavorites();
   const { data: weatherData } = useWeatherWarnings();
   const { data: evacuationInfo } = useEvacuationInfo();
+  const { data: riverWaterLevels } = useRiverWaterLevels();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
@@ -152,6 +154,7 @@ function HomePageContent() {
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
             evacuationInfo={evacuationInfo ?? []}
+            riverWaterLevels={riverWaterLevels ?? []}
           />
 
           {/* Googleマップ風検索バー */}
@@ -255,6 +258,7 @@ function HomePageContent() {
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
             evacuationInfo={evacuationInfo ?? []}
+            riverWaterLevels={riverWaterLevels ?? []}
           />
 
           {/* Googleマップ風検索バー */}
