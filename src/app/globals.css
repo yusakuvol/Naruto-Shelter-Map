@@ -59,9 +59,4 @@
   padding: 8px;
 }
 
-/* モバイルでナビゲーションコントロールを非表示 */
-@media (max-width: 1023px) {
-  .maplibregl-ctrl-top-right {
-    display: none !important;
-  }
-}
+/* モバイルでもナビゲーションコントロールを表示（右上に配置） */
