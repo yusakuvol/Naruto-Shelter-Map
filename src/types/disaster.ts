@@ -138,3 +138,44 @@ export const RIVER_WATER_LEVEL_DESCRIPTIONS: Record<RiverWaterLevel, string> = {
   3: '避難判断水位',
   4: '氾濫危険水位',
 };
+
+/**
+ * ハザードマップの種類
+ */
+export type HazardMapType = 'flood' | 'sediment' | 'tsunami' | 'earthquake';
+
+/**
+ * ハザードマップ情報
+ */
+export interface HazardMapInfo {
+  type: HazardMapType;
+  name: string;
+  description: string;
+  areaCode: string;
+  areaName: string;
+  updatedAt: string;
+  geometry?: {
+    type: 'Polygon' | 'MultiPolygon';
+    coordinates: number[][][] | number[][][][];
+  };
+}
+
+/**
+ * ハザードマップ種別と色のマッピング
+ */
+export const HAZARD_MAP_COLORS: Record<HazardMapType, string> = {
+  flood: '#3B82F6', // 青: 洪水
+  sediment: '#F59E0B', // オレンジ: 土砂災害
+  tsunami: '#10B981', // 緑: 津波
+  earthquake: '#EF4444', // 赤: 地震
+};
+
+/**
+ * ハザードマップ種別の説明
+ */
+export const HAZARD_MAP_DESCRIPTIONS: Record<HazardMapType, string> = {
+  flood: '洪水ハザードマップ',
+  sediment: '土砂災害ハザードマップ',
+  tsunami: '津波ハザードマップ',
+  earthquake: '地震ハザードマップ',
+};
