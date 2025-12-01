@@ -59,6 +59,16 @@ const nextConfig = {
   // 静的エクスポート（Cloudflare Pages用）
   output: "export",
 
+  // 本番ビルド時にconsole.logを自動削除（console.errorは残す）
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? {
+            exclude: ["error", "warn"], // エラーと警告は残す
+          }
+        : false,
+  },
+
   // 画像最適化（静的エクスポート時は無効）
   images: {
     unoptimized: true,
