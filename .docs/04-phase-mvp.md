@@ -707,11 +707,11 @@ Error: Multiple versions of pnpm specified:
 
 ## 📝 既知の問題・制限事項
 
-### 制限事項（2025-11-28時点）
+### 制限事項（2025-12-01時点）
 
-1. **完全オフライン未対応**
-   - 地図タイルはオンライン必須
-   - MapLibre Vector Tiles 化で将来対応可能
+1. **完全オフライン対応（実装中）**
+   - ✅ MapLibre Vector Tiles対応を実装中（Issue #188）
+   - Vector TilesをService Workerでキャッシュし、完全オフライン環境でも地図を表示可能に
 
 **注記:** 以下の機能は Phase 5-8 で実装済み：
 - ✅ 検索機能（避難所名・住所で検索）

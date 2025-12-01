@@ -4,6 +4,66 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   skipWaiting: false, // ユーザーが手動で更新を承認できるようにする
   disable: process.env.NODE_ENV === "development",
   runtimeCaching: [
+    // Vector Tiles (MapLibre Demo Tiles)
+    {
+      urlPattern: /^https:\/\/demotiles\.maplibre\.org\/.*/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "maplibre-vector-tiles",
+        expiration: {
+          maxEntries: 2000, // Vector Tilesは軽量なので多めにキャッシュ
+          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+        },
+      },
+    },
+    // Vector Tiles (.pbf files)
+    {
+      urlPattern: /\.pbf$/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "vector-tiles",
+        expiration: {
+          maxEntries: 2000,
+          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+        },
+      },
+    },
+    // 地図スタイルJSON
+    {
+      urlPattern: /\/style\.json$/i,
+      handler: "StaleWhileRevalidate",
+      options: {
+        cacheName: "map-styles",
+        expiration: {
+          maxEntries: 10,
+          maxAgeSeconds: 60 * 60 * 24 * 7, // 7日
+        },
+      },
+    },
+    // フォント、スプライトなどの地図アセット
+    {
+      urlPattern: /\/fonts\/.*/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "map-fonts",
+        expiration: {
+          maxEntries: 100,
+          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+        },
+      },
+    },
+    {
+      urlPattern: /\/sprite.*\.(?:png|json)$/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "map-sprites",
+        expiration: {
+          maxEntries: 20,
+          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+        },
+      },
+    },
+    // 旧ラスタタイル（後方互換性のため残す）
     {
       urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/.*/i,
       handler: "CacheFirst",
@@ -26,6 +86,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
         },
       },
     },
+    // 画像ファイル
     {
       urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
       handler: "CacheFirst",
@@ -37,6 +98,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
         },
       },
     },
+    // GeoJSONデータ
     {
       urlPattern: /\.geojson$/i,
       handler: "StaleWhileRevalidate",
