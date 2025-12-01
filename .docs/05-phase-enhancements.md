@@ -38,8 +38,6 @@ MVP（Phase 4）で構築した基本機能に加えて、**実用性を大幅�
 - [ ] フィルタ適用時のマーカー更新
 - [ ] リスト表示の同期
 - [ ] レスポンシブ対応（モバイル/デスクトップ）
-- [ ] パフォーマンステスト（150件→フィルタ後のレンダリング）
-- [ ] E2Eテスト（Playwright MCP）
 
 **成果物:**
 - `src/components/filter/DisasterTypeFilter.tsx`
@@ -63,7 +61,6 @@ MVP（Phase 4）で構築した基本機能に加えて、**実用性を大幅�
 - [ ] 精度表示（Accuracy circle）
 - [ ] オフライン時のフォールバック
 - [ ] プライバシー配慮（位置情報をサーバー送信しない）
-- [ ] E2Eテスト（位置情報モック）
 
 **成果物:**
 - `src/components/map/CurrentLocationMarker.tsx`
@@ -94,7 +91,6 @@ MVP（Phase 4）で構築した基本機能に加えて、**実用性を大幅�
 - [ ] 距離表示（「約1.2km」形式）
 - [ ] パフォーマンス最適化（useMemoでメモ化）
 - [ ] エッジケース対応（現在地未取得時）
-- [ ] ユニットテスト（距離計算の精度確認）
 
 **成果物:**
 - `src/lib/distance.ts`（Haversine公式）
@@ -554,14 +550,14 @@ const filteredShelters = useMemo(() => {
 - **Day 1-2:** 災害種別フィルタ実装
 - **Day 3-4:** 現在地表示機能実装
 - **Day 5-6:** 距離順ソート機能実装
-- **Day 7:** E2Eテスト、デバッグ
+- **Day 7:** デバッグ
 
 ### Week 2（10/28 - 11/03）
 
 - **Day 8-10:** GitHub Actions データ自動更新実装
 - **Day 11-12:** 検索機能実装
 - **Day 13:** ルート案内機能実装
-- **Day 14:** 統合テスト、ドキュメント更新、デプロイ
+- **Day 14:** ドキュメント更新、デプロイ
 
 ---
 
@@ -570,7 +566,6 @@ const filteredShelters = useMemo(() => {
 ### 必須条件
 
 - [ ] Issue #13, #14, #15, #12 をすべてクローズ
-- [ ] すべての機能がE2Eテストでパス
 - [ ] Core Web Vitals が Phase 4 レベルを維持（LCP<2.5s, CLS<0.1）
 - [ ] TypeScript エラー 0件
 - [ ] Biome Lint エラー 0件

@@ -99,7 +99,7 @@ AI駆動開発を加速させるための**規約・ドキュメント**を整�
 - Map: MapLibre GL JS **5.9**
 - PWA: next-pwa 5
 - State: SWR (データフェッチ), Zustand (グローバル状態、optional)
-- Testing: **Vitest** (unit), **Playwright MCP** (E2E)
+- Testing: なし（テストは実装しない）
 - Linting/Formatting: **Biome** (ESLint+Prettier置き換え)
 - Hosting: Cloudflare Pages
 - CI/CD: GitHub Actions
@@ -340,63 +340,7 @@ import './styles.css';
 
 ## 🧪 テスト戦略
 
-### テスト駆動開発（TDD）推奨
-
-**AIに対する指示:**
-- コードを書く前にテストケースを作成すること
-- テストが失敗することを確認してから実装に入ること
-
-### ユニットテスト
-
-**対象:**
-- `src/lib/` のユーティリティ関数
-- `src/hooks/` のカスタムフック
-
-**ツール:**
-- **Vitest** (Jestより10倍高速、Vite駆動)
-- React Testing Library
-
-**ファイル配置:**
-- テストは `__tests__/` フォルダまたは同階層に `.test.ts` で配置
-
-**コマンド:**
-```bash
-pnpm test
-pnpm test --watch
-pnpm test --coverage
-```
-
-**例:**
-
-```typescript
-// src/lib/__tests__/geojson.test.ts
-import { describe, it, expect } from 'vitest';
-import { parseGeoJSON } from '../geojson';
-
-describe('parseGeoJSON', () => {
-  it('should parse valid GeoJSON', () => {
-    const input = { type: 'FeatureCollection', features: [] };
-    const result = parseGeoJSON(input);
-    expect(result).toBeDefined();
-  });
-});
-```
-
-### E2Eテスト
-
-**対象:**
-- 主要ユーザーフロー（地図表示、検索、オフライン動作）
-
-**ツール:**
-- **Playwright MCP** (Model Context Protocol統合、AI駆動テスト)
-
-**特徴:**
-- アクセシビリティツリーベースのテスト
-- スクリーンショットに依存しない
-- GitHub Copilot統合可能
-
-**ファイル配置:**
-- `e2e/` フォルダ
+**注記:** このプロジェクトではテストは実装しません。手動テストとLighthouse監査で品質を担保します。
 
 **コマンド:**
 ```bash
@@ -510,8 +454,7 @@ Claude Code がタスクを受け取ったら、以下を実行：
    - 命名規則とパターンを踏襲
 
 3. **TDD推奨**
-   - テストケースを先に作成
-   - 実装 → テスト合格 → リファクタリング
+   - 実装 → 手動テスト → リファクタリング
 
 ### 2. コード生成時
 
@@ -554,7 +497,7 @@ Claude Code がタスクを受け取ったら、以下を実行：
 - `docs`: ドキュメント
 - `style`: フォーマット（コード動作に影響なし）
 - `refactor`: リファクタリング
-- `test`: テスト追加
+- `chore`: その他の変更
 - `chore`: ビルド、設定変更
 
 **例:**
@@ -629,8 +572,8 @@ Closes #42
 3. **ドキュメント更新**
    - コード変更時は `.docs/` も更新
 
-4. **テストファースト**
-   - テストがあれば自信を持ってリファクタリングできる
+4. **手動テスト**
+   - 実装後は必ず手動で動作確認を行う
 
 ---
 

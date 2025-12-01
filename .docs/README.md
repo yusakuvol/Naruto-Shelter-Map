@@ -75,7 +75,6 @@ cat .docs/03-phase-dev-env.md
 # - pnpm + package.json 作成（2025最新スタック）
 # - Next.js 15 (Turbopack), React 19, Tailwind v4設定
 # - Biome設定（Lint + Format統一）
-# - Vitest + Playwright MCP テスト環境
 # - ディレクトリ構造作成
 # - pnpm dev で起動確認
 ```
