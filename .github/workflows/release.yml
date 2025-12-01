@@ -1,0 +1,112 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # v1.0.0, v0.1.0 などの形式
+
+permissions:
+  contents: write # リリース作成に必要
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    if: github.ref_type == 'tag'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # 全履歴を取得（リリースノート生成のため）
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "📦 Version: $VERSION"
+
+      - name: Verify version matches package.json
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
+            echo "❌ Version mismatch!"
+            echo "   package.json: $PACKAGE_VERSION"
+            echo "   Git tag: $TAG_VERSION"
+            exit 1
+          fi
+          echo "✅ Version matches: $PACKAGE_VERSION"
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          
+          if [ -z "$PREVIOUS_TAG" ]; then
+            # 初回リリース
+            NOTES="## 🎉 初回リリース v${TAG_VERSION}
+
+### 主な機能
+- 📍 避難所の位置表示
+- 🌐 オンライン/オフライン対応
+- 📶 完全オフライン動作（Service Worker）
+- 🔍 避難所検索
+- 📱 PWA対応
+- ♿ アクセシビリティ対応
+
+### 技術スタック
+- Next.js 16
+- React 19
+- MapLibre GL JS 5.13
+- Tailwind CSS v4
+- TypeScript 5.6"
+          else
+            # 変更履歴を生成
+            PREVIOUS_TAG_SHORT=${PREVIOUS_TAG#v}
+            NOTES="## 📦 リリース v${TAG_VERSION}
+
+### 変更内容
+
+\`\`\`
+$(git log ${PREVIOUS_TAG}..HEAD --pretty=format:'- %s (%h)' --no-merges)
+\`\`\`
+
+### 完全な変更履歴
+[Compare ${PREVIOUS_TAG}...v${TAG_VERSION}](https://github.com/${{ github.repository }}/compare/${PREVIOUS_TAG}...v${TAG_VERSION})"
+          fi
+          
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: v${{ steps.version.outputs.version }}
+          body: ${{ steps.release_notes.outputs.notes }}
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Output release URL
+        run: |
+          echo "✅ Release created successfully!"
+          echo "🔗 https://github.com/${{ github.repository }}/releases/tag/v${{ steps.version.outputs.version }}"
+
