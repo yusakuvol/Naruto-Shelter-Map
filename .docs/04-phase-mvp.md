@@ -709,9 +709,10 @@ Error: Multiple versions of pnpm specified:
 
 ### 制限事項（2025-12-01時点）
 
-1. **完全オフライン対応（実装中）**
-   - ✅ MapLibre Vector Tiles対応を実装中（Issue #188）
-   - Vector TilesをService Workerでキャッシュし、完全オフライン環境でも地図を表示可能に
+1. **完全オフライン対応（実装済み）**
+   - ✅ 国土地理院ラスタタイルをService Workerでキャッシュ（Issue #188）
+   - ✅ オフライン環境でも地図を表示可能（キャッシュされた範囲内）
+   - ⚠️ Vector Tilesではなくラスタタイルを使用（軽量化の余地あり）
 
 **注記:** 以下の機能は Phase 5-8 で実装済み：
 - ✅ 検索機能（避難所名・住所で検索）
