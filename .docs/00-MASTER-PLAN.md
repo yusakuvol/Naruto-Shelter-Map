@@ -78,8 +78,7 @@
 | ツール                  | 用途                                 | 従来比                         |
 | ----------------------- | ------------------------------------ | ------------------------------ |
 | **Biome**               | Lint + フォーマット（統一ツール）    | ESLint+Prettier より 20 倍高速 |
-| **Playwright MCP**      | E2E テスト（AI 駆動）                | アクセシビリティツリーベース   |
-| **Chrome DevTools MCP** | ブラウザ自動化・パフォーマンステスト | -                              |
+| **Chrome DevTools MCP** | ブラウザ自動化・パフォーマンス計測 | -                              |
 | TypeScript Strict Mode  | 厳格な型チェック                     | -                              |
 | Husky + lint-staged     | Git hooks（コミット前チェック）      | -                              |
 
@@ -317,22 +316,9 @@ graph LR
 
 ---
 
-## 🧪 テスト戦略（2025 年最新）
+## 📊 パフォーマンス計測
 
-### E2E テスト & パフォーマンステスト
-
-- **対象:** 主要ユーザーフロー、パフォーマンス計測
-- **ツール:**
-  - **Playwright MCP** (Model Context Protocol) - E2E テスト
-  - **Chrome DevTools MCP** - パフォーマンス計測、デバッグ
-- **特徴:** AI 駆動テスト、アクセシビリティツリーベース、Core Web Vitals 計測
-- **シナリオ:**
-  - 地図表示
-  - 避難所検索
-  - オフライン動作
-  - CLS/LCP/TTFB 計測
-
-### PWA テスト
+### PWA 計測
 
 - **ツール:** Lighthouse CI
 - **目標スコア:**
@@ -394,7 +380,6 @@ graph LR
 
 - [AGENTS.md Best Practices](https://www.builder.io/blog/agents-md)
 - [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)
-- [Playwright MCP](https://github.com/microsoft/playwright-mcp)
 
 ---
 

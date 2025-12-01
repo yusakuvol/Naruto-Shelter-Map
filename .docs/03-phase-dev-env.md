@@ -30,7 +30,7 @@
 - [ ] `.npmrc` ファイル作成（pnpm設定）
 - [ ] `package.json` ファイル作成（2025最新依存関係）
 - [ ] 依存関係（React 19, Tailwind v4, MapLibre 5.9）
-- [ ] 開発依存関係（Biome, Playwright MCP）
+- [ ] 開発依存関係（Biome）
 - [ ] pnpm用スクリプト定義
 - [ ] `pnpm install` 実行確認
 
@@ -149,14 +149,8 @@ shamefully-hoist=false
 | パッケージ | バージョン | 用途 | 従来比 |
 |----------|-----------|------|--------|
 | **@biomejs/biome** | **1.9.x** | Lint + Format | ESLint+Prettierより20倍高速 |
-| **vitest** | **2.1.x** | ユニットテスト | Jestより10倍高速 |
-| @vitejs/plugin-react | 4.x | Vitest用Reactプラグイン | - |
-| @vitest/ui | 2.x | Vitestブラウザ UI | - |
-| @playwright/test | 1.48.x | E2Eテスト（MCP対応） | AI駆動テスト |
 | **tailwindcss** | **4.x** | CSSフレームワーク | Lightning CSS統合 |
 | typescript | 5.6.x | 型システム | - |
-| @testing-library/react | 16.x | コンポーネントテスト | - |
-| jsdom | 25.x | DOM環境（Vitest用） | - |
 | husky | 9.x | Git hooks | - |
 | lint-staged | 15.x | コミット前チェック | - |
 
@@ -165,13 +159,11 @@ shamefully-hoist=false
 **削除されたパッケージ:**
 - ❌ `eslint`, `eslint-config-next`, `@typescript-eslint/*` → **Biomeに統合**
 - ❌ `prettier`, `prettier-plugin-tailwindcss` → **Biomeに統合**
-- ❌ `jest`, `jest-environment-jsdom`, `@testing-library/jest-dom` → **Vitestに置き換え**
+- ❌ `jest`, `jest-environment-jsdom`, `@testing-library/jest-dom` → **削除（テスト不要）**
 - ❌ `postcss`, `autoprefixer` → **Tailwind v4で不要**
 
 **追加されたパッケージ:**
 - ✅ `@biomejs/biome` - 統一されたLint/Format
-- ✅ `vitest`, `@vitejs/plugin-react`, `@vitest/ui` - 高速テスト
-- ✅ `jsdom` - Vitest用DOM環境
 - ✅ `react-map-gl` - MapLibre Reactラッパー
 
 ### PWA対応（MVP実装時に追加）
@@ -789,11 +781,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# playwright
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
 
 # IDE
 .vscode/*

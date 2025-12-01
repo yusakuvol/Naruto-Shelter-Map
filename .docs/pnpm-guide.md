@@ -205,16 +205,6 @@ pnpm format:check
 # 型チェック
 pnpm type-check
 
-# テスト（Vitest）
-pnpm test
-pnpm test:watch
-pnpm test:coverage
-pnpm test:ui
-
-# E2E（Playwright MCP）
-pnpm run e2e
-pnpm run e2e:ui
-pnpm run e2e:debug
 ```
 
 ---

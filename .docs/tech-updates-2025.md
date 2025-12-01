@@ -204,141 +204,7 @@ rm tailwind.config.ts postcss.config.js
 
 ---
 
-### 5. Vitest（Jest置き換え）
 
-**選定理由:**
-- **速度:** Jestより約10倍高速（Vite駆動）
-- **Next.js公式サポート:** Next.js 15から公式推奨
-- **互換性:** Jest APIとほぼ互換
-
-**設定ファイル:**
-
-```typescript
-// vitest.config.mts
-import { defineConfig } from 'vitest/config';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-
-export default defineConfig({
-  plugins: [react()],
-  test: {
-    environment: 'jsdom',
-    setupFiles: ['./vitest-setup.ts'],
-    globals: true,
-    coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html'],
-    },
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-});
-```
-
-```typescript
-// vitest-setup.ts
-import { expect, afterEach } from 'vitest';
-import { cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom/vitest';
-
-afterEach(() => {
-  cleanup();
-});
-```
-
-**テスト例:**
-
-```typescript
-// src/lib/__tests__/geojson.test.ts
-import { describe, it, expect } from 'vitest';
-import { parseGeoJSON } from '../geojson';
-
-describe('parseGeoJSON', () => {
-  it('should parse valid GeoJSON', () => {
-    const input = { type: 'FeatureCollection', features: [] };
-    const result = parseGeoJSON(input);
-    expect(result).toBeDefined();
-  });
-});
-```
-
-**コマンド:**
-```bash
-pnpm test              # テスト実行
-pnpm test --watch      # ウォッチモード
-pnpm test --coverage   # カバレッジ
-pnpm test --ui         # ブラウザUI
-```
-
-**参考リンク:**
-- [Vitest Documentation](https://vitest.dev/)
-- [Next.js + Vitest Setup](https://nextjs.org/docs/app/guides/testing/vitest)
-
----
-
-### 6. Playwright MCP（Model Context Protocol）
-
-**選定理由:**
-- **AI駆動テスト:** アクセシビリティツリーベースでスクリーンショット不要
-- **GitHub Copilot統合:** AI補助によるテスト生成
-- **信頼性向上:** DOMの構造情報を利用
-
-**設定ファイル:**
-
-```typescript
-// playwright.config.ts
-import { defineConfig, devices } from '@playwright/test';
-
-export default defineConfig({
-  testDir: './e2e',
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
-  use: {
-    baseURL: 'http://localhost:3000',
-    trace: 'on-first-retry',
-  },
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
-  webServer: {
-    command: 'pnpm dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-  },
-});
-```
-
-**テスト例:**
-
-```typescript
-// e2e/shelter-map.spec.ts
-import { test, expect } from '@playwright/test';
-
-test('should display shelter map', async ({ page }) => {
-  await page.goto('/');
-
-  // アクセシビリティツリーベースのセレクタ
-  const heading = page.getByRole('heading', { name: '鳴門市避難所マップ' });
-  await expect(heading).toBeVisible();
-
-  // 地図が表示される
-  const map = page.locator('.maplibregl-map');
-  await expect(map).toBeVisible();
-});
-```
-
-**参考リンク:**
-- [Playwright Documentation](https://playwright.dev/)
-- [Playwright MCP GitHub](https://github.com/microsoft/playwright-mcp)
 
 ---
 
@@ -448,13 +314,6 @@ pnpm dev --turbo  # Turbopack使用
 - [ ] package.jsonスクリプト更新
 - [ ] pnpm lint実行確認
 
-### JestからVitestへ
-
-- [ ] jest.config.js削除
-- [ ] vitest.config.mts作成
-- [ ] vitest-setup.ts作成
-- [ ] テストファイルの import文更新（vitest）
-- [ ] pnpm test実行確認
 
 ### Tailwind v3からv4へ
 
@@ -472,7 +331,6 @@ pnpm dev --turbo  # Turbopack使用
 | インストール速度 | npm (100%) | pnpm (330%) | **3.3倍** |
 | Lintチェック | ESLint (100%) | Biome (1500%) | **15倍** |
 | フォーマット | Prettier (100%) | Biome (2500%) | **25倍** |
-| ユニットテスト | Jest (100%) | Vitest (1000%) | **10倍** |
 | ビルド速度 | Webpack (100%) | Turbopack (500-1000%) | **5-10倍** |
 | Tailwindビルド | v3 (100%) | v4 (500%) | **5倍** |
 
@@ -486,8 +344,6 @@ pnpm dev --turbo  # Turbopack使用
 - [React 19](https://react.dev/)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
-- [Vitest](https://vitest.dev/)
-- [Playwright](https://playwright.dev/)
 - [MapLibre GL JS](https://maplibre.org/)
 - [Next.js 15](https://nextjs.org/)
 
@@ -495,7 +351,6 @@ pnpm dev --turbo  # Turbopack使用
 
 - [npm to pnpm](https://pnpm.io/cli/import)
 - [ESLint/Prettier to Biome](https://biomejs.dev/guides/migrate-eslint-prettier/)
-- [Jest to Vitest](https://vitest.dev/guide/migration.html)
 - [Tailwind v3 to v4](https://tailwindcss.com/docs/upgrade-guide)
 
 ---

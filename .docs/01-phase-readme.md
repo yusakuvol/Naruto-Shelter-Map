@@ -216,8 +216,6 @@
 | ツール | 用途 |
 |--------|------|
 | **Biome** | Lint + Format（ESLint/Prettierより20倍高速） |
-| **Vitest** | ユニットテスト（Jestより10倍高速） |
-| **Playwright MCP** | E2Eテスト（AI駆動） |
 
 ### インフラ & CI/CD
 
@@ -291,8 +289,6 @@ http://localhost:3000
 | `pnpm lint` | Biome Lint チェック |
 | `pnpm format` | Biome フォーマット |
 | `pnpm type-check` | TypeScript 型チェック |
-| `pnpm test` | Vitest ユニットテスト |
-| `pnpm run e2e` | Playwright E2Eテスト |
 ```
 
 - [ ] セットアップセクション追加
