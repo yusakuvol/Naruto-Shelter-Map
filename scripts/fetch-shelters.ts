@@ -34,6 +34,11 @@ import type {
 // - 国土地理院 避難所マップ: https://hinanmap.gsi.go.jp/
 // - 国土数値情報 P20: https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P20.html (2012年データ、古い)
 //
+// 自動ダウンロードについて:
+// - 直接ダウンロードURLが分かっている場合は、URLを引数として指定可能
+// - 例: pnpm tsx scripts/fetch-shelters.ts https://example.com/data.geojson
+// - ブラウザ自動化（Puppeteer/Playwright）による自動ダウンロードも検討可能
+//
 const GSI_SHELTER_DOWNLOAD_SITE = 'https://hinanmap.gsi.go.jp/index.html';
 
 // 鳴門市の行政コード（徳島県鳴門市）
@@ -41,17 +46,46 @@ const GSI_SHELTER_DOWNLOAD_SITE = 'https://hinanmap.gsi.go.jp/index.html';
 // const NARUTO_CITY_CODE = '36202';
 
 /**
+ * URLからGeoJSONデータをダウンロード
+ *
+ * @param url GeoJSONファイルのURL
+ */
+async function downloadGeoJSON(url: string): Promise<unknown> {
+  console.log(`📡 GeoJSONデータをダウンロード中: ${url}`);
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`ダウンロードに失敗しました (HTTP ${response.status})`);
+    }
+
+    const json = (await response.json()) as unknown;
+    console.log(`✅ データダウンロード完了`);
+    return json;
+  } catch (error) {
+    console.error('❌ データダウンロードエラー:', error);
+    throw error;
+  }
+}
+
+/**
  * 国土地理院からダウンロードした避難所データを読み込む
  *
  * NOTE: 現状、国土地理院は避難所データの直接APIを提供していないため、
  * 手動でダウンロードしたGeoJSONファイルを読み込む方式を採用
  *
- * @param filePath ダウンロードしたGeoJSONファイルのパス
+ * @param filePath ダウンロードしたGeoJSONファイルのパス、またはURL
  */
 async function loadGSIData(filePath: string): Promise<unknown> {
   console.log('📡 国土地理院データを読み込み中...');
 
   try {
+    // URLの場合はダウンロード、ファイルパスの場合は読み込み
+    if (filePath.startsWith('http://') || filePath.startsWith('https://')) {
+      return await downloadGeoJSON(filePath);
+    }
+
     const { readFile } = await import('node:fs/promises');
     const data = await readFile(filePath, 'utf-8');
     const json = JSON.parse(data);
@@ -286,11 +320,15 @@ async function main(): Promise<void> {
 
     if (!inputFilePath) {
       console.error(
-        '❌ 使用方法: pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパス>'
+        '❌ 使用方法: pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパスまたはURL>'
       );
       console.error('');
+      console.error('例:');
       console.error(
-        '例: pnpm tsx scripts/fetch-shelters.ts ./downloads/naruto-shelters.geojson'
+        '  pnpm tsx scripts/fetch-shelters.ts ./downloads/naruto-shelters.geojson'
+      );
+      console.error(
+        '  pnpm tsx scripts/fetch-shelters.ts https://example.com/data.geojson'
       );
       console.error('');
       console.error('国土地理院からのダウンロード手順:');
@@ -298,6 +336,9 @@ async function main(): Promise<void> {
       console.error('2. 徳島県 > 鳴門市を選択');
       console.error('3. GeoJSON形式でダウンロード');
       console.error('4. ダウンロードしたファイルをこのスクリプトで処理');
+      console.error('');
+      console.error('⚠️  注意: 国土地理院は直接APIを提供していないため、');
+      console.error('   手動ダウンロードまたは直接ダウンロードURLが必要です。');
       process.exit(1);
     }
 
