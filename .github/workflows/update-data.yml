@@ -71,6 +71,17 @@ jobs:
           echo "Processing data from: ${{ steps.check-file.outputs.data_file }}"
           pnpm tsx scripts/fetch-shelters.ts "${{ steps.check-file.outputs.data_file }}"
 
+      - name: Validate shelter data
+        if: steps.check-file.outputs.manual_mode == 'true'
+        run: |
+          echo "Validating shelter data..."
+          pnpm validate:shelters || {
+            echo "❌ Data validation failed. Please check the errors above."
+            echo "⚠️  The data will not be committed if there are errors."
+            exit 1
+          }
+          echo "✅ Data validation passed"
+
       - name: Check for changes
         if: steps.check-file.outputs.manual_mode == 'true'
         id: git-check

@@ -139,24 +139,57 @@ http://localhost:3000
 
 ```mermaid
 graph LR
-    A[国土地理院API] -->|毎週月曜 3:00 JST| B[GitHub Actions]
-    B -->|ETLスクリプト実行| C[鳴門市データ抽出]
-    C -->|GeoJSON生成| D[public/data/shelters.geojson]
-    D -->|Git Commit & Push| E[GitHub Repository]
-    E -->|自動デプロイ| F[Cloudflare Pages]
-    F -->|CDN配信| G[ユーザー]
-    G -->|Service Worker| H[オフラインキャッシュ]
+    A[国土地理院<br/>手動ダウンロード] -->|GeoJSONファイル| B[GitHub Actions]
+    B -->|データ検証| C[validate-shelters.ts]
+    C -->|ETLスクリプト実行| D[鳴門市データ抽出]
+    D -->|GeoJSON生成| E[public/data/shelters.geojson]
+    E -->|Git Commit & Push| F[GitHub Repository]
+    F -->|自動デプロイ| G[Cloudflare Pages]
+    G -->|CDN配信| H[ユーザー]
+    H -->|Service Worker| I[オフラインキャッシュ]
 ```
 
-### 自動更新の仕組み
+### データ更新の仕組み
 
-1. **毎週月曜 3:00 JST** に GitHub Actions が起動
-2. 国土地理院APIから最新の避難所データを取得
-3. 鳴門市のデータのみを抽出・正規化
-4. `public/data/shelters.geojson` を更新
-5. 変更をコミット & プッシュ
-6. Cloudflare Pages が自動デプロイ
-7. ユーザーのService Workerがキャッシュを更新
+⚠️ **重要:** 国土地理院は避難所データの直接APIを提供していないため、**手動ダウンロードが必要**です。
+
+#### 更新手順
+
+1. **国土地理院からデータをダウンロード**
+   - [国土地理院 避難所マップ](https://hinanmap.gsi.go.jp/index.html) にアクセス
+   - 徳島県 > 鳴門市を選択
+   - GeoJSON形式でダウンロード
+
+2. **GitHub Actionsワークフローを実行**
+   ```bash
+   gh workflow run update-data.yml -f data_file=path/to/downloaded-file.geojson
+   ```
+
+3. **自動処理**
+   - データ検証（`scripts/validate-shelters.ts`）
+   - 鳴門市のデータのみを抽出・正規化
+   - `public/data/shelters.geojson` を更新
+   - 変更をコミット & プッシュ
+   - Cloudflare Pages が自動デプロイ
+
+#### データ検証
+
+データ更新時には自動的に検証が実行されます：
+
+- ✅ 座標と住所の整合性チェック
+- ✅ 鳴門市の範囲外の座標を検出
+- ✅ 住所に「徳島市」が含まれているデータを検出
+- ⚠️ 境界付近の座標を警告
+
+手動で検証を実行する場合：
+
+```bash
+pnpm tsx scripts/validate-shelters.ts
+```
+
+#### スケジュール実行について
+
+GitHub Actionsは毎週月曜 3:00 JSTに起動しますが、**国土地理院からの手動ダウンロードが必要**なため、実際の更新は手動でワークフローを実行する必要があります。
 
 > **Note:** 緊急時（災害発生時など）は手動でワークフローを実行可能
 
