@@ -27,7 +27,7 @@ jobs:
         uses: fountainhead/action-wait-for-check@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: 'Lint'
+          checkName: 'All Checks Passed'
           ref: ${{ github.event.pull_request.head.sha }}
           timeoutSeconds: 600
 
