@@ -18,7 +18,11 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "format:check": "biome format .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "release:patch": "pnpm version patch --git-tag-version true",
+    "release:minor": "pnpm version minor --git-tag-version true",
+    "release:major": "pnpm version major --git-tag-version true",
+    "release:check": "node -e \"const pkg = require('./package.json'); const tag = require('child_process').execSync('git describe --tags --abbrev=0 2>/dev/null || echo', { encoding: 'utf-8' }).trim().replace(/^v/, ''); if (tag && pkg.version !== tag) { console.error('❌ Version mismatch: package.json=' + pkg.version + ', tag=' + tag); process.exit(1); } else { console.log('✅ Version matches: ' + pkg.version); }\""
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.0.0",
