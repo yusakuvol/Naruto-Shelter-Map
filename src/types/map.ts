@@ -13,16 +13,15 @@ export interface MapStyle {
 }
 
 /**
- * 利用可能な地図スタイル一覧（Vector Tiles対応）
+ * 利用可能な地図スタイル一覧（国土地理院標準地図）
  */
 export const MAP_STYLES: Record<MapStyleType, MapStyle> = {
   standard: {
     id: 'standard',
     name: '標準',
-    // MapLibre Demo Tiles (Vector Tiles) - 無料、オフラインキャッシュ対応
-    url: 'https://demotiles.maplibre.org/style.json',
-    // 将来的に国土地理院のベクトルタイルに切り替え可能:
-    // url: 'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.pbf',
+    // 国土地理院標準地図（ラスタタイル）- 日本語対応、無料、安定
+    // カスタムスタイルJSONを使用（public/gsi-raster-style.json）
+    url: '/gsi-raster-style.json',
   },
 };
 

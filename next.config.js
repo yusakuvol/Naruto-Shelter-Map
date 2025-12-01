@@ -4,14 +4,14 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   skipWaiting: false, // ユーザーが手動で更新を承認できるようにする
   disable: process.env.NODE_ENV === "development",
   runtimeCaching: [
-    // Vector Tiles (MapLibre Demo Tiles)
+    // 国土地理院標準地図（ラスタタイル）
     {
-      urlPattern: /^https:\/\/demotiles\.maplibre\.org\/.*/i,
+      urlPattern: /^https:\/\/cyberjapandata\.gsi\.go\.jp\/xyz\/std\/.*/i,
       handler: "CacheFirst",
       options: {
-        cacheName: "maplibre-vector-tiles",
+        cacheName: "gsi-raster-tiles",
         expiration: {
-          maxEntries: 2000, // Vector Tilesは軽量なので多めにキャッシュ
+          maxEntries: 2000,
           maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
         },
       },
