@@ -417,7 +417,6 @@ git commit -m "feat(filter): Add disaster type filter component
 - Add filter logic to useShelters hook
 - Update Map component to reflect filters
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
@@ -444,7 +443,6 @@ gh pr create --title "feat(filter): Add disaster type filter" --body "$(cat <<'E
 - [ ] Filters work for each disaster type
 - [ ] No console errors
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
 EOF
 )"
 ```
