@@ -31,7 +31,7 @@ const NARUTO_CITY_BOUNDS = {
 /**
  * 徳島市の大まかな範囲（参考用）
  */
-const TOKUSHIMA_CITY_BOUNDS = {
+const _TOKUSHIMA_CITY_BOUNDS = {
   minLng: 134.5,
   maxLng: 134.6,
   minLat: 34.0,
@@ -73,9 +73,10 @@ interface ValidationResult {
 /**
  * 座標が鳴門市の範囲内かチェック
  */
-function isWithinNarutoCity(
-  coordinates: [number, number],
-): { valid: boolean; reason?: string } {
+function isWithinNarutoCity(coordinates: [number, number]): {
+  valid: boolean;
+  reason?: string;
+} {
   const [lng, lat] = coordinates;
 
   if (lng < NARUTO_CITY_BOUNDS.minLng || lng > NARUTO_CITY_BOUNDS.maxLng) {
@@ -105,9 +106,10 @@ function containsTokushimaCity(address: string): boolean {
 /**
  * 座標が境界付近かチェック（警告用）
  */
-function isNearBoundary(
-  coordinates: [number, number],
-): { near: boolean; reason?: string } {
+function isNearBoundary(coordinates: [number, number]): {
+  near: boolean;
+  reason?: string;
+} {
   const [lng, lat] = coordinates;
   const threshold = 0.05; // 約5km
 
@@ -129,9 +131,7 @@ function isNearBoundary(
 /**
  * 避難所データを検証
  */
-function validateShelters(
-  features: ShelterFeature[],
-): ValidationResult {
+function validateShelters(features: ShelterFeature[]): ValidationResult {
   const result: ValidationResult = {
     total: features.length,
     errors: [],
@@ -282,7 +282,10 @@ async function main(): Promise<void> {
       features: ShelterFeature[];
     };
 
-    if (geoJSON.type !== 'FeatureCollection' || !Array.isArray(geoJSON.features)) {
+    if (
+      geoJSON.type !== 'FeatureCollection' ||
+      !Array.isArray(geoJSON.features)
+    ) {
       throw new Error('Invalid GeoJSON format');
     }
 
@@ -303,4 +306,3 @@ async function main(): Promise<void> {
 }
 
 main();
-
