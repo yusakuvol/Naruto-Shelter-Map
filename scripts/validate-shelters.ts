@@ -28,16 +28,6 @@ const NARUTO_CITY_BOUNDS = {
   maxLat: 34.3, // 北端
 } as const;
 
-/**
- * 徳島市の大まかな範囲（参考用）
- */
-const _TOKUSHIMA_CITY_BOUNDS = {
-  minLng: 134.5,
-  maxLng: 134.6,
-  minLat: 34.0,
-  maxLat: 34.1,
-} as const;
-
 interface ShelterFeature {
   type: 'Feature';
   geometry: {
