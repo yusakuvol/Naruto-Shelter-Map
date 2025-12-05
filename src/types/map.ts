@@ -13,15 +13,15 @@ export interface MapStyle {
 }
 
 /**
- * 利用可能な地図スタイル一覧（国土地理院標準地図）
+ * 利用可能な地図スタイル一覧（OpenStreetMap）
  */
 export const MAP_STYLES: Record<MapStyleType, MapStyle> = {
   standard: {
     id: 'standard',
     name: '標準',
-    // 国土地理院標準地図（ラスタタイル）- 日本語対応、無料、安定
-    // カスタムスタイルJSONを使用（public/gsi-raster-style.json）
-    url: '/gsi-raster-style.json',
+    // OpenStreetMap Japan（ベクタータイル）- 日本語対応、無料、商用利用可能、視認性が高い
+    // OpenStreetMap Japanが提供する日本語対応のStyle JSONを使用
+    url: 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json',
   },
 };
 
