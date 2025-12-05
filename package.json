@@ -20,6 +20,7 @@
     "format:check": "biome format .",
     "type-check": "tsc --noEmit",
     "validate:shelters": "tsx scripts/validate-shelters.ts",
+    "geocode:shelters": "tsx scripts/geocode-shelters.ts",
     "release:patch": "pnpm version patch --git-tag-version true",
     "release:minor": "pnpm version minor --git-tag-version true",
     "release:major": "pnpm version major --git-tag-version true",
