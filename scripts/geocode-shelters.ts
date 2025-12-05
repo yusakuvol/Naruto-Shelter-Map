@@ -152,6 +152,10 @@ async function geocodeAddress(
     }
 
     const result = data[0];
+    if (!result) {
+      return null;
+    }
+
     const lat = parseFloat(result.lat);
     const lon = parseFloat(result.lon);
 
@@ -216,6 +220,10 @@ async function main(): Promise<void> {
     // 各避難所を処理
     for (let i = 0; i < geoJSON.features.length; i++) {
       const feature = geoJSON.features[i];
+      if (!feature) {
+        continue;
+      }
+
       const { id, name, address } = feature.properties;
       const currentCoords = feature.geometry.coordinates;
 
