@@ -12,12 +12,9 @@ import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
 import { FilterProvider } from '@/contexts/FilterContext';
-import { useEvacuationInfo } from '@/hooks/useEvacuationInfo';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useGeolocation } from '@/hooks/useGeolocation';
-import { useHazardMaps } from '@/hooks/useHazardMaps';
-import { useRiverWaterLevels } from '@/hooks/useRiverWaterLevels';
 import { useShelters } from '@/hooks/useShelters';
 import { useWeatherWarnings } from '@/hooks/useWeatherWarnings';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
@@ -50,9 +47,6 @@ function HomePageContent() {
   } = useGeolocation();
   const { favorites, toggleFavorite } = useFavorites();
   const { data: weatherData } = useWeatherWarnings();
-  const { data: evacuationInfo } = useEvacuationInfo();
-  const { data: riverWaterLevels } = useRiverWaterLevels();
-  const { data: hazardMaps } = useHazardMaps();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
@@ -139,9 +133,6 @@ function HomePageContent() {
             geolocationState={geolocationState}
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
-            evacuationInfo={evacuationInfo ?? []}
-            riverWaterLevels={riverWaterLevels ?? []}
-            hazardMaps={hazardMaps ?? []}
           />
         </main>
 
@@ -236,9 +227,6 @@ function HomePageContent() {
             geolocationState={geolocationState}
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
-            evacuationInfo={evacuationInfo ?? []}
-            riverWaterLevels={riverWaterLevels ?? []}
-            hazardMaps={hazardMaps ?? []}
           />
         </main>
       </div>

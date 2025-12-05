@@ -8,9 +8,6 @@ import MapGL, {
   useMap,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre';
-import { EvacuationLayer } from '@/components/disaster/EvacuationLayer';
-import { HazardMapLayer } from '@/components/disaster/HazardMapLayer';
-import { RiverWaterLevelLayer } from '@/components/disaster/RiverWaterLevelLayer';
 import type {
   Coordinates,
   GeolocationError,
@@ -18,11 +15,6 @@ import type {
 } from '@/hooks/useGeolocation';
 import { generateNavigationURL } from '@/lib/navigation';
 import { getShelterIcon } from '@/lib/shelterIcons';
-import type {
-  EvacuationInfo,
-  HazardMapInfo,
-  RiverWaterLevelInfo,
-} from '@/types/disaster';
 import { MAP_STYLES } from '@/types/map';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
@@ -37,9 +29,6 @@ interface MapProps {
   geolocationState?: GeolocationState;
   geolocationError?: GeolocationError | null;
   onGetCurrentPosition?: () => void;
-  evacuationInfo?: EvacuationInfo[];
-  riverWaterLevels?: RiverWaterLevelInfo[];
-  hazardMaps?: HazardMapInfo[];
 }
 
 // 避難所種別に応じたマーカー色
@@ -110,9 +99,6 @@ export function ShelterMap({
   geolocationState,
   geolocationError,
   onGetCurrentPosition,
-  evacuationInfo = [],
-  riverWaterLevels = [],
-  hazardMaps = [],
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
@@ -245,21 +231,6 @@ export function ShelterMap({
           shelters={shelters}
         />
         <NavigationControl position="top-right" />
-
-        {/* 避難情報レイヤー */}
-        {evacuationInfo.length > 0 && (
-          <EvacuationLayer evacuationInfo={evacuationInfo} />
-        )}
-
-        {/* 河川水位情報レイヤー */}
-        {riverWaterLevels.length > 0 && (
-          <RiverWaterLevelLayer waterLevels={riverWaterLevels} />
-        )}
-
-        {/* ハザードマップレイヤー */}
-        {hazardMaps.length > 0 && (
-          <HazardMapLayer hazardMaps={hazardMaps} enabled />
-        )}
 
         {markers}
 
