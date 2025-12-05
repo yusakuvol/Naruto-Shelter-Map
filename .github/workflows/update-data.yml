@@ -3,12 +3,12 @@ name: Update Shelter Data
 on:
   # 毎週月曜日 3:00 JST (日曜日 18:00 UTC)
   schedule:
-    - cron: '0 18 * * 0'
+    - cron: "0 18 * * 0"
   # 手動実行を許可
   workflow_dispatch:
     inputs:
       data_file:
-        description: 'Path to downloaded GeoJSON file (optional, for manual update)'
+        description: "Path to downloaded GeoJSON file (optional, for manual update)"
         required: false
         type: string
 
@@ -30,8 +30,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: "20"
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -119,7 +119,7 @@ jobs:
 
           Updated shelter data using automated workflow.
           Source: 国土地理院 避難所マップ
-          
+
           - Data processing and validation
           - Automatic coordinate correction via geocoding (if needed)
 
@@ -137,6 +137,12 @@ jobs:
               echo "✅ **Status**: Data updated successfully" >> $GITHUB_STEP_SUMMARY
               echo "📅 **Updated**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
               echo "📦 **Source**: 国土地理院 避難所マップ" >> $GITHUB_STEP_SUMMARY
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "### Processing Steps" >> $GITHUB_STEP_SUMMARY
+              echo "1. ✅ Data processing" >> $GITHUB_STEP_SUMMARY
+              echo "2. ✅ Data validation" >> $GITHUB_STEP_SUMMARY
+              echo "3. ✅ Geocoding and coordinate correction" >> $GITHUB_STEP_SUMMARY
+              echo "4. ✅ Final validation" >> $GITHUB_STEP_SUMMARY
             else
               echo "ℹ️ **Status**: No changes detected" >> $GITHUB_STEP_SUMMARY
               echo "📅 **Checked**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
