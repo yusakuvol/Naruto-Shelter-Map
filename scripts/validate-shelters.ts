@@ -28,6 +28,17 @@ const NARUTO_CITY_BOUNDS = {
   maxLat: 34.3, // 北端
 } as const;
 
+/**
+ * 徳島市の大まかな範囲（緯度・経度）
+ * 参考: 徳島市の境界座標
+ */
+const TOKUSHIMA_CITY_BOUNDS = {
+  minLng: 134.5, // 西端
+  maxLng: 134.6, // 東端
+  minLat: 34.0, // 南端
+  maxLat: 34.1, // 北端
+} as const;
+
 interface ShelterFeature {
   type: 'Feature';
   geometry: {
@@ -47,7 +58,11 @@ interface ValidationResult {
   errors: Array<{
     id: string;
     name: string;
-    type: 'invalid_address' | 'out_of_bounds' | 'tokushima_city_in_address';
+    type:
+      | 'invalid_address'
+      | 'out_of_bounds'
+      | 'tokushima_city_in_address'
+      | 'coordinates_in_tokushima_city';
     message: string;
     coordinates: [number, number];
     address: string;
@@ -91,6 +106,19 @@ function isWithinNarutoCity(coordinates: [number, number]): {
  */
 function containsTokushimaCity(address: string): boolean {
   return address.includes('徳島市') && !address.includes('徳島県');
+}
+
+/**
+ * 座標が徳島市の範囲内かチェック
+ */
+function isWithinTokushimaCity(coordinates: [number, number]): boolean {
+  const [lng, lat] = coordinates;
+  return (
+    lng >= TOKUSHIMA_CITY_BOUNDS.minLng &&
+    lng <= TOKUSHIMA_CITY_BOUNDS.maxLng &&
+    lat >= TOKUSHIMA_CITY_BOUNDS.minLat &&
+    lat <= TOKUSHIMA_CITY_BOUNDS.maxLat
+  );
 }
 
 /**
@@ -166,6 +194,18 @@ function validateShelters(features: ShelterFeature[]): ValidationResult {
         name,
         type: 'invalid_address',
         message: `住所に「鳴門市」が含まれていません: ${address}`,
+        coordinates,
+        address,
+      });
+    }
+
+    // 4. 座標が徳島市の範囲内（鳴門市の避難所なのに座標が徳島市にある）
+    if (isWithinTokushimaCity(coordinates)) {
+      result.errors.push({
+        id,
+        name,
+        type: 'coordinates_in_tokushima_city',
+        message: `座標が徳島市の範囲内にあります: [${coordinates[0]}, ${coordinates[1]}]`,
         coordinates,
         address,
       });
