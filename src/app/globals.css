@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Google Fonts: Noto Sans JP */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
 @theme {
   /* カスタムカラーパレット（避難所マップ用） */
   --color-primary-500: oklch(0.55 0.15 250);
@@ -17,12 +20,14 @@
     @apply antialiased;
     height: 100%;
     overflow: hidden;
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
   }
 
   body {
     @apply bg-white text-gray-900;
     height: 100%;
     overflow: hidden;
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
   }
 
   /* リンクのデフォルトスタイル */

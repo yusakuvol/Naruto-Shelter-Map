@@ -42,7 +42,8 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     },
     // OpenStreetMap Japan スタイルJSON
     {
-      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/style\.json/i,
+      urlPattern:
+        /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/style\.json/i,
       handler: "StaleWhileRevalidate",
       options: {
         cacheName: "osm-styles",
