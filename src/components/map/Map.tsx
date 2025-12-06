@@ -79,10 +79,10 @@ function MapController({
 
     const [lng, lat] = shelter.geometry.coordinates;
 
-    // 地図を滑らかに移動
+    // 地図を滑らかに移動（ズームレベルを14に調整）
     map.flyTo({
       center: [lng, lat],
-      zoom: 16,
+      zoom: 14,
       duration: 1000,
     });
   }, [selectedShelterId, shelters, map]);
@@ -130,7 +130,6 @@ export function ShelterMap({
 
   const handleMarkerClick = useCallback(
     (shelter: ShelterFeature) => {
-      console.log('Marker clicked:', shelter.properties.name);
       setSelectedShelter(shelter);
       onShelterSelect?.(shelter.properties.id);
     },
@@ -190,9 +189,9 @@ export function ShelterMap({
                   : 'h-8 w-8 border-white'
               }`}
               style={{ backgroundColor: color }}
-              aria-label={`${shelter.properties.name}（${shelter.properties.type}）`}
+              aria-label={`${shelter.properties.name}（${shelter.properties.type}）を選択`}
               aria-pressed={isSelected}
-              title={`${shelter.properties.name} - ${shelter.properties.type}`}
+              title={`${shelter.properties.name}\n種別: ${shelter.properties.type}\n住所: ${shelter.properties.address}`}
             >
               {getShelterIcon(shelter.properties.type, {
                 className: 'h-5 w-5 text-white',
