@@ -42,7 +42,8 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     },
     // OpenStreetMap Japan スタイルJSON
     {
-      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/style\.json/i,
+      urlPattern:
+        /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/style\.json/i,
       handler: "StaleWhileRevalidate",
       options: {
         cacheName: "osm-styles",
@@ -144,7 +145,8 @@ const nextConfig = {
   reactStrictMode: true,
 
   // 静的エクスポート（Cloudflare Pages用）
-  output: "export",
+  // 開発モードでは無効化（開発サーバーで正常に動作させるため）
+  ...(process.env.NODE_ENV === "production" ? { output: "export" } : {}),
 
   // 本番ビルド時にconsole.logを自動削除（console.errorは残す）
   compiler: {
@@ -168,15 +170,20 @@ const nextConfig = {
   },
 
   // Turbopack設定（Next.js 15.5+）
-  turbopack: {
-    // MapLibre GL JSの互換性設定
-    resolveAlias: {
-      // クライアント側でNode.js組み込みモジュールを無効化
-      fs: "./empty.js",
-      net: "./empty.js",
-      tls: "./empty.js",
-    },
-  },
+  // 本番ビルドではTurbopackを無効化（Google Fontsの解決問題のため）
+  ...(process.env.NODE_ENV !== "production"
+    ? {
+        turbopack: {
+          // MapLibre GL JSの互換性設定
+          resolveAlias: {
+            // クライアント側でNode.js組み込みモジュールを無効化
+            fs: "./empty.js",
+            net: "./empty.js",
+            tls: "./empty.js",
+          },
+        },
+      }
+    : {}),
 
   // Webpack設定（本番ビルド用: next buildはまだwebpack使用）
   webpack: (config, { isServer }) => {

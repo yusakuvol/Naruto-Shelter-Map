@@ -5,8 +5,6 @@ import { useMemo, useState } from 'react';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
-import { BottomSheet, type SheetState } from '@/components/mobile/BottomSheet';
-import { SheetContent } from '@/components/mobile/SheetContent';
 import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
@@ -44,7 +42,6 @@ function HomePageContent() {
     getCurrentPosition,
   } = useGeolocation();
   const { favorites, toggleFavorite } = useFavorites();
-  const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
   );
@@ -124,31 +121,6 @@ function HomePageContent() {
             onGetCurrentPosition={getCurrentPosition}
           />
         </main>
-
-        {/* Bottom Sheet */}
-        <BottomSheet state={sheetState} onStateChange={setSheetState}>
-          <SheetContent
-            shelters={sortedShelters}
-            selectedShelterId={selectedShelterId}
-            onShelterSelect={(id) => {
-              setSelectedShelterId(id);
-              setSheetState('minimized'); // カードクリック時に地図を見せる
-            }}
-            onMapViewRequest={() => setSheetState('minimized')}
-            sheetState={sheetState}
-            onSheetToggle={() =>
-              setSheetState(
-                sheetState === 'expanded' ? 'minimized' : 'expanded'
-              )
-            }
-            sortMode={sortMode}
-            onSortModeChange={setSortMode}
-            hasPosition={!!position}
-            favorites={favorites}
-            onToggleFavorite={toggleFavorite}
-            userPosition={position}
-          />
-        </BottomSheet>
       </div>
 
       {/* デスクトップレイアウト（>= 1024px） */}

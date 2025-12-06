@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
@@ -27,14 +27,14 @@
     "release:check": "node -e \"const pkg = require('./package.json'); const tag = require('child_process').execSync('git describe --tags --abbrev=0 2>/dev/null || echo', { encoding: 'utf-8' }).trim().replace(/^v/, ''); if (tag && pkg.version !== tag) { console.error('❌ Version mismatch: package.json=' + pkg.version + ', tag=' + tag); process.exit(1); } else { console.log('✅ Version matches: ' + pkg.version); }\""
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^10.0.0",
+    "@ducanh2912/next-pwa": "^10.2.9",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.24",
-    "maplibre-gl": "^5.13.0",
-    "next": "^16.0.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-map-gl": "^8.0.0",
+    "framer-motion": "^12.23.25",
+    "maplibre-gl": "^5.14.0",
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-map-gl": "^8.1.0",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -46,6 +46,6 @@
     "@types/react-dom": "^19.2.3",
     "tailwindcss": "^4.1.17",
     "tsx": "^4.21.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.9.3"
   }
 }
