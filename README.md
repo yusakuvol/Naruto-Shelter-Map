@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8)](https://tailwindcss.com/)
-[![MapLibre GL JS](https://img.shields.io/badge/MapLibre-5.13-blue)](https://maplibre.org/)
+[![MapLibre GL JS](https://img.shields.io/badge/MapLibre-5.14-blue)](https://maplibre.org/)
 
 ## 概要
 
@@ -36,12 +36,13 @@
 
 ## 主な機能
 
-- 📍 **避難所の位置表示** - 鳴門市内の指定避難所・緊急避難場所を地図上にマーカー表示
+- 📍 **避難所の位置表示** - 鳴門市内の指定避難所・緊急避難場所を地図上にマーカー表示（視認性向上済み）
 - 🌐 **オンライン/オフライン対応** - オンライン時は最新データ取得、オフライン時はキャッシュデータ利用
 - 📶 **完全オフライン動作** - Service Worker により地図タイルもキャッシュ
-- 🔍 **避難所検索** - 名前・住所・災害種別で検索可能
+- 🔍 **災害種別フィルタ** - 洪水・津波・土砂災害・地震・火災で絞り込み可能
 - 📱 **PWA対応** - ホーム画面に追加してアプリのように使用可能
-- 🗺️ **MapLibre GL JS** - オープンソース地図ライブラリで高速レンダリング
+- 🗺️ **MapLibre GL JS 5.14** - オープンソース地図ライブラリで高速レンダリング
+- 🎨 **モダンUI** - シンプルで直感的なインターフェース
 - ♿ **アクセシビリティ** - キーボード操作・スクリーンリーダー対応
 
 ---
@@ -127,10 +128,12 @@ http://localhost:3000
 | コマンド | 説明 |
 |---------|------|
 | `pnpm dev` | 開発サーバー起動（Turbopack） |
-| `pnpm build` | プロダクションビルド |
+| `pnpm build` | プロダクションビルド（Webpack） |
 | `pnpm start` | プロダクションサーバー起動 |
 | `pnpm lint` | Biome Lint チェック |
+| `pnpm lint:fix` | Biome Lint 自動修正 |
 | `pnpm format` | Biome フォーマット |
+| `pnpm format:check` | Biome フォーマットチェック |
 | `pnpm type-check` | TypeScript 型チェック |
 
 ---
@@ -152,6 +155,12 @@ graph LR
 ### データ更新の仕組み
 
 ⚠️ **重要:** 国土地理院は避難所データの直接APIを提供していないため、**手動ダウンロードが必要**です。
+
+### 最近の更新（2025年12月）
+
+- ✅ **UI改善**: 避難所アイコンの視認性向上、フィルタUIの改善
+- ✅ **ビルド最適化**: Next.js 16対応、Webpack明示指定によるビルドエラー解消
+- ✅ **パフォーマンス**: システムフォント使用による読み込み速度向上
 
 #### 更新手順
 

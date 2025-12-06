@@ -47,15 +47,15 @@
 ### フロントエンド
 | 技術 | バージョン | 用途 |
 |------|-----------|------|
-| **Next.js** | 16.x | React フレームワーク（App Router + Turbopack + MCP対応） |
+| **Next.js** | 16.x | React フレームワーク（App Router + Turbopack + MCP対応、本番ビルドはWebpack） |
 | **React** | 19.x | UI ライブラリ（Server Components, Actions対応） |
 | **TypeScript** | 5.x | 型安全性 |
-| **Tailwind CSS** | v4 | スタイリング（Lightning CSS統合） |
+| **Tailwind CSS** | v4 | スタイリング（Lightning CSS統合、システムフォント使用） |
 
 ### 地図・データ
 | 技術 | バージョン | 用途 |
 |------|-----------|------|
-| **MapLibre GL JS** | 5.9.x | オープンソース地図ライブラリ（Globe rendering対応） |
+| **MapLibre GL JS** | 5.14.x | オープンソース地図ライブラリ（Globe rendering対応） |
 | **GeoJSON** | - | 避難所データフォーマット |
 
 ### 開発ツール（2025最新）
@@ -508,6 +508,7 @@ git branch -d feature/shelter-filter
 
 | バージョン | 日付 | 変更内容 |
 |-----------|------|---------|
+| 1.2.0 | 2025-12-06 | ビルド設定改善（Webpack明示指定）、UI改善完了、システムフォント採用 |
 | 1.1.0 | 2025-11-14 | Next.js 16へのアップグレード、Next.js MCP対応、CLAUDE.md統合 |
 | 1.0.0 | 2025-10-16 | 初版作成（2025年最新技術スタック対応） |
 
