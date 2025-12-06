@@ -2,8 +2,6 @@
 
 import { clsx } from 'clsx';
 import { useState } from 'react';
-import { CompassArrow } from '@/components/icons/CompassArrow';
-import { useDeviceOrientation } from '@/hooks/useDeviceOrientation';
 import type { Coordinates } from '@/lib/geo';
 import {
   calculateBearing,
@@ -58,11 +56,7 @@ export function ShelterCard({
   const typeColor = getShelterTypeColor(type);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-  // デバイスの方位を取得
-  const { heading: deviceHeading, state: orientationState } =
-    useDeviceOrientation();
-
-  // 方位角と方向を計算
+  // 方位角と方向を計算（方位マークは削除、方向テキストのみ表示）
   const bearing =
     userPosition && shelter.geometry.coordinates
       ? calculateBearing(userPosition, {
@@ -74,12 +68,6 @@ export function ShelterCard({
   const direction = bearing !== null ? getCompassDirection(bearing) : null;
   const directionJa =
     direction !== null ? getJapaneseDirection(direction) : null;
-
-  // コンパスの回転角度を計算（避難所の方位 - デバイスの向き）
-  const compassRotation =
-    bearing !== null && deviceHeading !== null
-      ? bearing - deviceHeading
-      : (bearing ?? 0);
 
   return (
     <>
@@ -191,25 +179,15 @@ export function ShelterCard({
         {/* 距離・方向表示（現在地がある場合のみ） */}
         {distance !== null && distance !== undefined && (
           <p className="flex items-center gap-1 text-sm text-blue-700 font-medium mb-1">
-            {/* コンパス矢印（デバイスの向きが取得できている場合） */}
-            {orientationState === 'granted' && deviceHeading !== null ? (
-              <CompassArrow
-                rotation={compassRotation}
-                size={14}
-                className="shrink-0 text-blue-600"
-                aria-hidden="true"
-              />
-            ) : (
-              <svg
-                className="h-3.5 w-3.5 shrink-0"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                {/* Material Design my_location icon */}
-                <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-              </svg>
-            )}
+            <svg
+              className="h-3.5 w-3.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              {/* Material Design my_location icon */}
+              <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
+            </svg>
             <span>
               {formatDistance(distance)}
               {directionJa && (

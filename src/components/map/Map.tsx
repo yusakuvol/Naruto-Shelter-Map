@@ -90,6 +90,23 @@ function MapController({
   return null;
 }
 
+// 現在地を取得したら地図を移動する内部コンポーネント
+function LocationController({ position }: { position?: Coordinates | null }) {
+  const { current: map } = useMap();
+
+  useEffect(() => {
+    if (!position || !map) return;
+
+    map.flyTo({
+      center: [position.longitude, position.latitude],
+      zoom: 15,
+      duration: 1000,
+    });
+  }, [position, map]);
+
+  return null;
+}
+
 export function ShelterMap({
   shelters,
   selectedShelterId,
@@ -103,7 +120,6 @@ export function ShelterMap({
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
-  const { current: map } = useMap();
   // 標準地図のみを使用
   const styleUrl = MAP_STYLES.standard.url;
 
@@ -114,6 +130,7 @@ export function ShelterMap({
 
   const handleMarkerClick = useCallback(
     (shelter: ShelterFeature) => {
+      console.log('Marker clicked:', shelter.properties.name);
       setSelectedShelter(shelter);
       onShelterSelect?.(shelter.properties.id);
     },
@@ -126,31 +143,12 @@ export function ShelterMap({
 
   const handleLocationButtonClick = useCallback(() => {
     onGetCurrentPosition?.();
-    // 現在位置が既に取得されている場合は、すぐに地図を中心に移動
-    if (position && map) {
-      map.flyTo({
-        center: [position.longitude, position.latitude],
-        zoom: 15,
-        duration: 1000,
-      });
-    }
-  }, [onGetCurrentPosition, position, map]);
+  }, [onGetCurrentPosition]);
 
   // 地図の移動を追跡（必要に応じて）
   const handleMove = useCallback((_evt: ViewStateChangeEvent) => {
     // クラスタリング削除により、ズームレベルと表示領域の追跡は不要
   }, []);
-
-  // 現在地を取得したら地図を移動
-  useEffect(() => {
-    if (!position || !map) return;
-
-    map.flyTo({
-      center: [position.longitude, position.latitude],
-      zoom: 15,
-      duration: 1000,
-    });
-  }, [position, map]);
 
   // selectedShelterIdが変更されたらポップアップを表示
   useEffect(() => {
@@ -230,7 +228,12 @@ export function ShelterMap({
           selectedShelterId={selectedShelterId}
           shelters={shelters}
         />
-        <NavigationControl position="top-right" />
+        <LocationController position={position} />
+        <NavigationControl
+          position="top-right"
+          showCompass={false}
+          showZoom={true}
+        />
 
         {markers}
 
@@ -262,6 +265,7 @@ export function ShelterMap({
 
         {selectedShelter && (
           <Popup
+            key={selectedShelter.properties.id}
             longitude={selectedShelter.geometry.coordinates[0]}
             latitude={selectedShelter.geometry.coordinates[1]}
             anchor="bottom"
@@ -270,7 +274,7 @@ export function ShelterMap({
             closeOnClick={false}
             className="shelter-popup"
           >
-            <div className="p-3">
+            <div className="p-4">
               <h3 className="mb-2 font-bold text-gray-900">
                 {selectedShelter.properties.name}
               </h3>
@@ -300,7 +304,7 @@ export function ShelterMap({
                   onClick={() => {
                     onShowDetail?.(selectedShelter);
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                  className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
                   aria-label={`${selectedShelter.properties.name}の詳細を見る`}
                 >
                   <svg
@@ -330,7 +334,7 @@ export function ShelterMap({
                     );
                     window.open(url, '_blank', 'noopener,noreferrer');
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                  className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                   aria-label={`${selectedShelter.properties.name}への経路案内`}
                 >
                   <svg
@@ -355,8 +359,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - モバイル: 右下（タブバーの上 = 80px + マージン）、PC: 右下 */}
-      <div className="absolute bottom-32 right-4 z-10 lg:bottom-20 lg:right-4">
+      {/* 現在地ボタン - モバイル: 右下（タブバーの上 = より下に配置）、PC: 右下 */}
+      <div className="absolute bottom-24 right-4 z-10 lg:bottom-24 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}
