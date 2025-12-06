@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
-import { WeatherWarningBanner } from '@/components/disaster/WeatherWarningBanner';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
@@ -16,7 +15,6 @@ import { useFavorites } from '@/hooks/useFavorites';
 import { useFilteredShelters } from '@/hooks/useFilteredShelters';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useShelters } from '@/hooks/useShelters';
-import { useWeatherWarnings } from '@/hooks/useWeatherWarnings';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 
@@ -46,7 +44,6 @@ function HomePageContent() {
     getCurrentPosition,
   } = useGeolocation();
   const { favorites, toggleFavorite } = useFavorites();
-  const { data: weatherData } = useWeatherWarnings();
   const [sheetState, setSheetState] = useState<SheetState>('minimized');
   const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
     null
@@ -112,14 +109,6 @@ function HomePageContent() {
 
   return (
     <>
-      {/* 気象警報・注意報バナー */}
-      {weatherData && (
-        <WeatherWarningBanner
-          warnings={weatherData.warnings}
-          areaName={weatherData.areaName}
-        />
-      )}
-
       {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
         {/* 地図エリア（フルスクリーン） */}

@@ -45,8 +45,9 @@
 
 /* MapLibre Popup カスタムスタイル */
 .maplibregl-popup-content {
-  @apply rounded-lg shadow-lg bg-white;
+  @apply rounded-2xl shadow-lg bg-white;
   padding: 0 !important;
+  border-radius: 1rem !important; /* 角丸を確実に適用 */
 }
 
 .maplibregl-popup-tip {
