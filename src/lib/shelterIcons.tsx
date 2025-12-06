@@ -24,7 +24,7 @@ export const DesignatedShelterIcon: FC<ShelterIconProps> = ({
     className={className}
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth="2.5"
     viewBox="0 0 24 24"
     aria-hidden="true"
     {...props}
@@ -71,7 +71,7 @@ export const BothShelterIcon: FC<ShelterIconProps> = ({
     className={className}
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth="2.5"
     viewBox="0 0 24 24"
     aria-hidden="true"
     {...props}

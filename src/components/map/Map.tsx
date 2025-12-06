@@ -18,6 +18,7 @@ import { getShelterIcon } from '@/lib/shelterIcons';
 import { MAP_STYLES } from '@/types/map';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
+import { FilterButton } from './FilterButton';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
@@ -183,10 +184,10 @@ export function ShelterMap({
           >
             <button
               type="button"
-              className={`flex cursor-pointer items-center justify-center border-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${shape} ${
+              className={`flex cursor-pointer items-center justify-center border-4 shadow-xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${shape} ${
                 isSelected
-                  ? 'h-10 w-10 border-blue-500 ring-2 ring-blue-300'
-                  : 'h-8 w-8 border-white'
+                  ? 'h-12 w-12 border-blue-500 ring-2 ring-blue-300'
+                  : 'h-10 w-10 border-white'
               }`}
               style={{ backgroundColor: color }}
               aria-label={`${shelter.properties.name}（${shelter.properties.type}）を選択`}
@@ -194,7 +195,7 @@ export function ShelterMap({
               title={`${shelter.properties.name}\n種別: ${shelter.properties.type}\n住所: ${shelter.properties.address}`}
             >
               {getShelterIcon(shelter.properties.type, {
-                className: 'h-5 w-5 text-white',
+                className: 'h-6 w-6 text-white',
               })}
             </button>
           </Marker>
@@ -233,6 +234,8 @@ export function ShelterMap({
           showCompass={false}
           showZoom={true}
         />
+        {/* フィルタボタン（モバイルのみ） */}
+        <FilterButton />
 
         {markers}
 
@@ -359,7 +362,7 @@ export function ShelterMap({
       </MapGL>
 
       {/* 現在地ボタン - モバイル: 右下（タブバーの上 = より下に配置）、PC: 右下 */}
-      <div className="absolute bottom-24 right-4 z-10 lg:bottom-24 lg:right-4">
+      <div className="absolute bottom-10 right-4 z-10 lg:bottom-10 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}

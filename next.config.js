@@ -144,7 +144,8 @@ const nextConfig = {
   reactStrictMode: true,
 
   // 静的エクスポート（Cloudflare Pages用）
-  output: "export",
+  // 開発モードでは無効化（開発サーバーで正常に動作させるため）
+  ...(process.env.NODE_ENV === "production" ? { output: "export" } : {}),
 
   // 本番ビルド時にconsole.logを自動削除（console.errorは残す）
   compiler: {

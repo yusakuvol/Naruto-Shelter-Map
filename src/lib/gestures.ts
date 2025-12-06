@@ -9,11 +9,12 @@ export function getSheetHeight(
 ): number {
   switch (state) {
     case 'minimized':
-      return 80; // タブバーのみ表示
+      // Google Maps風: 約1/4画面のピーキング状態
+      return Math.max(viewportHeight * 0.25, 120);
     case 'expanded':
       return viewportHeight * 0.9; // ほぼ全画面
     default:
-      return 80;
+      return Math.max(viewportHeight * 0.25, 120);
   }
 }
 
