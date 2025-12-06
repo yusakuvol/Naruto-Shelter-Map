@@ -4,19 +4,55 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   skipWaiting: false, // ユーザーが手動で更新を承認できるようにする
   disable: process.env.NODE_ENV === "development",
   runtimeCaching: [
-    // 国土地理院標準地図（ラスタタイル）
+    // OpenStreetMap Japan ベクタータイル（.pbf files）
     {
-      urlPattern: /^https:\/\/cyberjapandata\.gsi\.go\.jp\/xyz\/std\/.*/i,
+      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/data\/.*\.pbf/i,
       handler: "CacheFirst",
       options: {
-        cacheName: "gsi-raster-tiles",
+        cacheName: "osm-vector-tiles",
         expiration: {
           maxEntries: 2000,
           maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
         },
       },
     },
-    // Vector Tiles (.pbf files)
+    // OpenStreetMap Japan フォント
+    {
+      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/fonts\/.*/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "osm-fonts",
+        expiration: {
+          maxEntries: 100,
+          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+        },
+      },
+    },
+    // OpenStreetMap Japan スプライト
+    {
+      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/sprite.*/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "osm-sprites",
+        expiration: {
+          maxEntries: 20,
+          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
+        },
+      },
+    },
+    // OpenStreetMap Japan スタイルJSON
+    {
+      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/style\.json/i,
+      handler: "StaleWhileRevalidate",
+      options: {
+        cacheName: "osm-styles",
+        expiration: {
+          maxEntries: 10,
+          maxAgeSeconds: 60 * 60 * 24 * 7, // 7日
+        },
+      },
+    },
+    // 汎用ベクタータイル（.pbf files）- フォールバック
     {
       urlPattern: /\.pbf$/i,
       handler: "CacheFirst",
@@ -28,7 +64,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
         },
       },
     },
-    // 地図スタイルJSON
+    // 汎用地図スタイルJSON - フォールバック
     {
       urlPattern: /\/style\.json$/i,
       handler: "StaleWhileRevalidate",
@@ -40,7 +76,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
         },
       },
     },
-    // フォント、スプライトなどの地図アセット
+    // 汎用フォント - フォールバック
     {
       urlPattern: /\/fonts\/.*/i,
       handler: "CacheFirst",
@@ -52,6 +88,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
         },
       },
     },
+    // 汎用スプライト - フォールバック
     {
       urlPattern: /\/sprite.*\.(?:png|json)$/i,
       handler: "CacheFirst",
@@ -59,18 +96,6 @@ const withPWA = require("@ducanh2912/next-pwa").default({
         cacheName: "map-sprites",
         expiration: {
           maxEntries: 20,
-          maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
-        },
-      },
-    },
-    // 旧ラスタタイル（後方互換性のため残す）
-    {
-      urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "osm-tiles",
-        expiration: {
-          maxEntries: 500,
           maxAgeSeconds: 60 * 60 * 24 * 30, // 30日
         },
       },
