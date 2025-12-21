@@ -202,7 +202,7 @@ const nextConfig = {
   // 環境変数（クライアント側で使用可能）
   env: {
     NEXT_PUBLIC_APP_NAME: "Naruto Shelter Map",
-    NEXT_PUBLIC_APP_VERSION: "0.1.0",
+    NEXT_PUBLIC_APP_VERSION: "0.2.0",
   },
 };
 
