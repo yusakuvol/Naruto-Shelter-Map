@@ -5,2720 +5,3171 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.618668, 34.177854]
+        "coordinates": [
+          134.617197,
+          34.24312
+        ]
       },
       "properties": {
         "id": "shelter-001",
-        "name": "トリーデなると",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町林崎字北殿町149",
-        "disasterTypes": ["地震"],
-        "capacity": 500,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市瀬戸町室字本村64-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19",
-        "facilities": {
-          "toilet": true,
-          "water": true,
-          "electricity": true,
-          "heating": true,
-          "airConditioning": true,
-          "wifi": true
-        },
-        "accessibility": {
-          "wheelchairAccessible": true,
-          "elevator": true,
-          "multipurposeToilet": true,
-          "brailleBlocks": false,
-          "signLanguageSupport": false
-        },
-        "pets": {
-          "allowed": true,
-          "separateArea": true,
-          "notes": "ペット専用スペースあり（屋外）"
-        }
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.601219777769, 34.1646148343313]
+        "coordinates": [
+          134.594976,
+          34.227892
+        ]
       },
       "properties": {
         "id": "shelter-002",
-        "name": "鳴門渦潮高等学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町吉永595",
-        "disasterTypes": ["津波", "地震"],
-        "capacity": null,
-        "contact": "088-686-4565",
+        "address": "徳島県鳴門市瀬戸町小島田字通り1-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.609954122979, 34.2338901005503]
+        "coordinates": [
+          134.612126,
+          34.243047
+        ]
       },
       "properties": {
         "id": "shelter-003",
-        "name": "撫佐集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町撫佐字本村62-2",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市瀬戸町大島田字中山1-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.493912321846, 34.1682139408122]
+        "coordinates": [
+          134.596499,
+          34.238459
+        ]
       },
       "properties": {
         "id": "shelter-004",
-        "name": "椎尾谷集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町桧字椎尾谷35-2",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市瀬戸町中島田字北田36",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.564385546321, 34.1614751516112]
+        "coordinates": [
+          134.577556,
+          34.211575
+        ]
       },
       "properties": {
         "id": "shelter-005",
-        "name": "段関集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町段関字西53-2、53-3",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱10-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.594131938654, 34.2067886906551]
+        "coordinates": [
+          134.583421,
+          34.215314
+        ]
       },
       "properties": {
         "id": "shelter-006",
-        "name": "高島団地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町高島字北384",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱86-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.582004355806, 34.1735715618032]
+        "coordinates": [
+          134.584306,
+          34.214948
+        ]
       },
       "properties": {
         "id": "shelter-007",
-        "name": "芦余台集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市撫養町木津62-1",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱96-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.600729594472, 34.1775282988369]
+        "coordinates": [
+          134.588408,
+          34.22521
+        ]
       },
       "properties": {
         "id": "shelter-008",
-        "name": "斎田公民館",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市撫養町斎田字岩崎145",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町堂浦字地廻り参220-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.540036, 34.161532]
+        "coordinates": [
+          134.587299,
+          34.218996
+        ]
       },
       "properties": {
         "id": "shelter-009",
-        "name": "堀江公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町大谷字道の上24",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市瀬戸町堂浦字地廻り弐266",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.520645846552, 34.142258684504]
+        "coordinates": [
+          134.573081,
+          34.226888
+        ]
       },
       "properties": {
         "id": "shelter-010",
-        "name": "板東南ふれあいセンター（旧川崎幼稚園）庁舎",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町川崎394",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8801",
+        "address": "徳島県鳴門市瀬戸町堂浦字日出3-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5842854, 34.21501077]
+        "coordinates": [
+          134.573433,
+          34.205452
+        ]
       },
       "properties": {
         "id": "shelter-011",
-        "name": "瀬戸中学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字地廻り壱96-4",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-688-0033",
+        "address": "徳島県鳴門市瀬戸町堂浦字本浦中32-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.528672, 34.157592]
+        "coordinates": [
+          134.609566,
+          34.233863
+        ]
       },
       "properties": {
         "id": "shelter-012",
-        "name": "大麻中学校（体育館）",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大麻町池谷字長田105",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-689-0230",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町撫佐字本村62-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.609856642852, 34.2028890431008]
+        "coordinates": [
+          134.568372,
+          34.222311
+        ]
       },
       "properties": {
         "id": "shelter-013",
-        "name": "鳴門中学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町三ツ石字芙蓉山下251",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-687-1153",
+        "address": "徳島県鳴門市瀬戸町北泊字小海287-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6218354, 34.1772155]
+        "coordinates": [
+          134.589362,
+          34.237242
+        ]
       },
       "properties": {
         "id": "shelter-014",
-        "name": "第二中学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字内田150",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-685-7911",
+        "address": "徳島県鳴門市瀬戸町北泊字北泊103",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.588643, 34.236656]
+        "coordinates": [
+          134.588585,
+          34.236485
+        ]
       },
       "properties": {
         "id": "shelter-015",
-        "name": "北泊漁業協同組合（旧事務所）",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市瀬戸町北泊字北泊209",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町北泊字北泊209",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.512576, 34.224633]
+        "coordinates": [
+          134.58755,
+          34.239141
+        ]
       },
       "properties": {
         "id": "shelter-016",
-        "name": "鳥ヶ丸集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町鳥ヶ丸字トノムラ60-2",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市瀬戸町北泊字北泊209-6",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.520223, 34.225241]
+        "coordinates": [
+          134.583986,
+          34.202951
+        ]
       },
       "properties": {
         "id": "shelter-017",
-        "name": "北灘公民館",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市北灘町宿毛谷字クロハエ66",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町明神字越浦334-7",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.625944, 34.206933]
+        "coordinates": [
+          134.580376,
+          34.201887
+        ]
       },
       "properties": {
         "id": "shelter-018",
-        "name": "養護老人ホーム鳴愛荘",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字黒山118-84",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-687-2555",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町明神字越浦70",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.601299589794, 34.1777851501463]
+        "coordinates": [
+          134.578918,
+          34.208302
+        ]
       },
       "properties": {
         "id": "shelter-019",
-        "name": "撫養幼稚園",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市撫養町斎田字岩崎134-3",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-686-4093",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市瀬戸町明神字下本城242",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.620404092601, 34.1640147814303]
+        "coordinates": [
+          134.596037,
+          34.166259
+        ]
       },
       "properties": {
         "id": "shelter-020",
-        "name": "サービス付き高齢者向け住宅ほほえみ",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字五枚220-1",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-683-1022",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町吉永128-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.525405058855, 34.2241915366904]
+        "coordinates": [
+          134.601173,
+          34.16467
+        ]
       },
       "properties": {
         "id": "shelter-021",
-        "name": "旧北灘中学校（体育館）",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市北灘町大浦字東浦75",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町吉永595",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.588147, 34.163768]
+        "coordinates": [
+          134.602197,
+          34.164566
+        ]
       },
       "properties": {
         "id": "shelter-022",
-        "name": "木津野集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大津町木津野字野神ノ越56-3",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町吉永595",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.605844, 34.20331087]
+        "coordinates": [
+          134.602067,
+          34.164922
+        ]
       },
       "properties": {
         "id": "shelter-023",
-        "name": "鳴門教育大学附属小学校",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門町高島字南前川町1丁目1番地",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町吉永595",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.605844, 34.20331087]
+        "coordinates": [
+          134.602163,
+          34.164605
+        ]
       },
       "properties": {
         "id": "shelter-024",
-        "name": "鳴門教育大学附属中学校",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門町高島字中吉野町1丁目31番地",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町吉永595",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.500229, 34.166228]
+        "coordinates": [
+          134.554861,
+          34.153917
+        ]
       },
       "properties": {
         "id": "shelter-025",
-        "name": "特別養護老人ホームおおあさ苑　",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大麻町桧字東山田57-10",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-689-3788",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町大幸字若宮の元14",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.46326, 34.20676]
+        "coordinates": [
+          134.567538,
+          34.168462
+        ]
       },
       "properties": {
         "id": "shelter-026",
-        "name": "三津集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町折野字三津260-2",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町大代1133-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6205664, 34.16373292]
+        "coordinates": [
+          134.566921,
+          34.166909
+        ]
       },
       "properties": {
         "id": "shelter-027",
-        "name": "デイサービスセンターほほえみ",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字五枚220-1",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-683-1022",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町大代1210",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.524391, 34.225036]
+        "coordinates": [
+          134.567065,
+          34.166244
+        ]
       },
       "properties": {
         "id": "shelter-028",
-        "name": "大浦集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市北灘町大浦字東浦26-1",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町大代1213-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.570214, 34.162169]
+        "coordinates": [
+          134.570191,
+          34.162142
+        ]
       },
       "properties": {
         "id": "shelter-029",
-        "name": "特別養護老人ホームおおつ苑　",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大津町大代473",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-3788",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町大代472",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5884455, 34.22526519]
+        "coordinates": [
+          134.570798,
+          34.166371
+        ]
       },
       "properties": {
         "id": "shelter-030",
-        "name": "瀬戸小学校（体育館）",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字地廻り参220-1",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-688-0151",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町大代679-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.569296728839, 34.1525760000014]
+        "coordinates": [
+          134.566131,
+          34.170781
+        ]
       },
       "properties": {
         "id": "shelter-031",
-        "name": "段関野崎集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町段関字沖野21-6",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町大代997-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.541485955861, 34.1603448677327]
+        "coordinates": [
+          134.569306,
+          34.152594
+        ]
       },
       "properties": {
         "id": "shelter-032",
-        "name": "堀江北小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町大谷字中筋41",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-689-0016",
+        "address": "徳島県鳴門市大津町段関字沖野21-6",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.602099652159, 34.1649097394442]
+        "coordinates": [
+          134.562569,
+          34.161632
+        ]
       },
       "properties": {
         "id": "shelter-033",
-        "name": "鳴門渦潮高等学校(本館)",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町吉永595",
-        "disasterTypes": ["津波", "地震"],
-        "capacity": null,
-        "contact": "088-686-4565",
+        "address": "徳島県鳴門市大津町段関字西53-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.496742, 34.149218]
+        "coordinates": [
+          134.607059,
+          34.150485
+        ]
       },
       "properties": {
         "id": "shelter-034",
-        "name": "川原場集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町桧字コモガ池90-2",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町長江字東大黒1-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.496166, 34.155732]
+        "coordinates": [
+          134.579282,
+          34.162431
+        ]
       },
       "properties": {
         "id": "shelter-035",
-        "name": "桧集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町桧字野神ノ北31−5",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町備前島字荒神の越164-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.503756, 34.164557]
+        "coordinates": [
+          134.592982,
+          34.168638
+        ]
       },
       "properties": {
         "id": "shelter-036",
-        "name": "平草集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字西平草62-12",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町木津野字内田11",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.507348, 34.157273]
+        "coordinates": [
+          134.58814,
+          34.163786
+        ]
       },
       "properties": {
         "id": "shelter-037",
-        "name": "山田集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字東山田57-2",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町木津野字野神ノ越56-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.566212, 34.170671]
+        "coordinates": [
+          134.591255,
+          34.146557
+        ]
       },
       "properties": {
         "id": "shelter-038",
-        "name": "大代山路集会所（集会所）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町大代997-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大津町矢倉字西の越2-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.570804, 34.166346]
+        "coordinates": [
+          134.586702,
+          34.154052
+        ]
       },
       "properties": {
         "id": "shelter-039",
-        "name": "大津中央公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町大代679-2",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市大津町矢倉字弐ノ越34-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5930297, 34.16862503]
+        "coordinates": [
+          134.531291,
+          34.153773
+        ]
       },
       "properties": {
         "id": "shelter-040",
-        "name": "第一小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町木津野字内田11",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-685-1301",
+        "address": "徳島県鳴門市大麻町高畑字居屋敷127-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.528055, 34.156398]
+        "coordinates": [
+          134.527876,
+          34.140468
+        ]
       },
       "properties": {
         "id": "shelter-041",
-        "name": "池谷集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町池谷字長田103-2",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町三俣字前野18",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.531305, 34.153761]
+        "coordinates": [
+          134.527735,
+          34.141262
+        ]
       },
       "properties": {
         "id": "shelter-042",
-        "name": "高畑集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町高畑字居屋敷127-2",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町三俣字前野9-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.506174, 34.156636]
+        "coordinates": [
+          134.533988,
+          34.135082
+        ]
       },
       "properties": {
         "id": "shelter-043",
-        "name": "板東連絡所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字宝蔵65",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1135",
+        "address": "徳島県鳴門市大麻町市場字大道34-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.523731, 34.140423]
+        "coordinates": [
+          134.54145,
+          34.144748
+        ]
       },
       "properties": {
         "id": "shelter-044",
-        "name": "川崎会館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町川崎字流レ466",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-689-0050",
+        "address": "徳島県鳴門市大麻町西馬詰字橋ノ本7",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.527894, 34.140491]
+        "coordinates": [
+          134.521011,
+          34.142391
+        ]
       },
       "properties": {
         "id": "shelter-045",
-        "name": "人権福祉センター",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町三俣字前野18",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-689-2090",
+        "address": "徳島県鳴門市大麻町川崎394",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.533998, 34.13507]
+        "coordinates": [
+          134.541457,
+          34.160388
+        ]
       },
       "properties": {
         "id": "shelter-046",
-        "name": "医王集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町市場字大道34-1",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町大谷字中筋41",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6264056, 34.21770218]
+        "coordinates": [
+          134.540276,
+          34.166857
+        ]
       },
       "properties": {
         "id": "shelter-047",
-        "name": "花見山・心の手紙館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字大毛234-35",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-698-4040",
+        "address": "徳島県鳴門市大麻町大谷字椢原14",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.632366, 34.225389]
+        "coordinates": [
+          134.540073,
+          34.161548
+        ]
       },
       "properties": {
         "id": "shelter-048",
-        "name": "大毛集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字大毛122",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町大谷字椢原18",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.60096, 34.203191]
+        "coordinates": [
+          134.528063,
+          34.156415
+        ]
       },
       "properties": {
         "id": "shelter-049",
-        "name": "中島集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市鳴門町高島字中島124",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大麻町池谷字長田103-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5970715, 34.20300001]
+        "coordinates": [
+          134.528076,
+          34.157654
+        ]
       },
       "properties": {
         "id": "shelter-050",
-        "name": "鳴門西小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町高島字北217",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-687-1152",
+        "address": "徳島県鳴門市大麻町池谷字長田105",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.629683, 34.177064]
+        "coordinates": [
+          134.511382,
+          34.14297
+        ]
       },
       "properties": {
         "id": "shelter-051",
-        "name": "里浦北集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市里浦町里浦字坂田415-5",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町津慈字宮ノ本150-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.59499, 34.190591]
+        "coordinates": [
+          134.55294,
+          34.145512
+        ]
       },
       "properties": {
         "id": "shelter-052",
-        "name": "黒崎団地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町黒崎字磯崎122-15",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町東馬詰字諏訪の元74-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.595957, 34.189161]
+        "coordinates": [
+          134.513386,
+          34.154165
+        ]
       },
       "properties": {
         "id": "shelter-053",
-        "name": "黒崎幼稚園",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町黒崎字清水86-2",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-9478",
+        "address": "徳島県鳴門市大麻町萩原字アコメン11-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.602028621471, 34.1649030783565]
+        "coordinates": [
+          134.510574,
+          34.157054
+        ]
       },
       "properties": {
         "id": "shelter-054",
-        "name": "徳島県立鳴門渦潮高等学校（本館４階：介護実習室、至誠館２階：生徒宿泊室）",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大津町吉永５９５番地",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市大麻町萩原字西山田68-35",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.595516261417, 34.1722462504196]
+        "coordinates": [
+          134.510451,
+          34.153189
+        ]
       },
       "properties": {
         "id": "shelter-055",
-        "name": "鳴門渦潮高等学校　撫養グラウンド（クラブハウス2階）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字馬目木58",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-1107",
+        "address": "徳島県鳴門市大麻町板東字牛ノ宮東16-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.604674138567, 34.1727435457207]
+        "coordinates": [
+          134.506658,
+          34.174141
+        ]
       },
       "properties": {
         "id": "shelter-056",
-        "name": "第一中学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字浜田37-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-2542",
+        "address": "徳島県鳴門市大麻町板東字広塚35",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.609757008593, 34.1729057511823]
+        "coordinates": [
+          134.509628,
+          34.176299
+        ]
       },
       "properties": {
         "id": "shelter-057",
-        "name": "徳島北農協撫養支所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字東浜32-8",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-0121",
+        "address": "徳島県鳴門市大麻町板東字広塚43",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.59611, 34.203859]
+        "coordinates": [
+          134.503267,
+          34.153062
+        ]
       },
       "properties": {
         "id": "shelter-058",
-        "name": "鳴門公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町高島字北86",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市大麻町板東字采女120-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5971171, 34.18765441]
+        "coordinates": [
+          134.501729,
+          34.155187
+        ]
       },
       "properties": {
         "id": "shelter-059",
-        "name": "黒崎小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町黒崎字宮津88-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-2243",
+        "address": "徳島県鳴門市大麻町板東字采女48-7",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.574038, 34.169257]
+        "coordinates": [
+          134.501664,
+          34.159261
+        ]
       },
       "properties": {
         "id": "shelter-060",
-        "name": "原地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町木津388-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町板東字西山田32",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.577005, 34.168822]
+        "coordinates": [
+          134.503731,
+          34.164545
+        ]
       },
       "properties": {
         "id": "shelter-061",
-        "name": "天理教撫養大教会",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町木津461",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-3214",
+        "address": "徳島県鳴門市大麻町板東字西平草62-12",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.625863874843, 34.2065489207276]
+        "coordinates": [
+          134.507332,
+          34.15729
+        ]
       },
       "properties": {
         "id": "shelter-062",
-        "name": "特別養護老人ホーム鳴優荘　　",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字黒山118-257",
-        "disasterTypes": ["津波"],
-        "capacity": null,
-        "contact": "088-687-1007",
+        "address": "徳島県鳴門市大麻町板東字東山田57-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6023671, 34.17731472]
+        "coordinates": [
+          134.509443,
+          34.16688
+        ]
       },
       "properties": {
         "id": "shelter-063",
-        "name": "斎田集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町斎田字岩崎86-1",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町板東字樋殿谷99-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.602969, 34.185687]
+        "coordinates": [
+          134.505285,
+          34.154058
+        ]
       },
       "properties": {
         "id": "shelter-064",
-        "name": "鳴門市立図書館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町大桑島字蛭子山11",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-4548",
+        "address": "徳島県鳴門市大麻町板東字宝蔵103-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.614591, 34.184885]
+        "coordinates": [
+          134.50395,
+          34.156287
+        ]
       },
       "properties": {
         "id": "shelter-065",
-        "name": "鳴門市剣道場",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町大桑島字濘岩浜35",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町板東字宝蔵60",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5964942, 34.23847717]
+        "coordinates": [
+          134.506137,
+          34.15665
+        ]
       },
       "properties": {
         "id": "shelter-066",
-        "name": "島田小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町中島田字北田36",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町板東字宝蔵65",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.614309, 34.176066]
+        "coordinates": [
+          134.496762,
+          34.149246
+        ]
       },
       "properties": {
         "id": "shelter-067",
-        "name": "川東公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字内田63-2",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市大麻町桧字コモガ池90-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.582316, 34.170318]
+        "coordinates": [
+          134.491337,
+          34.154018
+        ]
       },
       "properties": {
         "id": "shelter-068",
-        "name": "木津元村集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町木津1123-2",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町桧字ダンノ上32-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.492137, 34.157768]
+        "coordinates": [
+          134.492156,
+          34.157775
+        ]
       },
       "properties": {
         "id": "shelter-069",
-        "name": "リューネの森集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町桧字中山田13-151",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町桧字中山田13-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.567078, 34.166206]
+        "coordinates": [
+          134.498169,
+          34.15245
+        ]
       },
       "properties": {
         "id": "shelter-070",
-        "name": "大代集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町大代1213-2",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町桧字東バリ6-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.567538, 34.168445]
+        "coordinates": [
+          134.500156,
+          34.166089
+        ]
       },
       "properties": {
         "id": "shelter-071",
-        "name": "大代前場集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町大代1133-1",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町桧字東山田57-10",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.554882, 34.153921]
+        "coordinates": [
+          134.500369,
+          34.167054
+        ]
       },
       "properties": {
         "id": "shelter-072",
-        "name": "大幸集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町大幸字若宮の元14",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町桧字東山田57-5",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.587550279594, 34.239146497058]
+        "coordinates": [
+          134.496196,
+          34.155722
+        ]
       },
       "properties": {
         "id": "shelter-073",
-        "name": "北泊漁業協同組合（北泊漁民センター）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町北泊字北泊209-6",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-688-0131",
+        "address": "徳島県鳴門市大麻町桧字野神ノ北31-5",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.594927, 34.227815]
+        "coordinates": [
+          134.546089,
+          34.159973
+        ]
       },
       "properties": {
         "id": "shelter-074",
-        "name": "小島田集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町小島田字通り1-3",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町姫田字森崎57-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.568392, 34.222266]
+        "coordinates": [
+          134.559708,
+          34.164198
+        ]
       },
       "properties": {
         "id": "shelter-075",
-        "name": "小海集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町北泊字小海287-1",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市大麻町姫田字東百地1-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.617144580359, 34.2431079554161]
+        "coordinates": [
+          134.620425,
+          34.181251
+        ]
       },
       "properties": {
         "id": "shelter-076",
-        "name": "室撫佐漁業協同組合",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町執事本村６４１−１",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-688-0591",
+        "address": "徳島県鳴門市撫養町岡崎字二等道路東41-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.505269, 34.154005]
+        "coordinates": [
+          134.597155,
+          34.187719
+        ]
       },
       "properties": {
         "id": "shelter-077",
-        "name": "板東公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字宝蔵103-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市撫養町黒崎字宮津88-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.510451, 34.153186]
+        "coordinates": [
+          134.600339,
+          34.188354
+        ]
       },
       "properties": {
         "id": "shelter-078",
-        "name": "舞姫会館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字牛ノ宮東16-3",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町黒崎字松島208",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.509488, 34.166874]
+        "coordinates": [
+          134.595984,
+          34.189405
+        ]
       },
       "properties": {
         "id": "shelter-079",
-        "name": "樋殿谷集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字樋殿谷99-2",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町黒崎字清水86-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.51061, 34.157029]
+        "coordinates": [
+          134.600511,
+          34.179183
+        ]
       },
       "properties": {
         "id": "shelter-080",
-        "name": "萩原団地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町萩原字西山田68-35",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町斎田字岩崎135-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.527722057524, 34.1412420665172]
+        "coordinates": [
+          134.601357,
+          34.177773
+        ]
       },
       "properties": {
         "id": "shelter-081",
-        "name": "市場団地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町三俣字前野9-3",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町斎田字岩崎135-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.50326, 34.153053]
+        "coordinates": [
+          134.600749,
+          34.177529
+        ]
       },
       "properties": {
         "id": "shelter-082",
-        "name": "共栄集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字采女120-4",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町斎田字岩崎145",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.546094, 34.159949]
+        "coordinates": [
+          134.601422,
+          34.176701
+        ]
       },
       "properties": {
         "id": "shelter-083",
-        "name": "姫田集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町姫田字森崎57-2",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町斎田字岩崎72",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.559734, 34.164217]
+        "coordinates": [
+          134.602324,
+          34.177439
+        ]
       },
       "properties": {
         "id": "shelter-084",
-        "name": "小森集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町姫田字東百地1-4",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町斎田字岩崎86-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.501667, 34.159275]
+        "coordinates": [
+          134.607528,
+          34.176791
+        ]
       },
       "properties": {
         "id": "shelter-085",
-        "name": "霊山寺集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字西山田32",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町斎田字大堤228",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.607067, 34.150507]
+        "coordinates": [
+          134.606885,
+          34.178739
+        ]
       },
       "properties": {
         "id": "shelter-086",
-        "name": "長江集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大津町長江字東大黒1-2",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市撫養町小桑島字前浜65",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.596054, 34.166266]
+        "coordinates": [
+          134.606979,
+          34.18953
+        ]
       },
       "properties": {
         "id": "shelter-087",
-        "name": "吉永集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大津町吉永128-2",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市撫養町大桑島字大谷5-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.587318, 34.218997]
+        "coordinates": [
+          134.60677,
+          34.1857
+        ]
       },
       "properties": {
         "id": "shelter-088",
-        "name": "堂浦ふれあい会館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字地廻り弐266",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-688-0530",
+        "address": "徳島県鳴門市撫養町大桑島字中之組30",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.600511077761, 34.179209729499]
+        "coordinates": [
+          134.603003,
+          34.185694
+        ]
       },
       "properties": {
         "id": "shelter-089",
-        "name": "鳴門高等学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町斎田字岩崎135-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-3217",
+        "address": "徳島県鳴門市撫養町大桑島字蛭子山11",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.614003, 34.180694]
+        "coordinates": [
+          134.607321,
+          34.184704
+        ]
       },
       "properties": {
         "id": "shelter-090",
-        "name": "北浜老人憩いの家",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町北浜字宮の東4-2",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1175",
+        "address": "徳島県鳴門市撫養町大桑島字与三左谷6",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.622730047779, 34.1778628252931]
+        "coordinates": [
+          134.613844,
+          34.185205
+        ]
       },
       "properties": {
         "id": "shelter-091",
-        "name": "立岩集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字原田2-1",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1148",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.611238, 34.170913]
+        "coordinates": [
+          134.614597,
+          34.184882
+        ]
       },
       "properties": {
         "id": "shelter-092",
-        "name": "老人福祉センター",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字東浜27-3",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-3732",
+        "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.573454, 34.205432]
+        "coordinates": [
+          134.595541,
+          34.172415
+        ]
       },
       "properties": {
         "id": "shelter-093",
-        "name": "明神菅谷集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字本浦中32-2",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町南浜字馬目木58",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.583965, 34.202938]
+        "coordinates": [
+          134.598972,
+          34.173587
+        ]
       },
       "properties": {
         "id": "shelter-094",
-        "name": "明神越浦集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町明神字越浦334-7",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町南浜字蛭子前西23",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6014874, 34.17683541]
+        "coordinates": [
+          134.604674,
+          34.172696
+        ]
       },
       "properties": {
         "id": "shelter-095",
-        "name": "撫養小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町斎田字岩崎72",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-685-1316",
+        "address": "徳島県鳴門市撫養町南浜字浜田37-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.578845, 34.208262]
+        "coordinates": [
+          134.617858,
+          34.179982
+        ]
       },
       "properties": {
         "id": "shelter-096",
-        "name": "明神集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町明神字下本城242",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町弁財天字三ツ井丁4-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.580394913482, 34.2019308683277]
+        "coordinates": [
+          134.613989,
+          34.180724
+        ]
       },
       "properties": {
         "id": "shelter-097",
-        "name": "明神小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町明神字越浦70",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-688-0532",
+        "address": "徳島県鳴門市撫養町北浜字宮の東4-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.623252, 34.192833]
+        "coordinates": [
+          134.582316,
+          34.170328
+        ]
       },
       "properties": {
         "id": "shelter-098",
-        "name": "鳴門東地区コミュニティセンター",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字脇口23-3",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-687-0993",
+        "address": "徳島県鳴門市撫養町木津1123-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.614255203703, 34.1769627195296]
+        "coordinates": [
+          134.573985,
+          34.169274
+        ]
       },
       "properties": {
         "id": "shelter-099",
-        "name": "林崎集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町林崎字南殿町28-2",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町木津388-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6161333, 34.17625196]
+        "coordinates": [
+          134.576939,
+          34.168893
+        ]
       },
       "properties": {
         "id": "shelter-100",
-        "name": "林崎小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字内田73-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-2469",
+        "address": "徳島県鳴門市撫養町木津461",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.60041, 34.188363]
+        "coordinates": [
+          134.582005,
+          34.173569
+        ]
       },
       "properties": {
         "id": "shelter-101",
-        "name": "聖母幼稚園",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町黒崎字松島208",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-0079",
+        "address": "徳島県鳴門市撫養町木津62-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.597162, 34.189202]
+        "coordinates": [
+          134.61729,
+          34.172236
+        ]
       },
       "properties": {
         "id": "shelter-102",
-        "name": "黒崎集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町黒崎字清水52-1",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字元地196",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6153064, 34.1678102]
+        "coordinates": [
+          134.620783,
+          34.166475
+        ]
       },
       "properties": {
         "id": "shelter-103",
-        "name": "鳴門・大塚スポーツパーク（武道館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字四枚61",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字五枚146",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.491341, 34.154025]
+        "coordinates": [
+          134.620701,
+          34.163973
+        ]
       },
       "properties": {
         "id": "shelter-104",
-        "name": "桧西集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町桧字ダンノ上32-4",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字五枚220-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6154352, 34.16899971]
+        "coordinates": [
+          134.615366,
+          34.168995
+        ]
       },
       "properties": {
         "id": "shelter-105",
-        "name": "鳴門・大塚スポーツパーク（アミノバリューホール）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字四枚61",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-3131",
+        "address": "徳島県鳴門市撫養町立岩字四枚61",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.617876, 34.179962]
+        "coordinates": [
+          134.615296,
+          34.168933
+        ]
       },
       "properties": {
         "id": "shelter-106",
-        "name": "弁財天集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町弁財天字三ツ井丁4-2",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字四枚61",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.579344, 34.162431]
+        "coordinates": [
+          134.615263,
+          34.167869
+        ]
       },
       "properties": {
         "id": "shelter-107",
-        "name": "備前島集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町備前島字荒神の越164-3",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字四枚61",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.451271, 34.20509]
+        "coordinates": [
+          134.621859,
+          34.177201
+        ]
       },
       "properties": {
         "id": "shelter-108",
-        "name": "大須集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町大須字西添25",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字内田150",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.577557, 34.211571]
+        "coordinates": [
+          134.614254,
+          34.176121
+        ]
       },
       "properties": {
         "id": "shelter-109",
-        "name": "明神北集会所（集会所）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字地廻り壱10-1",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字内田63-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.617329, 34.172253]
+        "coordinates": [
+          134.616085,
+          34.176248
+        ]
       },
       "properties": {
         "id": "shelter-110",
-        "name": "立岩塩浜集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町立岩字元地196",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市撫養町立岩字内田73-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5406287, 34.22459047]
+        "coordinates": [
+          134.614244,
+          34.176985
+        ]
       },
       "properties": {
         "id": "shelter-111",
-        "name": "北灘東小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町粟田字西傍示228-1",
-        "disasterTypes": ["津波", "地震"],
-        "capacity": null,
-        "contact": "088-682-0222",
+        "address": "徳島県鳴門市撫養町林崎字南殿町28-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.586704, 34.154048]
+        "coordinates": [
+          134.618744,
+          34.177827
+        ]
       },
       "properties": {
         "id": "shelter-112",
-        "name": "矢倉集会所",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市鳴門市大津町矢倉字弐ノ越34-3",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市撫養町林崎字北殿町149",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.606757, 34.185723]
+        "coordinates": [
+          134.540908,
+          34.224282
+        ]
       },
       "properties": {
         "id": "shelter-113",
-        "name": "桑島老人憩いの家",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町大桑島字中之組30",
-        "disasterTypes": ["地震"],
-        "capacity": null,
-        "contact": "088-684-1175",
+        "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.608993, 34.173012]
+        "coordinates": [
+          134.541166,
+          34.224196
+        ]
       },
       "properties": {
         "id": "shelter-114",
-        "name": "市民会館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字東浜170",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8804",
+        "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.624334749307, 34.2099127892167]
+        "coordinates": [
+          134.540632,
+          34.224544
+        ]
       },
       "properties": {
         "id": "shelter-115",
-        "name": "黒山集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字黒山118-295",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.501705, 34.155169]
+        "coordinates": [
+          134.564007,
+          34.204934
+        ]
       },
       "properties": {
         "id": "shelter-116",
-        "name": "大西集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字采女48-7",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町櫛木字中田14-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.488110180321, 34.2185271269444]
+        "coordinates": [
+          134.558683,
+          34.211681
+        ]
       },
       "properties": {
         "id": "shelter-117",
-        "name": "東地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町折野字上東地122-2",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町櫛木字中末83-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.589351, 34.237231]
+        "coordinates": [
+          134.520134,
+          34.225174
+        ]
       },
       "properties": {
         "id": "shelter-118",
-        "name": "北泊公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町北泊字北泊103",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町宿毛谷字クロハエ66",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.476025, 34.194579]
+        "coordinates": [
+          134.484888,
+          34.216519
+        ]
       },
       "properties": {
         "id": "shelter-119",
-        "name": "川筋集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町折野字川筋33-4",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町折野字屋敷154-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.552897, 34.145464]
+        "coordinates": [
+          134.483167,
+          34.213575
+        ]
       },
       "properties": {
         "id": "shelter-120",
-        "name": "東馬詰集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町東馬詰字諏訪の元74-1",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町折野字屋敷379-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.605973, 34.188513]
+        "coordinates": [
+          134.48334,
+          34.213896
+        ]
       },
       "properties": {
         "id": "shelter-121",
-        "name": "桑島集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町大桑島字北之組95-20",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町折野字屋敷64-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.598974387503, 34.1735720169165]
+        "coordinates": [
+          134.463265,
+          34.206801
+        ]
       },
       "properties": {
         "id": "shelter-122",
-        "name": "南浜集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字蛭子前西23",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町折野字三津260-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.452717, 34.206785]
+        "coordinates": [
+          134.476019,
+          34.194625
+        ]
       },
       "properties": {
         "id": "shelter-123",
-        "name": "長浜集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町大須字長浜5-3",
-        "disasterTypes": ["土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町折野字川筋33-4",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.54028, 34.166838]
+        "coordinates": [
+          134.525415,
+          34.22415
+        ]
       },
       "properties": {
         "id": "shelter-124",
-        "name": "大谷集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町大谷字椢原14",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町大浦字東浦75",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.4833472, 34.21393597]
+        "coordinates": [
+          134.451281,
+          34.205139
+        ]
       },
       "properties": {
         "id": "shelter-125",
-        "name": "北灘西小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町折野字屋敷64-3",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-682-0024",
+        "address": "徳島県鳴門市北灘町大須字西添25",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.626358, 34.173567]
+        "coordinates": [
+          134.51264,
+          34.224646
+        ]
       },
       "properties": {
         "id": "shelter-126",
-        "name": "里浦集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市里浦町里浦字花面350-2",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市北灘町鳥ケ丸字トノムラ60-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.605844, 34.20331087]
+        "coordinates": [
+          134.600967,
+          34.203191
+        ]
       },
       "properties": {
         "id": "shelter-127",
-        "name": "鳴門教育大学（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門町高島字中島748",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町高島字中島124",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.624888, 34.175588]
+        "coordinates": [
+          134.605035,
+          34.204267
+        ]
       },
       "properties": {
         "id": "shelter-128",
-        "name": "里浦農業協同組合",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市里浦町里浦字花面233-1",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-685-2111",
+        "address": "徳島県鳴門市鳴門町高島字中島748",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.625098, 34.171452]
+        "coordinates": [
+          134.597064,
+          34.202962
+        ]
       },
       "properties": {
         "id": "shelter-129",
-        "name": "里浦公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市里浦町里浦字花面535-2",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市鳴門町高島字北217",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.573156, 34.226806]
+        "coordinates": [
+          134.594133,
+          34.206798
+        ]
       },
       "properties": {
         "id": "shelter-130",
-        "name": "日出集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字日出3-2",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町高島字北384",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.483146386226, 34.2135303538115]
+        "coordinates": [
+          134.596111,
+          34.203923
+        ]
       },
       "properties": {
         "id": "shelter-131",
-        "name": "西條集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町折野字屋敷379-1",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町高島字北86",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.513404, 34.154163]
+        "coordinates": [
+          134.604503,
+          34.197882
+        ]
       },
       "properties": {
         "id": "shelter-132",
-        "name": "萩原集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町萩原字アコメン11-3",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町三ッ石字江尻山85",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.58341, 34.215351]
+        "coordinates": [
+          134.609817,
+          34.202975
+        ]
       },
       "properties": {
         "id": "shelter-133",
-        "name": "瀬戸公民館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市瀬戸町堂浦字地廻り壱86-4",
-        "disasterTypes": ["地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-8807",
+        "address": "徳島県鳴門市鳴門町三ツ石字芙蓉山下251",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.620446, 34.181245]
+        "coordinates": [
+          134.624904,
+          34.189891
+        ]
       },
       "properties": {
         "id": "shelter-134",
-        "name": "岡崎集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町岡崎字二等道路東41-2",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂14-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.611211, 34.170873]
+        "coordinates": [
+          134.622828,
+          34.200539
+        ]
       },
       "properties": {
         "id": "shelter-135",
-        "name": "勤労青少年ホーム",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字東浜27-3",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-3732",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂181-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.484895, 34.216496]
+        "coordinates": [
+          134.624255,
+          34.2007
+        ]
       },
       "properties": {
         "id": "shelter-136",
-        "name": "北條集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町折野字屋敷154-1",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂186-16",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6261856, 34.16683435]
+        "coordinates": [
+          134.623901,
+          34.193146
+        ]
       },
       "properties": {
         "id": "shelter-137",
-        "name": "里浦小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市里浦町里浦字西浜401",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-0236",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂50-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.591277, 34.146558]
+        "coordinates": [
+          134.622966,
+          34.196093
+        ]
       },
       "properties": {
         "id": "shelter-138",
-        "name": "大津団地集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町矢倉字西の越2-2",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.55861, 34.21158]
+        "coordinates": [
+          134.623017,
+          34.195885
+        ]
       },
       "properties": {
         "id": "shelter-139",
-        "name": "櫛木集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町櫛木字中末83-3",
-        "disasterTypes": ["津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.541471, 34.1447265]
+        "coordinates": [
+          134.625876,
+          34.206592
+        ]
       },
       "properties": {
         "id": "shelter-140",
-        "name": "堀江南小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町西馬詰字橋ノ本7",
-        "disasterTypes": ["洪水", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-689-0014",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-257",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.613845, 34.185186]
+        "coordinates": [
+          134.624347,
+          34.209911
+        ]
       },
       "properties": {
         "id": "shelter-141",
-        "name": "勤労者体育センター",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町大桑島字濘岩浜35-8",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-295",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.6073143, 34.18473281]
+        "coordinates": [
+          134.62593,
+          34.206871
+        ]
       },
       "properties": {
         "id": "shelter-142",
-        "name": "桑島小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町大桑島字与三左谷6",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-2239",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-84",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.540892, 34.141983]
+        "coordinates": [
+          134.63239,
+          34.225396
+        ]
       },
       "properties": {
         "id": "shelter-143",
-        "name": "馬詰集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町中馬詰字居屋敷18-5",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字大毛122",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.527400261936, 34.1408088323987]
+        "coordinates": [
+          134.632934,
+          34.220084
+        ]
       },
       "properties": {
         "id": "shelter-144",
-        "name": "青少年会館",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町三俣字前野22-1",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-689-3410",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字大毛16-45",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5113763598, 34.1429600113079]
+        "coordinates": [
+          134.615509,
+          34.164595
+        ]
       },
       "properties": {
         "id": "shelter-145",
-        "name": "津慈集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町津慈字宮ノ本150-4",
-        "disasterTypes": ["洪水", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市里浦町里浦字粟津西開168-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.62278721695, 34.2005048745966]
+        "coordinates": [
+          134.624868,
+          34.175579
+        ]
       },
       "properties": {
         "id": "shelter-146",
-        "name": "野集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市鳴門町土佐泊浦字高砂181-2",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市里浦町里浦字花面233-1",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5669454, 34.16690977]
+        "coordinates": [
+          134.626368,
+          34.173588
+        ]
       },
       "properties": {
         "id": "shelter-147",
-        "name": "大津西小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大津町大代1210",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-686-3509",
+        "address": "徳島県鳴門市里浦町里浦字花面350-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.5039527, 34.15629132]
+        "coordinates": [
+          134.625072,
+          34.17148
+        ]
       },
       "properties": {
         "id": "shelter-148",
-        "name": "板東小学校（体育館）",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市大麻町板東字宝蔵60",
-        "disasterTypes": ["洪水", "津波", "地震", "土砂災害"],
-        "capacity": null,
-        "contact": "088-689-1222",
+        "address": "徳島県鳴門市里浦町里浦字花面535-2",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.563983, 34.204946]
+        "coordinates": [
+          134.612716,
+          34.14965
+        ]
       },
       "properties": {
         "id": "shelter-149",
-        "name": "張集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市北灘町櫛木字中田14-2",
-        "disasterTypes": ["津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市里浦町里浦字恵美寿5-6",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [134.609929, 34.174972]
+        "coordinates": [
+          134.629627,
+          34.177065
+        ]
       },
       "properties": {
         "id": "shelter-150",
-        "name": "東浜集会所",
+        "name": "",
         "type": "両方",
-        "address": "徳島県鳴門市鳴門市撫養町南浜字東浜274",
-        "disasterTypes": ["洪水", "津波", "土砂災害"],
-        "capacity": null,
-        "contact": "088-684-1330",
+        "address": "徳島県鳴門市里浦町里浦字坂田415-5",
+        "disasterTypes": [
+          "地震"
+        ],
         "source": "国土地理院",
-        "updatedAt": "2025-10-19"
+        "updatedAt": "2025-12-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.626167,
+          34.16683
+        ]
+      },
+      "properties": {
+        "id": "shelter-151",
+        "name": "",
+        "type": "両方",
+        "address": "徳島県鳴門市里浦町里浦字西浜401",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-21"
       }
     }
   ]
