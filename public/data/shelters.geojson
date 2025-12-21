@@ -12,7 +12,7 @@
       },
       "properties": {
         "id": "shelter-001",
-        "name": "",
+        "name": "室撫佐漁業協同組合",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町室字本村64-1",
         "disasterTypes": [
@@ -33,7 +33,7 @@
       },
       "properties": {
         "id": "shelter-002",
-        "name": "",
+        "name": "小島田集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町小島田字通り1-3",
         "disasterTypes": [
@@ -54,7 +54,7 @@
       },
       "properties": {
         "id": "shelter-003",
-        "name": "",
+        "name": "ホテルリッジ",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町大島田字中山1-1",
         "disasterTypes": [
@@ -75,7 +75,7 @@
       },
       "properties": {
         "id": "shelter-004",
-        "name": "",
+        "name": "旧島田小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町中島田字北田36",
         "disasterTypes": [
@@ -96,7 +96,7 @@
       },
       "properties": {
         "id": "shelter-005",
-        "name": "",
+        "name": "明神北集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱10-1",
         "disasterTypes": [
@@ -117,7 +117,7 @@
       },
       "properties": {
         "id": "shelter-006",
-        "name": "",
+        "name": "瀬戸公民館",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱86-4",
         "disasterTypes": [
@@ -138,7 +138,7 @@
       },
       "properties": {
         "id": "shelter-007",
-        "name": "",
+        "name": "瀬戸中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱96-4",
         "disasterTypes": [
@@ -159,7 +159,7 @@
       },
       "properties": {
         "id": "shelter-008",
-        "name": "",
+        "name": "旧瀬戸小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り参220-1",
         "disasterTypes": [
@@ -180,7 +180,7 @@
       },
       "properties": {
         "id": "shelter-009",
-        "name": "",
+        "name": "堂浦ふれあい会館",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り弐266",
         "disasterTypes": [
@@ -201,7 +201,7 @@
       },
       "properties": {
         "id": "shelter-010",
-        "name": "",
+        "name": "日出集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字日出3-3",
         "disasterTypes": [
@@ -222,7 +222,7 @@
       },
       "properties": {
         "id": "shelter-011",
-        "name": "",
+        "name": "明神菅谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字本浦中32-2",
         "disasterTypes": [
@@ -243,7 +243,7 @@
       },
       "properties": {
         "id": "shelter-012",
-        "name": "",
+        "name": "撫佐集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町撫佐字本村62-2",
         "disasterTypes": [
@@ -264,7 +264,7 @@
       },
       "properties": {
         "id": "shelter-013",
-        "name": "",
+        "name": "小海集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字小海287-1",
         "disasterTypes": [
@@ -285,7 +285,7 @@
       },
       "properties": {
         "id": "shelter-014",
-        "name": "",
+        "name": "北泊公民館",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊103",
         "disasterTypes": [
@@ -306,7 +306,7 @@
       },
       "properties": {
         "id": "shelter-015",
-        "name": "",
+        "name": "北泊漁業協同組合（旧事務所）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊209",
         "disasterTypes": [
@@ -327,7 +327,7 @@
       },
       "properties": {
         "id": "shelter-016",
-        "name": "",
+        "name": "北泊漁業協同組合（北泊漁民センター）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊209-6",
         "disasterTypes": [
@@ -348,7 +348,7 @@
       },
       "properties": {
         "id": "shelter-017",
-        "name": "",
+        "name": "明神越浦集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦334-7",
         "disasterTypes": [
@@ -369,7 +369,7 @@
       },
       "properties": {
         "id": "shelter-018",
-        "name": "",
+        "name": "明神小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦70",
         "disasterTypes": [
@@ -390,7 +390,7 @@
       },
       "properties": {
         "id": "shelter-019",
-        "name": "",
+        "name": "明神集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字下本城242",
         "disasterTypes": [
@@ -411,7 +411,7 @@
       },
       "properties": {
         "id": "shelter-020",
-        "name": "",
+        "name": "吉永集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永128-2",
         "disasterTypes": [
@@ -432,7 +432,7 @@
       },
       "properties": {
         "id": "shelter-021",
-        "name": "",
+        "name": "鳴門渦潮高等学校（第一体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
@@ -453,7 +453,7 @@
       },
       "properties": {
         "id": "shelter-022",
-        "name": "",
+        "name": "鳴門渦潮高等学校（第二体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
@@ -474,7 +474,7 @@
       },
       "properties": {
         "id": "shelter-023",
-        "name": "",
+        "name": "鳴門渦潮高等学校（本館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
@@ -495,7 +495,7 @@
       },
       "properties": {
         "id": "shelter-024",
-        "name": "",
+        "name": "鳴門渦潮高等学校",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
@@ -516,7 +516,7 @@
       },
       "properties": {
         "id": "shelter-025",
-        "name": "",
+        "name": "大幸集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大幸字若宮の元14",
         "disasterTypes": [
@@ -537,7 +537,7 @@
       },
       "properties": {
         "id": "shelter-026",
-        "name": "",
+        "name": "大代前場集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1133-1",
         "disasterTypes": [
@@ -558,7 +558,7 @@
       },
       "properties": {
         "id": "shelter-027",
-        "name": "",
+        "name": "大津西小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1210",
         "disasterTypes": [
@@ -579,7 +579,7 @@
       },
       "properties": {
         "id": "shelter-028",
-        "name": "",
+        "name": "大代集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1213-2",
         "disasterTypes": [
@@ -600,7 +600,7 @@
       },
       "properties": {
         "id": "shelter-029",
-        "name": "",
+        "name": "介護老人福祉施設おおつ苑",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代472",
         "disasterTypes": [
@@ -621,7 +621,7 @@
       },
       "properties": {
         "id": "shelter-030",
-        "name": "",
+        "name": "大津中央公民館",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代679-2",
         "disasterTypes": [
@@ -642,7 +642,7 @@
       },
       "properties": {
         "id": "shelter-031",
-        "name": "",
+        "name": "大代山路集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代997-1",
         "disasterTypes": [
@@ -663,7 +663,7 @@
       },
       "properties": {
         "id": "shelter-032",
-        "name": "",
+        "name": "段関野崎集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町段関字沖野21-6",
         "disasterTypes": [
@@ -684,7 +684,7 @@
       },
       "properties": {
         "id": "shelter-033",
-        "name": "",
+        "name": "段関集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町段関字西53-2",
         "disasterTypes": [
@@ -705,7 +705,7 @@
       },
       "properties": {
         "id": "shelter-034",
-        "name": "",
+        "name": "長江集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町長江字東大黒1-2",
         "disasterTypes": [
@@ -726,7 +726,7 @@
       },
       "properties": {
         "id": "shelter-035",
-        "name": "",
+        "name": "備前島集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町備前島字荒神の越164-3",
         "disasterTypes": [
@@ -747,7 +747,7 @@
       },
       "properties": {
         "id": "shelter-036",
-        "name": "",
+        "name": "第一小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字内田11",
         "disasterTypes": [
@@ -768,7 +768,7 @@
       },
       "properties": {
         "id": "shelter-037",
-        "name": "",
+        "name": "木津野集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字野神ノ越56-3",
         "disasterTypes": [
@@ -789,7 +789,7 @@
       },
       "properties": {
         "id": "shelter-038",
-        "name": "",
+        "name": "大津団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字西の越2-2",
         "disasterTypes": [
@@ -810,7 +810,7 @@
       },
       "properties": {
         "id": "shelter-039",
-        "name": "",
+        "name": "矢倉集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字弐ノ越34-3",
         "disasterTypes": [
@@ -831,7 +831,7 @@
       },
       "properties": {
         "id": "shelter-040",
-        "name": "",
+        "name": "高畑集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町高畑字居屋敷127-2",
         "disasterTypes": [
@@ -852,7 +852,7 @@
       },
       "properties": {
         "id": "shelter-041",
-        "name": "",
+        "name": "人権福祉センター",
         "type": "両方",
         "address": "徳島県鳴門市大麻町三俣字前野18",
         "disasterTypes": [
@@ -873,7 +873,7 @@
       },
       "properties": {
         "id": "shelter-042",
-        "name": "",
+        "name": "市場団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町三俣字前野9-3",
         "disasterTypes": [
@@ -894,7 +894,7 @@
       },
       "properties": {
         "id": "shelter-043",
-        "name": "",
+        "name": "医王集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町市場字大道34-1",
         "disasterTypes": [
@@ -915,7 +915,7 @@
       },
       "properties": {
         "id": "shelter-044",
-        "name": "",
+        "name": "堀江南小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町西馬詰字橋ノ本7",
         "disasterTypes": [
@@ -936,7 +936,7 @@
       },
       "properties": {
         "id": "shelter-045",
-        "name": "",
+        "name": "板東南ふれあいセンター（旧川崎幼稚園）庁舎",
         "type": "両方",
         "address": "徳島県鳴門市大麻町川崎394",
         "disasterTypes": [
@@ -957,7 +957,7 @@
       },
       "properties": {
         "id": "shelter-046",
-        "name": "",
+        "name": "堀江北小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字中筋41",
         "disasterTypes": [
@@ -978,7 +978,7 @@
       },
       "properties": {
         "id": "shelter-047",
-        "name": "",
+        "name": "大谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字椢原14",
         "disasterTypes": [
@@ -999,7 +999,7 @@
       },
       "properties": {
         "id": "shelter-048",
-        "name": "",
+        "name": "堀江公民館",
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字椢原18",
         "disasterTypes": [
@@ -1020,7 +1020,7 @@
       },
       "properties": {
         "id": "shelter-049",
-        "name": "",
+        "name": "池谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田103-2",
         "disasterTypes": [
@@ -1041,7 +1041,7 @@
       },
       "properties": {
         "id": "shelter-050",
-        "name": "",
+        "name": "大麻中学校（体育館・武道場）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田105",
         "disasterTypes": [
@@ -1062,7 +1062,7 @@
       },
       "properties": {
         "id": "shelter-051",
-        "name": "",
+        "name": "津慈集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町津慈字宮ノ本150-4",
         "disasterTypes": [
@@ -1083,7 +1083,7 @@
       },
       "properties": {
         "id": "shelter-052",
-        "name": "",
+        "name": "東馬詰集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町東馬詰字諏訪の元74-1",
         "disasterTypes": [
@@ -1104,7 +1104,7 @@
       },
       "properties": {
         "id": "shelter-053",
-        "name": "",
+        "name": "萩原集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町萩原字アコメン11-3",
         "disasterTypes": [
@@ -1125,7 +1125,7 @@
       },
       "properties": {
         "id": "shelter-054",
-        "name": "",
+        "name": "萩原団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町萩原字西山田68-35",
         "disasterTypes": [
@@ -1146,7 +1146,7 @@
       },
       "properties": {
         "id": "shelter-055",
-        "name": "",
+        "name": "舞姫会館",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字牛ノ宮東16-3",
         "disasterTypes": [
@@ -1167,7 +1167,7 @@
       },
       "properties": {
         "id": "shelter-056",
-        "name": "",
+        "name": "徳島学院",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字広塚35",
         "disasterTypes": [
@@ -1188,7 +1188,7 @@
       },
       "properties": {
         "id": "shelter-057",
-        "name": "",
+        "name": "草の実学園",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字広塚43",
         "disasterTypes": [
@@ -1209,7 +1209,7 @@
       },
       "properties": {
         "id": "shelter-058",
-        "name": "",
+        "name": "共栄集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字采女120-4",
         "disasterTypes": [
@@ -1230,7 +1230,7 @@
       },
       "properties": {
         "id": "shelter-059",
-        "name": "",
+        "name": "大西集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字采女48-7",
         "disasterTypes": [
@@ -1251,7 +1251,7 @@
       },
       "properties": {
         "id": "shelter-060",
-        "name": "",
+        "name": "霊山寺集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字西山田32",
         "disasterTypes": [
@@ -1272,7 +1272,7 @@
       },
       "properties": {
         "id": "shelter-061",
-        "name": "",
+        "name": "平草集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字西平草62-12",
         "disasterTypes": [
@@ -1293,7 +1293,7 @@
       },
       "properties": {
         "id": "shelter-062",
-        "name": "",
+        "name": "山田集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字東山田57-2",
         "disasterTypes": [
@@ -1314,7 +1314,7 @@
       },
       "properties": {
         "id": "shelter-063",
-        "name": "",
+        "name": "樋殿谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字樋殿谷99-2",
         "disasterTypes": [
@@ -1335,7 +1335,7 @@
       },
       "properties": {
         "id": "shelter-064",
-        "name": "",
+        "name": "板東公民館",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵103-1",
         "disasterTypes": [
@@ -1356,7 +1356,7 @@
       },
       "properties": {
         "id": "shelter-065",
-        "name": "",
+        "name": "板東小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵60",
         "disasterTypes": [
@@ -1377,7 +1377,7 @@
       },
       "properties": {
         "id": "shelter-066",
-        "name": "",
+        "name": "板東連絡所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵65",
         "disasterTypes": [
@@ -1398,7 +1398,7 @@
       },
       "properties": {
         "id": "shelter-067",
-        "name": "",
+        "name": "川原場集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字コモガ池90-2",
         "disasterTypes": [
@@ -1419,7 +1419,7 @@
       },
       "properties": {
         "id": "shelter-068",
-        "name": "",
+        "name": "桧西集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字ダンノ上32-4",
         "disasterTypes": [
@@ -1440,7 +1440,7 @@
       },
       "properties": {
         "id": "shelter-069",
-        "name": "",
+        "name": "リューネの森集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字中山田13-1",
         "disasterTypes": [
@@ -1461,7 +1461,7 @@
       },
       "properties": {
         "id": "shelter-070",
-        "name": "",
+        "name": "Ｂａｎｄｅ桧",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字東バリ6-1",
         "disasterTypes": [
@@ -1482,7 +1482,7 @@
       },
       "properties": {
         "id": "shelter-071",
-        "name": "",
+        "name": "特別養護老人ホームおおあさ苑",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字東山田57-10",
         "disasterTypes": [
@@ -1503,7 +1503,7 @@
       },
       "properties": {
         "id": "shelter-072",
-        "name": "",
+        "name": "地域密着型介護老人福祉施設　おおあさ杜樹の音",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字東山田57-5",
         "disasterTypes": [
@@ -1524,7 +1524,7 @@
       },
       "properties": {
         "id": "shelter-073",
-        "name": "",
+        "name": "桧集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字野神ノ北31-5",
         "disasterTypes": [
@@ -1545,7 +1545,7 @@
       },
       "properties": {
         "id": "shelter-074",
-        "name": "",
+        "name": "姫田集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字森崎57-2",
         "disasterTypes": [
@@ -1566,7 +1566,7 @@
       },
       "properties": {
         "id": "shelter-075",
-        "name": "",
+        "name": "小森集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字東百地1-4",
         "disasterTypes": [
@@ -1587,7 +1587,7 @@
       },
       "properties": {
         "id": "shelter-076",
-        "name": "",
+        "name": "岡崎集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町岡崎字二等道路東41-2",
         "disasterTypes": [
@@ -1608,7 +1608,7 @@
       },
       "properties": {
         "id": "shelter-077",
-        "name": "",
+        "name": "黒崎小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字宮津88-1",
         "disasterTypes": [
@@ -1629,7 +1629,7 @@
       },
       "properties": {
         "id": "shelter-078",
-        "name": "",
+        "name": "聖母幼稚園",
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字松島208",
         "disasterTypes": [
@@ -1650,7 +1650,7 @@
       },
       "properties": {
         "id": "shelter-079",
-        "name": "",
+        "name": "黒崎地区コミュニティセンター",
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字清水86-2",
         "disasterTypes": [
@@ -1671,7 +1671,7 @@
       },
       "properties": {
         "id": "shelter-080",
-        "name": "",
+        "name": "鳴門高等学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-1",
         "disasterTypes": [
@@ -1692,7 +1692,7 @@
       },
       "properties": {
         "id": "shelter-081",
-        "name": "",
+        "name": "撫養幼稚園",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-3",
         "disasterTypes": [
@@ -1713,7 +1713,7 @@
       },
       "properties": {
         "id": "shelter-082",
-        "name": "",
+        "name": "斎田公民館",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎145",
         "disasterTypes": [
@@ -1734,7 +1734,7 @@
       },
       "properties": {
         "id": "shelter-083",
-        "name": "",
+        "name": "撫養小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎72",
         "disasterTypes": [
@@ -1755,7 +1755,7 @@
       },
       "properties": {
         "id": "shelter-084",
-        "name": "",
+        "name": "斎田集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎86-1",
         "disasterTypes": [
@@ -1776,7 +1776,7 @@
       },
       "properties": {
         "id": "shelter-085",
-        "name": "",
+        "name": "ホテル・ファーストシーズン",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字大堤228",
         "disasterTypes": [
@@ -1797,7 +1797,7 @@
       },
       "properties": {
         "id": "shelter-086",
-        "name": "",
+        "name": "ビジネスホテルＮＥＸＥＬα鳴門",
         "type": "両方",
         "address": "徳島県鳴門市撫養町小桑島字前浜65",
         "disasterTypes": [
@@ -1818,7 +1818,7 @@
       },
       "properties": {
         "id": "shelter-087",
-        "name": "",
+        "name": "徳島県農業協同組合うずしお支店（２階会議室）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字大谷5-1",
         "disasterTypes": [
@@ -1839,7 +1839,7 @@
       },
       "properties": {
         "id": "shelter-088",
-        "name": "",
+        "name": "桑島地区コミュニティセンター",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字中之組30",
         "disasterTypes": [
@@ -1860,7 +1860,7 @@
       },
       "properties": {
         "id": "shelter-089",
-        "name": "",
+        "name": "鳴門市立図書館",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字蛭子山11",
         "disasterTypes": [
@@ -1881,7 +1881,7 @@
       },
       "properties": {
         "id": "shelter-090",
-        "name": "",
+        "name": "桑島小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字与三左谷6",
         "disasterTypes": [
@@ -1902,7 +1902,7 @@
       },
       "properties": {
         "id": "shelter-091",
-        "name": "",
+        "name": "勤労者体育センター",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
         "disasterTypes": [
@@ -1923,7 +1923,7 @@
       },
       "properties": {
         "id": "shelter-092",
-        "name": "",
+        "name": "鳴門市剣道場",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
         "disasterTypes": [
@@ -1944,7 +1944,7 @@
       },
       "properties": {
         "id": "shelter-093",
-        "name": "",
+        "name": "鳴門渦潮高等学校（撫養グラウンド・クラブハウス）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字馬目木58",
         "disasterTypes": [
@@ -1965,7 +1965,7 @@
       },
       "properties": {
         "id": "shelter-094",
-        "name": "",
+        "name": "南浜集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字蛭子前西23",
         "disasterTypes": [
@@ -1986,7 +1986,7 @@
       },
       "properties": {
         "id": "shelter-095",
-        "name": "",
+        "name": "第一中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字浜田37-1",
         "disasterTypes": [
@@ -2007,7 +2007,7 @@
       },
       "properties": {
         "id": "shelter-096",
-        "name": "",
+        "name": "弁財天集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町弁財天字三ツ井丁4-2",
         "disasterTypes": [
@@ -2028,7 +2028,7 @@
       },
       "properties": {
         "id": "shelter-097",
-        "name": "",
+        "name": "北浜老人憩いの家",
         "type": "両方",
         "address": "徳島県鳴門市撫養町北浜字宮の東4-2",
         "disasterTypes": [
@@ -2049,7 +2049,7 @@
       },
       "properties": {
         "id": "shelter-098",
-        "name": "",
+        "name": "木津元村集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津1123-2",
         "disasterTypes": [
@@ -2070,7 +2070,7 @@
       },
       "properties": {
         "id": "shelter-099",
-        "name": "",
+        "name": "原地集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津388-1",
         "disasterTypes": [
@@ -2091,7 +2091,7 @@
       },
       "properties": {
         "id": "shelter-100",
-        "name": "",
+        "name": "天理教撫養大教会",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津461",
         "disasterTypes": [
@@ -2112,7 +2112,7 @@
       },
       "properties": {
         "id": "shelter-101",
-        "name": "",
+        "name": "芦余台集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津62-1",
         "disasterTypes": [
@@ -2133,7 +2133,7 @@
       },
       "properties": {
         "id": "shelter-102",
-        "name": "",
+        "name": "立岩塩浜集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字元地196",
         "disasterTypes": [
@@ -2154,7 +2154,7 @@
       },
       "properties": {
         "id": "shelter-103",
-        "name": "",
+        "name": "特別養護老人ホーム春潮苑",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字五枚146",
         "disasterTypes": [
@@ -2175,7 +2175,7 @@
       },
       "properties": {
         "id": "shelter-104",
-        "name": "",
+        "name": "サービス付き高齢者向け住宅ほほえみ",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字五枚220-1",
         "disasterTypes": [
@@ -2196,7 +2196,7 @@
       },
       "properties": {
         "id": "shelter-105",
-        "name": "",
+        "name": "鳴門・大塚スポーツパーク（アミノバリューホール）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
@@ -2217,7 +2217,7 @@
       },
       "properties": {
         "id": "shelter-106",
-        "name": "",
+        "name": "鳴門・大塚スポーツパーク（アミノバリューホール３階研修室）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
@@ -2238,7 +2238,7 @@
       },
       "properties": {
         "id": "shelter-107",
-        "name": "",
+        "name": "鳴門・大塚スポーツパーク（武道館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
@@ -2259,7 +2259,7 @@
       },
       "properties": {
         "id": "shelter-108",
-        "name": "",
+        "name": "第二中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田150",
         "disasterTypes": [
@@ -2280,7 +2280,7 @@
       },
       "properties": {
         "id": "shelter-109",
-        "name": "",
+        "name": "川東公民館",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田63-2",
         "disasterTypes": [
@@ -2301,7 +2301,7 @@
       },
       "properties": {
         "id": "shelter-110",
-        "name": "",
+        "name": "林崎小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田73-1",
         "disasterTypes": [
@@ -2322,7 +2322,7 @@
       },
       "properties": {
         "id": "shelter-111",
-        "name": "",
+        "name": "林崎集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字南殿町28-2",
         "disasterTypes": [
@@ -2343,7 +2343,7 @@
       },
       "properties": {
         "id": "shelter-112",
-        "name": "",
+        "name": "トリーデなると",
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字北殿町149",
         "disasterTypes": [
@@ -2364,7 +2364,7 @@
       },
       "properties": {
         "id": "shelter-113",
-        "name": "",
+        "name": "北灘東小学校（校舎）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
         "disasterTypes": [
@@ -2385,7 +2385,7 @@
       },
       "properties": {
         "id": "shelter-114",
-        "name": "",
+        "name": "旧北灘東幼稚園",
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
         "disasterTypes": [
@@ -2406,7 +2406,7 @@
       },
       "properties": {
         "id": "shelter-115",
-        "name": "",
+        "name": "北灘東小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
         "disasterTypes": [
@@ -2427,7 +2427,7 @@
       },
       "properties": {
         "id": "shelter-116",
-        "name": "",
+        "name": "張集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町櫛木字中田14-2",
         "disasterTypes": [
@@ -2448,7 +2448,7 @@
       },
       "properties": {
         "id": "shelter-117",
-        "name": "",
+        "name": "櫛木集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町櫛木字中末83-3",
         "disasterTypes": [
@@ -2469,7 +2469,7 @@
       },
       "properties": {
         "id": "shelter-118",
-        "name": "",
+        "name": "北灘公民館",
         "type": "両方",
         "address": "徳島県鳴門市北灘町宿毛谷字クロハエ66",
         "disasterTypes": [
@@ -2490,7 +2490,7 @@
       },
       "properties": {
         "id": "shelter-119",
-        "name": "",
+        "name": "北條集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷154-1",
         "disasterTypes": [
@@ -2511,7 +2511,7 @@
       },
       "properties": {
         "id": "shelter-120",
-        "name": "",
+        "name": "西條集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷379-1",
         "disasterTypes": [
@@ -2532,7 +2532,7 @@
       },
       "properties": {
         "id": "shelter-121",
-        "name": "",
+        "name": "旧北灘西小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷64-3",
         "disasterTypes": [
@@ -2553,7 +2553,7 @@
       },
       "properties": {
         "id": "shelter-122",
-        "name": "",
+        "name": "三津集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字三津260-2",
         "disasterTypes": [
@@ -2574,7 +2574,7 @@
       },
       "properties": {
         "id": "shelter-123",
-        "name": "",
+        "name": "川筋集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字川筋33-4",
         "disasterTypes": [
@@ -2595,7 +2595,7 @@
       },
       "properties": {
         "id": "shelter-124",
-        "name": "",
+        "name": "旧北灘中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町大浦字東浦75",
         "disasterTypes": [
@@ -2616,7 +2616,7 @@
       },
       "properties": {
         "id": "shelter-125",
-        "name": "",
+        "name": "大須集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町大須字西添25",
         "disasterTypes": [
@@ -2637,7 +2637,7 @@
       },
       "properties": {
         "id": "shelter-126",
-        "name": "",
+        "name": "鳥ヶ丸集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町鳥ケ丸字トノムラ60-2",
         "disasterTypes": [
@@ -2658,7 +2658,7 @@
       },
       "properties": {
         "id": "shelter-127",
-        "name": "",
+        "name": "中島集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島124",
         "disasterTypes": [
@@ -2679,7 +2679,7 @@
       },
       "properties": {
         "id": "shelter-128",
-        "name": "",
+        "name": "鳴門教育大学（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島748",
         "disasterTypes": [
@@ -2700,7 +2700,7 @@
       },
       "properties": {
         "id": "shelter-129",
-        "name": "",
+        "name": "鳴門西小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北217",
         "disasterTypes": [
@@ -2721,7 +2721,7 @@
       },
       "properties": {
         "id": "shelter-130",
-        "name": "",
+        "name": "高島団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北384",
         "disasterTypes": [
@@ -2742,7 +2742,7 @@
       },
       "properties": {
         "id": "shelter-131",
-        "name": "",
+        "name": "鳴門公民館",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北86",
         "disasterTypes": [
@@ -2763,7 +2763,7 @@
       },
       "properties": {
         "id": "shelter-132",
-        "name": "",
+        "name": "特別養護老人ホーム鳴光荘",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ッ石字江尻山85",
         "disasterTypes": [
@@ -2784,7 +2784,7 @@
       },
       "properties": {
         "id": "shelter-133",
-        "name": "",
+        "name": "鳴門中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ツ石字芙蓉山下251",
         "disasterTypes": [
@@ -2805,7 +2805,7 @@
       },
       "properties": {
         "id": "shelter-134",
-        "name": "",
+        "name": "自立訓練（生活訓練）・宿泊型自立訓練事業所　なぎさ",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂14-2",
         "disasterTypes": [
@@ -2826,7 +2826,7 @@
       },
       "properties": {
         "id": "shelter-135",
-        "name": "",
+        "name": "野集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂181-2",
         "disasterTypes": [
@@ -2847,7 +2847,7 @@
       },
       "properties": {
         "id": "shelter-136",
-        "name": "",
+        "name": "リゾートホテルモアナコースト",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂186-16",
         "disasterTypes": [
@@ -2868,7 +2868,7 @@
       },
       "properties": {
         "id": "shelter-137",
-        "name": "",
+        "name": "介護老人保健施設　大鳴門シルバーハイツ",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂50-3",
         "disasterTypes": [
@@ -2889,7 +2889,7 @@
       },
       "properties": {
         "id": "shelter-138",
-        "name": "",
+        "name": "旧鳴門東小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
         "disasterTypes": [
@@ -2910,7 +2910,7 @@
       },
       "properties": {
         "id": "shelter-139",
-        "name": "",
+        "name": "鳴門東地区コミュニティセンター",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
         "disasterTypes": [
@@ -2931,7 +2931,7 @@
       },
       "properties": {
         "id": "shelter-140",
-        "name": "",
+        "name": "特別養護老人ホーム鳴優荘",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-257",
         "disasterTypes": [
@@ -2952,7 +2952,7 @@
       },
       "properties": {
         "id": "shelter-141",
-        "name": "",
+        "name": "黒山集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-295",
         "disasterTypes": [
@@ -2973,7 +2973,7 @@
       },
       "properties": {
         "id": "shelter-142",
-        "name": "",
+        "name": "養護老人ホーム鳴愛荘",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-84",
         "disasterTypes": [
@@ -2994,7 +2994,7 @@
       },
       "properties": {
         "id": "shelter-143",
-        "name": "",
+        "name": "大毛集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛122",
         "disasterTypes": [
@@ -3015,7 +3015,7 @@
       },
       "properties": {
         "id": "shelter-144",
-        "name": "",
+        "name": "アオアヲナルトリゾート",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛16-45",
         "disasterTypes": [
@@ -3036,7 +3036,7 @@
       },
       "properties": {
         "id": "shelter-145",
-        "name": "",
+        "name": "鳴門教育大学職員宿舎１～４号棟",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字粟津西開168-2",
         "disasterTypes": [
@@ -3057,7 +3057,7 @@
       },
       "properties": {
         "id": "shelter-146",
-        "name": "",
+        "name": "里浦農業協同組合",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面233-1",
         "disasterTypes": [
@@ -3078,7 +3078,7 @@
       },
       "properties": {
         "id": "shelter-147",
-        "name": "",
+        "name": "里浦集会所",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面350-2",
         "disasterTypes": [
@@ -3099,7 +3099,7 @@
       },
       "properties": {
         "id": "shelter-148",
-        "name": "",
+        "name": "里浦公民館",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面535-2",
         "disasterTypes": [
@@ -3120,7 +3120,7 @@
       },
       "properties": {
         "id": "shelter-149",
-        "name": "",
+        "name": "里浦南防災センター",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字恵美寿5-6",
         "disasterTypes": [
@@ -3141,7 +3141,7 @@
       },
       "properties": {
         "id": "shelter-150",
-        "name": "",
+        "name": "里浦北集会所",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字坂田415-5",
         "disasterTypes": [
@@ -3162,7 +3162,7 @@
       },
       "properties": {
         "id": "shelter-151",
-        "name": "",
+        "name": "里浦小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字西浜401",
         "disasterTypes": [
