@@ -63,6 +63,9 @@ export interface Shelter {
   contact?: string;
   source: string;
   updatedAt: string;
+  // 地域情報（隣接地域対応）
+  regionId?: string; // 地域ID（'naruto', 'aizumi', 'kitajima', 'matsushige', 'itano'）
+  regionName?: string; // 地域名（表示用）
   // 拡張情報（Phase 8.3）
   facilities?: Facilities;
   accessibility?: Accessibility;

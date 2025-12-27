@@ -57,11 +57,18 @@ jobs:
           echo ""
           echo "データ更新手順:"
           echo "1. https://hinanmap.gsi.go.jp/index.html にアクセス"
-          echo "2. 徳島県 > 鳴門市を選択"
+          echo "2. 徳島県を選択（複数地域を含むデータを取得）"
           echo "3. GeoJSON形式でダウンロード"
           echo "4. ダウンロードしたファイルをリポジトリに配置"
           echo "5. 以下のコマンドでワークフローを実行:"
           echo "   gh workflow run update-data.yml -f data_file=path/to/file.geojson"
+          echo ""
+          echo "対応地域:"
+          echo "  - 鳴門市"
+          echo "  - 藍住町"
+          echo "  - 北島町"
+          echo "  - 松茂町"
+          echo "  - 板野町"
           echo ""
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
@@ -152,7 +159,11 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### データ更新手順" >> $GITHUB_STEP_SUMMARY
             echo "1. [国土地理院 避難所マップ](https://hinanmap.gsi.go.jp/index.html) にアクセス" >> $GITHUB_STEP_SUMMARY
-            echo "2. 徳島県 > 鳴門市を選択" >> $GITHUB_STEP_SUMMARY
+            echo "2. 徳島県を選択（複数地域を含むデータを取得）" >> $GITHUB_STEP_SUMMARY
             echo "3. GeoJSON形式でダウンロード" >> $GITHUB_STEP_SUMMARY
             echo "4. ダウンロードしたファイルを使用してワークフローを再実行" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### 対応地域" >> $GITHUB_STEP_SUMMARY
+            echo "- 鳴門市（メイン）" >> $GITHUB_STEP_SUMMARY
+            echo "- 藍住町、北島町、松茂町、板野町（隣接地域）" >> $GITHUB_STEP_SUMMARY
           fi

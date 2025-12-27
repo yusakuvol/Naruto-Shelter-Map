@@ -134,7 +134,7 @@ function HomePageContent() {
           <header className="border-b p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
               <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900">
-                鳴門市避難所マップ
+                避難所マップ
               </h1>
             </div>
             <p className="text-sm text-gray-700">

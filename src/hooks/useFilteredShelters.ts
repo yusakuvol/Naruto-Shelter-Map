@@ -13,7 +13,7 @@ export function useFilteredShelters(
   const { selectedDisasters } = useFilter();
 
   return useMemo(() => {
-    // フィルタが選択されていない場合は全件返す
+    // 災害種別フィルタのみ適用（地域フィルタは不要）
     if (selectedDisasters.length === 0) {
       return shelters;
     }
