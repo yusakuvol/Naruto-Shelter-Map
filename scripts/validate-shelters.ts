@@ -4,7 +4,7 @@
  *
  * 用途:
  * - 座標と住所の整合性チェック
- * - 鳴門市の範囲外の座標を検出
+ * - 対応地域の範囲外の座標を検出
  * - 住所に「徳島市」が含まれているデータを検出
  * - データの品質チェック
  *
@@ -16,17 +16,7 @@
 
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-
-/**
- * 鳴門市の大まかな範囲（緯度・経度）
- * 参考: 鳴門市の境界座標
- */
-const NARUTO_CITY_BOUNDS = {
-  minLng: 134.45, // 西端
-  maxLng: 134.75, // 東端
-  minLat: 34.0, // 南端
-  maxLat: 34.3, // 北端
-} as const;
+import { detectRegionFromAddress, REGIONS } from '../src/config/regions';
 
 /**
  * 徳島市の大まかな範囲（緯度・経度）
@@ -76,29 +66,40 @@ interface ValidationResult {
 }
 
 /**
- * 座標が鳴門市の範囲内かチェック
+ * 座標が対応地域の範囲内かチェック
  */
-function isWithinNarutoCity(coordinates: [number, number]): {
+function isWithinRegions(coordinates: [number, number]): {
   valid: boolean;
   reason?: string;
+  region?: string;
 } {
   const [lng, lat] = coordinates;
 
-  if (lng < NARUTO_CITY_BOUNDS.minLng || lng > NARUTO_CITY_BOUNDS.maxLng) {
-    return {
-      valid: false,
-      reason: `経度が範囲外: ${lng} (範囲: ${NARUTO_CITY_BOUNDS.minLng} - ${NARUTO_CITY_BOUNDS.maxLng})`,
-    };
+  // 対応地域の範囲をチェック
+  for (const region of REGIONS) {
+    const { bounds } = region;
+    if (
+      lng >= bounds.minLng &&
+      lng <= bounds.maxLng &&
+      lat >= bounds.minLat &&
+      lat <= bounds.maxLat
+    ) {
+      return { valid: true, region: region.name };
+    }
   }
 
-  if (lat < NARUTO_CITY_BOUNDS.minLat || lat > NARUTO_CITY_BOUNDS.maxLat) {
-    return {
-      valid: false,
-      reason: `緯度が範囲外: ${lat} (範囲: ${NARUTO_CITY_BOUNDS.minLat} - ${NARUTO_CITY_BOUNDS.maxLat})`,
-    };
-  }
+  // すべての地域の範囲を計算（最小/最大値）
+  const allRegionsBounds = {
+    minLng: Math.min(...REGIONS.map((r) => r.bounds.minLng)),
+    maxLng: Math.max(...REGIONS.map((r) => r.bounds.maxLng)),
+    minLat: Math.min(...REGIONS.map((r) => r.bounds.minLat)),
+    maxLat: Math.max(...REGIONS.map((r) => r.bounds.maxLat)),
+  };
 
-  return { valid: true };
+  return {
+    valid: false,
+    reason: `座標が対応地域の範囲外: [${lng}, ${lat}] (範囲: 経度 ${allRegionsBounds.minLng} - ${allRegionsBounds.maxLng}, 緯度 ${allRegionsBounds.minLat} - ${allRegionsBounds.maxLat})`,
+  };
 }
 
 /**
@@ -131,16 +132,20 @@ function isNearBoundary(coordinates: [number, number]): {
   const [lng, lat] = coordinates;
   const threshold = 0.05; // 約5km
 
-  if (
-    Math.abs(lng - NARUTO_CITY_BOUNDS.minLng) < threshold ||
-    Math.abs(lng - NARUTO_CITY_BOUNDS.maxLng) < threshold ||
-    Math.abs(lat - NARUTO_CITY_BOUNDS.minLat) < threshold ||
-    Math.abs(lat - NARUTO_CITY_BOUNDS.maxLat) < threshold
-  ) {
-    return {
-      near: true,
-      reason: '鳴門市の境界付近に位置しています。座標を確認してください。',
-    };
+  // すべての地域の境界をチェック
+  for (const region of REGIONS) {
+    const { bounds } = region;
+    if (
+      Math.abs(lng - bounds.minLng) < threshold ||
+      Math.abs(lng - bounds.maxLng) < threshold ||
+      Math.abs(lat - bounds.minLat) < threshold ||
+      Math.abs(lat - bounds.maxLat) < threshold
+    ) {
+      return {
+        near: true,
+        reason: `${region.name}の境界付近に位置しています。座標を確認してください。`,
+      };
+    }
   }
 
   return { near: false };
@@ -174,26 +179,28 @@ function validateShelters(features: ShelterFeature[]): ValidationResult {
       });
     }
 
-    // 2. 座標が鳴門市の範囲外
-    const boundsCheck = isWithinNarutoCity(coordinates);
+    // 2. 座標が対応地域の範囲外
+    const boundsCheck = isWithinRegions(coordinates);
     if (!boundsCheck.valid) {
       result.errors.push({
         id,
         name,
         type: 'out_of_bounds',
-        message: boundsCheck.reason || '座標が鳴門市の範囲外です',
+        message: boundsCheck.reason || '座標が対応地域の範囲外です',
         coordinates,
         address,
       });
     }
 
-    // 3. 住所が「鳴門市」を含んでいない
-    if (!address.includes('鳴門市')) {
+    // 3. 住所が対応地域名を含んでいない
+    const regionFromAddress = detectRegionFromAddress(address);
+    if (!regionFromAddress) {
+      const regionNames = REGIONS.map((r) => r.searchName).join('、');
       result.errors.push({
         id,
         name,
         type: 'invalid_address',
-        message: `住所に「鳴門市」が含まれていません: ${address}`,
+        message: `住所に対応地域名（${regionNames}）が含まれていません: ${address}`,
         coordinates,
         address,
       });
