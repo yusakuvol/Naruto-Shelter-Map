@@ -6,12 +6,2105 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          134.580899,
+          34.136216
+        ]
+      },
+      "properties": {
+        "id": "shelter-001",
+        "name": "松茂町保健相談センター",
+        "type": "両方",
+        "address": "徳島県松茂町広島字三番越2-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.581231,
+          34.136398
+        ]
+      },
+      "properties": {
+        "id": "shelter-002",
+        "name": "松茂町老人福祉センター",
+        "type": "両方",
+        "address": "徳島県松茂町広島字三番越2-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.580802,
+          34.13594
+        ]
+      },
+      "properties": {
+        "id": "shelter-003",
+        "name": "松茂町地域子育て支援センター",
+        "type": "両方",
+        "address": "徳島県松茂町広島字三番越2-4",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.58012,
+          34.133927
+        ]
+      },
+      "properties": {
+        "id": "shelter-004",
+        "name": "松茂町総合会館",
+        "type": "両方",
+        "address": "徳島県松茂町広島字東裏30",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.580656,
+          34.133759
+        ]
+      },
+      "properties": {
+        "id": "shelter-005",
+        "name": "津波防災センター・中央庁舎",
+        "type": "両方",
+        "address": "徳島県松茂町広島字東裏30",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.587833,
+          34.130967
+        ]
+      },
+      "properties": {
+        "id": "shelter-006",
+        "name": "松茂町中部学習センター",
+        "type": "両方",
+        "address": "徳島県松茂町笹木野字山下112",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.589914,
+          34.129427
+        ]
+      },
+      "properties": {
+        "id": "shelter-007",
+        "name": "松茂中学校",
+        "type": "両方",
+        "address": "徳島県松茂町笹木野字八山開拓186",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.594464,
+          34.142421
+        ]
+      },
+      "properties": {
+        "id": "shelter-008",
+        "name": "松茂町東部学習センター",
+        "type": "両方",
+        "address": "徳島県松茂町笹木野字八北開拓222",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.590214,
+          34.131572
+        ]
+      },
+      "properties": {
+        "id": "shelter-009",
+        "name": "松茂小学校",
+        "type": "両方",
+        "address": "徳島県松茂町住吉字住吉開拓187",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.588329,
+          34.142114
+        ]
+      },
+      "properties": {
+        "id": "shelter-010",
+        "name": "松茂町総合体育館",
+        "type": "両方",
+        "address": "徳島県松茂町中喜来字群恵225-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.588828,
+          34.142713
+        ]
+      },
+      "properties": {
+        "id": "shelter-011",
+        "name": "松茂町第二体育館",
+        "type": "両方",
+        "address": "徳島県松茂町中喜来字群恵225-4",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.574087,
+          34.142218
+        ]
+      },
+      "properties": {
+        "id": "shelter-012",
+        "name": "喜来小学校",
+        "type": "両方",
+        "address": "徳島県松茂町中喜来字前原西一番越14",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.573744,
+          34.143177
+        ]
+      },
+      "properties": {
+        "id": "shelter-013",
+        "name": "松茂町北部学習センター",
+        "type": "両方",
+        "address": "徳島県松茂町中喜来字中須69-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.602634,
+          34.117503
+        ]
+      },
+      "properties": {
+        "id": "shelter-014",
+        "name": "長原小学校",
+        "type": "両方",
+        "address": "徳島県松茂町長原530",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.599008,
+          34.117055
+        ]
+      },
+      "properties": {
+        "id": "shelter-015",
+        "name": "松茂町津波防災センター",
+        "type": "両方",
+        "address": "徳島県松茂町豊岡字芦田鶴105-9",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.448862,
+          34.123017
+        ]
+      },
+      "properties": {
+        "id": "shelter-016",
+        "name": "板野町南公会堂",
+        "type": "両方",
+        "address": "徳島県板野町下庄字神木59-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.45337,
+          34.123646
+        ]
+      },
+      "properties": {
+        "id": "shelter-017",
+        "name": "下庄老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町下庄字栖養14-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.456241,
+          34.123915
+        ]
+      },
+      "properties": {
+        "id": "shelter-018",
+        "name": "板野南小学校　体育館",
+        "type": "両方",
+        "address": "徳島県板野町下庄字栖養44",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.457014,
+          34.12478
+        ]
+      },
+      "properties": {
+        "id": "shelter-019",
+        "name": "南公民館",
+        "type": "両方",
+        "address": "徳島県板野町下庄字栖養46-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.45613,
+          34.139289
+        ]
+      },
+      "properties": {
+        "id": "shelter-020",
+        "name": "健康の館（板野町田園パーク）",
+        "type": "両方",
+        "address": "徳島県板野町犬伏字大柳1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.453333,
+          34.145112
+        ]
+      },
+      "properties": {
+        "id": "shelter-021",
+        "name": "文化の館",
+        "type": "両方",
+        "address": "徳島県板野町犬伏字東谷13-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.450652,
+          34.142401
+        ]
+      },
+      "properties": {
+        "id": "shelter-022",
+        "name": "犬伏老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町犬伏字平山83",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.444319,
+          34.142214
+        ]
+      },
+      "properties": {
+        "id": "shelter-023",
+        "name": "徳島工業短期大学",
+        "type": "両方",
+        "address": "徳島県板野町犬伏字蓮花谷100",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.44984,
+          34.131775
+        ]
+      },
+      "properties": {
+        "id": "shelter-024",
+        "name": "古城老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町古城字南屋敷44-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.431363,
+          34.141206
+        ]
+      },
+      "properties": {
+        "id": "shelter-025",
+        "name": "黒谷老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町黒谷字東原24-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.455494,
+          34.147264
+        ]
+      },
+      "properties": {
+        "id": "shelter-026",
+        "name": "板野町体育センター",
+        "type": "両方",
+        "address": "徳島県板野町吹田字間谷14-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.460854,
+          34.148478
+        ]
+      },
+      "properties": {
+        "id": "shelter-027",
+        "name": "吹田老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町吹田字神木3-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.455697,
+          34.145997
+        ]
+      },
+      "properties": {
+        "id": "shelter-028",
+        "name": "穂波園指定通所介護事業所",
+        "type": "両方",
+        "address": "徳島県板野町吹田字西山68-10",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.45559,
+          34.145739
+        ]
+      },
+      "properties": {
+        "id": "shelter-029",
+        "name": "穂波園指定通所介護事業所",
+        "type": "両方",
+        "address": "徳島県板野町吹田字西山68-10",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.464609,
+          34.147091
+        ]
+      },
+      "properties": {
+        "id": "shelter-030",
+        "name": "板野東小学校　体育館・講堂",
+        "type": "両方",
+        "address": "徳島県板野町吹田字町東2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.465193,
+          34.12633
+        ]
+      },
+      "properties": {
+        "id": "shelter-031",
+        "name": "西中富老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町西中富字雁ケ坪35",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.464495,
+          34.119095
+        ]
+      },
+      "properties": {
+        "id": "shelter-032",
+        "name": "日出家老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町西中富字宮ノ本28-7",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.470275,
+          34.140952
+        ]
+      },
+      "properties": {
+        "id": "shelter-033",
+        "name": "板野高校体育館",
+        "type": "両方",
+        "address": "徳島県板野町川端字関ノ本47",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4787,
+          34.148752
+        ]
+      },
+      "properties": {
+        "id": "shelter-034",
+        "name": "川端老人憩の家（川端コミュニティセンター）",
+        "type": "両方",
+        "address": "徳島県板野町川端字宮ノ西17-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.480336,
+          34.15117
+        ]
+      },
+      "properties": {
+        "id": "shelter-035",
+        "name": "川端教育集会所",
+        "type": "両方",
+        "address": "徳島県板野町川端字権現1-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.482112,
+          34.148357
+        ]
+      },
+      "properties": {
+        "id": "shelter-036",
+        "name": "川端老人ルーム",
+        "type": "両方",
+        "address": "徳島県板野町川端字原田33-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.472809,
+          34.137473
+        ]
+      },
+      "properties": {
+        "id": "shelter-037",
+        "name": "板野町防災ステーション",
+        "type": "両方",
+        "address": "徳島県板野町川端字新手崎18-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.471696,
+          34.136586
+        ]
+      },
+      "properties": {
+        "id": "shelter-038",
+        "name": "新田老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町川端字中手崎52-9",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.44818,
+          34.177768
+        ]
+      },
+      "properties": {
+        "id": "shelter-039",
+        "name": "板野東小学校・幼稚園大坂分校　体育館",
+        "type": "両方",
+        "address": "徳島県板野町大坂字宮東20",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.463188,
+          34.141327
+        ]
+      },
+      "properties": {
+        "id": "shelter-040",
+        "name": "郡頭教育集会所",
+        "type": "両方",
+        "address": "徳島県板野町大寺字王子33",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.459449,
+          34.141916
+        ]
+      },
+      "properties": {
+        "id": "shelter-041",
+        "name": "岡ノ宮老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町大寺字岡ノ前138-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.45988,
+          34.139867
+        ]
+      },
+      "properties": {
+        "id": "shelter-042",
+        "name": "板野保育園管理棟",
+        "type": "両方",
+        "address": "徳島県板野町大寺字岡ノ前20",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.459107,
+          34.140337
+        ]
+      },
+      "properties": {
+        "id": "shelter-043",
+        "name": "総合センター",
+        "type": "両方",
+        "address": "徳島県板野町大寺字岡ノ前33-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.462669,
+          34.14406
+        ]
+      },
+      "properties": {
+        "id": "shelter-044",
+        "name": "板野町町民センター",
+        "type": "両方",
+        "address": "徳島県板野町大寺字亀山西169-5",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.462669,
+          34.14406
+        ]
+      },
+      "properties": {
+        "id": "shelter-045",
+        "name": "板野町町民センター",
+        "type": "両方",
+        "address": "徳島県板野町大寺字亀山西169-5",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.462575,
+          34.144555
+        ]
+      },
+      "properties": {
+        "id": "shelter-046",
+        "name": "中央公民館",
+        "type": "両方",
+        "address": "徳島県板野町大寺字亀山西190-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.464663,
+          34.14521
+        ]
+      },
+      "properties": {
+        "id": "shelter-047",
+        "name": "板野町東公会堂",
+        "type": "両方",
+        "address": "徳島県板野町大寺字亀山西31-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.462084,
+          34.140079
+        ]
+      },
+      "properties": {
+        "id": "shelter-048",
+        "name": "板野中学校　体育館・柔剣道場",
+        "type": "両方",
+        "address": "徳島県板野町大寺字郡頭11",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.460819,
+          34.139898
+        ]
+      },
+      "properties": {
+        "id": "shelter-049",
+        "name": "板野保育園遊戯室",
+        "type": "両方",
+        "address": "徳島県板野町大寺字郡頭27-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.462539,
+          34.13022
+        ]
+      },
+      "properties": {
+        "id": "shelter-050",
+        "name": "高樹老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町大寺字高樹14-6",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.467075,
+          34.142453
+        ]
+      },
+      "properties": {
+        "id": "shelter-051",
+        "name": "大寺老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町大寺字平井75-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.442606,
+          34.116287
+        ]
+      },
+      "properties": {
+        "id": "shelter-052",
+        "name": "中久保老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町中久保字当部65-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.446448,
+          34.127485
+        ]
+      },
+      "properties": {
+        "id": "shelter-053",
+        "name": "唐園老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町唐園字香殿北20",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.438029,
+          34.135904
+        ]
+      },
+      "properties": {
+        "id": "shelter-054",
+        "name": "板野西小学校　体育館",
+        "type": "両方",
+        "address": "徳島県板野町那東字泉ノ西4-9",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.439574,
+          34.136577
+        ]
+      },
+      "properties": {
+        "id": "shelter-055",
+        "name": "板野町町民ふれあいプラザ",
+        "type": "両方",
+        "address": "徳島県板野町那東字大道下10",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.439574,
+          34.136577
+        ]
+      },
+      "properties": {
+        "id": "shelter-056",
+        "name": "板野町町民ふれあいプラザ",
+        "type": "両方",
+        "address": "徳島県板野町那東字大道下10",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.438168,
+          34.138212
+        ]
+      },
+      "properties": {
+        "id": "shelter-057",
+        "name": "那東老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町那東字道ブチ22-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.435654,
+          34.125502
+        ]
+      },
+      "properties": {
+        "id": "shelter-058",
+        "name": "矢武老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町矢武字鏡松3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.432882,
+          34.13416
+        ]
+      },
+      "properties": {
+        "id": "shelter-059",
+        "name": "羅漢老人憩の家",
+        "type": "両方",
+        "address": "徳島県板野町羅漢字吉田15-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "itano",
+        "regionName": "板野町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.54293,
+          34.120056
+        ]
+      },
+      "properties": {
+        "id": "shelter-060",
+        "name": "江尻防災施設（旧江尻老人憩いの家）",
+        "type": "両方",
+        "address": "徳島県北島町江尻字宮ノ本32-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.543126,
+          34.118927
+        ]
+      },
+      "properties": {
+        "id": "shelter-061",
+        "name": "北島南小学校体育館",
+        "type": "両方",
+        "address": "徳島県北島町江尻字宮ノ本40-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.543496,
+          34.118936
+        ]
+      },
+      "properties": {
+        "id": "shelter-062",
+        "name": "北島南小学校校舎",
+        "type": "両方",
+        "address": "徳島県北島町江尻字宮ノ本40-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.54375,
+          34.119252
+        ]
+      },
+      "properties": {
+        "id": "shelter-063",
+        "name": "南部地区学習等供用施設",
+        "type": "両方",
+        "address": "徳島県北島町江尻字宮ノ本41-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.545413,
+          34.122542
+        ]
+      },
+      "properties": {
+        "id": "shelter-064",
+        "name": "北島町武道館",
+        "type": "両方",
+        "address": "徳島県北島町江尻字柳池4-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.533943,
+          34.129224
+        ]
+      },
+      "properties": {
+        "id": "shelter-065",
+        "name": "北島西児童館",
+        "type": "両方",
+        "address": "徳島県北島町高房字勝瑞境95-10",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.544411,
+          34.124523
+        ]
+      },
+      "properties": {
+        "id": "shelter-066",
+        "name": "北島中学校体育館",
+        "type": "両方",
+        "address": "徳島県北島町高房字東野神本25-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.545388,
+          34.124314
+        ]
+      },
+      "properties": {
+        "id": "shelter-067",
+        "name": "北島中学校校舎",
+        "type": "両方",
+        "address": "徳島県北島町高房字東野神本25-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.563663,
+          34.133542
+        ]
+      },
+      "properties": {
+        "id": "shelter-068",
+        "name": "グループホーム　えんじゅ",
+        "type": "両方",
+        "address": "徳島県北島町字北村字大開5-7",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.542481,
+          34.136168
+        ]
+      },
+      "properties": {
+        "id": "shelter-069",
+        "name": "グリーンタウン防災施設",
+        "type": "両方",
+        "address": "徳島県北島町新喜来字下竿1-16",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546015,
+          34.126567
+        ]
+      },
+      "properties": {
+        "id": "shelter-070",
+        "name": "北島町老人福祉センター",
+        "type": "両方",
+        "address": "徳島県北島町新喜来字南古田88-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546107,
+          34.126676
+        ]
+      },
+      "properties": {
+        "id": "shelter-071",
+        "name": "北島町保健相談センター",
+        "type": "両方",
+        "address": "徳島県北島町新喜来字南古田88-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546296,
+          34.126103
+        ]
+      },
+      "properties": {
+        "id": "shelter-072",
+        "name": "図書館・創世ホール",
+        "type": "両方",
+        "address": "徳島県北島町新喜来字南古田91",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.565358,
+          34.140841
+        ]
+      },
+      "properties": {
+        "id": "shelter-073",
+        "name": "北島町清掃センター",
+        "type": "両方",
+        "address": "徳島県北島町太郎八須字宮ノ本1-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.557747,
+          34.134743
+        ]
+      },
+      "properties": {
+        "id": "shelter-074",
+        "name": "北島北公園総合体育館",
+        "type": "両方",
+        "address": "徳島県北島町太郎八須字五反地10-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.561738,
+          34.13342
+        ]
+      },
+      "properties": {
+        "id": "shelter-075",
+        "name": "特別養護老人ホーム　ライデン",
+        "type": "両方",
+        "address": "徳島県北島町太郎八須字備後江家10-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.552337,
+          34.113455
+        ]
+      },
+      "properties": {
+        "id": "shelter-076",
+        "name": "北島南老人憩の家",
+        "type": "両方",
+        "address": "徳島県北島町鯛浜字川久保171",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546997,
+          34.12559
+        ]
+      },
+      "properties": {
+        "id": "shelter-077",
+        "name": "北島町総合庁舎（公民館）",
+        "type": "両方",
+        "address": "徳島県北島町中村字上地23-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546094,
+          34.125683
+        ]
+      },
+      "properties": {
+        "id": "shelter-078",
+        "name": "サンライフ北島",
+        "type": "両方",
+        "address": "徳島県北島町中村字川田9-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.548936,
+          34.12829
+        ]
+      },
+      "properties": {
+        "id": "shelter-079",
+        "name": "北島町立保育所",
+        "type": "両方",
+        "address": "徳島県北島町中村字竹ノ下23-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.55517,
+          34.128294
+        ]
+      },
+      "properties": {
+        "id": "shelter-080",
+        "name": "町民体育センター",
+        "type": "両方",
+        "address": "徳島県北島町中村字中内11-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.556828,
+          34.128932
+        ]
+      },
+      "properties": {
+        "id": "shelter-081",
+        "name": "グループホーム　癒音",
+        "type": "両方",
+        "address": "徳島県北島町中村字中内26",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.55106,
+          34.125415
+        ]
+      },
+      "properties": {
+        "id": "shelter-082",
+        "name": "北島町厚生福祉センター",
+        "type": "両方",
+        "address": "徳島県北島町中村字長池13-2",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.549257,
+          34.125107
+        ]
+      },
+      "properties": {
+        "id": "shelter-083",
+        "name": "北島小学校体育館",
+        "type": "両方",
+        "address": "徳島県北島町中村字長池17-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.54993,
+          34.124921
+        ]
+      },
+      "properties": {
+        "id": "shelter-084",
+        "name": "北島小学校校舎",
+        "type": "両方",
+        "address": "徳島県北島町中村字長池17-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.550722,
+          34.124116
+        ]
+      },
+      "properties": {
+        "id": "shelter-085",
+        "name": "中央地区学習等供用施設",
+        "type": "両方",
+        "address": "徳島県北島町中村字長池28",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.553498,
+          34.129136
+        ]
+      },
+      "properties": {
+        "id": "shelter-086",
+        "name": "サンビレッジ北島",
+        "type": "両方",
+        "address": "徳島県北島町中村字日開野51-5",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.537418,
+          34.130681
+        ]
+      },
+      "properties": {
+        "id": "shelter-087",
+        "name": "特別養護老人ホーム　吉野川荘",
+        "type": "両方",
+        "address": "徳島県北島町中村字八丁野4-19",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.56293,
+          34.126505
+        ]
+      },
+      "properties": {
+        "id": "shelter-088",
+        "name": "北島東児童館",
+        "type": "両方",
+        "address": "徳島県北島町中村字本須76-7",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.55331,
+          34.13714
+        ]
+      },
+      "properties": {
+        "id": "shelter-089",
+        "name": "北部地区学習等供用施設",
+        "type": "両方",
+        "address": "徳島県北島町北村字壱町四反地18-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.552267,
+          34.136384
+        ]
+      },
+      "properties": {
+        "id": "shelter-090",
+        "name": "北島北小学校体育館",
+        "type": "両方",
+        "address": "徳島県北島町北村字壱町四反地20-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.552691,
+          34.136721
+        ]
+      },
+      "properties": {
+        "id": "shelter-091",
+        "name": "北島北小学校校舎",
+        "type": "両方",
+        "address": "徳島県北島町北村字壱町四反地20-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "kitajima",
+        "regionName": "北島町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           134.617197,
           34.24312
         ]
       },
       "properties": {
-        "id": "shelter-001",
+        "id": "shelter-092",
         "name": "室撫佐漁業協同組合",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町室字本村64-1",
@@ -19,7 +2112,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -32,7 +2127,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-002",
+        "id": "shelter-093",
         "name": "小島田集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町小島田字通り1-3",
@@ -40,7 +2135,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -53,7 +2150,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-003",
+        "id": "shelter-094",
         "name": "ホテルリッジ",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町大島田字中山1-1",
@@ -61,7 +2158,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -74,7 +2173,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-004",
+        "id": "shelter-095",
         "name": "旧島田小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町中島田字北田36",
@@ -82,7 +2181,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -95,7 +2196,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-005",
+        "id": "shelter-096",
         "name": "明神北集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱10-1",
@@ -103,7 +2204,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -116,7 +2219,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-006",
+        "id": "shelter-097",
         "name": "瀬戸公民館",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱86-4",
@@ -124,7 +2227,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -137,7 +2242,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-007",
+        "id": "shelter-098",
         "name": "瀬戸中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱96-4",
@@ -145,7 +2250,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -158,7 +2265,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-008",
+        "id": "shelter-099",
         "name": "旧瀬戸小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り参220-1",
@@ -166,7 +2273,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -179,7 +2288,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-009",
+        "id": "shelter-100",
         "name": "堂浦ふれあい会館",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り弐266",
@@ -187,7 +2296,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -200,7 +2311,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-010",
+        "id": "shelter-101",
         "name": "日出集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字日出3-3",
@@ -208,7 +2319,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -221,7 +2334,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-011",
+        "id": "shelter-102",
         "name": "明神菅谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字本浦中32-2",
@@ -229,7 +2342,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -242,7 +2357,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-012",
+        "id": "shelter-103",
         "name": "撫佐集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町撫佐字本村62-2",
@@ -250,7 +2365,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -263,7 +2380,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-013",
+        "id": "shelter-104",
         "name": "小海集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字小海287-1",
@@ -271,7 +2388,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -284,7 +2403,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-014",
+        "id": "shelter-105",
         "name": "北泊公民館",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊103",
@@ -292,7 +2411,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -305,7 +2426,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-015",
+        "id": "shelter-106",
         "name": "北泊漁業協同組合（旧事務所）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊209",
@@ -313,7 +2434,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -326,7 +2449,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-016",
+        "id": "shelter-107",
         "name": "北泊漁業協同組合（北泊漁民センター）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊209-6",
@@ -334,7 +2457,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -347,7 +2472,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-017",
+        "id": "shelter-108",
         "name": "明神越浦集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦334-7",
@@ -355,7 +2480,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -368,7 +2495,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-018",
+        "id": "shelter-109",
         "name": "明神小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦70",
@@ -376,7 +2503,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -389,7 +2518,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-019",
+        "id": "shelter-110",
         "name": "明神集会所",
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字下本城242",
@@ -397,7 +2526,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -410,7 +2541,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-020",
+        "id": "shelter-111",
         "name": "吉永集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永128-2",
@@ -418,7 +2549,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -431,7 +2564,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-021",
+        "id": "shelter-112",
         "name": "鳴門渦潮高等学校（第一体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
@@ -439,28 +2572,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.602197,
-          34.164566
-        ]
-      },
-      "properties": {
-        "id": "shelter-022",
-        "name": "鳴門渦潮高等学校（第二体育館）",
-        "type": "両方",
-        "address": "徳島県鳴門市大津町吉永595",
-        "disasterTypes": [
-          "地震"
-        ],
-        "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -473,7 +2587,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-023",
+        "id": "shelter-113",
         "name": "鳴門渦潮高等学校（本館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
@@ -481,7 +2595,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -494,7 +2610,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-024",
+        "id": "shelter-114",
         "name": "鳴門渦潮高等学校",
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
@@ -502,7 +2618,32 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.602197,
+          34.164566
+        ]
+      },
+      "properties": {
+        "id": "shelter-115",
+        "name": "鳴門渦潮高等学校（第二体育館）",
+        "type": "両方",
+        "address": "徳島県鳴門市大津町吉永595",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -515,7 +2656,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-025",
+        "id": "shelter-116",
         "name": "大幸集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大幸字若宮の元14",
@@ -523,7 +2664,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -536,7 +2679,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-026",
+        "id": "shelter-117",
         "name": "大代前場集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1133-1",
@@ -544,7 +2687,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -557,7 +2702,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-027",
+        "id": "shelter-118",
         "name": "大津西小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1210",
@@ -565,7 +2710,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -578,7 +2725,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-028",
+        "id": "shelter-119",
         "name": "大代集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1213-2",
@@ -586,7 +2733,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -599,7 +2748,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-029",
+        "id": "shelter-120",
         "name": "介護老人福祉施設おおつ苑",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代472",
@@ -607,7 +2756,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -620,7 +2771,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-030",
+        "id": "shelter-121",
         "name": "大津中央公民館",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代679-2",
@@ -628,7 +2779,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -641,7 +2794,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-031",
+        "id": "shelter-122",
         "name": "大代山路集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町大代997-1",
@@ -649,7 +2802,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -662,7 +2817,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-032",
+        "id": "shelter-123",
         "name": "段関野崎集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町段関字沖野21-6",
@@ -670,7 +2825,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -683,7 +2840,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-033",
+        "id": "shelter-124",
         "name": "段関集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町段関字西53-2",
@@ -691,7 +2848,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -704,7 +2863,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-034",
+        "id": "shelter-125",
         "name": "長江集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町長江字東大黒1-2",
@@ -712,7 +2871,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -725,7 +2886,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-035",
+        "id": "shelter-126",
         "name": "備前島集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町備前島字荒神の越164-3",
@@ -733,7 +2894,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -746,7 +2909,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-036",
+        "id": "shelter-127",
         "name": "第一小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字内田11",
@@ -754,7 +2917,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -767,7 +2932,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-037",
+        "id": "shelter-128",
         "name": "木津野集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字野神ノ越56-3",
@@ -775,7 +2940,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -788,7 +2955,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-038",
+        "id": "shelter-129",
         "name": "大津団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字西の越2-2",
@@ -796,7 +2963,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -809,7 +2978,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-039",
+        "id": "shelter-130",
         "name": "矢倉集会所",
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字弐ノ越34-3",
@@ -817,7 +2986,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -830,7 +3001,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-040",
+        "id": "shelter-131",
         "name": "高畑集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町高畑字居屋敷127-2",
@@ -838,7 +3009,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -851,7 +3024,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-041",
+        "id": "shelter-132",
         "name": "人権福祉センター",
         "type": "両方",
         "address": "徳島県鳴門市大麻町三俣字前野18",
@@ -859,7 +3032,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -872,7 +3047,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-042",
+        "id": "shelter-133",
         "name": "市場団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町三俣字前野9-3",
@@ -880,7 +3055,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -893,7 +3070,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-043",
+        "id": "shelter-134",
         "name": "医王集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町市場字大道34-1",
@@ -901,7 +3078,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -914,7 +3093,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-044",
+        "id": "shelter-135",
         "name": "堀江南小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町西馬詰字橋ノ本7",
@@ -922,7 +3101,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -935,7 +3116,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-045",
+        "id": "shelter-136",
         "name": "板東南ふれあいセンター（旧川崎幼稚園）庁舎",
         "type": "両方",
         "address": "徳島県鳴門市大麻町川崎394",
@@ -943,7 +3124,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -956,7 +3139,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-046",
+        "id": "shelter-137",
         "name": "堀江北小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字中筋41",
@@ -964,7 +3147,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -977,7 +3162,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-047",
+        "id": "shelter-138",
         "name": "大谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字椢原14",
@@ -985,7 +3170,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -998,7 +3185,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-048",
+        "id": "shelter-139",
         "name": "堀江公民館",
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字椢原18",
@@ -1006,7 +3193,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1019,7 +3208,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-049",
+        "id": "shelter-140",
         "name": "池谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田103-2",
@@ -1027,7 +3216,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1040,7 +3231,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-050",
+        "id": "shelter-141",
         "name": "大麻中学校（体育館・武道場）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田105",
@@ -1048,7 +3239,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1061,7 +3254,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-051",
+        "id": "shelter-142",
         "name": "津慈集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町津慈字宮ノ本150-4",
@@ -1069,7 +3262,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1082,7 +3277,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-052",
+        "id": "shelter-143",
         "name": "東馬詰集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町東馬詰字諏訪の元74-1",
@@ -1090,7 +3285,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1103,7 +3300,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-053",
+        "id": "shelter-144",
         "name": "萩原集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町萩原字アコメン11-3",
@@ -1111,7 +3308,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1124,7 +3323,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-054",
+        "id": "shelter-145",
         "name": "萩原団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町萩原字西山田68-35",
@@ -1132,7 +3331,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1145,7 +3346,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-055",
+        "id": "shelter-146",
         "name": "舞姫会館",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字牛ノ宮東16-3",
@@ -1153,7 +3354,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1166,7 +3369,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-056",
+        "id": "shelter-147",
         "name": "徳島学院",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字広塚35",
@@ -1174,7 +3377,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1187,7 +3392,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-057",
+        "id": "shelter-148",
         "name": "草の実学園",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字広塚43",
@@ -1195,7 +3400,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1208,7 +3415,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-058",
+        "id": "shelter-149",
         "name": "共栄集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字采女120-4",
@@ -1216,7 +3423,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1229,7 +3438,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-059",
+        "id": "shelter-150",
         "name": "大西集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字采女48-7",
@@ -1237,7 +3446,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1250,7 +3461,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-060",
+        "id": "shelter-151",
         "name": "霊山寺集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字西山田32",
@@ -1258,7 +3469,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1271,7 +3484,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-061",
+        "id": "shelter-152",
         "name": "平草集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字西平草62-12",
@@ -1279,7 +3492,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1292,7 +3507,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-062",
+        "id": "shelter-153",
         "name": "山田集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字東山田57-2",
@@ -1300,7 +3515,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1313,7 +3530,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-063",
+        "id": "shelter-154",
         "name": "樋殿谷集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字樋殿谷99-2",
@@ -1321,7 +3538,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1334,7 +3553,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-064",
+        "id": "shelter-155",
         "name": "板東公民館",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵103-1",
@@ -1342,7 +3561,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1355,7 +3576,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-065",
+        "id": "shelter-156",
         "name": "板東小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵60",
@@ -1363,7 +3584,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1376,7 +3599,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-066",
+        "id": "shelter-157",
         "name": "板東連絡所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵65",
@@ -1384,7 +3607,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1397,7 +3622,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-067",
+        "id": "shelter-158",
         "name": "川原場集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字コモガ池90-2",
@@ -1405,7 +3630,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1418,7 +3645,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-068",
+        "id": "shelter-159",
         "name": "桧西集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字ダンノ上32-4",
@@ -1426,7 +3653,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1439,7 +3668,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-069",
+        "id": "shelter-160",
         "name": "リューネの森集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字中山田13-1",
@@ -1447,7 +3676,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1460,7 +3691,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-070",
+        "id": "shelter-161",
         "name": "Ｂａｎｄｅ桧",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字東バリ6-1",
@@ -1468,7 +3699,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1481,7 +3714,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-071",
+        "id": "shelter-162",
         "name": "特別養護老人ホームおおあさ苑",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字東山田57-10",
@@ -1489,7 +3722,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1502,7 +3737,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-072",
+        "id": "shelter-163",
         "name": "地域密着型介護老人福祉施設　おおあさ杜樹の音",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字東山田57-5",
@@ -1510,7 +3745,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1523,7 +3760,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-073",
+        "id": "shelter-164",
         "name": "桧集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字野神ノ北31-5",
@@ -1531,7 +3768,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1544,7 +3783,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-074",
+        "id": "shelter-165",
         "name": "姫田集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字森崎57-2",
@@ -1552,7 +3791,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1565,7 +3806,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-075",
+        "id": "shelter-166",
         "name": "小森集会所",
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字東百地1-4",
@@ -1573,7 +3814,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1586,7 +3829,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-076",
+        "id": "shelter-167",
         "name": "岡崎集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町岡崎字二等道路東41-2",
@@ -1594,7 +3837,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1607,7 +3852,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-077",
+        "id": "shelter-168",
         "name": "黒崎小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字宮津88-1",
@@ -1615,7 +3860,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1628,7 +3875,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-078",
+        "id": "shelter-169",
         "name": "聖母幼稚園",
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字松島208",
@@ -1636,7 +3883,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1649,7 +3898,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-079",
+        "id": "shelter-170",
         "name": "黒崎地区コミュニティセンター",
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字清水86-2",
@@ -1657,7 +3906,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1670,7 +3921,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-080",
+        "id": "shelter-171",
         "name": "鳴門高等学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-1",
@@ -1678,7 +3929,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1691,7 +3944,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-081",
+        "id": "shelter-172",
         "name": "撫養幼稚園",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-3",
@@ -1699,7 +3952,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1712,7 +3967,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-082",
+        "id": "shelter-173",
         "name": "斎田公民館",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎145",
@@ -1720,7 +3975,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1733,7 +3990,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-083",
+        "id": "shelter-174",
         "name": "撫養小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎72",
@@ -1741,7 +3998,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1754,7 +4013,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-084",
+        "id": "shelter-175",
         "name": "斎田集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎86-1",
@@ -1762,7 +4021,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1775,7 +4036,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-085",
+        "id": "shelter-176",
         "name": "ホテル・ファーストシーズン",
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字大堤228",
@@ -1783,7 +4044,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1796,7 +4059,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-086",
+        "id": "shelter-177",
         "name": "ビジネスホテルＮＥＸＥＬα鳴門",
         "type": "両方",
         "address": "徳島県鳴門市撫養町小桑島字前浜65",
@@ -1804,7 +4067,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1817,7 +4082,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-087",
+        "id": "shelter-178",
         "name": "徳島県農業協同組合うずしお支店（２階会議室）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字大谷5-1",
@@ -1825,7 +4090,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1838,7 +4105,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-088",
+        "id": "shelter-179",
         "name": "桑島地区コミュニティセンター",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字中之組30",
@@ -1846,7 +4113,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1859,7 +4128,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-089",
+        "id": "shelter-180",
         "name": "鳴門市立図書館",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字蛭子山11",
@@ -1867,7 +4136,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1880,7 +4151,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-090",
+        "id": "shelter-181",
         "name": "桑島小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字与三左谷6",
@@ -1888,7 +4159,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1901,7 +4174,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-091",
+        "id": "shelter-182",
         "name": "勤労者体育センター",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
@@ -1909,7 +4182,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1922,7 +4197,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-092",
+        "id": "shelter-183",
         "name": "鳴門市剣道場",
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
@@ -1930,7 +4205,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1943,7 +4220,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-093",
+        "id": "shelter-184",
         "name": "鳴門渦潮高等学校（撫養グラウンド・クラブハウス）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字馬目木58",
@@ -1951,7 +4228,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1964,7 +4243,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-094",
+        "id": "shelter-185",
         "name": "南浜集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字蛭子前西23",
@@ -1972,7 +4251,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -1985,7 +4266,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-095",
+        "id": "shelter-186",
         "name": "第一中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字浜田37-1",
@@ -1993,7 +4274,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2006,7 +4289,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-096",
+        "id": "shelter-187",
         "name": "弁財天集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町弁財天字三ツ井丁4-2",
@@ -2014,7 +4297,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2027,7 +4312,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-097",
+        "id": "shelter-188",
         "name": "北浜老人憩いの家",
         "type": "両方",
         "address": "徳島県鳴門市撫養町北浜字宮の東4-2",
@@ -2035,7 +4320,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2048,7 +4335,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-098",
+        "id": "shelter-189",
         "name": "木津元村集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津1123-2",
@@ -2056,7 +4343,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2069,7 +4358,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-099",
+        "id": "shelter-190",
         "name": "原地集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津388-1",
@@ -2077,7 +4366,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2090,7 +4381,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-100",
+        "id": "shelter-191",
         "name": "天理教撫養大教会",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津461",
@@ -2098,7 +4389,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2111,7 +4404,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-101",
+        "id": "shelter-192",
         "name": "芦余台集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津62-1",
@@ -2119,7 +4412,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2132,7 +4427,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-102",
+        "id": "shelter-193",
         "name": "立岩塩浜集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字元地196",
@@ -2140,7 +4435,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2153,7 +4450,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-103",
+        "id": "shelter-194",
         "name": "特別養護老人ホーム春潮苑",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字五枚146",
@@ -2161,7 +4458,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2174,7 +4473,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-104",
+        "id": "shelter-195",
         "name": "サービス付き高齢者向け住宅ほほえみ",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字五枚220-1",
@@ -2182,28 +4481,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.615366,
-          34.168995
-        ]
-      },
-      "properties": {
-        "id": "shelter-105",
-        "name": "鳴門・大塚スポーツパーク（アミノバリューホール）",
-        "type": "両方",
-        "address": "徳島県鳴門市撫養町立岩字四枚61",
-        "disasterTypes": [
-          "地震"
-        ],
-        "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2216,7 +4496,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-106",
+        "id": "shelter-196",
         "name": "鳴門・大塚スポーツパーク（アミノバリューホール３階研修室）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
@@ -2224,7 +4504,32 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.615366,
+          34.168995
+        ]
+      },
+      "properties": {
+        "id": "shelter-197",
+        "name": "鳴門・大塚スポーツパーク（アミノバリューホール）",
+        "type": "両方",
+        "address": "徳島県鳴門市撫養町立岩字四枚61",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2237,7 +4542,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-107",
+        "id": "shelter-198",
         "name": "鳴門・大塚スポーツパーク（武道館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
@@ -2245,7 +4550,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2258,7 +4565,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-108",
+        "id": "shelter-199",
         "name": "第二中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田150",
@@ -2266,7 +4573,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2279,7 +4588,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-109",
+        "id": "shelter-200",
         "name": "川東公民館",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田63-2",
@@ -2287,7 +4596,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2300,7 +4611,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-110",
+        "id": "shelter-201",
         "name": "林崎小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田73-1",
@@ -2308,7 +4619,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2321,7 +4634,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-111",
+        "id": "shelter-202",
         "name": "林崎集会所",
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字南殿町28-2",
@@ -2329,7 +4642,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2342,7 +4657,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-112",
+        "id": "shelter-203",
         "name": "トリーデなると",
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字北殿町149",
@@ -2350,7 +4665,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2363,7 +4680,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-113",
+        "id": "shelter-204",
         "name": "北灘東小学校（校舎）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
@@ -2371,7 +4688,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2384,7 +4703,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-114",
+        "id": "shelter-205",
         "name": "旧北灘東幼稚園",
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
@@ -2392,7 +4711,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2405,7 +4726,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-115",
+        "id": "shelter-206",
         "name": "北灘東小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
@@ -2413,7 +4734,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2426,7 +4749,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-116",
+        "id": "shelter-207",
         "name": "張集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町櫛木字中田14-2",
@@ -2434,7 +4757,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2447,7 +4772,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-117",
+        "id": "shelter-208",
         "name": "櫛木集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町櫛木字中末83-3",
@@ -2455,7 +4780,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2468,7 +4795,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-118",
+        "id": "shelter-209",
         "name": "北灘公民館",
         "type": "両方",
         "address": "徳島県鳴門市北灘町宿毛谷字クロハエ66",
@@ -2476,7 +4803,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2489,7 +4818,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-119",
+        "id": "shelter-210",
         "name": "北條集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷154-1",
@@ -2497,7 +4826,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2510,7 +4841,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-120",
+        "id": "shelter-211",
         "name": "西條集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷379-1",
@@ -2518,7 +4849,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2531,7 +4864,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-121",
+        "id": "shelter-212",
         "name": "旧北灘西小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷64-3",
@@ -2539,7 +4872,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2552,7 +4887,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-122",
+        "id": "shelter-213",
         "name": "三津集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字三津260-2",
@@ -2560,7 +4895,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2573,7 +4910,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-123",
+        "id": "shelter-214",
         "name": "川筋集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字川筋33-4",
@@ -2581,7 +4918,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2594,7 +4933,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-124",
+        "id": "shelter-215",
         "name": "旧北灘中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市北灘町大浦字東浦75",
@@ -2602,7 +4941,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2615,7 +4956,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-125",
+        "id": "shelter-216",
         "name": "大須集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町大須字西添25",
@@ -2623,7 +4964,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2636,7 +4979,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-126",
+        "id": "shelter-217",
         "name": "鳥ヶ丸集会所",
         "type": "両方",
         "address": "徳島県鳴門市北灘町鳥ケ丸字トノムラ60-2",
@@ -2644,7 +4987,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2657,7 +5002,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-127",
+        "id": "shelter-218",
         "name": "中島集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島124",
@@ -2665,7 +5010,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2678,7 +5025,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-128",
+        "id": "shelter-219",
         "name": "鳴門教育大学（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島748",
@@ -2686,7 +5033,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2699,7 +5048,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-129",
+        "id": "shelter-220",
         "name": "鳴門西小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北217",
@@ -2707,7 +5056,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2720,7 +5071,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-130",
+        "id": "shelter-221",
         "name": "高島団地集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北384",
@@ -2728,7 +5079,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2741,7 +5094,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-131",
+        "id": "shelter-222",
         "name": "鳴門公民館",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北86",
@@ -2749,7 +5102,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2762,7 +5117,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-132",
+        "id": "shelter-223",
         "name": "特別養護老人ホーム鳴光荘",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ッ石字江尻山85",
@@ -2770,7 +5125,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2783,7 +5140,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-133",
+        "id": "shelter-224",
         "name": "鳴門中学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ツ石字芙蓉山下251",
@@ -2791,7 +5148,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2804,7 +5163,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-134",
+        "id": "shelter-225",
         "name": "自立訓練（生活訓練）・宿泊型自立訓練事業所　なぎさ",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂14-2",
@@ -2812,7 +5171,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2825,7 +5186,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-135",
+        "id": "shelter-226",
         "name": "野集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂181-2",
@@ -2833,7 +5194,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2846,7 +5209,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-136",
+        "id": "shelter-227",
         "name": "リゾートホテルモアナコースト",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂186-16",
@@ -2854,7 +5217,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2867,7 +5232,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-137",
+        "id": "shelter-228",
         "name": "介護老人保健施設　大鳴門シルバーハイツ",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂50-3",
@@ -2875,28 +5240,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.622966,
-          34.196093
-        ]
-      },
-      "properties": {
-        "id": "shelter-138",
-        "name": "旧鳴門東小学校（体育館）",
-        "type": "両方",
-        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
-        "disasterTypes": [
-          "地震"
-        ],
-        "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2909,7 +5255,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-139",
+        "id": "shelter-229",
         "name": "鳴門東地区コミュニティセンター",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
@@ -2917,7 +5263,32 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.622966,
+          34.196093
+        ]
+      },
+      "properties": {
+        "id": "shelter-230",
+        "name": "旧鳴門東小学校（体育館）",
+        "type": "両方",
+        "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2930,7 +5301,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-140",
+        "id": "shelter-231",
         "name": "特別養護老人ホーム鳴優荘",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-257",
@@ -2938,7 +5309,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2951,7 +5324,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-141",
+        "id": "shelter-232",
         "name": "黒山集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-295",
@@ -2959,7 +5332,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2972,7 +5347,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-142",
+        "id": "shelter-233",
         "name": "養護老人ホーム鳴愛荘",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-84",
@@ -2980,7 +5355,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -2993,7 +5370,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-143",
+        "id": "shelter-234",
         "name": "大毛集会所",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛122",
@@ -3001,7 +5378,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3014,7 +5393,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-144",
+        "id": "shelter-235",
         "name": "アオアヲナルトリゾート",
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛16-45",
@@ -3022,7 +5401,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3035,7 +5416,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-145",
+        "id": "shelter-236",
         "name": "鳴門教育大学職員宿舎１～４号棟",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字粟津西開168-2",
@@ -3043,7 +5424,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3056,7 +5439,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-146",
+        "id": "shelter-237",
         "name": "里浦農業協同組合",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面233-1",
@@ -3064,7 +5447,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3077,7 +5462,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-147",
+        "id": "shelter-238",
         "name": "里浦集会所",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面350-2",
@@ -3085,7 +5470,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3098,7 +5485,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-148",
+        "id": "shelter-239",
         "name": "里浦公民館",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面535-2",
@@ -3106,7 +5493,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3119,7 +5508,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-149",
+        "id": "shelter-240",
         "name": "里浦南防災センター",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字恵美寿5-6",
@@ -3127,7 +5516,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3140,7 +5531,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-150",
+        "id": "shelter-241",
         "name": "里浦北集会所",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字坂田415-5",
@@ -3148,7 +5539,9 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
       }
     },
     {
@@ -3161,7 +5554,7 @@
         ]
       },
       "properties": {
-        "id": "shelter-151",
+        "id": "shelter-242",
         "name": "里浦小学校（体育館）",
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字西浜401",
@@ -3169,7 +5562,331 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2025-12-21"
+        "updatedAt": "2025-12-27",
+        "regionId": "naruto",
+        "regionName": "鳴門市"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.496249,
+          34.125751
+        ]
+      },
+      "properties": {
+        "id": "shelter-243",
+        "name": "藍住町町民体育館",
+        "type": "両方",
+        "address": "徳島県藍住町奥野字矢上前18-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.49756,
+          34.125169
+        ]
+      },
+      "properties": {
+        "id": "shelter-244",
+        "name": "藍住中学校",
+        "type": "両方",
+        "address": "徳島県藍住町奥野字矢上前18-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.497769,
+          34.127534
+        ]
+      },
+      "properties": {
+        "id": "shelter-245",
+        "name": "藍住町総合文化ホール",
+        "type": "両方",
+        "address": "徳島県藍住町奥野字矢上前32-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.497055,
+          34.127981
+        ]
+      },
+      "properties": {
+        "id": "shelter-246",
+        "name": "中央保育所",
+        "type": "両方",
+        "address": "徳島県藍住町奥野字矢上前41-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.491011,
+          34.121562
+        ]
+      },
+      "properties": {
+        "id": "shelter-247",
+        "name": "藍住南小学校",
+        "type": "両方",
+        "address": "徳島県藍住町奥野字和田95",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.50623,
+          34.13272
+        ]
+      },
+      "properties": {
+        "id": "shelter-248",
+        "name": "藍住北小学校",
+        "type": "両方",
+        "address": "徳島県藍住町住吉字乾1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.511376,
+          34.128725
+        ]
+      },
+      "properties": {
+        "id": "shelter-249",
+        "name": "藍住東中学校",
+        "type": "両方",
+        "address": "徳島県藍住町住吉字若宮49-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.516721,
+          34.127197
+        ]
+      },
+      "properties": {
+        "id": "shelter-250",
+        "name": "藍住東小学校",
+        "type": "両方",
+        "address": "徳島県藍住町勝瑞字成長155-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.488631,
+          34.140986
+        ]
+      },
+      "properties": {
+        "id": "shelter-251",
+        "name": "特別養護老人ホーム　藍寿苑",
+        "type": "両方",
+        "address": "徳島県藍住町富吉字穂実66-3",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.484825,
+          34.135298
+        ]
+      },
+      "properties": {
+        "id": "shelter-252",
+        "name": "藍住西小学校",
+        "type": "両方",
+        "address": "徳島県藍住町富吉字豊吉55-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.497185,
+          34.136514
+        ]
+      },
+      "properties": {
+        "id": "shelter-253",
+        "name": "看護小規模多機能ホーム　昴",
+        "type": "両方",
+        "address": "徳島県藍住町矢上字安任137-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.495896,
+          34.137998
+        ]
+      },
+      "properties": {
+        "id": "shelter-254",
+        "name": "小規模多機能ホーム藍住の家",
+        "type": "両方",
+        "address": "徳島県藍住町矢上字安任175-5",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.502711,
+          34.139269
+        ]
+      },
+      "properties": {
+        "id": "shelter-255",
+        "name": "福祉ホームリズム",
+        "type": "両方",
+        "address": "徳島県藍住町矢上字安任56-5",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.501103,
+          34.129793
+        ]
+      },
+      "properties": {
+        "id": "shelter-256",
+        "name": "地域密着型介護老人福祉施設　花どけい",
+        "type": "両方",
+        "address": "徳島県藍住町矢上字原127-1",
+        "disasterTypes": [
+          "地震"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2025-12-27",
+        "regionId": "aizumi",
+        "regionName": "藍住町"
       }
     }
   ]
