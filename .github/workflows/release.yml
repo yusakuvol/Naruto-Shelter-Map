@@ -12,13 +12,13 @@ jobs:
   release:
     name: Create Release
     runs-on: ubuntu-latest
-    if: github.ref_type == 'tag' && startsWith(github.ref, 'refs/tags/v')
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
         with:
           fetch-depth: 0 # 全履歴を取得（リリースノート生成のため）
+          ref: ${{ github.ref }} # タグが指すコミットをチェックアウト
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -35,6 +35,11 @@ jobs:
       - name: Extract version from tag
         id: version
         run: |
+          if [[ ! "${{ github.ref }}" =~ ^refs/tags/v ]]; then
+            echo "❌ Invalid tag format: ${{ github.ref }}"
+            echo "   Expected format: refs/tags/v*.*.*"
+            exit 1
+          fi
           VERSION=${GITHUB_REF#refs/tags/v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "📦 Version: $VERSION"
@@ -43,6 +48,9 @@ jobs:
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           TAG_VERSION="${{ steps.version.outputs.version }}"
+          echo "📋 Checking version match..."
+          echo "   package.json: $PACKAGE_VERSION"
+          echo "   Git tag: $TAG_VERSION"
           if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
             echo "❌ Version mismatch!"
             echo "   package.json: $PACKAGE_VERSION"
@@ -55,7 +63,8 @@ jobs:
         id: release_notes
         run: |
           TAG_VERSION="${{ steps.version.outputs.version }}"
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          CURRENT_TAG="${{ github.ref_name }}"
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 ${CURRENT_TAG}^ 2>/dev/null || git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
           
           if [ -z "$PREVIOUS_TAG" ]; then
             # 初回リリース
@@ -83,7 +92,7 @@ jobs:
 ### 変更内容
 
 \`\`\`
-$(git log ${PREVIOUS_TAG}..HEAD --pretty=format:'- %s (%h)' --no-merges)
+$(git log ${PREVIOUS_TAG}..${CURRENT_TAG} --pretty=format:'- %s (%h)' --no-merges)
 \`\`\`
 
 ### 完全な変更履歴
