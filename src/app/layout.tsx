@@ -9,8 +9,9 @@ import { viewport } from './viewport';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: '鳴門市避難所マップ',
-  description: '徳島県鳴門市の避難所を地図上に可視化するPWAアプリ',
+  title: '避難所マップ',
+  description:
+    '徳島県鳴門市とその隣接地域の避難所を地図上に可視化するPWAアプリ',
   manifest: '/manifest.json',
 };
 
