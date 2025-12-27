@@ -3,15 +3,23 @@
 /**
  * 避難所データ自動更新スクリプト
  *
- * 国土地理院の避難所データを取得し、鳴門市のデータのみを抽出して
+ * 国土地理院の避難所データを取得し、鳴門市とその隣接地域のデータを抽出して
  * public/data/shelters.geojson を更新します。
  *
+ * 対応地域:
+ * - 鳴門市（メイン）
+ * - 藍住町（隣接）
+ * - 北島町（隣接）
+ * - 松茂町（隣接）
+ * - 板野町（隣接）
+ *
  * 実行方法:
- *   pnpm tsx scripts/fetch-shelters.ts
+ *   pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパスまたはURL>
  */
 
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { detectRegionFromAddress, REGIONS } from '../src/config/regions';
 import type {
   DisasterType,
   Shelter,
@@ -99,10 +107,11 @@ async function loadGSIData(filePath: string): Promise<unknown> {
 }
 
 /**
- * 鳴門市のデータのみをフィルタリング
+ * 対応地域のデータをフィルタリング
+ * 鳴門市とその隣接地域（藍住町、北島町、松茂町、板野町）を含む
  */
-function filterNarutoCity(data: unknown): unknown[] {
-  console.log('🔍 鳴門市のデータを抽出中...');
+function filterRegions(data: unknown): unknown[] {
+  console.log('🔍 対応地域のデータを抽出中...');
 
   // GeoJSON形式のバリデーション
   if (!data || typeof data !== 'object') {
@@ -118,19 +127,38 @@ function filterNarutoCity(data: unknown): unknown[] {
     throw new Error('Not a valid GeoJSON FeatureCollection');
   }
 
-  // 鳴門市のデータを抽出（住所に「鳴門市」を含むもの）
-  const narutoFeatures = geoJSON.features.filter((feature: unknown) => {
+  // 対応地域の検索名リストを作成
+  const regionSearchNames = REGIONS.map((region) => region.searchName);
+
+  // 対応地域のデータを抽出（住所に対応地域名が含まれるもの）
+  const regionFeatures = geoJSON.features.filter((feature: unknown) => {
     if (!feature || typeof feature !== 'object') return false;
 
     const f = feature as { properties?: { address?: string; 住所?: string } };
     const address = f.properties?.address || f.properties?.住所 || '';
 
-    return address.includes('鳴門市');
+    // いずれかの対応地域名が住所に含まれているかチェック
+    return regionSearchNames.some((searchName) => address.includes(searchName));
   });
 
-  console.log(`✅ 鳴門市のデータ: ${narutoFeatures.length}件`);
+  // 地域別の集計
+  const regionCounts: Record<string, number> = {};
+  for (const feature of regionFeatures) {
+    if (!feature || typeof feature !== 'object') continue;
+    const f = feature as { properties?: { address?: string; 住所?: string } };
+    const address = f.properties?.address || f.properties?.住所 || '';
+    const region = detectRegionFromAddress(address);
+    if (region) {
+      regionCounts[region.name] = (regionCounts[region.name] || 0) + 1;
+    }
+  }
 
-  return narutoFeatures;
+  console.log(`✅ 対応地域のデータ: ${regionFeatures.length}件`);
+  for (const [regionName, count] of Object.entries(regionCounts)) {
+    console.log(`   - ${regionName}: ${count}件`);
+  }
+
+  return regionFeatures;
 }
 
 /**
@@ -217,6 +245,9 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
         | number
         | undefined;
 
+      // 地域情報の判定
+      const region = detectRegionFromAddress(address);
+
       // 災害種別の抽出と正規化
       let disasterTypes: DisasterType[] = [];
       if (Array.isArray(props.disasterTypes)) {
@@ -251,6 +282,11 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
       }
       if (contact !== undefined) {
         properties.contact = contact;
+      }
+      // 地域情報を追加
+      if (region) {
+        properties.regionId = region.id;
+        properties.regionName = region.name;
       }
 
       // 拡張情報（設備、バリアフリー、ペット、開設状況）
@@ -335,9 +371,14 @@ async function main(): Promise<void> {
       console.error('');
       console.error('国土地理院からのダウンロード手順:');
       console.error(`1. ${GSI_SHELTER_DOWNLOAD_SITE} にアクセス`);
-      console.error('2. 徳島県 > 鳴門市を選択');
+      console.error('2. 徳島県を選択（複数地域を含むデータを取得）');
       console.error('3. GeoJSON形式でダウンロード');
       console.error('4. ダウンロードしたファイルをこのスクリプトで処理');
+      console.error('');
+      console.error('対応地域:');
+      for (const region of REGIONS) {
+        console.error(`   - ${region.name} (${region.prefecture})`);
+      }
       console.error('');
       console.error('⚠️  注意: 国土地理院は直接APIを提供していないため、');
       console.error('   手動ダウンロードまたは直接ダウンロードURLが必要です。');
@@ -347,11 +388,11 @@ async function main(): Promise<void> {
     // 1. データ読み込み
     const rawData = await loadGSIData(inputFilePath);
 
-    // 2. 鳴門市データ抽出
-    const narutoFeatures = filterNarutoCity(rawData);
+    // 2. 対応地域データ抽出（鳴門市 + 隣接地域）
+    const regionFeatures = filterRegions(rawData);
 
     // 3. データ正規化
-    const normalizedFeatures = normalizeData(narutoFeatures);
+    const normalizedFeatures = normalizeData(regionFeatures);
 
     // 4. GeoJSON形式で保存
     const geoJSON: ShelterGeoJSON = {
