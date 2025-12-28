@@ -1,7 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import type { Coordinates } from '@/lib/geo';
 import {
   calculateBearing,
@@ -42,7 +42,7 @@ function getShelterTypeColor(type: string): string {
   }
 }
 
-export function ShelterCard({
+function ShelterCardComponent({
   shelter,
   isSelected,
   onClick,
@@ -444,3 +444,19 @@ export function ShelterCard({
     </>
   );
 }
+
+// React.memoでメモ化（propsが変更された場合のみ再レンダリング）
+export const ShelterCard = memo(
+  ShelterCardComponent,
+  (prevProps, nextProps) => {
+    // カスタム比較関数：重要なpropsのみを比較
+    return (
+      prevProps.shelter.properties.id === nextProps.shelter.properties.id &&
+      prevProps.isSelected === nextProps.isSelected &&
+      prevProps.distance === nextProps.distance &&
+      prevProps.isFavorite === nextProps.isFavorite &&
+      prevProps.userPosition?.latitude === nextProps.userPosition?.latitude &&
+      prevProps.userPosition?.longitude === nextProps.userPosition?.longitude
+    );
+  }
+);

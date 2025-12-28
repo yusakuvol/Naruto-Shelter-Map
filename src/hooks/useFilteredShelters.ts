@@ -30,12 +30,15 @@ export function useFilteredShelters(
  * @param shelterDisasters - 避難所が対応している災害種別
  * @param selectedDisasters - フィルタで選択された災害種別
  * @returns いずれかの災害種別に対応していればtrue
+ *
+ * パフォーマンス最適化: Setを使用してO(1)のルックアップを実現
  */
 function hasAnyDisasterType(
   shelterDisasters: DisasterType[],
   selectedDisasters: DisasterType[]
 ): boolean {
-  return selectedDisasters.some((disaster) =>
-    shelterDisasters.includes(disaster)
-  );
+  // 選択された災害種別をSetに変換（O(n)）
+  const selectedSet = new Set(selectedDisasters);
+  // 避難所の災害種別のいずれかが選択されているかチェック（O(m)）
+  return shelterDisasters.some((disaster) => selectedSet.has(disaster));
 }
