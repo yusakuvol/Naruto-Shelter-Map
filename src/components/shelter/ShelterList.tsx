@@ -42,12 +42,23 @@ export function ShelterList({
   );
 
   // 仮想スクロールの設定
-  const virtualizer = useVirtualizer({
+  const virtualizerOptions: Parameters<typeof useVirtualizer>[0] = {
     count: shelters.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 140, // 各カードの推定高さ（px）
+    estimateSize: () => 180, // 各カードの推定高さ（px）+ スペース（pb-3 = 12px）
     overscan: 5, // 画面外のアイテム数（スクロール時のスムーズさのため）
-  });
+  };
+
+  // 実際のサイズを測定して推定値を更新（Firefox以外）
+  if (
+    typeof window !== 'undefined' &&
+    navigator.userAgent.indexOf('Firefox') === -1
+  ) {
+    virtualizerOptions.measureElement = (element) =>
+      element?.getBoundingClientRect().height ?? 180;
+  }
+
+  const virtualizer = useVirtualizer(virtualizerOptions);
 
   if (shelters.length === 0) {
     return (
@@ -89,6 +100,8 @@ export function ShelterList({
           const item = shelters[virtualItem.index];
           if (!item) return null;
           const { shelter, distance } = item;
+          const isFirst = virtualItem.index === 0;
+          const isLast = virtualItem.index === shelters.length - 1;
           return (
             <div
               key={virtualItem.key}
@@ -101,7 +114,16 @@ export function ShelterList({
                 transform: `translateY(${virtualItem.start}px)`,
               }}
             >
-              <div className="px-4 pb-3">
+              <div
+                className={`px-4 ${isFirst ? 'pt-4' : ''} ${isLast ? 'pb-4' : 'pb-3'}`}
+                data-index={virtualItem.index}
+                ref={(node) => {
+                  // 実際のサイズを測定して仮想スクロールに通知
+                  if (node) {
+                    virtualizer.measureElement(node);
+                  }
+                }}
+              >
                 <ShelterCard
                   shelter={shelter}
                   distance={distance}
