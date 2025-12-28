@@ -164,7 +164,7 @@ function HomePageContent() {
           {/* 避難所リスト */}
           <nav
             aria-label="避難所一覧"
-            className="min-h-0 flex-1 overflow-y-auto p-4"
+            className="min-h-0 flex-1 overflow-hidden"
           >
             <ShelterList
               shelters={sortedShelters}
