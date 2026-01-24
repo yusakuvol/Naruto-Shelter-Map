@@ -16,6 +16,8 @@ jobs:
   update-data:
     name: Update Shelter Data
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # コミット・プッシュに必要
 
     steps:
       - name: Checkout code
@@ -23,6 +25,7 @@ jobs:
         with:
           # コミット履歴を取得してプッシュできるようにする
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
