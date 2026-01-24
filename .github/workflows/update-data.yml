@@ -16,6 +16,9 @@ jobs:
   update-data:
     name: Update Shelter Data
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # コミット・プッシュに必要
+      pull-requests: write # PR作成に必要
 
     steps:
       - name: Checkout code
@@ -23,6 +26,7 @@ jobs:
         with:
           # コミット履歴を取得してプッシュできるようにする
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -41,45 +45,34 @@ jobs:
         run: |
           if [ -n "${{ inputs.data_file }}" ]; then
             echo "manual_mode=true" >> $GITHUB_OUTPUT
-            echo "data_file=${{ inputs.data_file }}" >> $GITHUB_OUTPUT
+            echo "data_file=${{ steps.check-file.outputs.data_file }}" >> $GITHUB_OUTPUT
           else
             echo "manual_mode=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Display manual download instructions
-        if: steps.check-file.outputs.manual_mode == 'false'
+      - name: Fetch shelter data from GSI Tiles API
+        id: fetch-data
         run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "📌 国土地理院からのデータ取得は手動ダウンロードが必要です"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo ""
-          echo "⚠️  現在、国土地理院は避難所データの直接APIを提供していません。"
-          echo ""
-          echo "データ更新手順:"
-          echo "1. https://hinanmap.gsi.go.jp/index.html にアクセス"
-          echo "2. 徳島県を選択（複数地域を含むデータを取得）"
-          echo "3. GeoJSON形式でダウンロード"
-          echo "4. ダウンロードしたファイルをリポジトリに配置"
-          echo "5. 以下のコマンドでワークフローを実行:"
-          echo "   gh workflow run update-data.yml -f data_file=path/to/file.geojson"
-          echo ""
-          echo "対応地域:"
-          echo "  - 鳴門市"
-          echo "  - 藍住町"
-          echo "  - 北島町"
-          echo "  - 松茂町"
-          echo "  - 板野町"
-          echo ""
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🚀 地理院タイルAPIから避難所データを自動取得します"
+          if [ -n "${{ inputs.data_file }}" ]; then
+            echo "mode=manual" >> $GITHUB_OUTPUT
+            echo "data_file=${{ inputs.data_file }}" >> $GITHUB_OUTPUT
+          else
+            echo "mode=auto" >> $GITHUB_OUTPUT
+            echo "data_file=auto" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Process downloaded data
-        if: steps.check-file.outputs.manual_mode == 'true'
+      - name: Process shelter data
         run: |
-          echo "Processing data from: ${{ steps.check-file.outputs.data_file }}"
-          pnpm tsx scripts/fetch-shelters.ts "${{ steps.check-file.outputs.data_file }}"
+          if [ "${{ steps.fetch-data.outputs.mode }}" == "auto" ]; then
+            echo "📡 地理院タイルAPIから自動取得中..."
+            pnpm tsx scripts/fetch-shelters.ts auto
+          else
+            echo "📁 指定されたファイルから処理中: ${{ steps.fetch-data.outputs.data_file }}"
+            pnpm tsx scripts/fetch-shelters.ts "${{ steps.fetch-data.outputs.data_file }}"
+          fi
 
       - name: Validate shelter data
-        if: steps.check-file.outputs.manual_mode == 'true'
         run: |
           echo "Validating shelter data..."
           pnpm validate:shelters || {
@@ -90,7 +83,6 @@ jobs:
           echo "✅ Data validation passed"
 
       - name: Geocode and fix coordinates
-        if: steps.check-file.outputs.manual_mode == 'true'
         run: |
           echo "Geocoding shelters with incorrect coordinates..."
           echo "This may take a few minutes due to rate limiting (1 request per second)..."
@@ -100,7 +92,6 @@ jobs:
           echo "✅ Geocoding completed"
 
       - name: Validate shelter data (after geocoding)
-        if: steps.check-file.outputs.manual_mode == 'true'
         run: |
           echo "Validating shelter data after geocoding..."
           pnpm validate:shelters || {
@@ -111,27 +102,67 @@ jobs:
           echo "✅ Data validation passed after geocoding"
 
       - name: Check for changes
-        if: steps.check-file.outputs.manual_mode == 'true'
         id: git-check
         run: |
           git diff --exit-code public/data/shelters.geojson || echo "changed=true" >> $GITHUB_OUTPUT
 
-      - name: Commit and push changes
-        if: steps.check-file.outputs.manual_mode == 'true' && steps.git-check.outputs.changed == 'true'
+      - name: Create or update data branch and PR
+        if: steps.git-check.outputs.changed == 'true'
+        id: create-branch
         run: |
+          BRANCH_NAME="data/auto-update-$(date +%Y%m%d)"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
+          # データ更新ブランチを作成またはチェックアウト
+          git checkout -b "$BRANCH_NAME" 2>/dev/null || git checkout "$BRANCH_NAME"
+          
+          # 変更をコミット
           git add public/data/shelters.geojson
           git commit -m "chore(data): Update shelter data from 国土地理院
 
           Updated shelter data using automated workflow.
-          Source: 国土地理院 避難所マップ
+          Source: 国土地理院 地理院タイルAPI
 
+          - Automatic data fetch from GSI Tiles API
           - Data processing and validation
           - Automatic coordinate correction via geocoding (if needed)
 
-          🤖 Generated by GitHub Actions"
-          git push
+          🤖 Generated by GitHub Actions" || exit 0
+          
+          # ブランチをプッシュ
+          git push -u origin "$BRANCH_NAME" || git push
+          
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+      - name: Create or update Pull Request
+        if: steps.git-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.create-branch.outputs.branch_name }}
+          base: main
+          title: "chore(data): Update shelter data from 国土地理院"
+          body: |
+            ## 📊 避難所データ自動更新
+
+            このPRは、地理院タイルAPIから自動取得した最新の避難所データを反映します。
+
+            ### 更新内容
+            - データソース: 国土地理院 地理院タイルAPI（自動取得）
+            - 処理内容:
+              - 地理院タイルAPIから自動取得
+              - データ処理と検証
+              - 座標の自動修正（必要に応じて）
+
+            ### 自動マージ
+            このPRは、CIチェックが成功したら自動的にマージされます。
+
+            🤖 Generated by GitHub Actions
+          labels: |
+            automated
+            data-update
+          delete-branch: true
 
       - name: Create summary
         if: always()
@@ -139,31 +170,24 @@ jobs:
           echo "## 📊 Shelter Data Update Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          if [ "${{ steps.check-file.outputs.manual_mode }}" == "true" ]; then
-            if [ "${{ steps.git-check.outputs.changed }}" == "true" ]; then
-              echo "✅ **Status**: Data updated successfully" >> $GITHUB_STEP_SUMMARY
-              echo "📅 **Updated**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
-              echo "📦 **Source**: 国土地理院 避難所マップ" >> $GITHUB_STEP_SUMMARY
-              echo "" >> $GITHUB_STEP_SUMMARY
-              echo "### Processing Steps" >> $GITHUB_STEP_SUMMARY
-              echo "1. ✅ Data processing" >> $GITHUB_STEP_SUMMARY
-              echo "2. ✅ Data validation" >> $GITHUB_STEP_SUMMARY
-              echo "3. ✅ Geocoding and coordinate correction" >> $GITHUB_STEP_SUMMARY
-              echo "4. ✅ Final validation" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.git-check.outputs.changed }}" == "true" ]; then
+            echo "✅ **Status**: Data updated successfully" >> $GITHUB_STEP_SUMMARY
+            echo "📅 **Updated**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
+            if [ "${{ steps.fetch-data.outputs.mode }}" == "auto" ]; then
+              echo "📦 **Source**: 国土地理院 地理院タイルAPI（自動取得）" >> $GITHUB_STEP_SUMMARY
             else
-              echo "ℹ️ **Status**: No changes detected" >> $GITHUB_STEP_SUMMARY
-              echo "📅 **Checked**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
+              echo "📦 **Source**: 国土地理院 避難所マップ（手動ファイル）" >> $GITHUB_STEP_SUMMARY
             fi
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Processing Steps" >> $GITHUB_STEP_SUMMARY
+            echo "1. ✅ Data fetch from GSI Tiles API" >> $GITHUB_STEP_SUMMARY
+            echo "2. ✅ Data processing and validation" >> $GITHUB_STEP_SUMMARY
+            echo "3. ✅ Geocoding and coordinate correction" >> $GITHUB_STEP_SUMMARY
+            echo "4. ✅ Final validation" >> $GITHUB_STEP_SUMMARY
           else
-            echo "⚠️ **Status**: Manual download required" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### データ更新手順" >> $GITHUB_STEP_SUMMARY
-            echo "1. [国土地理院 避難所マップ](https://hinanmap.gsi.go.jp/index.html) にアクセス" >> $GITHUB_STEP_SUMMARY
-            echo "2. 徳島県を選択（複数地域を含むデータを取得）" >> $GITHUB_STEP_SUMMARY
-            echo "3. GeoJSON形式でダウンロード" >> $GITHUB_STEP_SUMMARY
-            echo "4. ダウンロードしたファイルを使用してワークフローを再実行" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### 対応地域" >> $GITHUB_STEP_SUMMARY
-            echo "- 鳴門市（メイン）" >> $GITHUB_STEP_SUMMARY
-            echo "- 藍住町、北島町、松茂町、板野町（隣接地域）" >> $GITHUB_STEP_SUMMARY
+            echo "ℹ️ **Status**: No changes detected" >> $GITHUB_STEP_SUMMARY
+            echo "📅 **Checked**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
+            if [ "${{ steps.fetch-data.outputs.mode }}" == "auto" ]; then
+              echo "📦 **Source**: 国土地理院 地理院タイルAPI（自動取得）" >> $GITHUB_STEP_SUMMARY
+            fi
           fi
