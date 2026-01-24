@@ -14,7 +14,13 @@
  * - 板野町（隣接）
  *
  * 実行方法:
- *   pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパスまたはURL>
+ *   pnpm tsx scripts/fetch-shelters.ts [GeoJSONファイルパスまたはURL|auto]
+ *
+ * 引数なし、または 'auto' を指定した場合:
+ *   - 地理院タイルAPIから自動取得します
+ *
+ * ファイルパスまたはURLを指定した場合:
+ *   - 指定されたファイルまたはURLからデータを読み込みます
  */
 
 import { writeFile } from 'node:fs/promises';
@@ -28,30 +34,192 @@ import type {
   ShelterType,
 } from '../src/types/shelter';
 
-// 国土地理院 避難所ダウンロードサイト
-// NOTE: 国土地理院は直接APIを提供していないため、以下のサイトから手動ダウンロードが必要
-// https://hinanmap.gsi.go.jp/index.html
-//
-// ダウンロード手順:
-// 1. 上記サイトにアクセス
-// 2. 徳島県 > 鳴門市を選択
-// 3. GeoJSON形式でダウンロード
-// 4. ダウンロードしたファイルをスクリプトで処理
-//
-// データソース候補:
-// - 国土地理院 避難所マップ: https://hinanmap.gsi.go.jp/
-// - 国土数値情報 P20: https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P20.html (2012年データ、古い)
-//
-// 自動ダウンロードについて:
-// - 直接ダウンロードURLが分かっている場合は、URLを引数として指定可能
-// - 例: pnpm tsx scripts/fetch-shelters.ts https://example.com/data.geojson
-// - ブラウザ自動化（Puppeteer/Playwright）による自動ダウンロードも検討可能
-//
-const GSI_SHELTER_DOWNLOAD_SITE = 'https://hinanmap.gsi.go.jp/index.html';
+// 地理院タイルAPI ベースURL
+// skhb01～skhb08: 指定緊急避難場所データ（災害種別別）
+// すべてのデータセットを取得してマージ
+const GSI_TILE_BASE_URL = 'https://cyberjapandata.gsi.go.jp/xyz';
+const GSI_TILE_DATASETS = [
+  'skhb01', // 洪水
+  'skhb02', // 津波
+  'skhb03', // 土砂災害
+  'skhb04', // 地震
+  'skhb05', // 大規模な火事
+  'skhb06', // 内水氾濫
+  'skhb07', // 火山現象
+  'skhb08', // その他
+] as const;
 
-// 鳴門市の行政コード（徳島県鳴門市）
-// NOTE: 現在は住所フィルタリングを使用しているため未使用
-// const NARUTO_CITY_CODE = '36202';
+// タイル取得用のズームレベル（10が適切な粒度）
+const TILE_ZOOM_LEVEL = 10;
+
+/**
+ * 緯度経度からタイル座標を計算
+ * 地理院タイルの座標系を使用
+ *
+ * @param lng 経度
+ * @param lat 緯度
+ * @param zoom ズームレベル
+ * @returns タイル座標 [x, y]
+ */
+function latLngToTile(
+  lng: number,
+  lat: number,
+  zoom: number
+): [number, number] {
+  const n = 2 ** zoom;
+  const x = Math.floor(((lng + 180) / 360) * n);
+  const latRad = (lat * Math.PI) / 180;
+  const y = Math.floor(
+    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n
+  );
+  return [x, y];
+}
+
+/**
+ * 範囲内のすべてのタイル座標を取得
+ *
+ * @param minLng 最小経度
+ * @param maxLng 最大経度
+ * @param minLat 最小緯度
+ * @param maxLat 最大緯度
+ * @param zoom ズームレベル
+ * @returns タイル座標の配列
+ */
+function getTilesInBounds(
+  minLng: number,
+  maxLng: number,
+  minLat: number,
+  maxLat: number,
+  zoom: number
+): Array<[number, number]> {
+  const [minX, minY] = latLngToTile(minLng, maxLat, zoom); // 北西角（最小X、最小Y）
+  const [maxX, maxY] = latLngToTile(maxLng, minLat, zoom); // 南東角（最大X、最大Y）
+
+  const tiles: Array<[number, number]> = [];
+  for (let x = minX; x <= maxX; x++) {
+    for (let y = minY; y <= maxY; y++) {
+      tiles.push([x, y]);
+    }
+  }
+  return tiles;
+}
+
+/**
+ * 地理院タイルから避難所データを取得
+ *
+ * @returns マージされたGeoJSONデータ
+ */
+async function fetchFromGSITiles(): Promise<unknown> {
+  console.log('📡 地理院タイルAPIから避難所データを取得中...');
+
+  // 対応地域の範囲を計算（すべての地域を含む）
+  const allBounds = {
+    minLng: Math.min(...REGIONS.map((r) => r.bounds.minLng)),
+    maxLng: Math.max(...REGIONS.map((r) => r.bounds.maxLng)),
+    minLat: Math.min(...REGIONS.map((r) => r.bounds.minLat)),
+    maxLat: Math.max(...REGIONS.map((r) => r.bounds.maxLat)),
+  };
+
+  // 範囲を少し広げる（余裕を持たせる）
+  const padding = 0.05;
+  const bounds = {
+    minLng: allBounds.minLng - padding,
+    maxLng: allBounds.maxLng + padding,
+    minLat: allBounds.minLat - padding,
+    maxLat: allBounds.maxLat + padding,
+  };
+
+  // タイル座標を取得
+  const tiles = getTilesInBounds(
+    bounds.minLng,
+    bounds.maxLng,
+    bounds.minLat,
+    bounds.maxLat,
+    TILE_ZOOM_LEVEL
+  );
+
+  console.log(
+    `  範囲: [${bounds.minLng}, ${bounds.minLat}] - [${bounds.maxLng}, ${bounds.maxLat}]`
+  );
+  console.log(
+    `  タイル数: ${tiles.length}枚 × ${GSI_TILE_DATASETS.length}データセット`
+  );
+
+  // すべてのデータセットとタイルからデータを取得
+  const allFeatures: unknown[] = [];
+  const featureIds = new Set<string>(); // 重複排除用
+
+  for (const dataset of GSI_TILE_DATASETS) {
+    console.log(`  📦 データセット: ${dataset} を取得中...`);
+    let datasetCount = 0;
+
+    for (const [x, y] of tiles) {
+      const url = `${GSI_TILE_BASE_URL}/${dataset}/${TILE_ZOOM_LEVEL}/${x}/${y}.geojson`;
+
+      try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          // 404はタイルが存在しない場合（正常）
+          if (response.status === 404) {
+            continue;
+          }
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = (await response.json()) as {
+          type?: string;
+          features?: unknown[];
+        };
+
+        if (data.type === 'FeatureCollection' && Array.isArray(data.features)) {
+          for (const feature of data.features) {
+            if (!feature || typeof feature !== 'object') continue;
+
+            const f = feature as {
+              id?: string;
+              properties?: Record<string, unknown>;
+            };
+            // 重複排除（IDまたは座標+名前で判定）
+            const featureId =
+              f.id ||
+              JSON.stringify(
+                (feature as { geometry?: { coordinates?: unknown } }).geometry
+                  ?.coordinates
+              );
+
+            if (featureId && !featureIds.has(featureId)) {
+              featureIds.add(featureId);
+              allFeatures.push(feature);
+              datasetCount++;
+            }
+          }
+        }
+
+        // レート制限対策（少し待機）
+        await new Promise((resolve) => {
+          setTimeout(resolve, 100);
+        });
+      } catch (error) {
+        // 個別のタイル取得エラーは無視（404などは正常）
+        if (error instanceof Error && !error.message.includes('HTTP')) {
+          console.warn(
+            `    ⚠️  タイル [${x}, ${y}] の取得に失敗: ${error.message}`
+          );
+        }
+      }
+    }
+
+    console.log(`    ✅ ${dataset}: ${datasetCount}件の避難所を取得`);
+  }
+
+  console.log(`✅ 合計 ${allFeatures.length}件の避難所データを取得完了`);
+
+  return {
+    type: 'FeatureCollection',
+    features: allFeatures,
+  };
+}
 
 /**
  * URLからGeoJSONデータをダウンロード
@@ -78,22 +246,25 @@ async function downloadGeoJSON(url: string): Promise<unknown> {
 }
 
 /**
- * 国土地理院からダウンロードした避難所データを読み込む
+ * 国土地理院から避難所データを読み込む
  *
- * NOTE: 現状、国土地理院は避難所データの直接APIを提供していないため、
- * 手動でダウンロードしたGeoJSONファイルを読み込む方式を採用
- *
- * @param filePath ダウンロードしたGeoJSONファイルのパス、またはURL
+ * @param filePath ダウンロードしたGeoJSONファイルのパス、またはURL、または 'auto'（自動取得）
  */
-async function loadGSIData(filePath: string): Promise<unknown> {
+async function loadGSIData(filePath: string | undefined): Promise<unknown> {
   console.log('📡 国土地理院データを読み込み中...');
 
   try {
-    // URLの場合はダウンロード、ファイルパスの場合は読み込み
+    // 引数がない、または 'auto' の場合は地理院タイルAPIから自動取得
+    if (!filePath || filePath === 'auto') {
+      return await fetchFromGSITiles();
+    }
+
+    // URLの場合はダウンロード
     if (filePath.startsWith('http://') || filePath.startsWith('https://')) {
       return await downloadGeoJSON(filePath);
     }
 
+    // ファイルパスの場合は読み込み
     const { readFile } = await import('node:fs/promises');
     const data = await readFile(filePath, 'utf-8');
     const json = JSON.parse(data);
@@ -356,36 +527,8 @@ async function main(): Promise<void> {
     const args = process.argv.slice(2);
     const inputFilePath = args[0];
 
-    if (!inputFilePath) {
-      console.error(
-        '❌ 使用方法: pnpm tsx scripts/fetch-shelters.ts <GeoJSONファイルパスまたはURL>'
-      );
-      console.error('');
-      console.error('例:');
-      console.error(
-        '  pnpm tsx scripts/fetch-shelters.ts ./downloads/naruto-shelters.geojson'
-      );
-      console.error(
-        '  pnpm tsx scripts/fetch-shelters.ts https://example.com/data.geojson'
-      );
-      console.error('');
-      console.error('国土地理院からのダウンロード手順:');
-      console.error(`1. ${GSI_SHELTER_DOWNLOAD_SITE} にアクセス`);
-      console.error('2. 徳島県を選択（複数地域を含むデータを取得）');
-      console.error('3. GeoJSON形式でダウンロード');
-      console.error('4. ダウンロードしたファイルをこのスクリプトで処理');
-      console.error('');
-      console.error('対応地域:');
-      for (const region of REGIONS) {
-        console.error(`   - ${region.name} (${region.prefecture})`);
-      }
-      console.error('');
-      console.error('⚠️  注意: 国土地理院は直接APIを提供していないため、');
-      console.error('   手動ダウンロードまたは直接ダウンロードURLが必要です。');
-      process.exit(1);
-    }
-
-    // 1. データ読み込み
+    // 引数がない場合は自動取得モード
+    // 1. データ読み込み（自動取得または指定ファイル）
     const rawData = await loadGSIData(inputFilePath);
 
     // 2. 対応地域データ抽出（鳴門市 + 隣接地域）
