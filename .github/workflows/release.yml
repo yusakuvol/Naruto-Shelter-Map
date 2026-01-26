@@ -68,7 +68,8 @@ jobs:
           
           if [ -z "$PREVIOUS_TAG" ]; then
             # 初回リリース
-            NOTES="## 🎉 初回リリース v${TAG_VERSION}
+            NOTES="$(cat <<EOF
+## 🎉 初回リリース v${TAG_VERSION}
 
 ### 主な機能
 - 📍 避難所の位置表示
@@ -83,11 +84,14 @@ jobs:
 - React 19
 - MapLibre GL JS 5.13
 - Tailwind CSS v4
-- TypeScript 5.6"
+- TypeScript 5.6
+EOF
+)"
           else
             # 変更履歴を生成
             PREVIOUS_TAG_SHORT=${PREVIOUS_TAG#v}
-            NOTES="## 📦 リリース v${TAG_VERSION}
+            NOTES="$(cat <<EOF
+## 📦 リリース v${TAG_VERSION}
 
 ### 変更内容
 
@@ -96,7 +100,9 @@ $(git log ${PREVIOUS_TAG}..${CURRENT_TAG} --pretty=format:'- %s (%h)' --no-merge
 \`\`\`
 
 ### 完全な変更履歴
-[Compare ${PREVIOUS_TAG}...v${TAG_VERSION}](https://github.com/${{ github.repository }}/compare/${PREVIOUS_TAG}...v${TAG_VERSION})"
+[Compare ${PREVIOUS_TAG}...v${TAG_VERSION}](https://github.com/${{ github.repository }}/compare/${PREVIOUS_TAG}...v${TAG_VERSION})
+EOF
+)"
           fi
           
           echo "notes<<EOF" >> $GITHUB_OUTPUT
