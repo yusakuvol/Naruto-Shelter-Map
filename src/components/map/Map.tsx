@@ -80,10 +80,11 @@ function MapController({
 
     const [lng, lat] = shelter.geometry.coordinates;
 
-    // 地図を滑らかに移動（ズームレベルを14に調整）
+    // 地図を滑らかに移動（現在のズームは維持）
+    const currentZoom = map.getZoom();
     map.flyTo({
       center: [lng, lat],
-      zoom: 14,
+      zoom: currentZoom,
       duration: 1000,
     });
   }, [selectedShelterId, shelters, map]);
