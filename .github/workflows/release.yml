@@ -69,40 +69,40 @@ jobs:
           if [ -z "$PREVIOUS_TAG" ]; then
             # 初回リリース
             NOTES="$(cat <<EOF
-## 🎉 初回リリース v${TAG_VERSION}
-
-### 主な機能
-- 📍 避難所の位置表示
-- 🌐 オンライン/オフライン対応
-- 📶 完全オフライン動作（Service Worker）
-- 🔍 避難所検索
-- 📱 PWA対応
-- ♿ アクセシビリティ対応
-
-### 技術スタック
-- Next.js 16
-- React 19
-- MapLibre GL JS 5.13
-- Tailwind CSS v4
-- TypeScript 5.6
-EOF
-)"
+          ## 🎉 初回リリース v${TAG_VERSION}
+          
+          ### 主な機能
+          - 📍 避難所の位置表示
+          - 🌐 オンライン/オフライン対応
+          - 📶 完全オフライン動作（Service Worker）
+          - 🔍 避難所検索
+          - 📱 PWA対応
+          - ♿ アクセシビリティ対応
+          
+          ### 技術スタック
+          - Next.js 16
+          - React 19
+          - MapLibre GL JS 5.13
+          - Tailwind CSS v4
+          - TypeScript 5.6
+          EOF
+          )"
           else
             # 変更履歴を生成
             PREVIOUS_TAG_SHORT=${PREVIOUS_TAG#v}
             NOTES="$(cat <<EOF
-## 📦 リリース v${TAG_VERSION}
-
-### 変更内容
-
-\`\`\`
-$(git log ${PREVIOUS_TAG}..${CURRENT_TAG} --pretty=format:'- %s (%h)' --no-merges)
-\`\`\`
-
-### 完全な変更履歴
-[Compare ${PREVIOUS_TAG}...v${TAG_VERSION}](https://github.com/${{ github.repository }}/compare/${PREVIOUS_TAG}...v${TAG_VERSION})
-EOF
-)"
+          ## 📦 リリース v${TAG_VERSION}
+          
+          ### 変更内容
+          
+          \`\`\`
+          $(git log ${PREVIOUS_TAG}..${CURRENT_TAG} --pretty=format:'- %s (%h)' --no-merges)
+          \`\`\`
+          
+          ### 完全な変更履歴
+          [Compare ${PREVIOUS_TAG}...v${TAG_VERSION}](https://github.com/${{ github.repository }}/compare/${PREVIOUS_TAG}...v${TAG_VERSION})
+          EOF
+          )"
           fi
           
           echo "notes<<EOF" >> $GITHUB_OUTPUT
