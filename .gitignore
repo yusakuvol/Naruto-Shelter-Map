@@ -43,6 +43,7 @@ next-env.d.ts
 
 # lighthouse ci
 .lighthouseci/
+lighthouse-*-report.json
 
 # IDE
 .idea
