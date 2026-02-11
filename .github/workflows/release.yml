@@ -59,6 +59,25 @@ jobs:
           fi
           echo "✅ Version matches: $PACKAGE_VERSION"
 
+      - name: Generate release title
+        id: title
+        run: |
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          CURRENT_TAG="${{ github.ref_name }}"
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 ${CURRENT_TAG}^ 2>/dev/null || git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -z "$PREVIOUS_TAG" ]; then
+            SUBTITLE="初回リリース"
+          else
+            SUBJECTS=$(git log ${PREVIOUS_TAG}..${CURRENT_TAG} --pretty=format:'%s' --no-merges | grep -v -E '^[0-9]+\.[0-9]+\.[0-9]+ |^chore\(release\)|bump version' || true)
+            PARTS=$(echo "$SUBJECTS" | sed -E 's/^(feat|fix|docs|perf|refactor)(\([^)]*\))?: *//' | head -3)
+            SUBTITLE=$(echo "$PARTS" | tr '\n' '・' | sed 's/・$//' | cut -c1-48)
+            if [ -z "$SUBTITLE" ] || [ "$SUBTITLE" = "・" ]; then
+              SUBTITLE="メンテナンス更新"
+            fi
+          fi
+          echo "title=v${TAG_VERSION} - ${SUBTITLE}" >> $GITHUB_OUTPUT
+          echo "📌 Release title: v${TAG_VERSION} - ${SUBTITLE}"
+
       - name: Generate release notes
         id: release_notes
         run: |
@@ -112,7 +131,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          name: v${{ steps.version.outputs.version }}
+          name: ${{ steps.title.outputs.title }}
           body: ${{ steps.release_notes.outputs.notes }}
           draft: false
           prerelease: false
