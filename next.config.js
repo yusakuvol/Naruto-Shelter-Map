@@ -169,34 +169,14 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
-  // Turbopack設定（Next.js 15.5+）
-  // 本番ビルドではTurbopackを無効化（Google Fontsの解決問題のため）
-  ...(process.env.NODE_ENV !== "production"
-    ? {
-        turbopack: {
-          // MapLibre GL JSの互換性設定
-          resolveAlias: {
-            // クライアント側でNode.js組み込みモジュールを無効化
-            fs: "./empty.js",
-            net: "./empty.js",
-            tls: "./empty.js",
-          },
-        },
-      }
-    : {}),
-
-  // Webpack設定（本番ビルド用: next buildはまだwebpack使用）
-  webpack: (config, { isServer }) => {
-    // MapLibre GL JSのcanvasモジュールをIgnore（サーバー側でエラーになるため）
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    return config;
+  // Turbopack設定（dev / build とも Turbopack で統一）
+  turbopack: {
+    resolveAlias: {
+      // クライアント側でNode.js組み込みモジュールを無効化（MapLibre GL JS互換）
+      fs: "./empty.js",
+      net: "./empty.js",
+      tls: "./empty.js",
+    },
   },
 
   // 環境変数（クライアント側で使用可能）
