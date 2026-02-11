@@ -16,10 +16,11 @@
         "type": "両方",
         "address": "徳島県松茂町長岸87",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -39,10 +40,12 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八北開拓329-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -62,10 +65,13 @@
         "type": "両方",
         "address": "徳島県藍住町奥野字東中須88-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -85,10 +91,11 @@
         "type": "両方",
         "address": "徳島県北島町新喜来字下竿1-16",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -108,10 +115,11 @@
         "type": "両方",
         "address": "徳島県北島町中村字日開野51-5",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -131,10 +139,12 @@
         "type": "両方",
         "address": "徳島県北島町中村字川田9-1",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -154,10 +164,12 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字宮前四番越13-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -177,10 +189,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字中山田13-151",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -200,10 +215,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字岡ノ前138-3",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -223,10 +240,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町岡崎字二等道路東41-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -246,10 +265,12 @@
         "type": "両方",
         "address": "徳島県板野町下庄字栖養14-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -269,10 +290,11 @@
         "type": "両方",
         "address": "徳島県松茂町広島字北川向四ノ越30",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -292,10 +314,12 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字前原西一番越14",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -315,10 +339,12 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八北開拓236-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -338,10 +364,14 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り参220-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -361,10 +391,14 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町中島田字北田36",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -384,10 +418,14 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷64-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -407,10 +445,14 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町大浦字東浦75",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -430,10 +472,14 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -453,10 +499,14 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -476,10 +526,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字采女120-4",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -499,10 +552,14 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町櫛木字中末83-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -522,10 +579,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字与三左谷6",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -545,10 +605,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字王子33",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -568,10 +630,12 @@
         "type": "両方",
         "address": "徳島県板野町犬伏字大柳1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -591,10 +655,12 @@
         "type": "両方",
         "address": "徳島県板野町犬伏字平山83",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -614,10 +680,12 @@
         "type": "両方",
         "address": "徳島県板野町古城字南屋敷44-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -637,10 +705,12 @@
         "type": "両方",
         "address": "徳島県板野町黒谷字東原24-3",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -660,10 +730,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字東山田57-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -683,10 +756,12 @@
         "type": "両方",
         "address": "徳島県松茂町広島字鍬ノ先23-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -706,10 +781,12 @@
         "type": "両方",
         "address": "徳島県松茂町住吉字住吉開拓187",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -729,10 +806,12 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八山開拓186",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -752,10 +831,12 @@
         "type": "両方",
         "address": "徳島県松茂町広島字東裏30",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -775,10 +856,12 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字群恵225-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -798,10 +881,11 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字群恵312-5",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -821,10 +905,12 @@
         "type": "両方",
         "address": "徳島県松茂町広島字三番越2-4",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -844,10 +930,12 @@
         "type": "両方",
         "address": "徳島県松茂町豊岡字芦田鶴105-9",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -867,10 +955,12 @@
         "type": "両方",
         "address": "徳島県松茂町広島字三番越2-2",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -890,10 +980,12 @@
         "type": "両方",
         "address": "徳島県松茂町広島字三番越2-2",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -913,10 +1005,12 @@
         "type": "両方",
         "address": "徳島県板野町川端字中手崎52-9",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -936,10 +1030,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町三俣字前野18",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -959,10 +1057,13 @@
         "type": "両方",
         "address": "徳島県北島町新喜来字南古田91",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -982,10 +1083,12 @@
         "type": "両方",
         "address": "徳島県板野町吹田字神木3-3",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1005,10 +1108,14 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱86-4",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1028,10 +1135,12 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱96-4",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1051,10 +1160,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字松島208",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1074,10 +1186,12 @@
         "type": "両方",
         "address": "徳島県板野町西中富字雁ケ坪35",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1097,10 +1211,12 @@
         "type": "両方",
         "address": "徳島県板野町川端字権現1-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1120,10 +1236,12 @@
         "type": "両方",
         "address": "徳島県板野町川端字原田33-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1143,10 +1261,12 @@
         "type": "両方",
         "address": "徳島県板野町川端字宮ノ西17-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1166,10 +1286,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田63-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1189,10 +1312,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字平井75-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1212,10 +1337,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字采女48-7",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1235,10 +1363,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代997-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1258,10 +1389,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1133-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1281,10 +1415,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字椢原14",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1304,10 +1441,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1210",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1327,10 +1467,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代679-2",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1350,10 +1494,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字内田11",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1373,10 +1520,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字浜田37-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1396,10 +1544,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字浜田37-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1419,10 +1571,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田103-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1442,10 +1597,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字亀山西190-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1465,10 +1622,12 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字南渕16-19",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -1488,10 +1647,12 @@
         "type": "両方",
         "address": "徳島県板野町中久保字当部65-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1511,10 +1672,12 @@
         "type": "両方",
         "address": "徳島県北島町中村字中内11-1",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -1534,10 +1697,11 @@
         "type": "両方",
         "address": "徳島県松茂町長原530",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -1557,10 +1721,12 @@
         "type": "両方",
         "address": "徳島県松茂町長原字月見岡225-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -1580,10 +1746,12 @@
         "type": "両方",
         "address": "徳島県松茂町広島字東裏30",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -1603,10 +1771,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津461",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1626,10 +1797,12 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り弐266",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1649,10 +1822,12 @@
         "type": "両方",
         "address": "徳島県松茂町満穂字満穂開拓1-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -1672,10 +1847,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字大谷5-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1695,10 +1874,12 @@
         "type": "両方",
         "address": "徳島県板野町犬伏字蓮花谷100",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1718,10 +1899,12 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字山東49-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -1741,10 +1924,12 @@
         "type": "両方",
         "address": "徳島県板野町那東字道ブチ22-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1764,10 +1949,12 @@
         "type": "両方",
         "address": "徳島県板野町下庄字栖養46-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1787,10 +1974,12 @@
         "type": "両方",
         "address": "徳島県板野町西中富字宮ノ本28-7",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1810,10 +1999,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町萩原字アコメン11-3",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1833,10 +2025,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町萩原字西山田68-35",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1856,10 +2051,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵103-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1879,10 +2078,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵60",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1902,10 +2105,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町川崎394",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1925,10 +2132,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵65",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -1948,10 +2158,12 @@
         "type": "両方",
         "address": "徳島県板野町川端字関ノ本47",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1971,10 +2183,12 @@
         "type": "両方",
         "address": "徳島県板野町那東字泉ノ西4-9",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -1994,10 +2208,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字郡頭11",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2017,10 +2233,12 @@
         "type": "両方",
         "address": "徳島県板野町吹田字間谷14-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2040,10 +2258,12 @@
         "type": "両方",
         "address": "徳島県板野町那東字大道下10",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2063,10 +2283,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字亀山西169-5",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2086,10 +2308,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字亀山西31-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2109,10 +2333,12 @@
         "type": "両方",
         "address": "徳島県板野町下庄字神木59-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2132,10 +2358,12 @@
         "type": "両方",
         "address": "徳島県板野町川端字新手崎18-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2155,10 +2383,12 @@
         "type": "両方",
         "address": "徳島県板野町吹田字町東2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2178,10 +2408,12 @@
         "type": "両方",
         "address": "徳島県板野町大坂字宮本20",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2201,10 +2433,11 @@
         "type": "両方",
         "address": "徳島県北島町北村字大開11-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2224,10 +2457,12 @@
         "type": "両方",
         "address": "徳島県板野町下庄字栖養44",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2247,10 +2482,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字樋殿谷99-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2270,10 +2508,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字野神ノ北31-5",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2293,10 +2534,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字ダンノ上32-4",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2316,10 +2560,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字森崎57-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2339,10 +2586,12 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八北開拓412",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -2362,10 +2611,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎72",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2385,10 +2636,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字牛ノ宮東16-3",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2408,10 +2662,12 @@
         "type": "両方",
         "address": "徳島県板野町犬伏字東谷13-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2431,10 +2687,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字西平草62-12",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2454,10 +2713,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町弁財天字三ツ井丁4-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2477,10 +2738,11 @@
         "type": "両方",
         "address": "徳島県板野町吹田字西山68-10",
         "disasterTypes": [
+          "洪水",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -2500,10 +2762,12 @@
         "type": "両方",
         "address": "徳島県北島町中村字長池17-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2523,10 +2787,12 @@
         "type": "両方",
         "address": "徳島県北島町高房字東野神本25-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2546,10 +2812,13 @@
         "type": "両方",
         "address": "徳島県北島町中村字上地23-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2569,10 +2838,12 @@
         "type": "両方",
         "address": "徳島県北島町江尻字柳池4-1",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2592,10 +2863,12 @@
         "type": "両方",
         "address": "徳島県北島町新喜来字南古田88-1",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2615,10 +2888,11 @@
         "type": "両方",
         "address": "徳島県北島町中村字竹ノ下23-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2638,10 +2912,12 @@
         "type": "両方",
         "address": "徳島県北島町江尻字宮ノ本40-2",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2661,10 +2937,11 @@
         "type": "両方",
         "address": "徳島県北島町鯛浜字川久保171",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2684,10 +2961,12 @@
         "type": "両方",
         "address": "徳島県北島町太郎八須字五反地10-1",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2707,10 +2986,12 @@
         "type": "両方",
         "address": "徳島県北島町北村字壱町四反地20-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -2730,10 +3011,13 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊103",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2753,10 +3037,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町北浜字宮の東4-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2776,10 +3063,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字椢原18",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2799,10 +3090,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町西馬詰字橋ノ本7",
         "disasterTypes": [
+          "洪水",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2822,10 +3116,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字中筋41",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2845,10 +3143,12 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字下本城242",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2868,10 +3168,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2891,10 +3195,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2914,10 +3220,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2937,10 +3246,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字馬目木58",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2960,10 +3273,13 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島748",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -2983,10 +3299,13 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北86",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3006,10 +3325,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3029,10 +3352,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津字池の内236-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3052,10 +3377,14 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町備前島字松の本219",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
+          "火災",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3075,10 +3404,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字東浜170",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3098,10 +3431,14 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字蛭子山11",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3121,10 +3458,12 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北217",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3144,10 +3483,12 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ツ石字芙蓉山下251",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3167,10 +3508,14 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3190,10 +3535,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津1123-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3213,10 +3561,12 @@
         "type": "両方",
         "address": "徳島県板野町矢武字鏡松3",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -3236,10 +3586,12 @@
         "type": "両方",
         "address": "徳島県板野町羅漢字吉田15-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -3259,10 +3611,13 @@
         "type": "両方",
         "address": "徳島県藍住町富吉字豊吉55-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3282,10 +3637,13 @@
         "type": "両方",
         "address": "徳島県藍住町奥野字矢上前18-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3305,10 +3663,11 @@
         "type": "両方",
         "address": "徳島県藍住町奥野字矢上前32-1",
         "disasterTypes": [
+          "洪水",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3328,10 +3687,13 @@
         "type": "両方",
         "address": "徳島県藍住町奥野字矢上前18-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3351,10 +3713,13 @@
         "type": "両方",
         "address": "徳島県藍住町勝瑞字成長155-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3374,10 +3739,13 @@
         "type": "両方",
         "address": "徳島県藍住町住吉字若宮49-1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3397,10 +3765,13 @@
         "type": "両方",
         "address": "徳島県藍住町奥野字和田95",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3420,10 +3791,13 @@
         "type": "両方",
         "address": "徳島県藍住町住吉字乾1",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -3443,10 +3817,13 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面535-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3466,10 +3843,12 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面350-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3489,10 +3868,12 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字西浜401",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3512,10 +3893,14 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字恵美寿5-6",
         "disasterTypes": [
-          "地震"
+          "洪水",
+          "津波",
+          "土砂災害",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3535,10 +3920,13 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字花面233-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3558,10 +3946,13 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字坂田415-5",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3581,10 +3972,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字元地196",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3604,10 +3997,13 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字南殿町28-2",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3627,10 +4023,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田73-1",
         "disasterTypes": [
+          "洪水",
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3650,10 +4048,13 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字西山田32",
         "disasterTypes": [
+          "洪水",
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3673,10 +4074,12 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町市場字大道34-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3696,10 +4099,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3719,10 +4123,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字与三左谷6",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3742,10 +4147,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津388-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3765,10 +4172,11 @@
         "type": "両方",
         "address": "徳島県板野町大寺字高樹14-6",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -3788,10 +4196,11 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北384",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3811,10 +4220,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町高畑字居屋敷127-2",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3834,10 +4244,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字宮津88-1",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3857,10 +4268,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字清水86-2",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3880,10 +4292,12 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-295",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3903,10 +4317,12 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎86-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3926,10 +4342,12 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字三津260-2",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3949,10 +4367,12 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町三俣字前野9-3",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3972,10 +4392,12 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町室字本村64-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -3995,10 +4417,11 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字小海287-1",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4018,10 +4441,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字東百地1-4",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4041,10 +4465,11 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町小島田字通り1-3",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4064,10 +4489,12 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷379-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4087,10 +4514,12 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字川筋33-4",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4110,10 +4539,12 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町桧字コモガ池90-2",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4133,10 +4564,11 @@
         "type": "両方",
         "address": "徳島県板野町大寺字岡ノ前33-1",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -4156,10 +4588,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大幸字若宮の元14",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4179,10 +4612,11 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町大須字西添25",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4202,10 +4636,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1213-2",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4225,10 +4660,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1210",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4248,10 +4684,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字西の越2-2",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4271,10 +4708,12 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛122",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4294,10 +4733,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字内田11",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4317,10 +4757,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町段関字西53-2",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4340,10 +4781,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町段関字沖野21-6",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4363,10 +4805,12 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町櫛木字中田14-2",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4386,10 +4830,12 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町津慈字宮ノ本150-4",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4409,10 +4855,10 @@
         "type": "両方",
         "address": "徳島県板野町唐園字香殿北20",
         "disasterTypes": [
-          "地震"
+          "津波"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -4432,10 +4878,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町東馬詰字諏訪の元74-1",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4455,10 +4902,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字蛭子前西23",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4478,10 +4926,11 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字日出3-3",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4501,10 +4950,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字岡ノ前20",
         "disasterTypes": [
-          "地震"
+          "津波",
+          "地震",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -4524,10 +4975,12 @@
         "type": "両方",
         "address": "徳島県板野町大寺字郡頭27-2",
         "disasterTypes": [
-          "地震"
+          "津波",
+          "地震",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "itano",
         "regionName": "板野町"
       }
@@ -4547,10 +5000,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町備前島字荒神の越164-3",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4570,10 +5024,11 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町撫佐字本村62-2",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4593,10 +5048,12 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊209-6",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4616,10 +5073,12 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷154-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4639,10 +5098,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町西馬詰字橋ノ本7",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4662,10 +5122,11 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦334-7",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4685,10 +5146,12 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱10-1",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4708,10 +5171,12 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
-          "地震"
+          "津波",
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4731,10 +5196,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜35-8",
         "disasterTypes": [
+          "津波",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4754,10 +5220,12 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂181-2",
         "disasterTypes": [
+          "津波",
+          "土砂災害",
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4777,10 +5245,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字北殿町149",
         "disasterTypes": [
-          "地震"
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4803,7 +5272,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4826,7 +5295,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4846,10 +5315,11 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎145",
         "disasterTypes": [
-          "地震"
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4869,10 +5339,12 @@
         "type": "両方",
         "address": "徳島県藍住町勝瑞字東勝地61-1",
         "disasterTypes": [
-          "地震"
+          "地震",
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "aizumi",
         "regionName": "藍住町"
       }
@@ -4892,10 +5364,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田105",
         "disasterTypes": [
-          "地震"
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4918,7 +5391,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4941,7 +5414,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -4964,7 +5437,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -4987,7 +5460,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5010,7 +5483,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5033,7 +5506,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5056,7 +5529,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5079,7 +5552,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5102,7 +5575,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5125,7 +5598,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5148,7 +5621,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5171,7 +5644,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5191,10 +5664,11 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
         "disasterTypes": [
-          "地震"
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5217,7 +5691,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5240,7 +5714,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5263,7 +5737,7 @@
           "地震"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5283,10 +5757,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
-          "地震"
+          "地震",
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5306,10 +5781,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚74",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5329,10 +5804,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩元地115",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5352,10 +5827,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字裏10-2",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5375,10 +5850,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字鳴谷89-8",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5398,10 +5873,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦高砂112-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5421,10 +5896,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字北川縁37",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5444,10 +5919,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字群恵216-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5467,10 +5942,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字福有開拓193-10",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5490,10 +5965,10 @@
         "type": "両方",
         "address": "徳島県松茂町住吉字住吉開拓91-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5513,10 +5988,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八上63",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5536,10 +6011,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字六ノ越1-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5559,10 +6034,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字群恵番外46-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5582,10 +6057,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜蛭子前東105",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5605,10 +6080,10 @@
         "type": "両方",
         "address": "徳島県松茂町住吉字住吉開拓478",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5628,10 +6103,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永字前ノ越280-9",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5651,10 +6126,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字東浜156-12",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5674,10 +6149,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩浜19-27",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5697,10 +6172,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字裏15-9",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5720,10 +6195,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字東浜527-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5743,10 +6218,10 @@
         "type": "両方",
         "address": "徳島県北島町中村字中内45-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -5766,10 +6241,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字藪の内62-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5789,10 +6264,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字稲本211-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5812,10 +6287,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八北開拓207-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5835,10 +6310,10 @@
         "type": "両方",
         "address": "徳島県松茂町満穂字満穂開拓61-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5858,10 +6333,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-357",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5881,10 +6356,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町市場字川向二61-4",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5904,10 +6379,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田大堤208",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5927,10 +6402,10 @@
         "type": "両方",
         "address": "徳島県松茂町広島字宮ノ前26-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5950,10 +6425,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字東発19-3",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -5973,10 +6448,10 @@
         "type": "両方",
         "address": "徳島県松茂町満穂字満穂開拓15-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -5996,10 +6471,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山246-3",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6019,10 +6494,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字東傍示72",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6042,10 +6517,10 @@
         "type": "両方",
         "address": "徳島県松茂町住吉字住吉開拓38",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6065,10 +6540,10 @@
         "type": "両方",
         "address": "徳島県北島町中村字八丁野4-19",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -6088,10 +6563,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町姫田字三ツカ谷",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6111,10 +6586,11 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町中島田字北田36",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6134,10 +6610,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町中島田字北田36",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6157,10 +6633,11 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町大浦字東浦75",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6180,10 +6657,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字道の上24",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6203,10 +6680,11 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字高砂65-3",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6226,10 +6704,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北380",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6249,10 +6727,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字蔵野1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6272,10 +6750,10 @@
         "type": "両方",
         "address": "徳島県松茂町満穂字満穂開拓20",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6295,10 +6773,10 @@
         "type": "両方",
         "address": "徳島県松茂町満穂字満穂開拓55",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6318,10 +6796,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大幸",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6341,10 +6819,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大幸",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6364,10 +6842,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6387,10 +6865,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字濘岩75-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6410,10 +6888,10 @@
         "type": "両方",
         "address": "徳島県松茂町広島",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6433,10 +6911,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字宮津88-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6456,10 +6934,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ツ石字芙蓉山下240",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6479,10 +6957,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野三津12",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6502,10 +6980,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字山下31-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6525,10 +7003,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字北ノ浜37",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6548,10 +7026,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北384",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6571,10 +7049,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字下本城212",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6594,10 +7072,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町矢倉字参の越35",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6617,10 +7095,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎小谷",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6640,10 +7118,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6663,10 +7141,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八山開拓123",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6686,10 +7164,10 @@
         "type": "両方",
         "address": "徳島県松茂町住吉字住吉開拓110-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6709,10 +7187,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八山開拓194-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6732,10 +7210,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八山開拓205-2",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6755,10 +7233,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6778,10 +7256,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字北浜99",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6801,35 +7279,12 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字土佐泊",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.564302,
-          34.143821
-        ]
-      },
-      "properties": {
-        "id": "shelter-297",
-        "name": "松茂ＰＡ",
-        "type": "両方",
-        "address": "徳島県松茂町長岸",
-        "disasterTypes": [
-          "地震"
-        ],
-        "source": "国土地理院",
-        "updatedAt": "2026-01-24",
-        "regionId": "matsushige",
-        "regionName": "松茂町"
       }
     },
     {
@@ -6842,15 +7297,38 @@
         ]
       },
       "properties": {
+        "id": "shelter-297",
+        "name": "松茂ＰＡ",
+        "type": "両方",
+        "address": "徳島県松茂町長岸",
+        "disasterTypes": [
+          "火災"
+        ],
+        "source": "国土地理院",
+        "updatedAt": "2026-02-11",
+        "regionId": "matsushige",
+        "regionName": "松茂町"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.564302,
+          34.143821
+        ]
+      },
+      "properties": {
         "id": "shelter-298",
         "name": "松茂ＰＡ",
         "type": "両方",
         "address": "徳島県松茂町長岸",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6870,10 +7348,10 @@
         "type": "両方",
         "address": "徳島県松茂町長岸",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6893,10 +7371,10 @@
         "type": "両方",
         "address": "徳島県松茂町広島字東裏30",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6916,10 +7394,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6939,10 +7417,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八山開拓6-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -6962,10 +7440,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -6985,10 +7463,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字福池",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7008,10 +7486,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7031,10 +7509,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7054,10 +7532,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大谷",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7077,10 +7555,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱86-4",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7100,10 +7578,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱96-4",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7123,10 +7601,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町折野字屋敷379-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7146,10 +7624,10 @@
         "type": "両方",
         "address": "徳島県北島町太郎八須",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -7169,10 +7647,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字大工野21-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7192,10 +7670,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町大須西添69",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7215,10 +7693,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代辺露",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7238,10 +7716,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代997-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7261,10 +7739,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦福池65-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7284,10 +7762,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町池谷字長田105",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7307,10 +7786,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字大毛",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7330,10 +7809,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字東浜158-13",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7353,10 +7832,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田150",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7376,10 +7855,10 @@
         "type": "両方",
         "address": "徳島県北島町中村字井利ノ口８－３地先",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -7399,10 +7878,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八山開拓143",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -7422,10 +7901,10 @@
         "type": "両方",
         "address": "徳島県松茂町中喜来字前原西五番越1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -7445,10 +7924,10 @@
         "type": "両方",
         "address": "徳島県松茂町長原467",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -7468,10 +7947,10 @@
         "type": "両方",
         "address": "徳島県松茂町笹木野字八北開拓1-159",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -7491,10 +7970,10 @@
         "type": "両方",
         "address": "徳島県松茂町長岸727-27",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -7514,10 +7993,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町鳥ケ丸トノムラ60-2",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7537,10 +8016,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町備前島字蟹田の越338-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7560,10 +8039,10 @@
         "type": "両方",
         "address": "徳島県松茂町豊久字朝日野16-2",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "matsushige",
         "regionName": "松茂町"
       }
@@ -7583,10 +8062,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字七枚128",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7606,10 +8085,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町土佐泊浦字黒山118-257",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7629,10 +8108,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町小桑島字前浜180",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7652,10 +8131,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵103-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7675,10 +8154,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町板東字宝蔵60",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7698,10 +8178,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町宿毛谷字クロハエ66",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7721,10 +8201,11 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町粟田字西傍示228-1",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7744,10 +8225,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町北泊字北泊209-6",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7767,10 +8248,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町牛屋島字中須45-4",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7790,10 +8271,11 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町大谷字中筋41",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7813,10 +8295,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町林崎字北殿町147",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7836,10 +8318,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦70",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7859,10 +8341,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱10-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7882,10 +8364,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7905,10 +8387,11 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北679",
         "disasterTypes": [
-          "地震"
+          "火災",
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7928,10 +8411,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字竹島324",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7951,10 +8434,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7974,10 +8457,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島748",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -7997,10 +8480,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8020,10 +8503,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津200",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8043,10 +8526,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字浦代105-17-2",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8066,10 +8549,10 @@
         "type": "両方",
         "address": "徳島県北島町高房八丁野西1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "kitajima",
         "regionName": "北島町"
       }
@@ -8089,10 +8572,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字大池76",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8112,10 +8595,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字蛭子山170",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8135,10 +8618,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北217",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8158,10 +8641,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神板屋島-",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8181,10 +8664,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町木津1037-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8204,10 +8687,10 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字西浜401",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8227,10 +8710,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田73-1",
         "disasterTypes": [
-          "地震"
+          "火災"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8250,10 +8733,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8273,10 +8756,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り参220-1",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8296,10 +8779,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町大桑島字与三左谷6",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8319,10 +8802,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町黒崎字宮津88-1",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8342,10 +8825,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町堂浦字地廻り壱96-4",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8365,10 +8848,10 @@
         "type": "両方",
         "address": "徳島県鳴門市北灘町宿毛谷字相ケ谷23",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8388,10 +8871,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町大代1210",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8411,10 +8894,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町木津野字内田11",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8434,10 +8917,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字浜田37-1",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8457,10 +8940,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田150",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8480,10 +8963,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町川崎394",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8503,10 +8986,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎72",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8526,10 +9009,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大麻町西馬詰字橋ノ本7",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8549,10 +9032,10 @@
         "type": "両方",
         "address": "徳島県鳴門市瀬戸町明神字越浦70",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8572,10 +9055,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字四枚61",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8595,10 +9078,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8618,10 +9101,10 @@
         "type": "両方",
         "address": "徳島県鳴門市大津町吉永595",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8641,10 +9124,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町南浜字馬目木58",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8664,10 +9147,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字中島748",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8687,10 +9170,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町斎田字岩崎135-1",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8710,10 +9193,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町高島字北217",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8733,10 +9216,10 @@
         "type": "両方",
         "address": "徳島県鳴門市鳴門町三ツ石字芙蓉山下251",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8756,10 +9239,10 @@
         "type": "両方",
         "address": "徳島県鳴門市里浦町里浦字西浜401",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
@@ -8779,10 +9262,10 @@
         "type": "両方",
         "address": "徳島県鳴門市撫養町立岩字内田73-1",
         "disasterTypes": [
-          "地震"
+          "洪水"
         ],
         "source": "国土地理院",
-        "updatedAt": "2026-01-24",
+        "updatedAt": "2026-02-11",
         "regionId": "naruto",
         "regionName": "鳴門市"
       }
