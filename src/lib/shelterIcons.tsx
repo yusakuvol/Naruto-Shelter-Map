@@ -14,7 +14,8 @@ interface ShelterIconProps extends SVGProps<SVGSVGElement> {
 }
 
 /**
- * 指定避難所アイコン（家のアイコン）
+ * 指定避難所アイコン（JIS 6.1.5 避難所（建物））
+ * 図材: 屋根のある施設及び施設に逃げ込む人の姿
  */
 export const DesignatedShelterIcon: FC<ShelterIconProps> = ({
   className = 'h-4 w-4',
@@ -24,22 +25,25 @@ export const DesignatedShelterIcon: FC<ShelterIconProps> = ({
     className={className}
     fill="none"
     stroke="currentColor"
-    strokeWidth="2.5"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     viewBox="0 0 24 24"
     aria-hidden="true"
     {...props}
   >
-    {/* 家のアイコン */}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-    />
+    {/* 建物（屋根＋本体） */}
+    <path d="M12 4L5 11v9h14V11L12 4z" />
+    {/* 入口（開いたドア） */}
+    <path d="M11 20V14h2v6" />
+    {/* 逃げ込む人（頭部） */}
+    <circle cx="12" cy="13" r="1.5" fill="currentColor" />
   </svg>
 );
 
 /**
- * 緊急避難場所アイコン（警告）
+ * 緊急避難場所アイコン（JIS 6.1.4 広域避難場所に準拠）
+ * 図材: 走る人の姿及び場所を示すだ円
  */
 export const EmergencyShelterIcon: FC<ShelterIconProps> = ({
   className = 'h-4 w-4',
@@ -47,21 +51,27 @@ export const EmergencyShelterIcon: FC<ShelterIconProps> = ({
 }) => (
   <svg
     className={className}
-    fill="currentColor"
-    viewBox="0 0 20 20"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    viewBox="0 0 24 24"
     aria-hidden="true"
     {...props}
   >
-    <path
-      fillRule="evenodd"
-      d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-      clipRule="evenodd"
-    />
+    {/* だ円（場所） */}
+    <ellipse cx="12" cy="12" rx="9" ry="6" />
+    {/* 走る人（頭・腕・脚） */}
+    <circle cx="12" cy="9" r="1.8" fill="currentColor" />
+    <path d="M12 11v2M11 13l-1.5 3M13 13l1.5 3" />
+    <path d="M10 11l-2 1M14 11l2 1" />
   </svg>
 );
 
 /**
- * 両方（指定避難所 + 緊急避難場所）アイコン（家+警告の組み合わせ）
+ * 両方（指定避難所 + 緊急避難場所）アイコン（JIS 避難所＋両方である印）
+ * 図材: 建物＋人＋「両方」を示す＋
  */
 export const BothShelterIcon: FC<ShelterIconProps> = ({
   className = 'h-4 w-4',
@@ -71,39 +81,35 @@ export const BothShelterIcon: FC<ShelterIconProps> = ({
     className={className}
     fill="none"
     stroke="currentColor"
-    strokeWidth="2.5"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     viewBox="0 0 24 24"
     aria-hidden="true"
     {...props}
   >
-    {/* 家のアイコン（ベース） */}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-    />
-    {/* 警告マーク（右上に小さく配置） */}
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-      opacity="0.9"
-      transform="translate(16, -2) scale(0.4)"
-    />
+    {/* 建物＋人（指定避難所と同じベース） */}
+    <path d="M12 4L5 11v9h14V11L12 4z" />
+    <path d="M11 20V14h2v6" />
+    <circle cx="12" cy="13" r="1.5" fill="currentColor" />
+    {/* 両方であることを示す＋（右上） */}
+    <path d="M17 6h2M18 5v2" strokeWidth="2.5" />
   </svg>
 );
 
 /**
  * 避難所タイプに応じたアイコンを返すヘルパー関数
- * 緊急避難場所単独は存在しないため、すべて同じアイコンを使用
+ * JIS 避難誘導図記号に準拠したアイコンで種別を識別可能に
  */
 export function getShelterIcon(
   type: string,
   props?: ShelterIconProps
 ): ReactElement {
-  // 緊急避難場所単独は存在しないため、すべて建物アイコンを使用
-  // 「両方」の場合のみ、警告マークを追加したアイコンを使用
   switch (type) {
+    case '指定避難所':
+      return <DesignatedShelterIcon {...props} />;
+    case '緊急避難場所':
+      return <EmergencyShelterIcon {...props} />;
     case '両方':
       return <BothShelterIcon {...props} />;
     default:
