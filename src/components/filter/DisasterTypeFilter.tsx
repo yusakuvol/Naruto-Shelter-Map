@@ -12,7 +12,8 @@ const DISASTER_TYPES: readonly DisasterType[] = [
   '火災',
 ] as const;
 
-// 災害種別アイコンコンポーネント
+// 災害種別アイコン（実態に合う図形で統一）
+// 洪水: 水面の横波（複数線）
 function FloodIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -26,18 +27,13 @@ function FloodIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M3 12h18M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M3 18h18"
+        d="M2 8c2 1 4 1 6 0 2-1 4-1 6 0M2 13c2 1 4 1 6 0 2-1 4-1 6 0M2 18c2 1 4 1 6 0 2-1 4-1 6 0"
       />
     </svg>
   );
 }
 
+// 津波: 大きな一つの波（うねり）
 function TsunamiIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -51,18 +47,13 @@ function TsunamiIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M3 12h18M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M3 9h18M3 18h18"
+        d="M2 18c2-2 4-2 6 0 2 2 4 2 6 0M2 12c2-2 4-2 6 0 2 2 4 2 6 0"
       />
     </svg>
   );
 }
 
+// 土砂災害: 山斜面と落下する岩
 function LandslideIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -76,12 +67,19 @@ function LandslideIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+        d="M4 20L12 4l8 16H4z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M8 14l2-4 2 2 2-4"
       />
     </svg>
   );
 }
 
+// 地震: 地震波（波形）
 function EarthquakeIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -95,18 +93,13 @@ function EarthquakeIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M12 6v12M6 12h12"
+        d="M3 12h2l1.5-3 2 4 1.5-6 2 5h2"
       />
     </svg>
   );
 }
 
+// 火災: 炎
 function FireIcon({ className }: { className?: string }) {
   return (
     <svg
