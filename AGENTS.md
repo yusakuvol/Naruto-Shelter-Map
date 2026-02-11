@@ -100,7 +100,7 @@ naruto-shelter-map/
 │   └── README.md                 # ドキュメントインデックス
 ├── .github/
 │   └── workflows/
-│       └── update-shelters.yml   # データ自動更新ワークフロー
+│       └── update-data.yml       # データ自動更新ワークフロー
 ├── public/
 │   ├── data/
 │   │   └── shelters.geojson      # 避難所データ（自動更新）
