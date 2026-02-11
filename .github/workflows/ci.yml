@@ -14,7 +14,7 @@ permissions:
 jobs:
   # lint / type-check / test を同一ジョブで実行（CI リソース削減）
   quality-check:
-    name: 品質チェック
+    name: Quality Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
