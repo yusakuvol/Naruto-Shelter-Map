@@ -12,8 +12,11 @@ const DISASTER_TYPES: readonly DisasterType[] = [
   '火災',
 ] as const;
 
-// 災害種別アイコン（実態に合う図形で統一）
-// 洪水: 水面の横波（複数線）
+// 災害種別アイコン（JIS Z8210 災害種別一般図記号に準拠したデザイン）
+// 内閣府「避難場所等の図記号の標準化」で使われる図材に合わせており、
+// 自治体の避難標識などで見慣れた形で直感的に識別しやすくする。
+
+// 洪水（JIS 6.5.1）: 上昇した水面を表す二重の波
 function FloodIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -27,13 +30,13 @@ function FloodIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M2 8c2 1 4 1 6 0 2-1 4-1 6 0M2 13c2 1 4 1 6 0 2-1 4-1 6 0M2 18c2 1 4 1 6 0 2-1 4-1 6 0"
+        d="M2 10c2.5 1 5 1 7.5 0s5-1 7.5 0M2 15c2.5 1 5 1 7.5 0s5-1 7.5 0"
       />
     </svg>
   );
 }
 
-// 津波: 大きな一つの波（うねり）
+// 津波（JIS 6.5.3）: 海面から盛り上がった波
 function TsunamiIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -47,13 +50,13 @@ function TsunamiIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M2 18c2-2 4-2 6 0 2 2 4 2 6 0M2 12c2-2 4-2 6 0 2 2 4 2 6 0"
+        d="M2 20c4-6 8-6 12 0 4 6 8 6 12 0"
       />
     </svg>
   );
 }
 
-// 土砂災害: 山斜面と落下する岩
+// 土砂災害（JIS 6.5.4）: 崖と大小複数の岩石
 function LandslideIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -67,19 +70,16 @@ function LandslideIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M4 20L12 4l8 16H4z"
+        d="M5 20V8l7-4 7 16H5z"
       />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M8 14l2-4 2 2 2-4"
-      />
+      <circle cx="8" cy="16" r="1.5" strokeWidth={2} />
+      <circle cx="14" cy="18" r="1" strokeWidth={2} />
+      <circle cx="18" cy="15" r="1.2" strokeWidth={2} />
     </svg>
   );
 }
 
-// 地震: 地震波（波形）
+// 地震: 地震波（揺れの波形。避難標識等でよく使われる表現）
 function EarthquakeIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -93,13 +93,13 @@ function EarthquakeIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M3 12h2l1.5-3 2 4 1.5-6 2 5h2"
+        d="M2 12h3l2-4 2 4 2-6 2 6h3"
       />
     </svg>
   );
 }
 
-// 火災: 炎
+// 火災（JIS 6.5.5）: 炎（一般的な火災アイコン）
 function FireIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -114,12 +114,6 @@ function FireIcon({ className }: { className?: string }) {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.5-7 1.832 1.832 3 4.5 3 6.5a7.98 7.98 0 01-1.343 4.657z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9.879 16.121A3 3 0 1012.015 11.11"
       />
     </svg>
   );
