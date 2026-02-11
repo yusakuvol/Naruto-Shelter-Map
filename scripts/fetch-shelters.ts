@@ -44,10 +44,25 @@ const GSI_TILE_DATASETS = [
   'skhb03', // 土砂災害
   'skhb04', // 地震
   'skhb05', // 大規模な火事
-  'skhb06', // 内水氾濫
-  'skhb07', // 火山現象
-  'skhb08', // その他
+  'skhb06', // 内水氾濫 → 洪水としてマージ
+  'skhb07', // 火山現象 → 地震として扱う
+  'skhb08', // その他 → 地震として扱う
 ] as const;
+
+/** データセットIDから災害種別へのマッピング（タイルは災害種別ごとに別データセット） */
+const DATASET_TO_DISASTER_TYPE: Record<
+  (typeof GSI_TILE_DATASETS)[number],
+  DisasterType
+> = {
+  skhb01: '洪水',
+  skhb02: '津波',
+  skhb03: '土砂災害',
+  skhb04: '地震',
+  skhb05: '火災',
+  skhb06: '洪水',
+  skhb07: '地震',
+  skhb08: '地震',
+};
 
 // タイル取得用のズームレベル（10が適切な粒度）
 const TILE_ZOOM_LEVEL = 10;
@@ -145,13 +160,16 @@ async function fetchFromGSITiles(): Promise<unknown> {
     `  タイル数: ${tiles.length}枚 × ${GSI_TILE_DATASETS.length}データセット`
   );
 
-  // すべてのデータセットとタイルからデータを取得
-  const allFeatures: unknown[] = [];
-  const featureIds = new Set<string>(); // 重複排除用
+  // 同一地点をキーに、災害種別をマージして保持（データセットごとに同一施設が複数あるため）
+  const featureMap = new Map<
+    string,
+    { feature: unknown; disasterTypes: Set<DisasterType> }
+  >();
 
   for (const dataset of GSI_TILE_DATASETS) {
     console.log(`  📦 データセット: ${dataset} を取得中...`);
     let datasetCount = 0;
+    const disasterType = DATASET_TO_DISASTER_TYPE[dataset];
 
     for (const [x, y] of tiles) {
       const url = `${GSI_TILE_BASE_URL}/${dataset}/${TILE_ZOOM_LEVEL}/${x}/${y}.geojson`;
@@ -180,7 +198,6 @@ async function fetchFromGSITiles(): Promise<unknown> {
               id?: string;
               properties?: Record<string, unknown>;
             };
-            // 重複排除（IDまたは座標+名前で判定）
             const featureId =
               f.id ||
               JSON.stringify(
@@ -188,9 +205,16 @@ async function fetchFromGSITiles(): Promise<unknown> {
                   ?.coordinates
               );
 
-            if (featureId && !featureIds.has(featureId)) {
-              featureIds.add(featureId);
-              allFeatures.push(feature);
+            if (!featureId) continue;
+
+            const existing = featureMap.get(featureId);
+            if (existing) {
+              existing.disasterTypes.add(disasterType);
+            } else {
+              featureMap.set(featureId, {
+                feature: { ...feature },
+                disasterTypes: new Set([disasterType]),
+              });
               datasetCount++;
             }
           }
@@ -211,6 +235,16 @@ async function fetchFromGSITiles(): Promise<unknown> {
     }
 
     console.log(`    ✅ ${dataset}: ${datasetCount}件の避難所を取得`);
+  }
+
+  // マージ済み災害種別を各 feature の properties に付与（normalizeData で参照）
+  const allFeatures: unknown[] = [];
+  for (const entry of featureMap.values()) {
+    const f = entry.feature as { properties?: Record<string, unknown> };
+    if (f.properties && typeof f.properties === 'object') {
+      f.properties._disasterTypes = [...entry.disasterTypes];
+    }
+    allFeatures.push(entry.feature);
   }
 
   console.log(`✅ 合計 ${allFeatures.length}件の避難所データを取得完了`);
@@ -420,18 +454,25 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
       const region = detectRegionFromAddress(address);
 
       // 災害種別の抽出と正規化
+      // 地理院タイル自動取得時は _disasterTypes（データセットマージ済み）を優先
       let disasterTypes: DisasterType[] = [];
-      if (Array.isArray(props.disasterTypes)) {
+      if (Array.isArray(props._disasterTypes)) {
+        disasterTypes = props._disasterTypes.filter(
+          (t): t is DisasterType =>
+            typeof t === 'string' &&
+            ['洪水', '津波', '土砂災害', '地震', '火災'].includes(t)
+        );
+      }
+      if (disasterTypes.length === 0 && Array.isArray(props.disasterTypes)) {
         disasterTypes = props.disasterTypes
           .map((t) => normalizeDisasterType(String(t)))
           .filter((t): t is DisasterType => t !== null);
-      } else if (Array.isArray(props.災害種別)) {
+      }
+      if (disasterTypes.length === 0 && Array.isArray(props.災害種別)) {
         disasterTypes = props.災害種別
           .map((t) => normalizeDisasterType(String(t)))
           .filter((t): t is DisasterType => t !== null);
       }
-
-      // 災害種別が空の場合はスキップ
       if (disasterTypes.length === 0) {
         disasterTypes = ['地震']; // デフォルトで地震を設定
       }
