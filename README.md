@@ -142,11 +142,11 @@ http://localhost:3000
 
 ```mermaid
 graph LR
-    A[国土地理院<br/>手動ダウンロード] -->|GeoJSONファイル| B[GitHub Actions]
-    B -->|データ検証| C[validate-shelters.ts]
-    C -->|ETLスクリプト実行| D[鳴門市データ抽出]
+    A[国土地理院<br/>地理院タイルAPI] -->|毎週月曜 3:00 JST| B[GitHub Actions]
+    B -->|fetch-shelters.ts| C[対応地域データ抽出]
+    C -->|データ検証・ジオコーディング| D[validate / geocode]
     D -->|GeoJSON生成| E[public/data/shelters.geojson]
-    E -->|Git Commit & Push| F[GitHub Repository]
+    E -->|PR作成・マージ| F[GitHub Repository]
     F -->|自動デプロイ| G[Cloudflare Pages]
     G -->|CDN配信| H[ユーザー]
     H -->|Service Worker| I[オフラインキャッシュ]
@@ -154,7 +154,7 @@ graph LR
 
 ### データ更新の仕組み
 
-⚠️ **重要:** 国土地理院は避難所データの直接 API を提供していないため、**手動ダウンロードが必要**です。
+避難所データは **国土地理院 地理院タイルAPI** から自動取得し、毎週 **月曜 3:00 JST** に GitHub Actions が実行されます。差分がある場合のみ PR が作成され、マージ後に Cloudflare Pages へ自動デプロイされます。
 
 ### 最近の更新（2025 年 12 月）
 
@@ -162,26 +162,25 @@ graph LR
 - ✅ **ビルド最適化**: Next.js 対応、Webpack 明示指定によるビルドエラー解消
 - ✅ **パフォーマンス**: システムフォント使用による読み込み速度向上
 
-#### 更新手順
+#### 自動更新（通常）
 
-1. **国土地理院からデータをダウンロード**
+- **スケジュール**: 毎週月曜 3:00 JST（`update-data` ワークフロー）
+- **データソース**: 地理院タイルAPI（`scripts/fetch-shelters.ts` で自動取得）
+- **処理**: 対応地域の抽出・正規化 → 検証 → ジオコーディング（必要に応じて）→ 変更があれば PR 作成
 
-   - [国土地理院 避難所マップ](https://hinanmap.gsi.go.jp/index.html) にアクセス
-   - 徳島県を選択（複数地域を含むデータを取得）
-   - GeoJSON 形式でダウンロード
+#### 手動実行（任意）
 
-2. **GitHub Actions ワークフローを実行**
+手動でワークフローを実行する場合（例: 緊急時や任意の GeoJSON で上書きしたい場合）：
 
-   ```bash
-   gh workflow run update-data.yml -f data_file=path/to/downloaded-file.geojson
-   ```
+```bash
+# スケジュールと同じ自動取得を即時実行
+gh workflow run update-data.yml
 
-3. **自動処理**
-   - データ検証（`scripts/validate-shelters.ts`）
-   - 対応地域のデータを抽出・正規化（鳴門市 + 隣接4地域）
-   - `public/data/shelters.geojson` を更新
-   - 変更をコミット & プッシュ
-   - Cloudflare Pages が自動デプロイ
+# 特定の GeoJSON ファイルから更新（手動ダウンロードしたファイルを指定）
+gh workflow run update-data.yml -f data_file=path/to/downloaded-file.geojson
+```
+
+手動で GeoJSON を使う場合は [国土地理院 避難所マップ](https://hinanmap.gsi.go.jp/index.html) から徳島県などを選択し、GeoJSON 形式でダウンロードしたファイルを指定できます。
 
 #### 対応地域
 
@@ -201,14 +200,8 @@ graph LR
 手動で検証を実行する場合：
 
 ```bash
-pnpm tsx scripts/validate-shelters.ts
+pnpm validate:shelters
 ```
-
-#### スケジュール実行について
-
-GitHub Actions は毎週月曜 3:00 JST に起動しますが、**国土地理院からの手動ダウンロードが必要**なため、実際の更新は手動でワークフローを実行する必要があります。
-
-> **Note:** 緊急時（災害発生時など）は手動でワークフローを実行可能
 
 ---
 

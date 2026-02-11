@@ -301,7 +301,7 @@ naruto-shelter-map/
 
 #### 注意事項
 
-⚠️ 国土地理院は避難所データの直接APIを提供していないため、実際の更新は手動ダウンロードが必要です。
+避難所データは **国土地理院 地理院タイルAPI** から **毎週月曜 3:00 JST** に自動取得されます。手動実行（任意の GeoJSON ファイルを指定）も可能です。
 
 ---
 
@@ -309,10 +309,10 @@ naruto-shelter-map/
 
 ```mermaid
 graph LR
-    A[国土地理院API] -->|毎日3:00 JST| B[GitHub Actions]
-    B -->|ETLスクリプト実行| C[鳴門市データ抽出]
-    C -->|GeoJSON生成| D[public/data/shelters.geojson]
-    D -->|Git Commit & Push| E[GitHub Repository]
+    A[国土地理院<br/>地理院タイルAPI] -->|毎週月曜 3:00 JST| B[GitHub Actions]
+    B -->|fetch-shelters.ts| C[対応地域データ抽出]
+    C -->|検証・ジオコーディング| D[public/data/shelters.geojson]
+    D -->|PR作成・マージ| E[GitHub Repository]
     E -->|自動デプロイ| F[Cloudflare Pages]
     F -->|CDN配信| G[ユーザー]
     G -->|Service Worker| H[オフラインキャッシュ]
