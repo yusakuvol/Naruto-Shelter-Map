@@ -3,7 +3,7 @@
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/deploy-cloudflare-orange)](https://pages.cloudflare.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![pnpm](https://img.shields.io/badge/pnpm-9+-orange)](https://pnpm.io/)
-[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.x-646cff)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8)](https://tailwindcss.com/)
@@ -26,7 +26,6 @@
 ## 目次
 
 - [概要](#概要)
-- [スクリーンショット](#スクリーンショット)
 - [主な機能](#主な機能)
 - [技術スタック](#技術スタック)
 - [データ構造](#データ構造)
@@ -37,32 +36,6 @@
 - [コントリビューション](#コントリビューション)
 - [ライセンス](#ライセンス)
 - [作者](#作者)
-
----
-
-## スクリーンショット
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="./docs/images/screenshot-map.png" width="300" alt="地図画面">
-      <br>
-      <sub>地図画面</sub>
-    </td>
-    <td align="center">
-      <img src="./docs/images/screenshot-search.png" width="300" alt="検索・フィルタ">
-      <br>
-      <sub>検索・フィルタ</sub>
-    </td>
-    <td align="center">
-      <img src="./docs/images/screenshot-offline.png" width="300" alt="オフライン動作">
-      <br>
-      <sub>オフライン動作</sub>
-    </td>
-  </tr>
-</table>
-
-> **Note:** スクリーンショットは準備中です。デモは [デモサイト](https://naruto-shelter-map.pages.dev) でご確認ください。
 
 ---
 
@@ -91,8 +64,8 @@
 
 | 技術             | バージョン | 用途                                    |
 | ---------------- | ---------- | --------------------------------------- |
-| Next.js          | **16.x**   | React フレームワーク (App Router + Turbopack) |
-| React            | **19.x**   | UI ライブラリ（Server Components, Actions）   |
+| Vite             | **6.x**    | ビルドツール（開発サーバー・本番ビルド） |
+| React            | **19.x**   | UI ライブラリ                            |
 | TypeScript       | 5.x        | 型安全な開発                            |
 | Tailwind CSS     | **v4**     | ユーティリティファースト CSS（Lightning CSS） |
 | MapLibre GL JS   | **5.x**    | オープンソース地図ライブラリ（Globe 対応）    |
@@ -101,7 +74,7 @@
 
 | カテゴリ   | 技術               | 用途                           |
 | ---------- | ------------------ | ------------------------------ |
-| PWA        | next-pwa           | Service Worker + Manifest     |
+| PWA        | vite-plugin-pwa    | Service Worker + Manifest（Workbox） |
 | Lint/Format| **Biome**         | Lint + フォーマット（統一）    |
 | ホスティング | Cloudflare Pages | 静的ホスティング & CDN         |
 | CI/CD      | GitHub Actions     | データ自動更新 & デプロイ      |
@@ -181,16 +154,16 @@ pnpm dev
 6. **ブラウザで確認**
 
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 ### コマンド一覧
 
 | コマンド            | 説明                            |
 | ------------------- | ------------------------------- |
-| `pnpm dev`          | 開発サーバー起動（Turbopack）   |
-| `pnpm build`        | プロダクションビルド（Webpack） |
-| `pnpm start`        | プロダクションサーバー起動      |
+| `pnpm dev`          | 開発サーバー起動（Vite）        |
+| `pnpm build`        | プロダクションビルド（dist/ に出力） |
+| `pnpm preview`      | ビルド成果物のプレビューサーバー起動 |
 | `pnpm lint`         | Biome Lint チェック             |
 | `pnpm lint:fix`     | Biome Lint 自動修正             |
 | `pnpm format`       | Biome フォーマット              |
@@ -232,7 +205,7 @@ graph LR
 ### 最近の更新（2025 年 12 月）
 
 - ✅ **UI 改善**: 避難所アイコンの視認性向上、フィルタ UI の改善
-- ✅ **ビルド最適化**: Next.js 対応、Webpack 明示指定によるビルドエラー解消
+- ✅ **フレームワーク移行**: Next.js から Vite + React に移行（ADR-003）
 - ✅ **パフォーマンス**: システムフォント使用による読み込み速度向上
 
 #### 自動更新（通常）

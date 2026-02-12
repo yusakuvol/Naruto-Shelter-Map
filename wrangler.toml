@@ -1,0 +1,5 @@
+# Cloudflare Pages: ビルド出力ディレクトリ（Vite は dist に出力）
+# ダッシュボードで「Build output directory」を設定していない場合のフォールバックとして参照される場合があります。
+# それでも "Output directory out not found" となる場合は、ダッシュボードで明示的に dist を指定してください。
+name = "naruto-shelter-map"
+pages_build_output_dir = "dist"

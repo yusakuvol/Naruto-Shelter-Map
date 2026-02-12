@@ -20,7 +20,7 @@
 
 1. **オフラインファースト**: 電波がなくても避難所情報にアクセス可能
 2. **オープンデータ活用**: 国土地理院・国土交通省の公開データを利用
-3. **最新 Web 技術**: Next.js 15, React 19, Tailwind CSS v4, TypeScript, MapLibre GL JS
+3. **最新 Web 技術**: Vite 6, React 19, Tailwind CSS v4, TypeScript, MapLibre GL JS（2026 年 2 月に Next.js から Vite に移行、ADR-003）
 4. **自動更新**: GitHub Actions で毎日データを自動更新
 5. **オープンソース**: MIT License で誰でも利用・改変可能
 
@@ -59,19 +59,19 @@
 
 ### フロントエンド
 
-| 技術           | バージョン | 用途                              | 2025 更新内容                          |
-| -------------- | ---------- | --------------------------------- | -------------------------------------- |
-| Next.js        | **16.x**   | React フレームワーク (App Router) | Turbopack 標準、MCP対応、Webpack明示指定 |
-| React          | **19.x**   | UI ライブラリ                     | `use` hook, Server Components, Actions |
-| TypeScript     | 5.x        | 型安全な開発                      | Strict Mode 必須                       |
-| Tailwind CSS   | **v4**     | ユーティリティファースト CSS      | Lightning CSS 統合、CSS-First 設定     |
-| MapLibre GL JS | **5.14.x** | オープンソース地図ライブラリ      | Globe rendering mode 対応              |
+| 技術           | バージョン | 用途                              |
+| -------------- | ---------- | --------------------------------- |
+| Vite           | **6.x**    | ビルドツール（開発・本番、Rollup） |
+| React          | **19.x**   | UI ライブラリ（`use` hook 等）     |
+| TypeScript     | 5.x        | 型安全な開発（Strict Mode 必須）   |
+| Tailwind CSS   | **v4**     | ユーティリティファースト CSS（Lightning CSS 統合） |
+| MapLibre GL JS | **5.x**    | オープンソース地図ライブラリ（Globe 対応） |
 
 ### PWA & 状態管理
 
 | 技術               | 用途                               |
 | ------------------ | ---------------------------------- |
-| next-pwa           | Service Worker + Manifest 自動生成 |
+| vite-plugin-pwa    | Service Worker + Manifest（Workbox）、runtimeCaching |
 | SWR                | データフェッチング & キャッシング  |
 | Zustand (optional) | グローバル状態管理                 |
 
@@ -122,10 +122,9 @@ naruto-shelter-map/
 │   └── fetch_shelters.ts       # データ取得ETLスクリプト
 │
 ├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── layout.tsx          # ルートレイアウト
-│   │   ├── page.tsx            # トップページ
-│   │   └── globals.css         # グローバルCSS
+│   ├── App.tsx                 # ルートコンポーネント
+│   ├── main.tsx                # エントリ
+│   ├── globals.css             # グローバルCSS
 │   │
 │   ├── components/             # Reactコンポーネント
 │   │   ├── map/
@@ -153,7 +152,8 @@ naruto-shelter-map/
 ├── package.json                # 依存関係（pnpm）
 ├── pnpm-lock.yaml              # pnpm lockfile
 ├── .npmrc                      # pnpm設定
-├── next.config.js              # Next.js設定
+├── index.html                  # エントリ HTML（Vite）
+├── vite.config.ts              # Vite 設定（PWA 含む）
 ├── tsconfig.json               # TypeScript設定
 ├── biome.json                  # Biome設定（Lint + Format）
 ├── .env.example                # 環境変数サンプル
@@ -186,7 +186,7 @@ naruto-shelter-map/
 - [x] 現在の `README.md` を提供されたアイデア文書ベースに更新
 - [x] プロジェクトバッジ追加（React 19, Tailwind v4, pnpm など）
 - [x] 目次追加
-- [x] スクリーンショット枠追加
+- [x] 目次・バッジ追加（スクリーンショットは不要のため掲載なし）
 
 #### 成果物
 
@@ -236,7 +236,7 @@ naruto-shelter-map/
 
 - [x] `package.json` 作成（pnpm 対応、最新依存関係）
 - [x] `.npmrc` 作成（pnpm 設定）
-- [x] `next.config.js` 作成（Turbopack 設定）
+- [x] ビルド設定（現行は `vite.config.ts`。過去は next.config.js）
 - [x] `tsconfig.json` 作成
 - [x] `biome.json` 作成（ESLint/Prettier 置き換え）
 - [x] `src/` ディレクトリ構造作成
@@ -250,7 +250,7 @@ naruto-shelter-map/
 
 - `package.json` (pnpm + React 19 + Tailwind v4)
 - `.npmrc`
-- `next.config.js` (Turbopack)
+- `vite.config.ts`（現行）
 - `tsconfig.json`
 - `biome.json`
 - `.env.example`
@@ -364,7 +364,7 @@ graph LR
 
 ### 技術ドキュメント（2025 年最新）
 
-- [Next.js 15 Documentation](https://nextjs.org/docs)
+- [Vite](https://vitejs.dev/)
 - [React 19 Documentation](https://react.dev/)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
@@ -372,7 +372,7 @@ graph LR
 - [Playwright](https://playwright.dev/)
 - [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)
 - [pnpm](https://pnpm.io/)
-- [next-pwa](https://github.com/shadowwalker/next-pwa)
+- [vite-plugin-pwa](https://vite-pwa-org.netlify.app/)
 - [Cloudflare Pages](https://developers.cloudflare.com/pages/)
 
 ### データソース
@@ -399,6 +399,7 @@ MIT License - 誰でも自由に使用・改変・配布可能
 
 | バージョン | 日付       | 変更内容                                                           |
 | ---------- | ---------- | ------------------------------------------------------------------ |
+| 2.3        | 2026-02-12 | Next.js から Vite に移行（ADR-003）。ドキュメント整備。           |
 | 2.2        | 2025-12-06 | Next.js 16対応、UI改善（アイコン視認性向上、フィルタUI改善）完了 |
 | 2.1        | 2025-11-20 | ダークモード機能削除（不要と判断）                                 |
 | 2.0        | 2025-10-16 | 2025 年最新技術スタック対応                                        |
