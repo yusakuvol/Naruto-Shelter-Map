@@ -5,7 +5,7 @@
   "description": "徳島県鳴門市とその隣接地域の避難所を地図上に可視化するPWAアプリ",
   "author": "Yusaku Matsukawa",
   "license": "MIT",
-  "packageManager": "pnpm@10.28.1",
+  "packageManager": "pnpm@10.29.2",
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=9.0.0"
@@ -37,7 +37,8 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-map-gl": "^8.1.0",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "wouter": "^3.9.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.14",
