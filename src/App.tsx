@@ -1,10 +1,12 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-import { useMemo, useState } from 'react';
+import { lazy, Suspense, useId, useMemo, useState } from 'react';
+import { SkipLink } from '@/components/a11y/SkipLink';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
+import { InstallPrompt } from '@/components/pwa/InstallPrompt';
+import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
+import { ServiceWorkerRegistration } from '@/components/pwa/ServiceWorkerRegistration';
+import { UpdateNotification } from '@/components/pwa/UpdateNotification';
 import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
@@ -16,24 +18,20 @@ import { useShelters } from '@/hooks/useShelters';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 
-// 地図コンポーネントを動的インポート（LCP改善のため）
-const ShelterMap = dynamic(
-  () =>
-    import('@/components/map/Map').then((mod) => ({ default: mod.ShelterMap })),
-  {
-    ssr: false, // 地図はクライアントサイドのみで動作
-    loading: () => (
-      <div className="flex h-full w-full items-center justify-center bg-gray-100">
-        <div className="text-center">
-          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
-          <p className="mt-4 text-gray-600">地図を読み込んでいます...</p>
-        </div>
-      </div>
-    ),
-  }
+const ShelterMap = lazy(() =>
+  import('@/components/map/Map').then((mod) => ({ default: mod.ShelterMap }))
 );
 
-function HomePageContent() {
+const MAP_LOADING_FALLBACK = (
+  <div className="flex h-full w-full items-center justify-center bg-gray-100">
+    <div className="text-center">
+      <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
+      <p className="mt-4 text-gray-600">地図を読み込んでいます...</p>
+    </div>
+  </div>
+);
+
+function HomePageContent({ mainContentId }: { mainContentId: string }) {
   const {
     data,
     isLoading,
@@ -62,9 +60,7 @@ function HomePageContent() {
   const allShelters = data?.features ?? [];
   const filteredShelters = useFilteredShelters(allShelters);
 
-  // 距離計算とソート
   const sortedShelters = useMemo(() => {
-    // 距離を含む拡張データを作成
     const sheltersWithDistance = filteredShelters.map((shelter) => ({
       shelter,
       distance:
@@ -76,7 +72,6 @@ function HomePageContent() {
           : null,
     }));
 
-    // ソート
     if (sortMode === 'distance' && position) {
       return sheltersWithDistance
         .filter((item) => item.distance !== null)
@@ -86,7 +81,6 @@ function HomePageContent() {
         });
     }
 
-    // 名前順（デフォルト）
     return sheltersWithDistance.sort((a, b) =>
       a.shelter.properties.name.localeCompare(
         b.shelter.properties.name,
@@ -95,7 +89,6 @@ function HomePageContent() {
     );
   }, [filteredShelters, sortMode, position]);
 
-  // お気に入りフィルタ適用後のリスト（サイドバー表示用）
   const listShelters = useMemo(() => {
     if (listFilter === 'favorites') {
       return sortedShelters.filter((item) =>
@@ -126,7 +119,6 @@ function HomePageContent() {
 
   return (
     <>
-      {/* データ更新失敗時のメッセージ（オフライン等） */}
       {refreshError && (
         <div
           role="alert"
@@ -163,33 +155,30 @@ function HomePageContent() {
         </div>
       )}
 
-      {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
-        {/* 地図エリア（フルスクリーン） */}
-        <main id="main-content" className="relative flex-1 min-h-0">
-          <ShelterMap
-            shelters={filteredShelters}
-            selectedShelterId={selectedShelterId}
-            onShelterSelect={setSelectedShelterId}
-            onShowDetail={setDetailModalShelter}
-            position={position}
-            geolocationState={geolocationState}
-            geolocationError={geolocationError}
-            onGetCurrentPosition={getCurrentPosition}
-            onRefresh={refresh}
-            isRefreshing={isRefreshing}
-          />
+        <main id={mainContentId} className="relative min-h-0 flex-1">
+          <Suspense fallback={MAP_LOADING_FALLBACK}>
+            <ShelterMap
+              shelters={filteredShelters}
+              selectedShelterId={selectedShelterId}
+              onShelterSelect={setSelectedShelterId}
+              onShowDetail={setDetailModalShelter}
+              position={position}
+              geolocationState={geolocationState}
+              geolocationError={geolocationError}
+              onGetCurrentPosition={getCurrentPosition}
+              onRefresh={refresh}
+              isRefreshing={isRefreshing}
+            />
+          </Suspense>
         </main>
       </div>
 
-      {/* デスクトップレイアウト（>= 1024px） */}
       <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
-        {/* サイドバー（左側） */}
         <aside
           className="flex h-full w-96 flex-col border-r bg-white"
           aria-label="避難所フィルタとリスト"
         >
-          {/* ヘッダー */}
           <header className="border-b p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
               <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900">
@@ -242,7 +231,6 @@ function HomePageContent() {
             </p>
           </header>
 
-          {/* リスト表示切り替え（すべて / お気に入り） */}
           <div className="border-b p-4">
             <div
               className="flex rounded-lg border border-gray-200 p-1"
@@ -278,12 +266,10 @@ function HomePageContent() {
             </div>
           </div>
 
-          {/* フィルタ */}
           <nav aria-label="災害種別フィルタ" className="border-b p-4">
             <DisasterTypeFilter />
           </nav>
 
-          {/* ソート切り替え */}
           <div className="border-b p-4">
             <SortToggle
               mode={sortMode}
@@ -292,7 +278,6 @@ function HomePageContent() {
             />
           </div>
 
-          {/* 避難所リスト */}
           <nav
             aria-label="避難所一覧"
             className="min-h-0 flex-1 overflow-hidden"
@@ -315,22 +300,22 @@ function HomePageContent() {
           </nav>
         </aside>
 
-        {/* 地図エリア（右側） */}
-        <main id="main-content" className="relative h-full flex-1">
-          <ShelterMap
-            shelters={filteredShelters}
-            selectedShelterId={selectedShelterId}
-            onShelterSelect={setSelectedShelterId}
-            onShowDetail={setDetailModalShelter}
-            position={position}
-            geolocationState={geolocationState}
-            geolocationError={geolocationError}
-            onGetCurrentPosition={getCurrentPosition}
-          />
+        <main id={mainContentId} className="relative h-full flex-1">
+          <Suspense fallback={MAP_LOADING_FALLBACK}>
+            <ShelterMap
+              shelters={filteredShelters}
+              selectedShelterId={selectedShelterId}
+              onShelterSelect={setSelectedShelterId}
+              onShowDetail={setDetailModalShelter}
+              position={position}
+              geolocationState={geolocationState}
+              geolocationError={geolocationError}
+              onGetCurrentPosition={getCurrentPosition}
+            />
+          </Suspense>
         </main>
       </div>
 
-      {/* 詳細モーダル（マップポップアップから開く） */}
       {detailModalShelter && (
         <ShelterDetailModal
           shelter={detailModalShelter}
@@ -353,12 +338,22 @@ function HomePageContent() {
   );
 }
 
-export default function HomePage() {
+function App() {
+  const mainContentId = useId();
   return (
-    <ErrorBoundary>
-      <FilterProvider>
-        <HomePageContent />
-      </FilterProvider>
-    </ErrorBoundary>
+    <div className="font-sans antialiased">
+      <SkipLink targetId={mainContentId} />
+      <ServiceWorkerRegistration />
+      <ErrorBoundary>
+        <FilterProvider>
+          <HomePageContent mainContentId={mainContentId} />
+        </FilterProvider>
+      </ErrorBoundary>
+      <OfflineIndicator />
+      <InstallPrompt />
+      <UpdateNotification />
+    </div>
   );
 }
+
+export { App };

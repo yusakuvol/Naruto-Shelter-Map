@@ -1,5 +1,3 @@
-'use client';
-
 import type { FC } from 'react';
 
 /**
@@ -10,7 +8,7 @@ import type { FC } from 'react';
  *
  * @see https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html
  */
-export const SkipLink: FC = () => {
+export const SkipLink: FC<{ targetId: string }> = ({ targetId }) => {
   return (
     <>
       <style
@@ -39,7 +37,7 @@ export const SkipLink: FC = () => {
 			`,
         }}
       />
-      <a href="#main-content" className="skip-link">
+      <a href={`#${targetId}`} className="skip-link">
         メインコンテンツへスキップ
       </a>
     </>

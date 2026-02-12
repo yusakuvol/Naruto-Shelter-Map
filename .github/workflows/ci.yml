@@ -49,16 +49,16 @@ jobs:
 
       - name: Check build output
         run: |
-          if [ ! -d "out" ]; then
-            echo "❌ Build output directory 'out' not found!"
+          if [ ! -d "dist" ]; then
+            echo "❌ Build output directory 'dist' not found!"
             exit 1
           fi
-          echo "✅ Build output directory 'out' found"
-          ls -la out/ | head -20
+          echo "✅ Build output directory 'dist' found"
+          ls -la dist/ | head -20
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v6
         with:
           name: build-output
-          path: out/
+          path: dist/
           retention-days: 7
