@@ -226,7 +226,7 @@ naruto-shelter-map/
 
 ---
 
-### Phase 3: 開発環境整備 ⭐️⭐️⭐️
+### Phase 3: 開発環境整備 ⭐️⭐️⭐️ ✅ 完了
 
 **期間:** 1-2 日
 **難易度:** ⭐️⭐️⭐️ (Hard)
@@ -234,17 +234,17 @@ naruto-shelter-map/
 
 #### タスク
 
-- [ ] `package.json` 作成（pnpm 対応、最新依存関係）
-- [ ] `.npmrc` 作成（pnpm 設定）
-- [ ] `next.config.js` 作成（Turbopack 設定）
-- [ ] `tsconfig.json` 作成
-- [ ] `biome.json` 作成（ESLint/Prettier 置き換え）
-- [ ] `src/` ディレクトリ構造作成
-- [ ] Tailwind CSS v4 設定（CSS-First）
-- [ ] `.env.example` 作成
-- [ ] `.gitignore` 作成
-- [ ] `pnpm install` 実行確認
-- [ ] `pnpm dev` 起動確認
+- [x] `package.json` 作成（pnpm 対応、最新依存関係）
+- [x] `.npmrc` 作成（pnpm 設定）
+- [x] `next.config.js` 作成（Turbopack 設定）
+- [x] `tsconfig.json` 作成
+- [x] `biome.json` 作成（ESLint/Prettier 置き換え）
+- [x] `src/` ディレクトリ構造作成
+- [x] Tailwind CSS v4 設定（CSS-First）
+- [x] `.env.example` 作成
+- [x] `.gitignore` 作成
+- [x] `pnpm install` 実行確認
+- [x] `pnpm dev` 起動確認
 
 #### 成果物
 
