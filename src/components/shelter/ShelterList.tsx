@@ -16,6 +16,8 @@ interface ShelterListProps {
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
   onShelterClick?: (shelter: ShelterFeature) => void;
+  /** 指定時はカードの「詳細」でこのコールバックを呼び、親でモーダル表示（地図側で開く） */
+  onShowDetail?: (shelter: ShelterFeature) => void;
   favorites?: Set<string>;
   onToggleFavorite?: (id: string) => void;
   userPosition?: Coordinates | null | undefined;
@@ -28,6 +30,7 @@ export function ShelterList({
   selectedShelterId,
   onShelterSelect,
   onShelterClick,
+  onShowDetail,
   favorites,
   onToggleFavorite,
   userPosition,
@@ -137,6 +140,7 @@ export function ShelterList({
                   onClick={() =>
                     handleShelterClick(shelter.properties.id, shelter)
                   }
+                  {...(onShowDetail && { onShowDetail })}
                   isFavorite={
                     favorites ? favorites.has(shelter.properties.id) : false
                   }

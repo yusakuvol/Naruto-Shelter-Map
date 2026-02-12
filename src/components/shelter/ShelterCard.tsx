@@ -23,6 +23,8 @@ interface ShelterCardProps {
   shelter: ShelterFeature;
   isSelected?: boolean;
   onClick?: () => void;
+  /** 指定時は「詳細」クリックでこのコールバックを呼び、親でモーダル表示（地図側で開く） */
+  onShowDetail?: (shelter: ShelterFeature) => void;
   distance?: number | null;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
@@ -46,6 +48,7 @@ function ShelterCardComponent({
   shelter,
   isSelected,
   onClick,
+  onShowDetail,
   distance,
   isFavorite = false,
   onToggleFavorite,
@@ -346,12 +349,16 @@ function ShelterCardComponent({
 
         {/* アクションボタン */}
         <div className="flex items-center gap-2 pt-2 border-t border-gray-200">
-          {/* 詳細を見るボタン */}
+          {/* 詳細を見るボタン（onShowDetail ありなら地図側でモーダルを開く） */}
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation();
-              setIsDetailOpen(true);
+              if (onShowDetail) {
+                onShowDetail(shelter);
+              } else {
+                setIsDetailOpen(true);
+              }
             }}
             className="flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             aria-label={`${name}の詳細を見る`}
@@ -431,16 +438,18 @@ function ShelterCardComponent({
         </div>
       </div>
 
-      {/* 詳細モーダル */}
-      <ShelterDetailModal
-        shelter={shelter}
-        isOpen={isDetailOpen}
-        onClose={() => setIsDetailOpen(false)}
-        distance={distance}
-        userPosition={userPosition}
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-      />
+      {/* 詳細モーダル（onShowDetail 未使用時のみカード内で表示） */}
+      {!onShowDetail && (
+        <ShelterDetailModal
+          shelter={shelter}
+          isOpen={isDetailOpen}
+          onClose={() => setIsDetailOpen(false)}
+          distance={distance}
+          userPosition={userPosition}
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+        />
+      )}
     </>
   );
 }

@@ -220,6 +220,10 @@ function HomePageContent() {
               shelters={listShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
+              onShowDetail={(shelter) => {
+                setSelectedShelterId(shelter.properties.id);
+                setDetailModalShelter(shelter);
+              }}
               favorites={favorites}
               onToggleFavorite={toggleFavorite}
               userPosition={position}
