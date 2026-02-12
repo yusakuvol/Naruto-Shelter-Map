@@ -224,8 +224,7 @@ function HomePageContent() {
               onToggleFavorite={toggleFavorite}
               userPosition={position}
               {...(listFilter === 'favorites' && {
-                emptyMessage:
-                  'お気に入りに追加した避難所がここに表示されます',
+                emptyMessage: 'お気に入りに追加した避難所がここに表示されます',
               })}
             />
           </nav>
