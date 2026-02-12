@@ -16,9 +16,13 @@ interface ShelterListProps {
   selectedShelterId?: string | null | undefined;
   onShelterSelect?: (id: string) => void;
   onShelterClick?: (shelter: ShelterFeature) => void;
+  /** 指定時はカードの「詳細」でこのコールバックを呼び、親でモーダル表示（地図側で開く） */
+  onShowDetail?: (shelter: ShelterFeature) => void;
   favorites?: Set<string>;
   onToggleFavorite?: (id: string) => void;
   userPosition?: Coordinates | null | undefined;
+  /** 0件時に表示するメッセージ（お気に入りフィルタ時など） */
+  emptyMessage?: string;
 }
 
 export function ShelterList({
@@ -26,9 +30,11 @@ export function ShelterList({
   selectedShelterId,
   onShelterSelect,
   onShelterClick,
+  onShowDetail,
   favorites,
   onToggleFavorite,
   userPosition,
+  emptyMessage,
 }: ShelterListProps) {
   const parentRef = useRef<HTMLDivElement>(null);
 
@@ -69,6 +75,7 @@ export function ShelterList({
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden
           >
             <path
               strokeLinecap="round"
@@ -77,7 +84,9 @@ export function ShelterList({
               d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <p className="mt-4 text-gray-600">避難所データがありません</p>
+          <p className="mt-4 text-gray-600">
+            {emptyMessage ?? '避難所データがありません'}
+          </p>
         </div>
       </div>
     );
@@ -131,6 +140,7 @@ export function ShelterList({
                   onClick={() =>
                     handleShelterClick(shelter.properties.id, shelter)
                   }
+                  {...(onShowDetail && { onShowDetail })}
                   isFavorite={
                     favorites ? favorites.has(shelter.properties.id) : false
                   }
