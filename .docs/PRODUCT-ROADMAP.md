@@ -18,7 +18,7 @@
 - [x] **Phase 0:** 環境整備・ドキュメント整備
 - [x] **Phase 1:** README 更新
 - [x] **Phase 2:** AI 環境整備（AGENTS.md, CLAUDE.md）
-- [x] **Phase 3:** 開発環境整備（pnpm, Next.js 15, React 19, Tailwind v4）
+- [x] **Phase 3:** 開発環境整備（pnpm, Vite 6, React 19, Tailwind v4）
 - [x] **Phase 4:** MVP 実装
   - [x] MapLibre GL JS 地図表示
   - [x] 避難所データ表示（GeoJSON）
@@ -97,7 +97,7 @@ PWA対応      UX改善     多機能化
 
 #### 6.1 Service Worker 実装
 
-- [x] Next.js 15 対応の Service Worker 設定（完了）
+- [x] Vite + vite-plugin-pwa による Service Worker 設定（完了）
 - [x] Workbox ベースのキャッシュ戦略（完了）
 - [x] 地図タイルのオフラインキャッシュ（完了）
 - [x] GeoJSON データのキャッシュ（完了）
@@ -125,14 +125,14 @@ PWA対応      UX改善     多機能化
 
 ### 成果物
 
-- Service Worker（`public/sw.js` - 自動生成）
-- PWA Manifest（`src/app/manifest.ts`）
+- Service Worker（`dist/sw.js` - ビルド時に vite-plugin-pwa が生成）
+- PWA Manifest（`public/manifest.json`）
 - オフライン UI コンポーネント（`OfflineIndicator`, `UpdateNotification`, `InstallPrompt`）
 - PWA テストガイド（`.docs/pwa-test-guide.md`）
 
 ### 技術選定
 
-- **next-pwa** または **@ducanh2912/next-pwa**（Next.js 15 対応）
+- **vite-plugin-pwa**（Workbox 利用、ADR-003）
 - **Workbox** - Google 製 Service Worker ライブラリ
 
 ### 成功指標（KPI）
