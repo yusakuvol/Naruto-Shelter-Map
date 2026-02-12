@@ -22,28 +22,16 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     // テスト用の型定義
-    "types": ["vitest/globals"],
+    "types": ["vite/client", "vitest/globals"],
     // パス設定
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    // Next.js設定
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-  ],
-  "exclude": ["node_modules", ".next", "out"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts", "scripts/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

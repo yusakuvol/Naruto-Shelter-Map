@@ -1,26 +1,22 @@
-'use client';
-
 import { useEffect } from 'react';
 
 /**
  * Service Worker登録コンポーネント
- * 静的エクスポート環境でもService Workerを確実に登録する
+ * 本番ビルドで vite-plugin-pwa が生成した sw.js を登録する
  */
 export function ServiceWorkerRegistration(): null {
   useEffect(() => {
-    // サーバー側では実行しない
     if (typeof window === 'undefined') {
       return;
     }
 
-    // Service Workerがサポートされていない場合は終了
     if (!('serviceWorker' in navigator)) {
       console.log('Service Worker is not supported');
       return;
     }
 
-    // 開発環境ではService Workerを無効化（next.config.jsの設定に合わせる）
-    if (process.env.NODE_ENV === 'development') {
+    // 開発環境では Service Worker を無効化（Vite: import.meta.env.DEV）
+    if (import.meta.env.DEV) {
       console.log('Service Worker is disabled in development mode');
       return;
     }

@@ -47,9 +47,9 @@
 - ✅ GitHubリポジトリが `public` または `private`（どちらでも可）
 
 ### プロジェクト要件（すでに満たしている）
-- ✅ `next.config.js` に `output: 'export'` 設定済み
+- ✅ Vite ビルド（`pnpm build` で `dist/` に出力）
 - ✅ `package.json` に `pnpm` 指定済み
-- ✅ PWA設定（Service Worker、manifest.webmanifest）完備
+- ✅ PWA設定（vite-plugin-pwa：Service Worker、manifest.json）完備
 
 ---
 
@@ -78,11 +78,11 @@
 |------|-----|
 | **Project name** | `naruto-shelter-map`（任意） |
 | **Production branch** | `main` |
-| **Framework preset** | `Next.js (Static HTML Export)` |
+| **Framework preset** | なし（None）または `Vite` |
 
 ### 4. ビルド設定
 
-**重要:** Cloudflare Pagesは`package.json`の`packageManager`フィールドからpnpmを自動検出します。
+**重要:** Cloudflare Pagesは`package.json`の`packageManager`フィールドからpnpmを自動検出します。**ビルド出力ディレクトリは `dist` に設定してください**（Vite のデフォルト）。
 
 #### 推奨設定
 
@@ -91,7 +91,7 @@
 pnpm build
 
 # Build output directory
-out
+dist
 
 # Root Directory (optional)
 (空欄)
@@ -105,8 +105,7 @@ out
 
 | 変数名 | 値 | 説明 |
 |--------|-----|------|
-| `NODE_VERSION` | `20` | Node.jsバージョン指定 |
-| `NEXT_PUBLIC_APP_NAME` | `Naruto Shelter Map` | アプリ名（next.config.jsで設定済みのため省略可） |
+| `NODE_VERSION` | `22` | Node.jsバージョン指定（package.json engines に合わせる） |
 
 ### 5. デプロイ実行
 
@@ -151,24 +150,24 @@ npm i -g pnpm
 # 2. 依存関係インストール
 pnpm install
 
-# 3. Next.jsビルド（静的エクスポート）
+# 3. Viteビルド
 pnpm build
-# → next.config.jsの `output: 'export'` により、out/ ディレクトリに静的ファイルが生成される
+# → dist/ ディレクトリに静的ファイルが生成される
 
-# 4. out/ ディレクトリをCloudflare Pages CDNにデプロイ
+# 4. dist/ ディレクトリをCloudflare Pages CDNにデプロイ
 ```
 
 ### 生成されるファイル
 
-`out/` ディレクトリには以下が含まれます：
+`dist/` ディレクトリには以下が含まれます：
 
 ```
-out/
+dist/
 ├── index.html                 # トップページ
-├── 404.html                   # 404エラーページ
-├── manifest.webmanifest       # PWA manifest
-├── sw.js                      # Service Worker
+├── manifest.json              # PWA manifest
+├── sw.js                      # Service Worker（vite-plugin-pwa）
 ├── workbox-*.js               # Workbox（SW用ライブラリ）
+├── registerSW.js              # SW登録スクリプト
 ├── favicon.ico                # ファビコン
 ├── icon.svg                   # ソースアイコン
 ├── icons/                     # PWAアイコン
@@ -178,8 +177,9 @@ out/
 │   └── icon-512-maskable.png
 ├── data/
 │   └── shelters.geojson       # 避難所データ
-└── _next/
-    ├── static/                # 静的アセット
+└── assets/                    # JS/CSS（ハッシュ付き）
+    ├── index-*.js
+    ├── index-*.css
     └── ...
 ```
 
@@ -278,14 +278,14 @@ npm i -g pnpm && pnpm install && pnpm build
 
 ---
 
-### ビルドエラー: `Error: Export encountered errors on following paths`
+### ビルドエラー（Vite）
 
-**原因:** Next.jsの動的ルーティングやAPIルートが残っている
+**原因:** 型エラーや依存関係の不整合
 
 **解決策:**
-1. `src/app/api/` ディレクトリがないことを確認（静的エクスポートではAPIルート不可）
-2. 動的ルーティング（`[id]`）を使っていないことを確認
-3. `next.config.js` で `output: 'export'` が設定されているか確認
+1. ローカルで `pnpm install` と `pnpm build` が通るか確認
+2. `pnpm type-check` で型エラーがないか確認
+3. Node.js バージョンが 22 以上か確認（`.nvmrc` / `package.json` engines）
 
 ---
 
@@ -295,8 +295,8 @@ npm i -g pnpm && pnpm install && pnpm build
 
 **解決策:**
 1. ブラウザのDevToolsでコンソールエラーを確認
-2. `next.config.js` で `basePath` や `assetPrefix` が設定されていないか確認（不要）
-3. `pnpm build` をローカルで実行し、`out/` の内容を確認
+2. `vite.config.ts` で `base` が設定されていないか確認（通常は不要）
+3. `pnpm build` をローカルで実行し、`dist/` の内容を確認
 
 ---
 
@@ -308,11 +308,7 @@ npm i -g pnpm && pnpm install && pnpm build
 1. `https://` でアクセスしているか確認（`http://` では動作しない）
 2. Cloudflare PagesのURLは自動的にHTTPSなので、カスタムドメインでアクセスしている場合はSSL証明書を確認
 3. DevTools → Application → Service Workers で登録状態を確認
-4. `next.config.js` の `withPWA` 設定を確認：
-   ```javascript
-   disable: process.env.NODE_ENV === 'development',
-   ```
-   → 開発環境では無効、本番環境では有効
+4. `vite.config.ts` の VitePWA 設定を確認（本番ビルドでのみ SW が生成・登録される）
 
 ---
 
@@ -338,11 +334,11 @@ npm i -g pnpm && pnpm install && pnpm build
 
 **チェックリスト:**
 - ✅ HTTPSでアクセスしているか？
-- ✅ manifest.webmanifestが200で返ってくるか？
+- ✅ manifest.json が200で返ってくるか？
   ```bash
-  curl https://naruto-shelter-map.pages.dev/manifest.webmanifest
+  curl https://naruto-shelter-map.pages.dev/manifest.json
   ```
-- ✅ manifest.webmanifestにアイコンが定義されているか？
+- ✅ manifest.json にアイコンが定義されているか？
 - ✅ Service Workerが登録されているか？
 
 **解決策:**
