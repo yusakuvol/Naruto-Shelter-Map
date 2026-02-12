@@ -198,7 +198,7 @@ naruto-shelter-map/
 
 ---
 
-### Phase 2: AI 環境整備 ⭐️⭐️
+### Phase 2: AI 環境整備 ⭐️⭐️ ✅ 完了
 
 **期間:** 1 日
 **難易度:** ⭐️⭐️ (Medium)
@@ -206,11 +206,11 @@ naruto-shelter-map/
 
 #### タスク
 
-- [ ] `AGENTS.md` 作成（AI Agent 標準規格 2025）
-- [ ] `CLAUDE.md` 作成（Claude Code 設定）
-- [ ] `.docs/system/` ドキュメント作成
-- [ ] `.docs/architecture/` ADR 作成
-- [ ] `.docs/sop/` 作業手順書作成
+- [x] `AGENTS.md` 作成（AI Agent 標準規格 2025）
+- [x] `CLAUDE.md` 作成（Claude Code 設定）
+- [x] `.docs/system/` ドキュメント作成
+- [x] `.docs/architecture/` ADR 作成
+- [x] `.docs/sop/` 作業手順書作成
 
 #### 成果物
 
