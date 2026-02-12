@@ -105,7 +105,7 @@ dist
 
 | 変数名 | 値 | 説明 |
 |--------|-----|------|
-| `NODE_VERSION` | `22` | Node.jsバージョン指定（package.json engines に合わせる） |
+| `NODE_VERSION` | `24` | Node.js バージョン（engines は `>=24`。Cloudflare はメジャー版指定のため 24 を推奨） |
 
 ### 5. デプロイ実行
 
