@@ -46,6 +46,7 @@ function HomePageContent() {
     null
   );
   const [sortMode, setSortMode] = useState<SortMode>('name');
+  const [listFilter, setListFilter] = useState<'all' | 'favorites'>('all');
   const [detailModalShelter, setDetailModalShelter] =
     useState<ShelterFeature | null>(null);
 
@@ -84,6 +85,16 @@ function HomePageContent() {
       )
     );
   }, [filteredShelters, sortMode, position]);
+
+  // お気に入りフィルタ適用後のリスト（サイドバー表示用）
+  const listShelters = useMemo(() => {
+    if (listFilter === 'favorites') {
+      return sortedShelters.filter((item) =>
+        favorites.has(item.shelter.properties.id)
+      );
+    }
+    return sortedShelters;
+  }, [sortedShelters, listFilter, favorites]);
 
   if (error) {
     return (
@@ -138,14 +149,53 @@ function HomePageContent() {
               </h1>
             </div>
             <p className="text-sm text-gray-700">
-              {filteredShelters.length}件の避難所
-              {filteredShelters.length !== allShelters.length && (
-                <span className="ml-1 text-gray-700">
-                  （全{allShelters.length}件中）
-                </span>
-              )}
+              {listFilter === 'favorites'
+                ? `${listShelters.length}件のお気に入り`
+                : `${filteredShelters.length}件の避難所`}
+              {listFilter === 'all' &&
+                filteredShelters.length !== allShelters.length && (
+                  <span className="ml-1 text-gray-700">
+                    （全{allShelters.length}件中）
+                  </span>
+                )}
             </p>
           </header>
+
+          {/* リスト表示切り替え（すべて / お気に入り） */}
+          <div className="border-b p-4">
+            <div
+              className="flex rounded-lg border border-gray-200 p-1"
+              role="tablist"
+              aria-label="リストの表示"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected={listFilter === 'all'}
+                className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  listFilter === 'all'
+                    ? 'bg-gray-100 text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+                onClick={() => setListFilter('all')}
+              >
+                すべて
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={listFilter === 'favorites'}
+                className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  listFilter === 'favorites'
+                    ? 'bg-gray-100 text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+                onClick={() => setListFilter('favorites')}
+              >
+                お気に入り{favorites.size > 0 && ` (${favorites.size})`}
+              </button>
+            </div>
+          </div>
 
           {/* フィルタ */}
           <nav aria-label="災害種別フィルタ" className="border-b p-4">
@@ -167,12 +217,16 @@ function HomePageContent() {
             className="min-h-0 flex-1 overflow-hidden"
           >
             <ShelterList
-              shelters={sortedShelters}
+              shelters={listShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
               favorites={favorites}
               onToggleFavorite={toggleFavorite}
               userPosition={position}
+              {...(listFilter === 'favorites' && {
+                emptyMessage:
+                  'お気に入りに追加した避難所がここに表示されます',
+              })}
             />
           </nav>
         </aside>
