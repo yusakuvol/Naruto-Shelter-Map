@@ -2,12 +2,12 @@
 
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/deploy-cloudflare-orange)](https://pages.cloudflare.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![pnpm](https://img.shields.io/badge/pnpm-orange)](https://pnpm.io/)
-[![Next.js](https://img.shields.io/badge/Next.js-black)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-blue)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-38bdf8)](https://tailwindcss.com/)
-[![MapLibre GL JS](https://img.shields.io/badge/MapLibre-blue)](https://maplibre.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-9+-orange)](https://pnpm.io/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8)](https://tailwindcss.com/)
+[![MapLibre GL JS](https://img.shields.io/badge/MapLibre-5.x-blue)](https://maplibre.org/)
 
 ## 概要
 
@@ -26,11 +26,43 @@
 ## 目次
 
 - [概要](#概要)
+- [スクリーンショット](#スクリーンショット)
 - [主な機能](#主な機能)
+- [技術スタック](#技術スタック)
 - [データ構造](#データ構造)
 - [セットアップ](#セットアップ)
+- [デプロイ](#デプロイ)
 - [データ更新フロー](#データ更新フロー)
+- [今後の拡張](#今後の拡張)
+- [コントリビューション](#コントリビューション)
 - [ライセンス](#ライセンス)
+- [作者](#作者)
+
+---
+
+## スクリーンショット
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="./docs/images/screenshot-map.png" width="300" alt="地図画面">
+      <br>
+      <sub>地図画面</sub>
+    </td>
+    <td align="center">
+      <img src="./docs/images/screenshot-search.png" width="300" alt="検索・フィルタ">
+      <br>
+      <sub>検索・フィルタ</sub>
+    </td>
+    <td align="center">
+      <img src="./docs/images/screenshot-offline.png" width="300" alt="オフライン動作">
+      <br>
+      <sub>オフライン動作</sub>
+    </td>
+  </tr>
+</table>
+
+> **Note:** スクリーンショットは準備中です。デモは [デモサイト](https://naruto-shelter-map.pages.dev) でご確認ください。
 
 ---
 
@@ -44,6 +76,35 @@
 - 🗺️ **MapLibre GL JS** - オープンソース地図ライブラリで高速レンダリング
 - 🎨 **モダン UI** - シンプルで直感的なインターフェース
 - ♿ **アクセシビリティ** - キーボード操作・スクリーンリーダー対応
+
+---
+
+## 技術スタック
+
+### パッケージマネージャー
+
+| 技術     | バージョン | 特徴                         |
+| -------- | ---------- | ---------------------------- |
+| **pnpm** | 9.x 以上   | 高速・ディスク効率・厳密な依存関係管理 |
+
+### フロントエンド
+
+| 技術             | バージョン | 用途                                    |
+| ---------------- | ---------- | --------------------------------------- |
+| Next.js          | **16.x**   | React フレームワーク (App Router + Turbopack) |
+| React            | **19.x**   | UI ライブラリ（Server Components, Actions）   |
+| TypeScript       | 5.x        | 型安全な開発                            |
+| Tailwind CSS     | **v4**     | ユーティリティファースト CSS（Lightning CSS） |
+| MapLibre GL JS   | **5.x**    | オープンソース地図ライブラリ（Globe 対応）    |
+
+### PWA・開発ツール・インフラ
+
+| カテゴリ   | 技術               | 用途                           |
+| ---------- | ------------------ | ------------------------------ |
+| PWA        | next-pwa           | Service Worker + Manifest     |
+| Lint/Format| **Biome**         | Lint + フォーマット（統一）    |
+| ホスティング | Cloudflare Pages | 静的ホスティング & CDN         |
+| CI/CD      | GitHub Actions     | データ自動更新 & デプロイ      |
 
 ---
 
@@ -138,6 +199,18 @@ http://localhost:3000
 
 ---
 
+## デプロイ
+
+本プロジェクトは **Cloudflare Pages** にデプロイされています。
+
+- **本番 URL:** https://naruto-shelter-map.pages.dev
+- **ビルド:** `pnpm build` で生成された静的アウトプットを Cloudflare Pages が配信
+- **ブランチ:** `main` へのマージで自動デプロイ（GitHub Actions 連携時）
+
+詳細は [.docs/cloudflare-pages-setup.md](./.docs/cloudflare-pages-setup.md) を参照してください。
+
+---
+
 ## データ更新フロー
 
 ```mermaid
@@ -205,6 +278,39 @@ pnpm validate:shelters
 
 ---
 
+## 今後の拡張
+
+- **多言語対応** - 英語 / やさしい日本語
+- **他市町村対応** - 徳島県全域など
+- **避難所詳細情報の拡充** - 収容人数・設備情報など
+
+---
+
+## コントリビューション
+
+貢献を歓迎します。
+
+### 貢献方法
+
+1. **Issue** - バグ報告・機能リクエスト・質問
+2. **Pull Request** - Fork → ブランチ作成 → 変更 → PR
+3. **ドキュメント** - README や `.docs/` の改善
+
+### コミット規約
+
+[Conventional Commits](https://www.conventionalcommits.org/) に従ってください。
+
+- `feat:` 新機能
+- `fix:` バグ修正
+- `docs:` ドキュメント
+- `style:` フォーマット
+- `refactor:` リファクタリング
+- `chore:` その他
+
+**重要:** コミット前に `pnpm lint` と `pnpm type-check` を実行してください。詳細は [AGENTS.md](./AGENTS.md) を参照してください。
+
+---
+
 ## ライセンス
 
 MIT License
@@ -217,3 +323,11 @@ Copyright (c) 2025 Yusaku Matsukawa
 
 - **避難所データ:** [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html)
 - **地図タイル:** MapLibre Demo Tiles / [OpenStreetMap contributors](https://www.openstreetmap.org/copyright)
+
+---
+
+## 作者
+
+**Yusaku Matsukawa**
+
+「もしもの時に電波がなくても、身近な避難所がわかる」という課題を、技術で解決するための実験プロジェクトです。地方 × 防災 × Web の小さな実験として、誰でも使える形で公開しています。
