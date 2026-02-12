@@ -59,10 +59,10 @@
 
 | 技術             | 用途                                                                            |
 | ---------------- | ------------------------------------------------------------------------------- |
-| **Next.js**      | React フレームワーク（App Router + Turbopack + MCP 対応、本番ビルドは Webpack） |
-| **React**        | UI ライブラリ（Server Components, Actions 対応）                                |
+| **Vite**         | ビルドツール（開発サーバー・本番ビルド、Rollup）                                |
+| **React**        | UI ライブラリ（React 19）                                                       |
 | **TypeScript**   | 型安全性                                                                        |
-| **Tailwind CSS** | スタイリング（Lightning CSS 統合、システムフォント使用）                        |
+| **Tailwind CSS** | スタイリング（v4 Lightning CSS 統合、システムフォント使用）                     |
 
 ### 地図・データ
 
@@ -106,12 +106,12 @@ naruto-shelter-map/
 │   │   └── shelters.geojson      # 避難所データ（自動更新）
 │   ├── icons/                    # PWAアイコン
 │   ├── manifest.json             # PWA Manifest
-│   └── sw.js                     # Service Worker
+│   └── sw.js                     # Service Worker（ビルド時に vite-plugin-pwa が生成）
 ├── src/
-│   ├── app/                      # Next.js App Router
-│   │   ├── layout.tsx            # ルートレイアウト
-│   │   ├── page.tsx              # トップページ（地図画面）
-│   │   └── globals.css           # グローバルスタイル（Tailwind v4）
+│   ├── App.tsx                   # ルートコンポーネント（layout + ページ内容）
+│   ├── main.tsx                  # エントリ（createRoot）
+│   ├── globals.css               # グローバルスタイル（Tailwind v4）
+│   ├── vite-env.d.ts             # Vite クライアント型
 │   ├── components/               # Reactコンポーネント
 │   │   ├── map/
 │   │   │   ├── Map.tsx           # MapLibre地図コンポーネント
@@ -134,8 +134,9 @@ naruto-shelter-map/
 │       └── useOffline.ts         # オフライン状態検出
 ├── scripts/                      # ビルド・データ処理スクリプト
 │   └── fetch_shelters.ts         # 国土地理院APIから避難所データ取得
+├── index.html                    # エントリ HTML（Vite）
+├── vite.config.ts                # Vite 設定（PWA 含む）
 ├── biome.json                    # Biome設定（Lint + Format）
-├── next.config.js                # Next.js設定
 ├── package.json                  # パッケージ定義（pnpm）
 ├── pnpm-lock.yaml                # pnpm ロックファイル
 ├── .npmrc                        # pnpm設定
@@ -183,18 +184,10 @@ type ShelterFeature = {
 const shelter: any = { ... }; // any 使用禁止
 ```
 
-### React / Next.js
+### React / Vite
 
 ```typescript
-// ✅ Good - Server Component（デフォルト）
-async function ShelterList() {
-  const shelters = await fetch('/api/shelters').then(r => r.json());
-  return <ul>{shelters.map(s => <li key={s.id}>{s.name}</li>)}</ul>;
-}
-
-// ✅ Good - Client Component（インタラクティブ時）
-'use client';
-
+// ✅ Good - 通常のコンポーネント（Vite は SPA、すべてクライアントレンダリング）
 import { useState } from 'react';
 
 export function SearchBar() {
@@ -215,7 +208,7 @@ const MapContainer = forwardRef((props, ref) => { ... });
 
 ```css
 /* ✅ Good - CSS-First設定 */
-/* src/app/globals.css */
+/* src/globals.css */
 @import "tailwindcss";
 
 @layer base {
@@ -304,10 +297,10 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 ### コード生成時の注意点
 
-1. **Server Components 優先**
+1. **Vite + React（SPA）**
 
-   - Next.js 16 では、デフォルトで Server Component を使用
-   - インタラクティブな要素が必要な場合のみ`'use client'`を追加
+   - エントリは `src/main.tsx` → `App.tsx`。ルーティングは単一ページのため react-router は不要。
+   - 重いコンポーネント（地図など）は `React.lazy` + `Suspense` で遅延読み込みする。
 
 2. **React 19 新機能の活用**
 
@@ -333,11 +326,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
    - `npm install` → `pnpm add`
    - `npm run dev` → `pnpm dev`
    - `npm uninstall` → `pnpm remove`
-
-6. **Next.js MCP 活用（Next.js 16+）**
-   - Next.js 16 では、開発サーバーが自動的に MCP エンドポイントを提供
-   - `/_next/mcp`でリアルタイムエラー監視、ルート情報取得などが可能
-   - AI Agent は`nextjs_runtime`ツールを活用して開発効率を向上
 
 ### 生成するコードの品質基準
 
@@ -471,7 +459,7 @@ gh pr create --title "feat(filter): Add disaster type filter" --body "$(cat <<'E
 ## Changes
 - New component: \`src/components/filter/DisasterTypeFilter.tsx\`
 - Updated: \`src/hooks/useShelters.ts\`
-- Updated: \`src/app/page.tsx\`
+- Updated: \`src/App.tsx\`
 
 ## Test Plan
 - [ ] Filter UI displays correctly
@@ -529,7 +517,7 @@ git branch -d feature/shelter-filter
 
 - [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev/)
-- [Next.js 16](https://nextjs.org/docs)
+- [Vite](https://vitejs.dev/)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
@@ -546,6 +534,7 @@ git branch -d feature/shelter-filter
 
 | バージョン | 日付       | 変更内容                                                                 |
 | ---------- | ---------- | ------------------------------------------------------------------------ |
+| 1.4.0      | 2026-02-12 | Next.js から Vite + React に移行（ADR-003）、PWA は vite-plugin-pwa       |
 | 1.3.0      | 2025-12-27 | 隣接地域対応（藍住町、北島町、松茂町、板野町）、ダークモード非対応を明記 |
 | 1.2.0      | 2025-12-06 | ビルド設定改善（Webpack 明示指定）、UI 改善完了、システムフォント採用    |
 | 1.1.0      | 2025-11-14 | Next.js 16 へのアップグレード、Next.js MCP 対応、CLAUDE.md 統合          |

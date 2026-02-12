@@ -14,8 +14,7 @@
 
 ### `pnpm dev` で起動しない・ポート競合
 
-- ポート 3000 が使用中の場合、`pnpm dev -- -p 3001` で別ポートを指定。
-- Turbopack の不具合が疑われる場合は、一時的に `next dev`（Turbopack なし）で起動して確認。
+- デフォルトは http://localhost:5173。ポートが使用中の場合、`pnpm dev -- --port 5174` で別ポートを指定。
 
 ### TypeScript エラーが多発する
 
@@ -37,12 +36,12 @@
 
 - **メモリ不足:** Node のメモリ制限を上げる（例: `NODE_OPTIONS=--max-old-space-size=4096 pnpm build`）。
 - **依存関係:** `pnpm install` をやり直し、`pnpm-lock.yaml` をコミットした上で再ビルド。
-- **Next.js / Webpack エラー:** エラーメッセージのファイル名・行番号を確認。型エラーや存在しない import がないか確認。
+- **Vite / Rollup エラー:** エラーメッセージのファイル名・行番号を確認。型エラーや存在しない import がないか確認。
 
 ### 本番ビルドだけ失敗する（開発は動く）
 
 - 環境差（Node バージョン・NODE_ENV）を確認。
-- `next.config.js` の `output: 'export'` 等、本番用設定を確認。
+- `vite.config.ts` の `build.outDir`（既定は `dist`）や環境変数を確認。
 - Cloudflare のビルドログで失敗ステップを特定する。
 
 ---

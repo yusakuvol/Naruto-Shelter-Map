@@ -26,7 +26,7 @@
 ## ビルド設定（Cloudflare Pages）
 
 - **ビルドコマンド:** `pnpm build`（または `pnpm install && pnpm build`）
-- **ビルド出力ディレクトリ:** Next.js の設定に依存（`out` など static export の場合）
+- **ビルド出力ディレクトリ:** `dist`（Vite のデフォルト）。Cloudflare で「Build output directory」を **dist** に設定すること。
 - **環境変数:** 必要に応じて Cloudflare ダッシュボードの「Settings → Environment variables」で設定
 - **Node バージョン:** `engines.node`（例: >=22）に合わせて設定
 

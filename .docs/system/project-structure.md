@@ -33,13 +33,10 @@ naruto-shelter-map/
 │   └── validate-shelters.ts        # データ検証
 │
 ├── src/
-│   ├── app/                        # Next.js App Router
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── error.tsx
-│   │   ├── globals.css
-│   │   ├── manifest.ts
-│   │   └── viewport.ts
+│   ├── App.tsx                     # ルートコンポーネント（layout + ページ）
+│   ├── main.tsx                    # エントリ（createRoot）
+│   ├── globals.css                 # グローバルスタイル（Tailwind v4）
+│   ├── vite-env.d.ts               # Vite クライアント型
 │   │
 │   ├── components/
 │   │   ├── a11y/                   # アクセシビリティ
@@ -57,11 +54,11 @@ naruto-shelter-map/
 │   ├── lib/                        # ユーティリティ・ヘルパー
 │   └── types/                      # TypeScript 型定義
 │
-├── docs/images/                    # README 用スクリーンショット
+├── index.html                      # エントリ HTML（Vite）
+├── vite.config.ts                  # Vite 設定（PWA 含む）
 ├── AGENTS.md                       # AI Agent 規格
 ├── CLAUDE.md                       # Claude Code 設定
 ├── biome.json                     # Lint + フォーマット
-├── next.config.js
 ├── package.json
 ├── tsconfig.json
 └── vitest.config.ts
@@ -77,7 +74,7 @@ naruto-shelter-map/
 | **.github/workflows/** | CI（lint/type-check/test）、リリース、データ更新。 |
 | **public/** | 静的アセット。GeoJSON、PWA アイコン、Service Worker。 |
 | **scripts/** | データ取得・検証・ジオコーディング（Node で実行）。 |
-| **src/app/** | Next.js App Router。ページ・レイアウト・グローバル CSS。 |
+| **src/App.tsx, main.tsx** | ルートコンポーネントとエントリ。単一ページ SPA。 |
 | **src/components/** | 再利用可能な React コンポーネント。機能別サブフォルダ。 |
 | **src/config/** | 地域 ID などアプリ設定定数。 |
 | **src/contexts/** | グローバルに近い React 状態（フィルタ等）。 |
@@ -89,8 +86,8 @@ naruto-shelter-map/
 
 ## 📐 ファイル配置ルール
 
-1. **src/app/**  
-   - ルートレイアウト・ページ・エラー境界・viewport/manifest など App Router 用のみ。
+1. **src/App.tsx, main.tsx**  
+   - エントリは `main.tsx` → `App.tsx`。レイアウト・ページ内容は App.tsx に集約。manifest は `public/manifest.json` を静的配置。
 
 2. **src/components/**  
    - 機能ごとにサブフォルダ（`map/`, `shelter/`, `filter/`, `pwa/` など）。  

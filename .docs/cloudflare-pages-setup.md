@@ -254,6 +254,16 @@ dist/
 
 ## トラブルシューティング
 
+### ビルド成功後に「Output directory "out" not found」で失敗する
+
+**原因:** プロジェクトが以前 Next.js（静的エクスポート）で作成されており、Cloudflare の「Build output directory」が `out` のままになっている。Vite 移行後は出力が **`dist`** です。
+
+**解決策:**
+1. [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → 対象の Pages プロジェクトを開く
+2. **Settings** → **Builds & deployments** → **Build configuration**
+3. **Build output directory** を `out` から **`dist`** に変更
+4. **Save** 後、**Retry deployment** または新しいデプロイを実行
+
 ### ビルドエラー: `pnpm: command not found`
 
 **原因:** ビルドコマンドで pnpm がインストールされていない
@@ -360,8 +370,8 @@ DevTools → Application → Manifest で警告を確認
 ## 参考リンク
 
 - [Cloudflare Pages 公式ドキュメント](https://developers.cloudflare.com/pages/)
-- [Next.js Static Export](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-- [Next.js on Cloudflare Pages](https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site)
+- [Cloudflare Pages - Build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/)
+- [Vite - Production build](https://vitejs.dev/guide/build.html)
 - [pnpm 公式ドキュメント](https://pnpm.io/)
 
 ---

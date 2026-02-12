@@ -16,8 +16,8 @@
 
 | 技術 | バージョン | 用途・理由 |
 |------|------------|------------|
-| **Next.js** | 16.x | App Router、Turbopack（開発）、本番は Webpack。MCP 対応。 |
-| **React** | 19.x | Server Components、Actions、`use` hook。 |
+| **Vite** | 6.x | ビルドツール（開発サーバー・本番ビルドは Rollup）。 |
+| **React** | 19.x | UI ライブラリ。`use` hook、ref as props 等。 |
 | **TypeScript** | 5.x | 型安全。strict 必須。 |
 | **Tailwind CSS** | v4 | Lightning CSS 統合、CSS-First 設定。システムフォント使用。 |
 
@@ -37,8 +37,8 @@
 
 | 技術 | 用途・理由 |
 |------|------------|
-| **next-pwa** (@ducanh2912/next-pwa) | Service Worker・Manifest 自動生成。 |
-| **public/sw.js** | 地図タイル等のオフラインキャッシュ。 |
+| **vite-plugin-pwa** | Service Worker・Manifest（Workbox）。runtimeCaching で地図タイル等をキャッシュ。 |
+| **dist/sw.js** | ビルド時に生成。地図タイル等のオフラインキャッシュ。 |
 
 ---
 
@@ -87,3 +87,4 @@
 - [データスキーマ](./data-schema.md)
 - [ADR 001: PWA フレームワーク](../architecture/adr-001-pwa-framework.md)
 - [ADR 002: 地図ライブラリ](../architecture/adr-002-map-library.md)
+- [ADR 003: フレームワーク Vite 移行](../architecture/adr-003-framework-vite.md)
