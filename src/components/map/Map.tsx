@@ -30,6 +30,9 @@ interface MapProps {
   geolocationState?: GeolocationState;
   geolocationError?: GeolocationError | null;
   onGetCurrentPosition?: () => void;
+  /** モバイル用: 避難所データを最新に更新（押したときだけ通信） */
+  onRefresh?: () => void;
+  isRefreshing?: boolean;
 }
 
 // 避難所種別に応じたマーカー色
@@ -118,6 +121,8 @@ export function ShelterMap({
   geolocationState,
   geolocationError,
   onGetCurrentPosition,
+  onRefresh,
+  isRefreshing = false,
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
@@ -237,6 +242,45 @@ export function ShelterMap({
         />
         {/* フィルタボタン（モバイルのみ） */}
         <FilterButton />
+
+        {/* データを更新ボタン（モバイルのみ） */}
+        {onRefresh && (
+          <div className="absolute left-4 top-20 z-10 lg:hidden">
+            <button
+              type="button"
+              onClick={() => onRefresh()}
+              disabled={isRefreshing}
+              className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-60"
+              aria-label="避難所データを最新に更新"
+              title="通信して最新の避難所データを取得します"
+            >
+              {isRefreshing ? (
+                <span
+                  className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                  aria-hidden
+                />
+              ) : (
+                <svg
+                  className="h-4 w-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+              )}
+              <span className="text-sm font-medium text-gray-700">
+                {isRefreshing ? '更新中...' : 'データを更新'}
+              </span>
+            </button>
+          </div>
+        )}
 
         {markers}
 

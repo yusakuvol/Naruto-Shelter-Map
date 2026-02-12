@@ -34,7 +34,16 @@ const ShelterMap = dynamic(
 );
 
 function HomePageContent() {
-  const { data, isLoading, error, retry } = useShelters();
+  const {
+    data,
+    isLoading,
+    error,
+    retry,
+    refresh,
+    isRefreshing,
+    refreshError,
+    clearRefreshError,
+  } = useShelters();
   const {
     position,
     state: geolocationState,
@@ -117,6 +126,43 @@ function HomePageContent() {
 
   return (
     <>
+      {/* データ更新失敗時のメッセージ（オフライン等） */}
+      {refreshError && (
+        <div
+          role="alert"
+          aria-live="polite"
+          className="fixed bottom-4 left-4 right-4 z-50 flex items-center justify-between gap-3 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 shadow-lg sm:left-auto sm:right-4 sm:max-w-sm"
+        >
+          <p className="text-sm text-amber-900">
+            {refreshError.message.includes('fetch') ||
+            refreshError.message.includes('Network')
+              ? 'オフラインのため更新できません'
+              : refreshError.message}
+          </p>
+          <button
+            type="button"
+            onClick={clearRefreshError}
+            className="flex-shrink-0 rounded p-1 text-amber-700 hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            aria-label="閉じる"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+
       {/* モバイルレイアウト（< 1024px） */}
       <div className="flex h-screen flex-col lg:hidden">
         {/* 地図エリア（フルスクリーン） */}
@@ -130,6 +176,8 @@ function HomePageContent() {
             geolocationState={geolocationState}
             geolocationError={geolocationError}
             onGetCurrentPosition={getCurrentPosition}
+            onRefresh={refresh}
+            isRefreshing={isRefreshing}
           />
         </main>
       </div>
@@ -147,6 +195,39 @@ function HomePageContent() {
               <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900">
                 避難所マップ
               </h1>
+              <button
+                type="button"
+                onClick={() => void refresh()}
+                disabled={isRefreshing}
+                className="flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
+                aria-label="避難所データを最新に更新"
+                title="通信して最新の避難所データを取得します（通常はキャッシュのみで通信しません）"
+              >
+                {isRefreshing ? (
+                  <span
+                    className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                    aria-hidden
+                  />
+                ) : (
+                  <svg
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    />
+                  </svg>
+                )}
+                <span className="hidden sm:inline">
+                  {isRefreshing ? '更新中...' : 'データを更新'}
+                </span>
+              </button>
             </div>
             <p className="text-sm text-gray-700">
               {listFilter === 'favorites'
