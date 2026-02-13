@@ -1,4 +1,13 @@
-import { lazy, Suspense, useId, useMemo, useState } from 'react';
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useState,
+} from 'react';
+import { Route, Router, useLocation, useParams } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
@@ -32,6 +41,10 @@ const MAP_LOADING_FALLBACK = (
 );
 
 function HomePageContent({ mainContentId }: { mainContentId: string }) {
+  const [, setLocation] = useLocation();
+  const params = useParams<{ id?: string }>();
+  const shelterIdFromUrl = params?.id ?? null;
+
   const {
     data,
     isLoading,
@@ -49,13 +62,44 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     getCurrentPosition,
   } = useGeolocation();
   const { favorites, toggleFavorite } = useFavorites();
-  const [selectedShelterId, setSelectedShelterId] = useState<string | null>(
-    null
-  );
+  const [selectedShelterIdState, setSelectedShelterIdState] = useState<
+    string | null
+  >(null);
   const [sortMode, setSortMode] = useState<SortMode>('name');
   const [listFilter, setListFilter] = useState<'all' | 'favorites'>('all');
-  const [detailModalShelter, setDetailModalShelter] =
-    useState<ShelterFeature | null>(null);
+
+  const selectedShelterId = shelterIdFromUrl ?? selectedShelterIdState;
+  const setSelectedShelterId = useCallback((id: string | null) => {
+    setSelectedShelterIdState(id);
+  }, []);
+
+  const detailModalShelter = useMemo(() => {
+    if (!shelterIdFromUrl || !data?.features) return null;
+    return (
+      data.features.find((f) => f.properties.id === shelterIdFromUrl) ?? null
+    );
+  }, [shelterIdFromUrl, data]);
+
+  const openDetail = useCallback(
+    (shelter: ShelterFeature) => {
+      setLocation(`/shelter/${shelter.properties.id}`);
+    },
+    [setLocation]
+  );
+  const closeDetail = useCallback(() => {
+    setLocation('/');
+  }, [setLocation]);
+
+  // 存在しない id の場合はトップへリダイレクト
+  useEffect(() => {
+    if (
+      shelterIdFromUrl &&
+      data?.features &&
+      !data.features.some((f) => f.properties.id === shelterIdFromUrl)
+    ) {
+      setLocation('/');
+    }
+  }, [shelterIdFromUrl, data?.features, setLocation]);
 
   const allShelters = data?.features ?? [];
   const filteredShelters = useFilteredShelters(allShelters);
@@ -134,7 +178,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
           <button
             type="button"
             onClick={clearRefreshError}
-            className="flex-shrink-0 rounded p-1 text-amber-700 hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="shrink-0 rounded p-1 text-amber-700 hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-400"
             aria-label="閉じる"
           >
             <svg
@@ -162,7 +206,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               shelters={filteredShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
-              onShowDetail={setDetailModalShelter}
+              onShowDetail={openDetail}
               position={position}
               geolocationState={geolocationState}
               geolocationError={geolocationError}
@@ -181,7 +225,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         >
           <header className="border-b p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
-              <h1 className="flex-shrink-0 text-2xl font-bold text-gray-900">
+              <h1 className="shrink-0 text-2xl font-bold text-gray-900">
                 避難所マップ
               </h1>
               <button
@@ -286,10 +330,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               shelters={listShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
-              onShowDetail={(shelter) => {
-                setSelectedShelterId(shelter.properties.id);
-                setDetailModalShelter(shelter);
-              }}
+              onShowDetail={openDetail}
               favorites={favorites}
               onToggleFavorite={toggleFavorite}
               userPosition={position}
@@ -306,7 +347,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               shelters={filteredShelters}
               selectedShelterId={selectedShelterId}
               onShelterSelect={setSelectedShelterId}
-              onShowDetail={setDetailModalShelter}
+              onShowDetail={openDetail}
               position={position}
               geolocationState={geolocationState}
               geolocationError={geolocationError}
@@ -320,7 +361,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         <ShelterDetailModal
           shelter={detailModalShelter}
           isOpen={!!detailModalShelter}
-          onClose={() => setDetailModalShelter(null)}
+          onClose={closeDetail}
           distance={
             position
               ? calculateDistance(
@@ -346,7 +387,14 @@ function App() {
       <ServiceWorkerRegistration />
       <ErrorBoundary>
         <FilterProvider>
-          <HomePageContent mainContentId={mainContentId} />
+          <Router>
+            <Route path="/shelter/:id">
+              <HomePageContent mainContentId={mainContentId} />
+            </Route>
+            <Route path="/">
+              <HomePageContent mainContentId={mainContentId} />
+            </Route>
+          </Router>
         </FilterProvider>
       </ErrorBoundary>
       <OfflineIndicator />
