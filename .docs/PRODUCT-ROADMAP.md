@@ -355,7 +355,7 @@ PWA対応      UX改善     多機能化
 
 ### 外部リソース
 
-- [Next.js Documentation](https://nextjs.org/docs)
+- [Vite Documentation](https://vitejs.dev/)
 - [React Documentation](https://react.dev/)
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
 - [PWA Best Practices](https://web.dev/progressive-web-apps/)
@@ -378,8 +378,8 @@ PWA対応      UX改善     多機能化
 
 ## 🎯 Next Steps
 
-1. **Phase 6（PWA 対応）** の詳細計画策定 → `.docs/06-phase-pwa.md`
-2. Service Worker 実装開始
-3. PWA Lighthouse 監査
+**Phase 0–8 完了済み。** 次の検討事項:
 
-**現在の最優先タスク:** Phase 6 - PWA 対応・オフライン強化
+1. **多言語対応** - 英語 / やさしい日本語
+2. **他市町村対応** - 徳島県全域など
+3. **ドキュメント更新サイクル** - ロードマップの定期見直し（進捗・KPI・優先度）

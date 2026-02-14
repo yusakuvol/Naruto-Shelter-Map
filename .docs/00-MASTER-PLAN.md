@@ -21,7 +21,7 @@
 1. **オフラインファースト**: 電波がなくても避難所情報にアクセス可能
 2. **オープンデータ活用**: 国土地理院・国土交通省の公開データを利用
 3. **最新 Web 技術**: Vite 6, React 19, Tailwind CSS v4, TypeScript, MapLibre GL JS（2026 年 2 月に Next.js から Vite に移行、ADR-003）
-4. **自動更新**: GitHub Actions で毎日データを自動更新
+4. **自動更新**: GitHub Actions で毎週月曜 3:00 JST にデータを自動更新
 5. **オープンソース**: MIT License で誰でも利用・改変可能
 
 ---

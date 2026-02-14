@@ -4,7 +4,7 @@
 >
 > このドキュメントは、AI Coding Agents（Claude, Cursor, GitHub Copilot, etc.）がプロジェクトを理解し、適切なコードを生成するための標準規格です。
 
-**Last Updated:** 2025-12-27
+**Last Updated:** 2026-02-14
 **Project Version:** 1.0.0
 **AI Agent Compatibility:** Claude Code, Cursor, GitHub Copilot, Windsurf
 
