@@ -99,10 +99,10 @@
         "name": "○○小学校",
         "type": "指定避難所",
         "address": "徳島県鳴門市○○町1-1",
-        "disaster_types": ["洪水", "津波"],
+        "disasterTypes": ["洪水", "津波"],
         "capacity": 800,
         "source": "国土地理院オープンデータ",
-        "updated_at": "2025-10-15"
+        "updatedAt": "2025-10-15"
       }
     }
   ]
@@ -115,7 +115,7 @@
 
 ### 必要な環境
 
-- Node.js 22 以上
+- **Node.js 24 以上**（`package.json` の `engines` および `.nvmrc` に準拠）
 - **pnpm 9 以上**
 
 ### インストール手順

@@ -134,7 +134,7 @@ naruto-shelter-map/
 │   └── icons/                  # PWAアイコン
 │
 ├── scripts/
-│   └── fetch_shelters.ts       # データ取得ETLスクリプト
+│   └── fetch-shelters.ts       # データ取得ETLスクリプト
 │
 ├── src/
 │   ├── app/                    # Next.js App Router
@@ -156,7 +156,7 @@ naruto-shelter-map/
 │   │   └── useGeolocation.ts
 │   │
 │   ├── lib/                    # ユーティリティ
-│   │   ├── geojson.ts
+│   │   ├── geo.ts
 │   │   └── maplibre.ts
 │   │
 │   └── types/                  # TypeScript型定義

@@ -103,7 +103,7 @@ cat .docs/03-phase-dev-env.md
 **詳細:** MVP完了後に `.docs/05-phase-automation.md` として作成予定
 
 実装内容:
-- `scripts/fetch_shelters.ts` ETLスクリプト
+- `scripts/fetch-shelters.ts` ETLスクリプト
 - GitHub Actions ワークフロー
 - 自動デプロイ設定
 

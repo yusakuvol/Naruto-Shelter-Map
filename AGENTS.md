@@ -112,28 +112,26 @@ naruto-shelter-map/
 │   ├── main.tsx                  # エントリ（createRoot）
 │   ├── globals.css               # グローバルスタイル（Tailwind v4）
 │   ├── vite-env.d.ts             # Vite クライアント型
-│   ├── components/               # Reactコンポーネント
-│   │   ├── map/
-│   │   │   ├── Map.tsx           # MapLibre地図コンポーネント
-│   │   │   ├── ShelterMarker.tsx # 避難所マーカー
-│   │   │   └── MapControls.tsx   # 地図コントロール
-│   │   ├── search/
-│   │   │   ├── SearchBar.tsx     # 検索バー
-│   │   │   └── SearchResults.tsx # 検索結果
-│   │   └── ui/                   # 共通UIコンポーネント
+│   ├── components/               # Reactコンポーネント（機能別サブフォルダ）
+│   │   ├── map/                 # 地図・マーカー・コントロール
+│   │   ├── shelter/             # 避難所リスト・カード・詳細モーダル
+│   │   ├── filter/              # 災害種別フィルタ
+│   │   ├── pwa/                 # インストール・オフライン表示
+│   │   ├── a11y/                # アクセシビリティ
+│   │   └── ...                  # 詳細は .docs/system/project-structure.md 参照
 │   ├── lib/                      # ユーティリティ・ヘルパー
-│   │   ├── geojson.ts            # GeoJSON処理
+│   │   ├── geo.ts                # 座標・距離等のユーティリティ
 │   │   ├── offline.ts            # オフライン対応
 │   │   └── utils.ts              # 汎用ユーティリティ
 │   ├── types/                    # TypeScript型定義
 │   │   ├── shelter.ts            # 避難所データ型
 │   │   └── map.ts                # 地図関連型
 │   └── hooks/                    # カスタムフック
-│       ├── useMap.ts             # 地図操作
 │       ├── useShelters.ts        # 避難所データ取得
-│       └── useOffline.ts         # オフライン状態検出
+│       ├── useOffline.ts         # オフライン状態検出
+│       └── ...                   # 詳細は .docs/system/project-structure.md 参照
 ├── scripts/                      # ビルド・データ処理スクリプト
-│   └── fetch_shelters.ts         # 国土地理院APIから避難所データ取得
+│   └── fetch-shelters.ts         # 国土地理院APIから避難所データ取得
 ├── index.html                    # エントリ HTML（Vite）
 ├── vite.config.ts                # Vite 設定（PWA 含む）
 ├── biome.json                    # Biome設定（Lint + Format）
@@ -245,7 +243,7 @@ components/
     Map.tsx              # PascalCase（React コンポーネント）
     ShelterMarker.tsx
 lib/
-  geojson.ts           # camelCase（ユーティリティ）
+  geo.ts               # camelCase（ユーティリティ）
   offline.ts
 types/
   shelter.ts           # camelCase（型定義）
@@ -283,8 +281,8 @@ import { useState } from "react";
 import maplibregl from "maplibre-gl";
 
 // 2. 内部モジュール（@/* エイリアス使用）
-import { ShelterMarker } from "@/components/map/ShelterMarker";
-import { fetchShelters } from "@/lib/geojson";
+import { Map } from "@/components/map/Map";
+import { useShelters } from "@/hooks/useShelters";
 import type { ShelterFeature } from "@/types/shelter";
 
 // 3. スタイル
