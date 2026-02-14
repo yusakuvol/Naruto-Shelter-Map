@@ -9,7 +9,7 @@
 避難所データは **GeoJSON FeatureCollection** で保持します。
 
 - **ファイル:** `public/data/shelters.geojson`
-- **更新:** GitHub Actions（毎週月曜 3:00 JST）で `scripts/fetch_shelters.ts` が国土地理院 API から取得・検証。
+- **更新:** GitHub Actions（毎週月曜 3:00 JST）で `scripts/fetch-shelters.ts` が国土地理院 API から取得・検証。
 
 ---
 

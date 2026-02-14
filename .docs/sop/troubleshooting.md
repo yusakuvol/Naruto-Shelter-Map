@@ -69,7 +69,7 @@
 
 - `.github/workflows/update-data.yml` のログを確認。
 - 国土地理院 API の仕様変更・障害の有無を確認。
-- `scripts/fetch_shelters.ts` をローカルで実行し、エラー再現する（`tsx scripts/fetch_shelters.ts` 等）。
+- `scripts/fetch-shelters.ts` をローカルで実行し、エラー再現する（`pnpm tsx scripts/fetch-shelters.ts` 等）。
 
 ### 検証スクリプトでエラーになる
 

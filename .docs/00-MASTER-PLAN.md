@@ -119,7 +119,7 @@ naruto-shelter-map/
 │   └── manifest.json           # PWA Manifest
 │
 ├── scripts/
-│   └── fetch_shelters.ts       # データ取得ETLスクリプト
+│   └── fetch-shelters.ts       # データ取得ETLスクリプト
 │
 ├── src/
 │   ├── App.tsx                 # ルートコンポーネント
@@ -140,7 +140,7 @@ naruto-shelter-map/
 │   │   └── useGeolocation.ts   # 位置情報
 │   │
 │   ├── lib/                    # ユーティリティ
-│   │   ├── geojson.ts          # GeoJSON処理
+│   │   ├── geo.ts              # 座標・距離等のユーティリティ
 │   │   └── maplibre.ts         # MapLibre設定
 │   │
 │   └── types/                  # TypeScript型定義
@@ -294,7 +294,7 @@ naruto-shelter-map/
 
 #### タスク
 
-- [x] `scripts/fetch_shelters.ts` 実装
+- [x] `scripts/fetch-shelters.ts` 実装
 - [x] GitHub Actions ワークフロー作成（毎週月曜 3:00 JST）
 - [x] 自動デプロイ設定
 - [x] データ検証機能実装

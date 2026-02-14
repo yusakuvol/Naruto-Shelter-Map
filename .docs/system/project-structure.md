@@ -28,7 +28,7 @@ naruto-shelter-map/
 │   └── sw.js                       # Service Worker
 │
 ├── scripts/
-│   ├── fetch_shelters.ts           # 国土地理院APIからデータ取得
+│   ├── fetch-shelters.ts           # 国土地理院APIからデータ取得
 │   ├── geocode-shelters.ts         # ジオコーディング
 │   └── validate-shelters.ts        # データ検証
 │

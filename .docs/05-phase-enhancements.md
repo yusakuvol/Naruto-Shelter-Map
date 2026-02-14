@@ -152,7 +152,7 @@ function toRad(degrees: number): number {
 **成果物:**
 - `scripts/fetch-shelters.ts`（ETLスクリプト）
 - `.github/workflows/update-shelters.yml`
-- `scripts/validate-geojson.ts`（データ検証）
+- `scripts/validate-shelters.ts`（データ検証）
 
 **技術仕様:**
 
@@ -227,7 +227,7 @@ jobs:
         run: pnpm tsx scripts/fetch-shelters.ts
 
       - name: Validate GeoJSON
-        run: pnpm tsx scripts/validate-geojson.ts
+        run: pnpm tsx scripts/validate-shelters.ts
 
       - name: Check for changes
         id: changes
