@@ -17,7 +17,6 @@ const DISASTER_KEYWORDS = [
   '土砂',
   '地震',
   '火災',
-  '高潮',
   '津波対応',
   '洪水対応',
   '土砂災害',
@@ -26,7 +25,7 @@ const DISASTER_KEYWORDS = [
 ];
 const NEAREST_KEYWORDS = ['近い', '一番近い', '最寄り', '近く', '距離', '近所'];
 const CAPACITY_KEYWORDS = ['収容', '定員', '人数', '何人', 'キャパ'];
-const SHELTER_TYPE_KEYWORDS = ['指定避難所', '緊急避難場所', '指定', '緊急'];
+const SHELTER_TYPE_KEYWORDS = ['指定避難所', '緊急避難場所'];
 const COUNT_KEYWORDS = ['何件', 'いくつ', '件数', '一覧', 'いくつある', '何個'];
 
 /**

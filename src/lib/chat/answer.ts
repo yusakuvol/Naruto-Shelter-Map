@@ -127,8 +127,8 @@ function answerPlaceOrName(query: string, features: ShelterFeature[]): string {
 }
 
 function answerShelterType(query: string, features: ShelterFeature[]): string {
-  const isDesignated = query.includes('指定避難所') || query.includes('指定');
-  const isEmergency = query.includes('緊急避難場所') || query.includes('緊急');
+  const isDesignated = query.includes('指定避難所');
+  const isEmergency = query.includes('緊急避難場所');
   let matched: ShelterFeature[];
   let label: string;
   if (isDesignated && !isEmergency) {
@@ -137,6 +137,11 @@ function answerShelterType(query: string, features: ShelterFeature[]): string {
   } else if (isEmergency && !isDesignated) {
     matched = features.filter((f) => f.properties.type === '緊急避難場所');
     label = '緊急避難場所';
+  } else if (isDesignated && isEmergency) {
+    matched = features.filter((f) =>
+      ['指定避難所', '緊急避難場所', '両方'].includes(f.properties.type)
+    );
+    label = '指定避難所・緊急避難場所・両方';
   } else {
     matched = features.filter((f) => f.properties.type === '両方');
     label = '両方';

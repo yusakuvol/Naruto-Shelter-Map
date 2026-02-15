@@ -17,7 +17,7 @@ export function ChatMessage({
           isUser ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'
         }`}
       >
-        <p className="whitespace-pre-line wrap-break-word">{content}</p>
+        <p className="whitespace-pre-line break-words">{content}</p>
       </div>
     </div>
   );

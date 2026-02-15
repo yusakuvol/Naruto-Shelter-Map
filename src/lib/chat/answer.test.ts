@@ -100,6 +100,24 @@ describe('buildAnswer', () => {
     expect(res).toContain('松茂町');
   });
 
+  it('shelter_type: 指定と緊急の両方のときは3種すべてを返す', () => {
+    const features = [
+      makeFeature({ id: 'a', name: 'A', type: '指定避難所' }),
+      makeFeature({ id: 'b', name: 'B', type: '緊急避難場所' }),
+      makeFeature({ id: 'c', name: 'C', type: '両方' }),
+    ];
+    const res = buildAnswer({
+      intent: 'shelter_type',
+      query: '指定避難所と緊急避難場所は？',
+      features,
+    });
+    expect(res).toContain('3 件');
+    expect(res).toContain('指定避難所・緊急避難場所・両方');
+    expect(res).toContain('A');
+    expect(res).toContain('B');
+    expect(res).toContain('C');
+  });
+
   it('unknown: 案内文を返す', () => {
     const res = buildAnswer({
       intent: 'unknown',

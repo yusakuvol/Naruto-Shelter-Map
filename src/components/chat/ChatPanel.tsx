@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { buildAnswer, classifyIntent } from '@/lib/chat';
 import type { Coordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
@@ -30,6 +30,17 @@ export function ChatPanel({
 }: ChatPanelProps): React.ReactElement {
   const [messages, setMessages] = useState<ChatMessageEntry[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // 新着メッセージ表示後に最下部へスクロール（レビュー指摘対応）
+  // biome-ignore lint/correctness/useExhaustiveDependencies: messages 変更時にスクロールする意図
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({
+        top: scrollRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [messages]);
 
   const handleSubmit = useCallback(
     (query: string) => {
