@@ -52,7 +52,7 @@
     "@vitejs/plugin-react": "^5.1.4",
     "vite": "^6.3.5",
     "vite-plugin-pwa": "^0.21.1",
-    "jsdom": "^28.0.0",
+    "jsdom": "^28.1.0",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
