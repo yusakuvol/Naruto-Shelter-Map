@@ -37,7 +37,7 @@ describe('formatSheltersForContext', () => {
   });
 
   it('capacity がない場合は（未登録）', () => {
-    const features = [makeFeature({ capacity: undefined })];
+    const features = [makeFeature()];
     const result = formatSheltersForContext(features);
     expect(result).toContain('（未登録）');
   });
