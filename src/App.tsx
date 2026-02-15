@@ -9,6 +9,9 @@ import {
 } from 'react';
 import { Route, Router, useLocation, useParams } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
+import { ChatFab } from '@/components/chat/ChatFab';
+import { ChatModal } from '@/components/chat/ChatModal';
+import { ChatPanel } from '@/components/chat/ChatPanel';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
@@ -66,7 +69,10 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     string | null
   >(null);
   const [sortMode, setSortMode] = useState<SortMode>('name');
-  const [listFilter, setListFilter] = useState<'all' | 'favorites'>('all');
+  const [listFilter, setListFilter] = useState<'all' | 'favorites' | 'chat'>(
+    'all'
+  );
+  const [chatModalOpen, setChatModalOpen] = useState(false);
 
   const selectedShelterId = shelterIdFromUrl ?? selectedShelterIdState;
   const setSelectedShelterId = useCallback((id: string | null) => {
@@ -199,7 +205,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         </div>
       )}
 
-      <div className="flex h-screen flex-col lg:hidden">
+      <div className="relative flex h-screen flex-col lg:hidden">
         <main id={mainContentId} className="relative min-h-0 flex-1">
           <Suspense fallback={MAP_LOADING_FALLBACK}>
             <ShelterMap
@@ -216,6 +222,9 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
             />
           </Suspense>
         </main>
+        <div className="absolute bottom-20 left-4 z-10">
+          <ChatFab onClick={() => setChatModalOpen(true)} />
+        </div>
       </div>
 
       <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
@@ -263,9 +272,11 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               </button>
             </div>
             <p className="text-sm text-gray-700">
-              {listFilter === 'favorites'
-                ? `${listShelters.length}件のお気に入り`
-                : `${filteredShelters.length}件の避難所`}
+              {listFilter === 'chat'
+                ? '避難所について質問'
+                : listFilter === 'favorites'
+                  ? `${listShelters.length}件のお気に入り`
+                  : `${filteredShelters.length}件の避難所`}
               {listFilter === 'all' &&
                 filteredShelters.length !== allShelters.length && (
                   <span className="ml-1 text-gray-700">
@@ -307,6 +318,19 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               >
                 お気に入り{favorites.size > 0 && ` (${favorites.size})`}
               </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={listFilter === 'chat'}
+                className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  listFilter === 'chat'
+                    ? 'bg-gray-100 text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+                onClick={() => setListFilter('chat')}
+              >
+                チャット
+              </button>
             </div>
           </div>
 
@@ -314,30 +338,42 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
             <DisasterTypeFilter />
           </nav>
 
-          <div className="border-b p-4">
-            <SortToggle
-              mode={sortMode}
-              onModeChange={setSortMode}
-              disabled={!position}
-            />
-          </div>
+          {listFilter !== 'chat' && (
+            <div className="border-b p-4">
+              <SortToggle
+                mode={sortMode}
+                onModeChange={setSortMode}
+                disabled={!position}
+              />
+            </div>
+          )}
 
           <nav
-            aria-label="避難所一覧"
+            aria-label={
+              listFilter === 'chat' ? '避難所について質問' : '避難所一覧'
+            }
             className="min-h-0 flex-1 overflow-hidden"
           >
-            <ShelterList
-              shelters={listShelters}
-              selectedShelterId={selectedShelterId}
-              onShelterSelect={setSelectedShelterId}
-              onShowDetail={openDetail}
-              favorites={favorites}
-              onToggleFavorite={toggleFavorite}
-              userPosition={position}
-              {...(listFilter === 'favorites' && {
-                emptyMessage: 'お気に入りに追加した避難所がここに表示されます',
-              })}
-            />
+            {listFilter === 'chat' ? (
+              <ChatPanel
+                shelters={filteredShelters}
+                userPosition={position ?? null}
+              />
+            ) : (
+              <ShelterList
+                shelters={listShelters}
+                selectedShelterId={selectedShelterId}
+                onShelterSelect={setSelectedShelterId}
+                onShowDetail={openDetail}
+                favorites={favorites}
+                onToggleFavorite={toggleFavorite}
+                userPosition={position}
+                {...(listFilter === 'favorites' && {
+                  emptyMessage:
+                    'お気に入りに追加した避難所がここに表示されます',
+                })}
+              />
+            )}
           </nav>
         </aside>
 
@@ -375,6 +411,13 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
           onToggleFavorite={toggleFavorite}
         />
       )}
+
+      <ChatModal
+        isOpen={chatModalOpen}
+        onClose={() => setChatModalOpen(false)}
+        shelters={filteredShelters}
+        userPosition={position ?? null}
+      />
     </>
   );
 }
