@@ -50,10 +50,7 @@ export function ChatModal({
       aria-labelledby={titleId}
     >
       <header className="flex shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 py-3">
-        <h2
-          id={titleId}
-          className="text-lg font-bold text-gray-900"
-        >
+        <h2 id={titleId} className="text-lg font-bold text-gray-900">
           避難所について質問
         </h2>
         <button

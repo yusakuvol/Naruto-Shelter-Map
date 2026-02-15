@@ -11,8 +11,7 @@ const DEFAULT_MAX_ITEMS = 100;
  */
 function formatOneShelterLine(feature: ShelterFeature): string {
   const p = feature.properties;
-  const capacityStr =
-    p.capacity != null ? `${p.capacity}人` : '（未登録）';
+  const capacityStr = p.capacity != null ? `${p.capacity}人` : '（未登録）';
   const regionStr = p.regionName ?? '';
   const disasterStr = p.disasterTypes.join(',');
   return `- ID: ${p.id} | 名前: ${p.name} | 種別: ${p.type} | 住所: ${p.address} | 災害: ${disasterStr} | 収容: ${capacityStr} | 地域: ${regionStr}`;

@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import type { Coordinates } from '@/lib/geo';
 import { buildAnswer, classifyIntent } from '@/lib/chat';
+import type { Coordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 import { ChatInput } from './ChatInput';
 import { ChatMessage } from './ChatMessage';
@@ -61,10 +61,7 @@ export function ChatPanel({
   const isLoading = shelters.length === 0 && messages.length === 0;
 
   return (
-    <section
-      className="flex h-full flex-col"
-      aria-label="避難所について質問"
-    >
+    <section className="flex h-full flex-col" aria-label="避難所について質問">
       <div
         ref={scrollRef}
         className="min-h-0 flex-1 overflow-y-auto p-3"

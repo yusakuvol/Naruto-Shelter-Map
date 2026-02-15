@@ -1,3 +1,3 @@
-export { buildAnswer, type AnswerParams } from './answer';
+export { type AnswerParams, buildAnswer } from './answer';
 export { formatSheltersForContext } from './formatContext';
-export { classifyIntent, type ChatIntent } from './intent';
+export { type ChatIntent, classifyIntent } from './intent';

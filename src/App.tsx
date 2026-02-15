@@ -9,6 +9,9 @@ import {
 } from 'react';
 import { Route, Router, useLocation, useParams } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
+import { ChatFab } from '@/components/chat/ChatFab';
+import { ChatModal } from '@/components/chat/ChatModal';
+import { ChatPanel } from '@/components/chat/ChatPanel';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
@@ -16,9 +19,6 @@ import { InstallPrompt } from '@/components/pwa/InstallPrompt';
 import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
 import { ServiceWorkerRegistration } from '@/components/pwa/ServiceWorkerRegistration';
 import { UpdateNotification } from '@/components/pwa/UpdateNotification';
-import { ChatFab } from '@/components/chat/ChatFab';
-import { ChatModal } from '@/components/chat/ChatModal';
-import { ChatPanel } from '@/components/chat/ChatPanel';
 import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
@@ -349,7 +349,9 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
           )}
 
           <nav
-            aria-label={listFilter === 'chat' ? '避難所について質問' : '避難所一覧'}
+            aria-label={
+              listFilter === 'chat' ? '避難所について質問' : '避難所一覧'
+            }
             className="min-h-0 flex-1 overflow-hidden"
           >
             {listFilter === 'chat' ? (
@@ -367,7 +369,8 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
                 onToggleFavorite={toggleFavorite}
                 userPosition={position}
                 {...(listFilter === 'favorites' && {
-                  emptyMessage: 'お気に入りに追加した避難所がここに表示されます',
+                  emptyMessage:
+                    'お気に入りに追加した避難所がここに表示されます',
                 })}
               />
             )}

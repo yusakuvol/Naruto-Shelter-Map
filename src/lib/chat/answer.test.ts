@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { buildAnswer } from './answer';
 import type { ShelterFeature } from '@/types/shelter';
+import { buildAnswer } from './answer';
 
 function makeFeature(
   overrides: Partial<ShelterFeature['properties']> & {
@@ -53,7 +53,11 @@ describe('buildAnswer', () => {
   it('nearest: 位置情報ありのとき距離順', () => {
     const features = [
       makeFeature({ id: 'far', name: 'Far', coordinates: [134.6, 34.2] }),
-      makeFeature({ id: 'near', name: 'Near', coordinates: [134.5001, 34.1001] }),
+      makeFeature({
+        id: 'near',
+        name: 'Near',
+        coordinates: [134.5001, 34.1001],
+      }),
     ];
     const res = buildAnswer({
       intent: 'nearest',

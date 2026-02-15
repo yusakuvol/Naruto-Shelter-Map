@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { formatSheltersForContext } from './formatContext';
 import type { ShelterFeature } from '@/types/shelter';
+import { formatSheltersForContext } from './formatContext';
 
-function makeFeature(overrides: Partial<ShelterFeature['properties']> = {}): ShelterFeature {
+function makeFeature(
+  overrides: Partial<ShelterFeature['properties']> = {}
+): ShelterFeature {
   return {
     type: 'Feature',
     geometry: { type: 'Point', coordinates: [134.5, 34.1] },
@@ -28,7 +30,9 @@ describe('formatSheltersForContext', () => {
   });
 
   it('1件の場合は1行の避難所データが含まれる', () => {
-    const features = [makeFeature({ id: 's1', name: 'A避難所', capacity: 100 })];
+    const features = [
+      makeFeature({ id: 's1', name: 'A避難所', capacity: 100 }),
+    ];
     const result = formatSheltersForContext(features);
     expect(result).toContain('ID: s1');
     expect(result).toContain('名前: A避難所');

@@ -3,10 +3,10 @@
  * 設計: .docs/issues/279-design-spec.md 2.2, 2.3
  */
 import {
+  type Coordinates,
   calculateDistance,
   formatDistance,
   toCoordinates,
-  type Coordinates,
 } from '@/lib/geo';
 import type { DisasterType, ShelterFeature } from '@/types/shelter';
 import type { ChatIntent } from './intent';
@@ -53,9 +53,7 @@ function answerDisaster(query: string, features: ShelterFeature[]): string {
   );
   const rest = matched.length - list.length;
   const restMsg =
-    rest > 0
-      ? `\n他 ${rest} 件あります。地図・リストでご確認ください。`
-      : '';
+    rest > 0 ? `\n他 ${rest} 件あります。地図・リストでご確認ください。` : '';
   return `${disaster}に対応している避難所は現在の地図上に ${matched.length} 件あります。\n${lines.join('\n')}${restMsg}`;
 }
 
@@ -68,10 +66,7 @@ function answerNearest(
   }
   const withDistance = features.map((f) => ({
     feature: f,
-    km: calculateDistance(
-      userPosition,
-      toCoordinates(f.geometry.coordinates)
-    ),
+    km: calculateDistance(userPosition, toCoordinates(f.geometry.coordinates)),
   }));
   withDistance.sort((a, b) => a.km - b.km);
   const top = withDistance.slice(0, MAX_LIST_ITEMS);
@@ -115,11 +110,7 @@ function answerPlaceOrName(query: string, features: ShelterFeature[]): string {
     const name = f.properties.name ?? '';
     const address = f.properties.address ?? '';
     const region = f.properties.regionName ?? '';
-    return (
-      name.includes(q) ||
-      address.includes(q) ||
-      region.includes(q)
-    );
+    return name.includes(q) || address.includes(q) || region.includes(q);
   });
   if (matched.length === 0) {
     return `「${q}」に一致する避難所は、現在の地図上には見つかりませんでした。`;
