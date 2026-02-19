@@ -112,7 +112,7 @@ export const CurrentLocationButton: FC<CurrentLocationButtonProps> = ({
       disabled={state === 'loading'}
       className={cn(
         // Googleマップ風: 円形、白背景、影
-        'flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-lg transition-all',
+        'flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg transition-all',
         'hover:shadow-xl active:shadow-md',
         'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
         'disabled:cursor-not-allowed disabled:opacity-75',

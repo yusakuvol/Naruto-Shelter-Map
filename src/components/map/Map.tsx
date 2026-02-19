@@ -240,17 +240,15 @@ export function ShelterMap({
           showCompass={false}
           showZoom={true}
         />
-        {/* フィルタボタン（モバイルのみ） */}
-        <FilterButton />
-
-        {/* データを更新ボタン（モバイルのみ） */}
-        {onRefresh && (
-          <div className="absolute left-4 top-20 z-10 lg:hidden">
+        {/* モバイル用: フィルタ + データ更新ボタン（横並び） */}
+        <div className="absolute left-4 top-4 z-10 flex items-center gap-2 lg:hidden">
+          <FilterButton />
+          {onRefresh && (
             <button
               type="button"
               onClick={() => onRefresh()}
               disabled={isRefreshing}
-              className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-60"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-60"
               aria-label="避難所データを最新に更新"
               title="通信して最新の避難所データを取得します"
             >
@@ -275,12 +273,9 @@ export function ShelterMap({
                   />
                 </svg>
               )}
-              <span className="text-sm font-medium text-gray-700">
-                {isRefreshing ? '更新中...' : 'データを更新'}
-              </span>
             </button>
-          </div>
-        )}
+          )}
+        </div>
 
         {markers}
 
@@ -406,8 +401,8 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - モバイル: 右下（タブバーの上 = より下に配置）、PC: 右下 */}
-      <div className="absolute bottom-10 right-4 z-10 lg:bottom-10 lg:right-4">
+      {/* 現在地ボタン - モバイル: 右下、PC: 右下 */}
+      <div className="absolute bottom-20 right-4 z-10 lg:bottom-10 lg:right-4">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}

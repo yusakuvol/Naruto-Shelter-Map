@@ -222,7 +222,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
             />
           </Suspense>
         </main>
-        <div className="absolute bottom-20 left-4 z-10">
+        <div className="absolute bottom-34 right-4 z-10">
           <ChatFab onClick={() => setChatModalOpen(true)} />
         </div>
       </div>
