@@ -60,4 +60,9 @@
   padding: 8px;
 }
 
-/* モバイルでもナビゲーションコントロールを表示（右上に配置） */
+/* モバイルではズームコントロールを非表示（ピンチ操作で十分） */
+@media (max-width: 1023px) {
+  .maplibregl-ctrl-top-right {
+    display: none;
+  }
+}
