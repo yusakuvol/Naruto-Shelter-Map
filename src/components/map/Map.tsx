@@ -14,11 +14,11 @@ import type {
   GeolocationState,
 } from '@/hooks/useGeolocation';
 import { generateNavigationURL } from '@/lib/navigation';
-import { getShelterIcon } from '@/lib/shelterIcons';
 import { MAP_STYLES } from '@/types/map';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
 import { FilterButton } from './FilterButton';
+import { ShelterPinMarker } from './ShelterPinMarker';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 interface MapProps {
@@ -33,36 +33,6 @@ interface MapProps {
   /** モバイル用: 避難所データを最新に更新（押したときだけ通信） */
   onRefresh?: () => void;
   isRefreshing?: boolean;
-}
-
-// 避難所種別に応じたマーカー色
-// WCAG 2.1 AA準拠（コントラスト比4.5:1以上）のため、白テキスト（#ffffff）との組み合わせを考慮
-function getShelterColor(type: string): string {
-  switch (type) {
-    case '指定避難所':
-      return '#2563eb'; // 青（blue-600）- コントラスト比: 4.5:1
-    case '緊急避難場所':
-      return '#dc2626'; // 赤（red-600）- コントラスト比: 5.1:1
-    case '両方':
-      return '#6d28d9'; // 紫（violet-700）- コントラスト比: 4.5:1（violet-600から変更）
-    default:
-      return '#4b5563'; // グレー（gray-600）- コントラスト比: 7.0:1
-  }
-}
-
-// 避難所種別に応じたマーカー形状
-// WCAG 1.4.1 Use of Color (Level A) に対応: 色だけでなく形状でも区別可能にする
-function getShelterShape(type: string): string {
-  switch (type) {
-    case '指定避難所':
-      return 'rounded-full'; // 円形
-    case '緊急避難場所':
-      return 'rounded-sm'; // 四角形（角丸）
-    case '両方':
-      return 'rounded-full'; // 円形（星アイコンで区別）
-    default:
-      return 'rounded-full'; // 円形
-  }
 }
 
 // 地図の移動を制御する内部コンポーネント
@@ -176,8 +146,6 @@ export function ShelterMap({
 
         if (lng === undefined || lat === undefined) return null;
 
-        const color = getShelterColor(shelter.properties.type);
-        const shape = getShelterShape(shelter.properties.type);
         const isSelected = selectedShelterId === shelter.properties.id;
 
         return (
@@ -188,22 +156,7 @@ export function ShelterMap({
             anchor="bottom"
             onClick={() => handleMarkerClick(shelter)}
           >
-            <button
-              type="button"
-              className={`flex cursor-pointer items-center justify-center border-4 shadow-xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${shape} ${
-                isSelected
-                  ? 'h-12 w-12 border-blue-500 ring-2 ring-blue-300'
-                  : 'h-10 w-10 border-white'
-              }`}
-              style={{ backgroundColor: color }}
-              aria-label={`${shelter.properties.name}（${shelter.properties.type}）を選択`}
-              aria-pressed={isSelected}
-              title={`${shelter.properties.name}\n種別: ${shelter.properties.type}\n住所: ${shelter.properties.address}`}
-            >
-              {getShelterIcon(shelter.properties.type, {
-                className: 'h-6 w-6 text-white',
-              })}
-            </button>
+            <ShelterPinMarker shelter={shelter} isSelected={isSelected} />
           </Marker>
         );
       }),

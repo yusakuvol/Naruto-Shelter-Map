@@ -5,6 +5,7 @@ import type { FC, ReactElement, SVGProps } from 'react';
  *
  * WCAG 1.4.1 Use of Color (Level A) に対応
  * 色だけでなくアイコンでも避難所タイプを識別可能にする
+ * 塗りつぶし（fill-based）デザインで小サイズでも高い視認性を確保
  *
  * @see https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
  */
@@ -14,8 +15,8 @@ interface ShelterIconProps extends SVGProps<SVGSVGElement> {
 }
 
 /**
- * 指定避難所アイコン（JIS 6.1.5 避難所（建物））
- * 図材: 屋根のある施設及び施設に逃げ込む人の姿
+ * 指定避難所アイコン（建物）
+ * 太い屋根＋四角の本体のシンプルな家形状
  */
 export const DesignatedShelterIcon: FC<ShelterIconProps> = ({
   className = 'h-4 w-4',
@@ -23,27 +24,18 @@ export const DesignatedShelterIcon: FC<ShelterIconProps> = ({
 }) => (
   <svg
     className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    viewBox="0 0 24 24"
+    viewBox="0 0 16 16"
+    fill="currentColor"
     aria-hidden="true"
     {...props}
   >
-    {/* 建物（屋根＋本体） */}
-    <path d="M12 4L5 11v9h14V11L12 4z" />
-    {/* 入口（開いたドア） */}
-    <path d="M11 20V14h2v6" />
-    {/* 逃げ込む人（頭部） */}
-    <circle cx="12" cy="13" r="1.5" fill="currentColor" />
+    <path d="M8 1.5L1.5 7H3v6.5h10V7h1.5L8 1.5zM7 11V9h2v2H7z" />
   </svg>
 );
 
 /**
- * 緊急避難場所アイコン（JIS 6.1.4 広域避難場所に準拠）
- * 図材: 走る人の姿及び場所を示すだ円
+ * 緊急避難場所アイコン（走る人）
+ * 大きめの頭部＋太い四肢でダイナミックなポーズ
  */
 export const EmergencyShelterIcon: FC<ShelterIconProps> = ({
   className = 'h-4 w-4',
@@ -51,27 +43,26 @@ export const EmergencyShelterIcon: FC<ShelterIconProps> = ({
 }) => (
   <svg
     className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    viewBox="0 0 24 24"
+    viewBox="0 0 16 16"
+    fill="currentColor"
     aria-hidden="true"
     {...props}
   >
-    {/* だ円（場所） */}
-    <ellipse cx="12" cy="12" rx="9" ry="6" />
-    {/* 走る人（頭・腕・脚） */}
-    <circle cx="12" cy="9" r="1.8" fill="currentColor" />
-    <path d="M12 11v2M11 13l-1.5 3M13 13l1.5 3" />
-    <path d="M10 11l-2 1M14 11l2 1" />
+    <circle cx="11" cy="2.8" r="2" />
+    <path
+      d="M6.5 5.5l4 1v3l2.5 4M10.5 9.5L7 14M4.5 7.5l5-1"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
   </svg>
 );
 
 /**
- * 両方（指定避難所 + 緊急避難場所）アイコン（JIS 避難所＋両方である印）
- * 図材: 建物＋人＋「両方」を示す＋
+ * 両方（指定避難所＋緊急避難場所）アイコン（シールド/盾）
+ * 「安全な場所」を直感的に伝え、他2つのアイコンと明確に区別
  */
 export const BothShelterIcon: FC<ShelterIconProps> = ({
   className = 'h-4 w-4',
@@ -79,27 +70,17 @@ export const BothShelterIcon: FC<ShelterIconProps> = ({
 }) => (
   <svg
     className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    viewBox="0 0 24 24"
+    viewBox="0 0 16 16"
+    fill="currentColor"
     aria-hidden="true"
     {...props}
   >
-    {/* 建物＋人（指定避難所と同じベース） */}
-    <path d="M12 4L5 11v9h14V11L12 4z" />
-    <path d="M11 20V14h2v6" />
-    <circle cx="12" cy="13" r="1.5" fill="currentColor" />
-    {/* 両方であることを示す＋（右上） */}
-    <path d="M17 6h2M18 5v2" strokeWidth="2.5" />
+    <path d="M8 0.5L2 3v4.5c0 3.8 2.6 7 6 8.5 3.4-1.5 6-4.7 6-8.5V3L8 0.5z" />
   </svg>
 );
 
 /**
  * 避難所タイプに応じたアイコンを返すヘルパー関数
- * JIS 避難誘導図記号に準拠したアイコンで種別を識別可能に
  */
 export function getShelterIcon(
   type: string,
