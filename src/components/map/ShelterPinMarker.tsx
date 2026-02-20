@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 
 interface ShelterPinMarkerProps {
@@ -39,7 +38,7 @@ function ShelterPinMarkerComponent({
       aria-pressed={isSelected}
       title={`${name}\n種別: ${type}\n住所: ${shelter.properties.address}`}
     >
-      {/* ティアドロップ型ピン（高解像度viewBoxでCSS制御） */}
+      {/* ティアドロップ型ピン */}
       <svg
         viewBox="0 0 56 76"
         className="block h-[38px] w-[28px]"
@@ -50,16 +49,9 @@ function ShelterPinMarkerComponent({
           d="M28 0C12.536 0 0 12.536 0 28c0 6.83 4.2 15.2 9.8 22.4C16.1 59.2 28 76 28 76s11.9-16.8 18.2-25.6C51.8 43.2 56 34.83 56 28 56 12.536 43.464 0 28 0z"
           fill={color}
         />
-        {/* 白丸のアイコン背景 */}
-        <circle cx="28" cy="26" r="14" fill="white" />
+        {/* 中央の白丸ドット */}
+        <circle cx="28" cy="26" r="9" fill="white" />
       </svg>
-      {/* ピン中央のカラーアイコン */}
-      <div
-        className="absolute top-[6px] left-1/2 flex h-[18px] w-[18px] -translate-x-1/2 items-center justify-center"
-        style={{ color }}
-      >
-        {getShelterIcon(type, { className: 'h-3 w-3' })}
-      </div>
       {/* 選択時のパルスリング */}
       {isSelected && (
         <div
