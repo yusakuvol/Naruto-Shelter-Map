@@ -21,27 +21,12 @@ function getShelterColor(type: string): string {
   }
 }
 
-/** ピンのアウトライン用の暗い色 */
-function getShelterDarkerColor(type: string): string {
-  switch (type) {
-    case '指定避難所':
-      return '#1d4ed8';
-    case '緊急避難場所':
-      return '#b91c1c';
-    case '両方':
-      return '#6d28d9';
-    default:
-      return '#374151';
-  }
-}
-
 function ShelterPinMarkerComponent({
   shelter,
   isSelected,
 }: ShelterPinMarkerProps) {
   const { name, type } = shelter.properties;
   const color = getShelterColor(type);
-  const darkerColor = getShelterDarkerColor(type);
 
   return (
     <button
@@ -49,32 +34,31 @@ function ShelterPinMarkerComponent({
       className={`relative flex cursor-pointer flex-col items-center transition-transform duration-200 ease-out focus:outline-none ${
         isSelected ? 'z-10 scale-125' : 'hover:scale-110'
       }`}
-      style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
+      style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.35))' }}
       aria-label={`${name}（${type}）を選択`}
       aria-pressed={isSelected}
       title={`${name}\n種別: ${type}\n住所: ${shelter.properties.address}`}
     >
-      {/* ティアドロップ型ピン */}
+      {/* ティアドロップ型ピン（高解像度viewBoxでCSS制御） */}
       <svg
-        width="28"
-        height="38"
-        viewBox="0 0 28 38"
+        viewBox="0 0 56 76"
+        className="block h-[38px] w-[28px]"
         fill="none"
         aria-hidden="true"
-        className="block"
       >
         <path
-          d="M14 0C6.27 0 0 6.27 0 14c0 10.5 14 24 14 24s14-13.5 14-24C28 6.27 21.73 0 14 0z"
+          d="M28 0C12.536 0 0 12.536 0 28c0 6.83 4.2 15.2 9.8 22.4C16.1 59.2 28 76 28 76s11.9-16.8 18.2-25.6C51.8 43.2 56 34.83 56 28 56 12.536 43.464 0 28 0z"
           fill={color}
-          stroke={darkerColor}
-          strokeWidth="1.5"
         />
-        {/* アイコン背景の半透明円 */}
-        <circle cx="14" cy="13" r="8" fill="white" fillOpacity="0.2" />
+        {/* 白丸のアイコン背景 */}
+        <circle cx="28" cy="26" r="14" fill="white" />
       </svg>
-      {/* ピン中央の白アイコン */}
-      <div className="absolute top-[5px] left-1/2 flex h-[18px] w-[18px] -translate-x-1/2 items-center justify-center text-white">
-        {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
+      {/* ピン中央のカラーアイコン */}
+      <div
+        className="absolute top-[6px] left-1/2 flex h-[18px] w-[18px] -translate-x-1/2 items-center justify-center"
+        style={{ color }}
+      >
+        {getShelterIcon(type, { className: 'h-3 w-3' })}
       </div>
       {/* 選択時のパルスリング */}
       {isSelected && (
