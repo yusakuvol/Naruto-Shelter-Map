@@ -33,6 +33,8 @@ interface MapProps {
   /** モバイル用: 避難所データを最新に更新（押したときだけ通信） */
   onRefresh?: () => void;
   isRefreshing?: boolean;
+  /** 利用規約モーダルを開く */
+  onShowTerms?: () => void;
 }
 
 // 地図の移動を制御する内部コンポーネント
@@ -93,6 +95,7 @@ export function ShelterMap({
   onGetCurrentPosition,
   onRefresh,
   isRefreshing = false,
+  onShowTerms,
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
@@ -226,6 +229,30 @@ export function ShelterMap({
                   />
                 </svg>
               )}
+            </button>
+          )}
+          {onShowTerms && (
+            <button
+              type="button"
+              onClick={onShowTerms}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              aria-label="利用規約を表示"
+              title="利用規約"
+            >
+              <svg
+                className="h-4 w-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </button>
           )}
         </div>

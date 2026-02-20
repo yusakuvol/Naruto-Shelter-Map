@@ -15,6 +15,7 @@ import { ChatPanel } from '@/components/chat/ChatPanel';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
+import { TermsModal } from '@/components/legal/TermsModal';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
 import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
 import { ServiceWorkerRegistration } from '@/components/pwa/ServiceWorkerRegistration';
@@ -47,6 +48,8 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
   const [, setLocation] = useLocation();
   const [match, params] = useRoute('/shelter/:id');
   const shelterIdFromUrl = match ? (params.id ?? null) : null;
+  const [termsMatch] = useRoute('/terms');
+  const showTerms = !!termsMatch;
 
   const {
     data,
@@ -98,6 +101,13 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     }
     setLocation('/');
   }, [setLocation, shelterIdFromUrl]);
+
+  const openTerms = useCallback(() => {
+    setLocation('/terms');
+  }, [setLocation]);
+  const closeTerms = useCallback(() => {
+    setLocation('/');
+  }, [setLocation]);
 
   // 存在しない id の場合はトップへリダイレクト
   useEffect(() => {
@@ -222,6 +232,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               onGetCurrentPosition={getCurrentPosition}
               onRefresh={refresh}
               isRefreshing={isRefreshing}
+              onShowTerms={openTerms}
             />
           </Suspense>
         </main>
@@ -240,20 +251,47 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               <h1 className="shrink-0 text-2xl font-bold text-gray-900">
                 避難所マップ
               </h1>
-              <button
-                type="button"
-                onClick={() => void refresh()}
-                disabled={isRefreshing}
-                className="flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
-                aria-label="避難所データを最新に更新"
-                title="通信して最新の避難所データを取得します（通常はキャッシュのみで通信しません）"
-              >
-                {isRefreshing ? (
-                  <span
-                    className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
-                    aria-hidden
-                  />
-                ) : (
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => void refresh()}
+                  disabled={isRefreshing}
+                  className="flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
+                  aria-label="避難所データを最新に更新"
+                  title="通信して最新の避難所データを取得します（通常はキャッシュのみで通信しません）"
+                >
+                  {isRefreshing ? (
+                    <span
+                      className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                      aria-hidden
+                    />
+                  ) : (
+                    <svg
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                      />
+                    </svg>
+                  )}
+                  <span className="hidden sm:inline">
+                    {isRefreshing ? '更新中...' : 'データを更新'}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={openTerms}
+                  className="flex items-center justify-center rounded-lg border border-gray-300 bg-white p-1.5 text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                  aria-label="利用規約を表示"
+                  title="利用規約"
+                >
                   <svg
                     className="h-3.5 w-3.5"
                     fill="none"
@@ -265,14 +303,11 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                )}
-                <span className="hidden sm:inline">
-                  {isRefreshing ? '更新中...' : 'データを更新'}
-                </span>
-              </button>
+                </button>
+              </div>
             </div>
             <p className="text-sm text-gray-700">
               {listFilter === 'chat'
@@ -421,6 +456,8 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         shelters={filteredShelters}
         userPosition={position ?? null}
       />
+
+      <TermsModal isOpen={showTerms} onClose={closeTerms} />
     </>
   );
 }
