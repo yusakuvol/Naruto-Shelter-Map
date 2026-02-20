@@ -7,7 +7,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Route, Router, useLocation, useParams } from 'wouter';
+import { Router, useLocation, useRoute } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
 import { ChatFab } from '@/components/chat/ChatFab';
 import { ChatModal } from '@/components/chat/ChatModal';
@@ -45,8 +45,8 @@ const MAP_LOADING_FALLBACK = (
 
 function HomePageContent({ mainContentId }: { mainContentId: string }) {
   const [, setLocation] = useLocation();
-  const params = useParams<{ id?: string }>();
-  const shelterIdFromUrl = params?.id ?? null;
+  const [match, params] = useRoute('/shelter/:id');
+  const shelterIdFromUrl = match ? (params.id ?? null) : null;
 
   const {
     data,
@@ -93,8 +93,11 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     [setLocation]
   );
   const closeDetail = useCallback(() => {
+    if (shelterIdFromUrl) {
+      setSelectedShelterIdState(shelterIdFromUrl);
+    }
     setLocation('/');
-  }, [setLocation]);
+  }, [setLocation, shelterIdFromUrl]);
 
   // 存在しない id の場合はトップへリダイレクト
   useEffect(() => {
@@ -431,12 +434,7 @@ function App() {
       <ErrorBoundary>
         <FilterProvider>
           <Router>
-            <Route path="/shelter/:id">
-              <HomePageContent mainContentId={mainContentId} />
-            </Route>
-            <Route path="/">
-              <HomePageContent mainContentId={mainContentId} />
-            </Route>
+            <HomePageContent mainContentId={mainContentId} />
           </Router>
         </FilterProvider>
       </ErrorBoundary>
