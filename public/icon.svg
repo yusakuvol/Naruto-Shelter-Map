@@ -9,9 +9,6 @@
     </clipPath>
   </defs>
 
-  <!-- Background -->
-  <rect width="512" height="512" fill="#e8f5f1"/>
-
   <!-- Pin fill with gradient -->
   <path d="M256 435 C256 435 385 295 385 195 C385 123.8 326.2 65 256 65 C185.8 65 127 123.8 127 195 C127 295 256 435 256 435Z" fill="url(#g)"/>
 
