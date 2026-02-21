@@ -139,8 +139,7 @@ export function TermsModal({
           <TermsSection title="第4条（知的財産権）">
             <ol className="list-decimal space-y-2 pl-5">
               <li>
-                本サービスのソースコードはオープンソースとして公開されています。
-                ライセンスの詳細はリポジトリをご確認ください。
+                本サービスのソースコードは、誰でも自由に閲覧・利用できるオープンソースソフトウェアとして公開されています。
               </li>
               <li>
                 地図データは OpenStreetMap
