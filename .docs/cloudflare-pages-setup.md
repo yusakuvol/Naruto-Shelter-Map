@@ -118,7 +118,7 @@ dist
 ビルド成功後、以下のURLが生成されます：
 
 ```
-https://naruto-shelter-map.pages.dev
+https://naruto-hinan.com
 ```
 
 または
@@ -199,12 +199,12 @@ dist/
 4. **「Continue」** をクリック
 5. 表示されるCNAMEレコードをメモ：
    ```
-   CNAME naruto-shelter.example.com → naruto-shelter-map.pages.dev
+   CNAME naruto-shelter.example.com → naruto-hinan.com
    ```
 6. **既存のドメインのDNS設定**（例: お名前.com、ムームードメインなど）で：
    - レコードタイプ: `CNAME`
    - ホスト名: `naruto-shelter`
-   - 値: `naruto-shelter-map.pages.dev`
+   - 値: `naruto-hinan.com`
    - TTL: `3600`（1時間）
 7. Cloudflare Pagesに戻り、**「Activate domain」** をクリック
 8. DNS伝播を待つ（最大48時間、通常は数分〜数時間）
@@ -346,7 +346,7 @@ npm i -g pnpm && pnpm install && pnpm build
 - ✅ HTTPSでアクセスしているか？
 - ✅ manifest.json が200で返ってくるか？
   ```bash
-  curl https://naruto-shelter-map.pages.dev/manifest.json
+  curl https://naruto-hinan.com/manifest.json
   ```
 - ✅ manifest.json にアイコンが定義されているか？
 - ✅ Service Workerが登録されているか？

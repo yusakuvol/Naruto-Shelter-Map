@@ -1,4 +1,4 @@
-# 鳴門市避難所マップ (Naruto Shelter Map)
+# 鳴門避難マップ (Naruto Hinan Map)
 
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/deploy-cloudflare-orange)](https://pages.cloudflare.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -17,9 +17,9 @@
 
 オフライン環境でも動作する PWA 技術により、いつでも避難所情報を確認できます。
 
-> **デモサイト:** https://naruto-shelter-map.pages.dev
+> **サイト:** https://naruto-hinan.com
 >
-> [![デモサイトを開く](https://img.shields.io/badge/🌐_デモサイト-Open-blue?style=for-the-badge)](https://naruto-shelter-map.pages.dev)
+> [![サイトを開く](https://img.shields.io/badge/🌐_サイトを開く-Open-blue?style=for-the-badge)](https://naruto-hinan.com)
 
 ---
 
@@ -176,7 +176,7 @@ http://localhost:5173
 
 本プロジェクトは **Cloudflare Pages** にデプロイされています。
 
-- **本番 URL:** https://naruto-shelter-map.pages.dev
+- **本番 URL:** https://naruto-hinan.com
 - **ビルド:** `pnpm build` で生成された静的アウトプットを Cloudflare Pages が配信
 - **ブランチ:** `main` へのマージで自動デプロイ（GitHub Actions 連携時）
 
