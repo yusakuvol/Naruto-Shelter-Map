@@ -24,7 +24,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 interface MapProps {
   shelters: ShelterFeature[];
   selectedShelterId?: string | null | undefined;
-  onShelterSelect?: (id: string) => void;
+  onShelterSelect?: (id: string | null) => void;
   onShowDetail?: (shelter: ShelterFeature) => void;
   position?: Coordinates | null;
   geolocationState?: GeolocationState;
@@ -118,7 +118,8 @@ export function ShelterMap({
 
   const handleClosePopup = useCallback(() => {
     setSelectedShelter(null);
-  }, []);
+    onShelterSelect?.(null);
+  }, [onShelterSelect]);
 
   const handleLocationButtonClick = useCallback(() => {
     onGetCurrentPosition?.();
