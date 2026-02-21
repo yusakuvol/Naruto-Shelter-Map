@@ -7,7 +7,7 @@
 ## 概要
 
 - **ホスティング:** Cloudflare Pages
-- **本番 URL:** https://naruto-shelter-map.pages.dev（例）
+- **本番 URL:** https://naruto-hinan.com
 - **デプロイ方式:** GitHub の **main** ブランチへの push（またはマージ）に連動した **自動ビルド・デプロイ**
 
 ---
