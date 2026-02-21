@@ -1,18 +1,11 @@
-import {
-  lazy,
-  Suspense,
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useState,
-} from 'react';
-import { Router, useLocation, useRoute } from 'wouter';
+import { lazy, Suspense, useId } from 'react';
+import { Router } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
 import { ChatFab } from '@/components/chat/ChatFab';
 import { ChatModal } from '@/components/chat/ChatModal';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
+import { RefreshErrorToast } from '@/components/error/RefreshErrorToast';
 import { DesktopSidebar } from '@/components/layout/DesktopSidebar';
 import { TermsModal } from '@/components/legal/TermsModal';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
@@ -20,14 +13,9 @@ import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
 import { ServiceWorkerRegistration } from '@/components/pwa/ServiceWorkerRegistration';
 import { UpdateNotification } from '@/components/pwa/UpdateNotification';
 import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
-import type { SortMode } from '@/components/shelter/SortToggle';
 import { FilterProvider } from '@/contexts/FilterContext';
-import { useFavorites } from '@/hooks/useFavorites';
-import { useFilteredShelters } from '@/hooks/useFilteredShelters';
-import { useGeolocation } from '@/hooks/useGeolocation';
-import { useShelters } from '@/hooks/useShelters';
+import { useHomePageState } from '@/hooks/useHomePageState';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
-import type { ShelterFeature } from '@/types/shelter';
 
 const ShelterMap = lazy(() =>
   import('@/components/map/Map').then((mod) => ({ default: mod.ShelterMap }))
@@ -43,14 +31,10 @@ const MAP_LOADING_FALLBACK = (
 );
 
 function HomePageContent({ mainContentId }: { mainContentId: string }) {
-  const [, setLocation] = useLocation();
-  const [match, params] = useRoute('/shelter/:id');
-  const shelterIdFromUrl = match ? (params.id ?? null) : null;
-  const [termsMatch] = useRoute('/terms');
-  const showTerms = !!termsMatch;
-
   const {
-    data,
+    filteredShelters,
+    allSheltersCount,
+    listShelters,
     isLoading,
     error,
     retry,
@@ -58,106 +42,27 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     isRefreshing,
     refreshError,
     clearRefreshError,
-  } = useShelters();
-  const {
+    selectedShelterId,
+    setSelectedShelterId,
+    detailModalShelter,
+    openDetail,
+    closeDetail,
     position,
-    state: geolocationState,
-    error: geolocationError,
+    geolocationState,
+    geolocationError,
     getCurrentPosition,
-  } = useGeolocation();
-  const { favorites, toggleFavorite } = useFavorites();
-  const [selectedShelterIdState, setSelectedShelterIdState] = useState<
-    string | null
-  >(null);
-  const [sortMode, setSortMode] = useState<SortMode>('name');
-  const [listFilter, setListFilter] = useState<'all' | 'favorites' | 'chat'>(
-    'all'
-  );
-  const [chatModalOpen, setChatModalOpen] = useState(false);
-
-  const selectedShelterId = shelterIdFromUrl ?? selectedShelterIdState;
-  const setSelectedShelterId = useCallback((id: string | null) => {
-    setSelectedShelterIdState(id);
-  }, []);
-
-  const detailModalShelter = useMemo(() => {
-    if (!shelterIdFromUrl || !data?.features) return null;
-    return (
-      data.features.find((f) => f.properties.id === shelterIdFromUrl) ?? null
-    );
-  }, [shelterIdFromUrl, data]);
-
-  const openDetail = useCallback(
-    (shelter: ShelterFeature) => {
-      setLocation(`/shelter/${shelter.properties.id}`);
-    },
-    [setLocation]
-  );
-  const closeDetail = useCallback(() => {
-    if (shelterIdFromUrl) {
-      setSelectedShelterIdState(shelterIdFromUrl);
-    }
-    setLocation('/');
-  }, [setLocation, shelterIdFromUrl]);
-
-  const openTerms = useCallback(() => {
-    setLocation('/terms');
-  }, [setLocation]);
-  const closeTerms = useCallback(() => {
-    setLocation('/');
-  }, [setLocation]);
-
-  // 存在しない id の場合はトップへリダイレクト
-  useEffect(() => {
-    if (
-      shelterIdFromUrl &&
-      data?.features &&
-      !data.features.some((f) => f.properties.id === shelterIdFromUrl)
-    ) {
-      setLocation('/');
-    }
-  }, [shelterIdFromUrl, data?.features, setLocation]);
-
-  const allShelters = data?.features ?? [];
-  const filteredShelters = useFilteredShelters(allShelters);
-
-  const sortedShelters = useMemo(() => {
-    const sheltersWithDistance = filteredShelters.map((shelter) => ({
-      shelter,
-      distance:
-        position && shelter.geometry.coordinates
-          ? calculateDistance(
-              position,
-              toCoordinates(shelter.geometry.coordinates)
-            )
-          : null,
-    }));
-
-    if (sortMode === 'distance' && position) {
-      return sheltersWithDistance
-        .filter((item) => item.distance !== null)
-        .sort((a, b) => {
-          if (a.distance === null || b.distance === null) return 0;
-          return a.distance - b.distance;
-        });
-    }
-
-    return sheltersWithDistance.sort((a, b) =>
-      a.shelter.properties.name.localeCompare(
-        b.shelter.properties.name,
-        'ja-JP'
-      )
-    );
-  }, [filteredShelters, sortMode, position]);
-
-  const listShelters = useMemo(() => {
-    if (listFilter === 'favorites') {
-      return sortedShelters.filter((item) =>
-        favorites.has(item.shelter.properties.id)
-      );
-    }
-    return sortedShelters;
-  }, [sortedShelters, listFilter, favorites]);
+    favorites,
+    toggleFavorite,
+    sortMode,
+    setSortMode,
+    listFilter,
+    setListFilter,
+    chatModalOpen,
+    setChatModalOpen,
+    showTerms,
+    openTerms,
+    closeTerms,
+  } = useHomePageState();
 
   if (error) {
     return (
@@ -181,39 +86,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
   return (
     <>
       {refreshError && (
-        <div
-          role="alert"
-          aria-live="polite"
-          className="fixed bottom-4 left-4 right-4 z-50 flex items-center justify-between gap-3 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 shadow-lg sm:left-auto sm:right-4 sm:max-w-sm"
-        >
-          <p className="text-sm text-amber-900">
-            {refreshError.message.includes('fetch') ||
-            refreshError.message.includes('Network')
-              ? 'オフラインのため更新できません'
-              : refreshError.message}
-          </p>
-          <button
-            type="button"
-            onClick={clearRefreshError}
-            className="shrink-0 rounded p-1 text-amber-700 hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-400"
-            aria-label="閉じる"
-          >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
+        <RefreshErrorToast error={refreshError} onClose={clearRefreshError} />
       )}
 
       {/* モバイルレイアウト */}
@@ -245,7 +118,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         <DesktopSidebar
           mainContentId={mainContentId}
           filteredShelters={filteredShelters}
-          allSheltersCount={allShelters.length}
+          allSheltersCount={allSheltersCount}
           listShelters={listShelters}
           selectedShelterId={selectedShelterId}
           onShelterSelect={setSelectedShelterId}
