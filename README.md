@@ -1,260 +1,63 @@
-# 鳴門避難マップ (Naruto Hinan Map)
+<p align="center">
+  <img src="public/icon.svg" alt="鳴門避難マップ" width="80" height="80" />
+</p>
 
-[![Deploy to Cloudflare Pages](https://img.shields.io/badge/deploy-cloudflare-orange)](https://pages.cloudflare.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![pnpm](https://img.shields.io/badge/pnpm-9+-orange)](https://pnpm.io/)
-[![Vite](https://img.shields.io/badge/Vite-6.x-646cff)](https://vitejs.dev/)
-[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8)](https://tailwindcss.com/)
-[![MapLibre GL JS](https://img.shields.io/badge/MapLibre-5.x-blue)](https://maplibre.org/)
+<h1 align="center">鳴門避難マップ</h1>
 
-## 概要
+<p align="center">
+  電波がなくても使える、鳴門市周辺の避難所マップ
+</p>
 
-徳島県鳴門市とその隣接地域（藍住町、北島町、松茂町、板野町）の公的避難所を地図上に可視化し、**オフライン環境でも避難情報を確認できる** Progressive Web App (PWA) です。
+<p align="center">
+  <a href="https://naruto-hinan.com"><strong>naruto-hinan.com</strong></a>
+</p>
 
-国土地理院・国土交通省のオープンデータを活用し、地図上に避難所の位置・種別・災害対応情報を表示します。スマートフォンにインストールしておけば、電波がない状況でも最後に閲覧した地図範囲と避難所情報を保持できます。
-
-オフライン環境でも動作する PWA 技術により、いつでも避難所情報を確認できます。
-
-> **サイト:** https://naruto-hinan.com
->
-> [![サイトを開く](https://img.shields.io/badge/🌐_サイトを開く-Open-blue?style=for-the-badge)](https://naruto-hinan.com)
+<p align="center">
+  <img src="https://img.shields.io/badge/PWA-offline_ready-5A0FC8" alt="PWA" />
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
+</p>
 
 ---
 
-## 目次
+## About
 
-- [概要](#概要)
-- [主な機能](#主な機能)
-- [技術スタック](#技術スタック)
-- [データ構造](#データ構造)
-- [セットアップ](#セットアップ)
-- [デプロイ](#デプロイ)
-- [データ更新フロー](#データ更新フロー)
-- [ライセンス](#ライセンス)
+鳴門市とその周辺地域（藍住町・北島町・松茂町・板野町）の避難所を地図上に表示する PWA です。
 
----
+スマートフォンにインストールしておけば、**電波が届かない状況でも**最後に取得した避難所情報と地図を確認できます。データは国土地理院のオープンデータを活用し、毎週自動で更新されます。
 
-## 主な機能
+## Features
 
-- 📍 **避難所の位置表示** - 鳴門市とその隣接地域（藍住町、北島町、松茂町、板野町）の指定避難所・緊急避難場所を地図上にマーカー表示（視認性向上済み）
-- 🌐 **オンライン/オフライン対応** - オンライン時は最新データ取得、オフライン時はキャッシュデータ利用
-- 📶 **完全オフライン動作** - Service Worker により地図タイルもキャッシュ
-- 🔍 **災害種別フィルタ** - 洪水・津波・土砂災害・地震・火災で絞り込み可能
-- 📱 **PWA 対応** - ホーム画面に追加してアプリのように使用可能
-- 🗺️ **MapLibre GL JS** - オープンソース地図ライブラリで高速レンダリング
-- 🎨 **モダン UI** - シンプルで直感的なインターフェース
-- ♿ **アクセシビリティ** - キーボード操作・スクリーンリーダー対応
+- **オフライン動作** — Service Worker で地図タイルと避難所データをキャッシュ
+- **災害種別フィルタ** — 洪水・津波・土砂災害・地震・火災で絞り込み
+- **経路案内** — 選択した避難所への経路をワンタップで表示
+- **お気に入り** — よく使う避難所をブックマーク
+- **AI チャット** — 避難所について自然言語で質問
+- **PWA インストール** — ホーム画面に追加してネイティブアプリのように使用
+- **アクセシビリティ** — キーボード操作・スクリーンリーダー対応
 
----
+## Tech Stack
 
-## 技術スタック
+| Category | Technology |
+|----------|-----------|
+| UI | React 19 ・ TypeScript ・ Tailwind CSS v4 |
+| Map | MapLibre GL JS 5 |
+| Build | Vite 6 ・ vite-plugin-pwa |
+| Hosting | Cloudflare Pages |
+| CI/CD | GitHub Actions |
+| Lint | Biome |
 
-### パッケージマネージャー
+## Data
 
-| 技術     | バージョン | 特徴                         |
-| -------- | ---------- | ---------------------------- |
-| **pnpm** | 9.x 以上   | 高速・ディスク効率・厳密な依存関係管理 |
+避難所データは [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html) を元に、GitHub Actions で毎週自動取得・更新しています。
 
-### フロントエンド
+地図タイルは [OpenStreetMap](https://www.openstreetmap.org/copyright) のデータを使用しています。
 
-| 技術             | バージョン | 用途                                    |
-| ---------------- | ---------- | --------------------------------------- |
-| Vite             | **6.x**    | ビルドツール（開発サーバー・本番ビルド） |
-| React            | **19.x**   | UI ライブラリ                            |
-| TypeScript       | 5.x        | 型安全な開発                            |
-| Tailwind CSS     | **v4**     | ユーティリティファースト CSS（Lightning CSS） |
-| MapLibre GL JS   | **5.x**    | オープンソース地図ライブラリ（Globe 対応）    |
+## License
 
-### PWA・開発ツール・インフラ
-
-| カテゴリ   | 技術               | 用途                           |
-| ---------- | ------------------ | ------------------------------ |
-| PWA        | vite-plugin-pwa    | Service Worker + Manifest（Workbox） |
-| Lint/Format| **Biome**         | Lint + フォーマット（統一）    |
-| ホスティング | Cloudflare Pages | 静的ホスティング & CDN         |
-| CI/CD      | GitHub Actions     | データ自動更新 & デプロイ      |
+MIT License — Copyright (c) 2025 Yusaku Matsukawa
 
 ---
 
-## データ構造
-
-避難所データは **GeoJSON 形式** で管理されています。
-
-```json
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [134.609, 34.173]
-      },
-      "properties": {
-        "name": "○○小学校",
-        "type": "指定避難所",
-        "address": "徳島県鳴門市○○町1-1",
-        "disasterTypes": ["洪水", "津波"],
-        "capacity": 800,
-        "source": "国土地理院オープンデータ",
-        "updatedAt": "2025-10-15"
-      }
-    }
-  ]
-}
-```
-
----
-
-## セットアップ
-
-### 必要な環境
-
-- **Node.js 24 以上**（`package.json` の `engines` および `.nvmrc` に準拠）
-- **pnpm 9 以上**
-
-### インストール手順
-
-1. **リポジトリをクローン**
-
-```bash
-git clone https://github.com/[your-username]/naruto-shelter-map.git
-cd naruto-shelter-map
-```
-
-2. **pnpm をインストール（未インストールの場合）**
-
-```bash
-npm install -g pnpm
-```
-
-3. **依存関係をインストール**
-
-```bash
-pnpm install
-```
-
-4. **環境変数を設定**
-
-```bash
-cp .env.example .env.local
-```
-
-5. **開発サーバーを起動**
-
-```bash
-pnpm dev
-```
-
-6. **ブラウザで確認**
-
-```
-http://localhost:5173
-```
-
-### コマンド一覧
-
-| コマンド            | 説明                            |
-| ------------------- | ------------------------------- |
-| `pnpm dev`          | 開発サーバー起動（Vite）        |
-| `pnpm build`        | プロダクションビルド（dist/ に出力） |
-| `pnpm preview`      | ビルド成果物のプレビューサーバー起動 |
-| `pnpm lint`         | Biome Lint チェック             |
-| `pnpm lint:fix`     | Biome Lint 自動修正             |
-| `pnpm format`       | Biome フォーマット              |
-| `pnpm format:check` | Biome フォーマットチェック      |
-| `pnpm type-check`   | TypeScript 型チェック           |
-
----
-
-## デプロイ
-
-本プロジェクトは **Cloudflare Pages** にデプロイされています。
-
-- **本番 URL:** https://naruto-hinan.com
-- **ビルド:** `pnpm build` で生成された静的アウトプットを Cloudflare Pages が配信
-- **ブランチ:** `main` へのマージで自動デプロイ（GitHub Actions 連携時）
-
-詳細は [.docs/cloudflare-pages-setup.md](./.docs/cloudflare-pages-setup.md) を参照してください。
-
----
-
-## データ更新フロー
-
-```mermaid
-graph LR
-    A[国土地理院<br/>地理院タイルAPI] -->|毎週月曜 3:00 JST| B[GitHub Actions]
-    B -->|fetch-shelters.ts| C[対応地域データ抽出]
-    C -->|データ検証・ジオコーディング| D[validate / geocode]
-    D -->|GeoJSON生成| E[public/data/shelters.geojson]
-    E -->|PR作成・マージ| F[GitHub Repository]
-    F -->|自動デプロイ| G[Cloudflare Pages]
-    G -->|CDN配信| H[ユーザー]
-    H -->|Service Worker| I[オフラインキャッシュ]
-```
-
-### データ更新の仕組み
-
-避難所データは **国土地理院 地理院タイルAPI** から自動取得し、毎週 **月曜 3:00 JST** に GitHub Actions が実行されます。差分がある場合のみ PR が作成され、マージ後に Cloudflare Pages へ自動デプロイされます。
-
-#### 自動更新（通常）
-
-- **スケジュール**: 毎週月曜 3:00 JST（`update-data` ワークフロー）
-- **データソース**: 地理院タイルAPI（`scripts/fetch-shelters.ts` で自動取得）
-- **処理**: 対応地域の抽出・正規化 → 検証 → ジオコーディング（必要に応じて）→ 変更があれば PR 作成
-
-#### 手動実行（任意）
-
-手動でワークフローを実行する場合（例: 緊急時や任意の GeoJSON で上書きしたい場合）：
-
-```bash
-# スケジュールと同じ自動取得を即時実行
-gh workflow run update-data.yml
-
-# 特定の GeoJSON ファイルから更新（手動ダウンロードしたファイルを指定）
-gh workflow run update-data.yml -f data_file=path/to/downloaded-file.geojson
-```
-
-手動で GeoJSON を使う場合は [国土地理院 避難所マップ](https://hinanmap.gsi.go.jp/index.html) から徳島県などを選択し、GeoJSON 形式でダウンロードしたファイルを指定できます。
-
-#### 対応地域
-
-- 鳴門市（メイン地域）
-- 藍住町、北島町、松茂町、板野町（隣接地域）
-
-#### データ検証
-
-データ更新時には自動的に検証が実行されます：
-
-- ✅ 座標と住所の整合性チェック
-- ✅ 対応地域の範囲外の座標を検出
-- ✅ 住所に対応地域名が含まれているかチェック
-- ✅ 住所に「徳島市」が含まれているデータを検出
-- ⚠️ 境界付近の座標を警告
-
-手動で検証を実行する場合：
-
-```bash
-pnpm validate:shelters
-```
-
----
-
-## ライセンス
-
-MIT License
-
-Copyright (c) 2025 Yusaku Matsukawa
-
-詳細は [LICENSE](./LICENSE) ファイルを参照してください。
-
-### データ出典
-
-- **避難所データ:** [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html)
-- **地図タイル:** MapLibre Demo Tiles / [OpenStreetMap contributors](https://www.openstreetmap.org/copyright)
-
----
-
-Developed by **Yusaku Matsukawa** | [naruto-hinan.com](https://naruto-hinan.com)
+<p align="center">
+  Developed by <strong>Yusaku Matsukawa</strong>
+</p>
