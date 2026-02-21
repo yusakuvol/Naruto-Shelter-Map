@@ -1,5 +1,3 @@
-'use client';
-
 import { type FormEvent, useCallback, useState } from 'react';
 
 interface ChatInputProps {

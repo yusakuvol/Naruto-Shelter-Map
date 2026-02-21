@@ -276,18 +276,6 @@ npm i -g pnpm && pnpm install && pnpm build
 
 ---
 
-### ビルドエラー: `Error: Cannot find module 'next'`
-
-**原因:** 依存関係がインストールされていない
-
-**解決策:**
-ビルドコマンドに `pnpm install` が含まれているか確認：
-```bash
-npm i -g pnpm && pnpm install && pnpm build
-```
-
----
-
 ### ビルドエラー（Vite）
 
 **原因:** 型エラーや依存関係の不整合

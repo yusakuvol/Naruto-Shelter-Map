@@ -7,16 +7,6 @@
   },
   "overrides": [
     {
-      "includes": ["src/app/page.tsx"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "useUniqueElementIds": "off"
-          }
-        }
-      }
-    },
-    {
       "includes": ["src/components/a11y/SkipLink.tsx"],
       "linter": {
         "rules": {

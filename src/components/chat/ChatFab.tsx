@@ -1,5 +1,3 @@
-'use client';
-
 interface ChatFabProps {
   onClick: () => void;
   ariaLabel?: string;

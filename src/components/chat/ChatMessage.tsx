@@ -1,5 +1,3 @@
-'use client';
-
 interface ChatMessageProps {
   role: 'user' | 'assistant';
   content: string;
