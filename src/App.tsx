@@ -252,9 +252,9 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
                 <img
                   src="/icon.svg"
                   alt=""
-                  width={28}
-                  height={28}
-                  className="h-7 w-7"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9"
                   aria-hidden="true"
                 />
                 鳴門避難マップ
