@@ -249,7 +249,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
           <header className="border-b p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
               <h1 className="shrink-0 text-2xl font-bold text-gray-900">
-                避難所マップ
+                鳴門避難マップ
               </h1>
               <div className="flex items-center gap-1.5">
                 <button

@@ -1,21 +1,16 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle -->
+  <!-- Blue circle background -->
   <circle cx="256" cy="256" r="256" fill="#3b82f6"/>
 
-  <!-- White circle background for icon -->
-  <circle cx="256" cy="256" r="200" fill="#ffffff"/>
+  <!-- White map pin (teardrop shape) -->
+  <path d="M256 428 C256 428 374 296 374 192 C374 126.8 321.2 74 256 74 C190.8 74 138 126.8 138 192 C138 296 256 428 256 428Z" fill="white"/>
 
-  <!-- Shelter icon (house with roof) -->
-  <g transform="translate(256, 256)">
-    <!-- House roof -->
-    <path d="M -80 -40 L 0 -100 L 80 -40 Z" fill="#3b82f6"/>
-    <!-- House body -->
-    <rect x="-70" y="-40" width="140" height="120" fill="#3b82f6"/>
-    <!-- Door -->
-    <rect x="-30" y="20" width="60" height="60" fill="#ffffff"/>
-    <!-- Window left -->
-    <rect x="-55" y="-15" width="30" height="30" fill="#ffffff"/>
-    <!-- Window right -->
-    <rect x="25" y="-15" width="30" height="30" fill="#ffffff"/>
-  </g>
+  <!-- Blue shelter roof -->
+  <path d="M256 130 L330 198 L182 198Z" fill="#3b82f6"/>
+
+  <!-- Blue shelter body -->
+  <rect x="196" y="198" width="120" height="72" fill="#3b82f6"/>
+
+  <!-- White door -->
+  <rect x="236" y="230" width="40" height="40" rx="3" fill="white"/>
 </svg>
