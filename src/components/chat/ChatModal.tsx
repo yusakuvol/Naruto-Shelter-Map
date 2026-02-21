@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useId, useRef } from 'react';
 import type { Coordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';

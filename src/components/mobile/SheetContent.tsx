@@ -1,5 +1,3 @@
-'use client';
-
 interface SheetContentProps {
   shelters: unknown[];
   selectedShelterId?: string | null | undefined;

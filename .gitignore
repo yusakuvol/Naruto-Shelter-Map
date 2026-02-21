@@ -7,10 +7,6 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
 # vite
 /dist
 
@@ -31,12 +27,8 @@ pnpm-debug.log*
 .env*.local
 .env
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 # playwright
 /test-results/
@@ -63,9 +55,3 @@ Thumbs.db
 /*.jpg
 /*.jpeg
 /*.gif
-
-# PWA auto-generated files
-public/sw.js
-public/sw.js.map
-public/workbox-*.js
-public/workbox-*.js.map

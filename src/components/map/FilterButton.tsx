@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { useFilter } from '@/contexts/FilterContext';

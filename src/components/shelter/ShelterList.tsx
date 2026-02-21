@@ -1,5 +1,3 @@
-'use client';
-
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useCallback, useRef } from 'react';
 import type { Coordinates } from '@/lib/geo';

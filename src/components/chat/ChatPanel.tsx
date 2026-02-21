@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { buildAnswer, classifyIntent } from '@/lib/chat';
 import type { Coordinates } from '@/lib/geo';

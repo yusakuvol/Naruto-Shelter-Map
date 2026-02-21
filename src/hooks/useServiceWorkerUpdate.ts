@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
 // Service Worker登録の型（ブラウザAPIの型を使用）
