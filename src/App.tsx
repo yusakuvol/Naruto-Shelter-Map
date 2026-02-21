@@ -248,13 +248,13 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         >
           <header className="border-b p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
-              <h1 className="flex shrink-0 items-center gap-2 text-2xl font-bold text-gray-900">
+              <h1 className="flex items-center gap-2 text-2xl font-bold text-gray-900">
                 <img
                   src="/icon.svg"
                   alt=""
-                  width={32}
-                  height={32}
-                  className="h-8 w-8"
+                  width={28}
+                  height={28}
+                  className="h-7 w-7"
                   aria-hidden="true"
                 />
                 鳴門避難マップ
@@ -264,18 +264,18 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
                   type="button"
                   onClick={() => void refresh()}
                   disabled={isRefreshing}
-                  className="flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
+                  className="flex items-center justify-center rounded-lg border border-gray-300 bg-white p-1.5 text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
                   aria-label="避難所データを最新に更新"
-                  title="通信して最新の避難所データを取得します（通常はキャッシュのみで通信しません）"
+                  title="通信して最新の避難所データを取得します"
                 >
                   {isRefreshing ? (
                     <span
-                      className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                      className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
                       aria-hidden
                     />
                   ) : (
                     <svg
-                      className="h-3.5 w-3.5"
+                      className="h-4 w-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -289,9 +289,6 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
                       />
                     </svg>
                   )}
-                  <span className="hidden sm:inline">
-                    {isRefreshing ? '更新中...' : 'データを更新'}
-                  </span>
                 </button>
                 <button
                   type="button"
@@ -301,7 +298,7 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
                   title="利用規約"
                 >
                   <svg
-                    className="h-3.5 w-3.5"
+                    className="h-4 w-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
