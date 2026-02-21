@@ -93,7 +93,7 @@ export function TermsModal({
         <div className="space-y-6 p-4 text-sm leading-relaxed text-gray-700">
           <TermsSection title="第1条（サービス概要）">
             <p>
-              本サービス「鳴門市避難所マップ」（以下「本サービス」）は、
+              本サービス「鳴門避難マップ」（以下「本サービス」）は、
               徳島県鳴門市内の避難所情報を地図上で提供するウェブアプリケーションです。
               オフライン環境でも避難所を確認できるよう、PWA（Progressive Web
               App）として提供しています。
