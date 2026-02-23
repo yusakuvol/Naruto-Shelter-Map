@@ -66,7 +66,8 @@ export function useWebLLM(): UseWebLLMReturn {
       const { CreateMLCEngine } = await import('@mlc-ai/web-llm');
       const engine = await CreateMLCEngine(MODEL_ID, {
         initProgressCallback: (report) => {
-          setProgress(report.text);
+          const pct = Math.round(report.progress * 100);
+          setProgress(`${pct}%`);
         },
       });
       engineRef.current = engine;
