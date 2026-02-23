@@ -12,6 +12,7 @@ export default defineConfig({
       manifest: false, // public/manifest.json を静的利用する
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,geojson,json}'],
+        globIgnores: ['**/webllm-*.js'], // WebLLM はオンデマンド読み込み、precache 対象外
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/data\/.*\.pbf/i,
@@ -110,8 +111,18 @@ export default defineConfig({
       '@': path.resolve(import.meta.dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['@mlc-ai/web-llm'],
+  },
   build: {
     outDir: 'dist',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          webllm: ['@mlc-ai/web-llm'],
+        },
+      },
+    },
   },
 });
