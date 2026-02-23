@@ -196,7 +196,7 @@ export function ShelterDetailModal({
         <div className="p-4 space-y-4">
           {/* 住所 */}
           <section>
-            <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
               <svg
                 className="h-5 w-5 text-gray-600"
                 fill="none"
@@ -243,7 +243,7 @@ export function ShelterDetailModal({
 
           {/* 災害種別 */}
           <section>
-            <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
               <svg
                 className="h-5 w-5 text-gray-600"
                 fill="none"
@@ -275,7 +275,7 @@ export function ShelterDetailModal({
           {/* 収容人数（ある場合のみ） */}
           {capacity && (
             <section>
-              <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
                 <svg
                   className="h-5 w-5 text-gray-600"
                   fill="none"
@@ -299,7 +299,7 @@ export function ShelterDetailModal({
           {/* 連絡先（ある場合のみ） */}
           {contact && (
             <section>
-              <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
                 <svg
                   className="h-5 w-5 text-gray-600"
                   fill="none"

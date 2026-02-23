@@ -12,7 +12,7 @@ export function FacilitiesSection({
 }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
         <svg
           className="h-5 w-5 text-gray-600"
           fill="none"
@@ -120,7 +120,7 @@ export function AccessibilitySection({
 }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
         <svg
           className="h-5 w-5 text-gray-600"
           fill="none"
@@ -211,7 +211,7 @@ export function AccessibilitySection({
 export function PetSection({ pets }: { pets: PetPolicy }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
         <svg
           className="h-5 w-5 text-gray-600"
           fill="none"
@@ -279,7 +279,7 @@ export function OperationStatusSection({
 }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
         <svg
           className="h-5 w-5 text-gray-600"
           fill="none"

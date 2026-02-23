@@ -28,7 +28,7 @@ export function ShelterPopup({
       className="shelter-popup"
     >
       <div className="p-4">
-        <h3 className="mb-2 font-bold text-gray-900">{name}</h3>
+        <h3 className="mb-2 text-base font-bold text-gray-900">{name}</h3>
         <div className="space-y-1 text-sm text-gray-700 mb-3">
           <p>
             <span className="font-semibold">種別:</span> {type}
