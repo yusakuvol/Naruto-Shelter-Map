@@ -121,14 +121,11 @@ PWA対応      UX改善     多機能化
 - [x] Service Worker登録修正（完了）
 - [x] テスト結果レポート作成（完了）
 
-**テストガイド:** [`.docs/pwa-test-guide.md`](.docs/pwa-test-guide.md)
-
 ### 成果物
 
 - Service Worker（`dist/sw.js` - ビルド時に vite-plugin-pwa が生成）
 - PWA Manifest（`public/manifest.json`）
 - オフライン UI コンポーネント（`OfflineIndicator`, `UpdateNotification`, `InstallPrompt`）
-- PWA テストガイド（`.docs/pwa-test-guide.md`）
 
 ### 技術選定
 
@@ -348,7 +345,6 @@ PWA対応      UX改善     多機能化
 
 ### プロジェクト内
 
-- [00-MASTER-PLAN.md](./00-MASTER-PLAN.md) - マスタープラン
 - [AGENTS.md](../AGENTS.md) - AI Agent 規格
 - [CLAUDE.md](../CLAUDE.md) - Claude Code 設定
 - [README.md](../README.md) - プロジェクト README
