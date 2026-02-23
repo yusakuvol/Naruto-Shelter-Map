@@ -234,9 +234,6 @@ export function ShelterDetailModal({
                 </svg>
               )}
             </button>
-            {copyState === 'copied' && (
-              <p className="mt-1 text-xs text-green-600">コピーしました</p>
-            )}
           </section>
 
           {/* 距離（ある場合のみ） */}
