@@ -14,7 +14,7 @@ export function ShelterPopup({
   onShowDetail,
 }: ShelterPopupProps): React.JSX.Element {
   const [lng, lat] = shelter.geometry.coordinates;
-  const { name, type, address, disasterTypes, capacity } = shelter.properties;
+  const { name, address, disasterTypes, capacity } = shelter.properties;
 
   return (
     <Popup
@@ -30,9 +30,6 @@ export function ShelterPopup({
       <div className="p-4">
         <h3 className="mb-2 text-base font-bold text-gray-900">{name}</h3>
         <div className="space-y-1 text-sm text-gray-700 mb-3">
-          <p>
-            <span className="font-semibold">種別:</span> {type}
-          </p>
           <p>
             <span className="font-semibold">住所:</span> {address}
           </p>
