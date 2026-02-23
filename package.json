@@ -30,6 +30,7 @@
     "release:check": "node -e \"const pkg = require('./package.json'); const tag = require('child_process').execSync('git describe --tags --abbrev=0 2>/dev/null || echo', { encoding: 'utf-8' }).trim().replace(/^v/, ''); if (tag && pkg.version !== tag) { console.error('❌ Version mismatch: package.json=' + pkg.version + ', tag=' + tag); process.exit(1); } else { console.log('✅ Version matches: ' + pkg.version); }\""
   },
   "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.81",
     "@tanstack/react-virtual": "^3.13.18",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
@@ -50,12 +51,12 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
-    "vite": "^7.3.1",
-    "vite-plugin-pwa": "^1.2.0",
     "jsdom": "^28.1.0",
     "tailwindcss": "^4.2.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.0.18"
   },
   "volta": {
