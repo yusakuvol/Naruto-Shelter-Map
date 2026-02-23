@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { useEffect, useId, useRef } from 'react';
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import type { Coordinates } from '@/lib/geo';
 import { formatDistance } from '@/lib/geo';
 import { generateNavigationURL } from '@/lib/navigation';
@@ -34,6 +35,7 @@ export function ShelterDetailModal({
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
+  const { state: copyState, copy: copyAddress } = useCopyToClipboard();
 
   // Escキーでモーダルを閉じる
   useEffect(() => {
@@ -193,7 +195,45 @@ export function ShelterDetailModal({
               </svg>
               所在地
             </h3>
-            <p className="text-sm text-gray-700">{address}</p>
+            <button
+              type="button"
+              onClick={() => copyAddress(address)}
+              className="group flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              aria-label={`住所をコピー: ${address}`}
+            >
+              <span>{address}</span>
+              {copyState === 'copied' ? (
+                <svg
+                  className="h-4 w-4 shrink-0 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-4 w-4 shrink-0 text-gray-400 group-hover:text-blue-500 transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+              )}
+            </button>
           </section>
 
           {/* 距離（ある場合のみ） */}
