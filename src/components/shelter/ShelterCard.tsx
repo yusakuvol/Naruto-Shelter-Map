@@ -13,7 +13,6 @@ import {
   formatTravelTime,
   generateNavigationURL,
 } from '@/lib/navigation';
-import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 import { ShelterCardBadges } from './ShelterCardBadges';
 import { ShelterDetailModal } from './ShelterDetailModal';
@@ -30,19 +29,6 @@ interface ShelterCardProps {
   userPosition?: Coordinates | null | undefined;
 }
 
-function getShelterTypeColor(type: string): string {
-  switch (type) {
-    case '指定避難所':
-      return 'bg-blue-50 text-blue-900 border-blue-200';
-    case '緊急避難場所':
-      return 'bg-red-50 text-red-900 border-red-200';
-    case '両方':
-      return 'bg-purple-50 text-purple-950 border-purple-200';
-    default:
-      return 'bg-gray-50 text-gray-900 border-gray-200';
-  }
-}
-
 function ShelterCardComponent({
   shelter,
   isSelected,
@@ -53,9 +39,7 @@ function ShelterCardComponent({
   onToggleFavorite,
   userPosition,
 }: ShelterCardProps) {
-  const { name, type, address, disasterTypes, capacity, id } =
-    shelter.properties;
-  const typeColor = getShelterTypeColor(type);
+  const { name, address, disasterTypes, capacity, id } = shelter.properties;
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   // 方位角と方向を計算（方位マークは削除、方向テキストのみ表示）
@@ -156,19 +140,6 @@ function ShelterCardComponent({
           </div>
         )}
 
-        {/* タイプバッジ */}
-        <div className="mb-2">
-          <span
-            className={clsx(
-              'inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium',
-              typeColor
-            )}
-          >
-            {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
-            <span>{type}</span>
-          </span>
-        </div>
-
         {/* 住所（常に表示） */}
         <p className="flex items-start gap-1.5 text-sm text-gray-600 mb-2">
           <svg
@@ -252,7 +223,7 @@ function ShelterCardComponent({
                 setIsDetailOpen(true);
               }
             }}
-            className="flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+            className="flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             aria-label={`${name}の詳細を見る`}
           >
             <svg
@@ -287,7 +258,7 @@ function ShelterCardComponent({
                   );
                   window.open(url, '_blank', 'noopener,noreferrer');
                 }}
-                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={`${name}への経路案内`}
               >
                 <svg

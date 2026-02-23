@@ -55,7 +55,7 @@ export function DesktopSidebar({
     >
       <header className="border-b p-4">
         <div className="mb-2 flex items-center justify-between gap-2">
-          <h1 className="flex items-center gap-2 text-2xl font-bold text-gray-900">
+          <h1 className="flex items-center gap-2 text-xl font-bold text-gray-900">
             <img
               src="/icon.svg"
               alt=""

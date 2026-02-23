@@ -3,7 +3,6 @@ import { useEffect, useId, useRef } from 'react';
 import type { Coordinates } from '@/lib/geo';
 import { formatDistance } from '@/lib/geo';
 import { generateNavigationURL } from '@/lib/navigation';
-import { getShelterIcon } from '@/lib/shelterIcons';
 import type { ShelterFeature } from '@/types/shelter';
 import {
   AccessibilitySection,
@@ -22,19 +21,6 @@ interface ShelterDetailModalProps {
   onToggleFavorite?: ((id: string) => void) | undefined;
 }
 
-function getShelterTypeColor(type: string): string {
-  switch (type) {
-    case '指定避難所':
-      return 'bg-blue-50 text-blue-800 border-blue-200';
-    case '緊急避難場所':
-      return 'bg-red-50 text-red-800 border-red-200';
-    case '両方':
-      return 'bg-purple-50 text-purple-900 border-purple-200';
-    default:
-      return 'bg-gray-50 text-gray-800 border-gray-200';
-  }
-}
-
 export function ShelterDetailModal({
   shelter,
   isOpen,
@@ -43,9 +29,8 @@ export function ShelterDetailModal({
   isFavorite = false,
   onToggleFavorite,
 }: ShelterDetailModalProps) {
-  const { name, type, address, disasterTypes, capacity, contact, id } =
+  const { name, address, disasterTypes, capacity, contact, id } =
     shelter.properties;
-  const typeColor = getShelterTypeColor(type);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
@@ -114,17 +99,6 @@ export function ShelterDetailModal({
             >
               {name}
             </h2>
-            <div className="mt-1.5 flex items-center gap-2">
-              <span
-                className={clsx(
-                  'inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium',
-                  typeColor
-                )}
-              >
-                {getShelterIcon(type, { className: 'h-3.5 w-3.5' })}
-                <span>{type}</span>
-              </span>
-            </div>
           </div>
 
           {/* お気に入り + 閉じるボタン */}
@@ -196,7 +170,7 @@ export function ShelterDetailModal({
         <div className="p-4 space-y-4">
           {/* 住所 */}
           <section>
-            <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
               <svg
                 className="h-5 w-5 text-gray-600"
                 fill="none"
@@ -243,7 +217,7 @@ export function ShelterDetailModal({
 
           {/* 災害種別 */}
           <section>
-            <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
               <svg
                 className="h-5 w-5 text-gray-600"
                 fill="none"
@@ -275,7 +249,7 @@ export function ShelterDetailModal({
           {/* 収容人数（ある場合のみ） */}
           {capacity && (
             <section>
-              <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
                 <svg
                   className="h-5 w-5 text-gray-600"
                   fill="none"
@@ -299,7 +273,7 @@ export function ShelterDetailModal({
           {/* 連絡先（ある場合のみ） */}
           {contact && (
             <section>
-              <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
+              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
                 <svg
                   className="h-5 w-5 text-gray-600"
                   fill="none"
