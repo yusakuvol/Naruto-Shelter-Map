@@ -1,7 +1,12 @@
-import { clsx } from 'clsx';
-import { useEffect, useId, useRef } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import type { Coordinates } from '@/lib/geo';
 import { formatDistance } from '@/lib/geo';
@@ -31,78 +36,33 @@ export function ShelterDetailModal({
   distance,
   isFavorite = false,
   onToggleFavorite,
-}: ShelterDetailModalProps) {
+}: ShelterDetailModalProps): React.ReactNode {
   const { name, address, disasterTypes, capacity, contact, id } =
     shelter.properties;
-  const modalRef = useRef<HTMLDivElement>(null);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const titleId = useId();
   const { state: copyState, copy: copyAddress } = useCopyToClipboard();
-
-  // Escキーでモーダルを閉じる
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      // フォーカストラップ: モーダルが開いたら閉じるボタンにフォーカス
-      closeButtonRef.current?.focus();
-      // 背景スクロール禁止
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
 
   const [lng, lat] = shelter.geometry.coordinates;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 backdrop-blur-sm sm:items-center"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={titleId}
-      onClick={(e) => {
-        // モーダル外クリックで閉じる
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      }}
-      onKeyDown={(e) => {
-        // Enterでも閉じられるようにする
-        if (e.key === 'Enter' && e.target === e.currentTarget) {
-          onClose();
-        }
+    <Dialog
+      open={isOpen}
+      onOpenChange={(open) => {
+        if (!open) onClose();
       }}
     >
-      <div
-        ref={modalRef}
-        className={clsx(
-          'relative w-full max-w-lg rounded-t-2xl bg-white shadow-2xl sm:rounded-2xl',
-          'max-h-[90vh] overflow-y-auto',
-          'animate-in fade-in-0 slide-in-from-bottom-4 duration-300',
-          'sm:slide-in-from-bottom-0'
-        )}
-        role="document"
+      <DialogContent
+        showCloseButton={false}
+        className="bottom-0 left-0 right-0 top-auto max-h-[90vh] w-full max-w-lg translate-x-0 translate-y-0 gap-0 overflow-y-auto rounded-t-2xl border-0 p-0 shadow-2xl sm:bottom-auto sm:left-[50%] sm:right-auto sm:top-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-2xl"
       >
         {/* ヘッダー */}
-        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-gray-200 bg-white p-4">
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 rounded-t-2xl border-b border-gray-200 bg-white p-4">
           <div className="flex-1">
-            <h2
-              id={titleId}
-              className="text-lg font-bold text-gray-900 leading-tight"
-            >
+            <DialogTitle className="text-lg font-bold text-gray-900 leading-tight">
               {name}
-            </h2>
+            </DialogTitle>
+            <DialogDescription className="sr-only">
+              {name}の避難所詳細情報
+            </DialogDescription>
           </div>
 
           {/* お気に入り + 閉じるボタン */}
@@ -145,29 +105,29 @@ export function ShelterDetailModal({
                 )}
               </button>
             )}
-            <Button
-              ref={closeButtonRef}
-              variant="ghost"
-              size="icon"
-              onClick={onClose}
-              className="rounded-full"
-              aria-label="閉じる"
-            >
-              <svg
-                className="size-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+            <DialogClose asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full"
+                aria-label="閉じる"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </Button>
+                <svg
+                  className="size-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </Button>
+            </DialogClose>
           </div>
         </div>
 
@@ -404,7 +364,7 @@ export function ShelterDetailModal({
             経路案内を表示
           </Button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

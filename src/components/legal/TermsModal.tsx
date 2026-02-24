@@ -1,5 +1,10 @@
-import { clsx } from 'clsx';
-import { useEffect, useId, useRef } from 'react';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 interface TermsModalProps {
   isOpen: boolean;
@@ -10,83 +15,47 @@ export function TermsModal({
   isOpen,
   onClose,
 }: TermsModalProps): React.ReactNode {
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const titleId = useId();
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      closeButtonRef.current?.focus();
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 backdrop-blur-sm sm:items-center"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={titleId}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' && e.target === e.currentTarget) {
-          onClose();
-        }
+    <Dialog
+      open={isOpen}
+      onOpenChange={(open) => {
+        if (!open) onClose();
       }}
     >
-      <div
-        className={clsx(
-          'relative w-full max-w-lg rounded-t-2xl bg-white shadow-2xl sm:rounded-2xl',
-          'max-h-[90vh] overflow-y-auto',
-          'animate-in fade-in-0 slide-in-from-bottom-4 duration-300',
-          'sm:slide-in-from-bottom-0'
-        )}
-        role="document"
+      <DialogContent
+        showCloseButton={false}
+        className="bottom-0 left-0 right-0 top-auto max-h-[90vh] w-full max-w-lg translate-x-0 translate-y-0 gap-0 overflow-y-auto rounded-t-2xl border-0 p-0 shadow-2xl sm:bottom-auto sm:left-[50%] sm:right-auto sm:top-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-2xl"
       >
         {/* ヘッダー */}
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white p-4">
-          <h2 id={titleId} className="text-lg font-bold text-gray-900">
+        <div className="sticky top-0 z-10 flex items-center justify-between rounded-t-2xl border-b border-gray-200 bg-white p-4">
+          <DialogTitle className="text-lg font-bold text-gray-900">
             利用規約
-          </h2>
-          <button
-            ref={closeButtonRef}
-            type="button"
-            onClick={onClose}
-            className="rounded-full p-2 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-            aria-label="閉じる"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            鳴門避難マップの利用規約
+          </DialogDescription>
+          <DialogClose asChild>
+            <button
+              type="button"
+              className="rounded-full p-2 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              aria-label="閉じる"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </DialogClose>
         </div>
 
         {/* コンテンツ */}
@@ -174,8 +143,8 @@ export function TermsModal({
             <p className="text-xs text-gray-500">制定日: 2026年2月20日</p>
           </section>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
