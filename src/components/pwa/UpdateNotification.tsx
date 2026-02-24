@@ -1,3 +1,4 @@
+import { RefreshCwIcon, XIcon } from 'lucide-react';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -37,20 +38,7 @@ export function UpdateNotification(): ReactElement | null {
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">
-          <svg
-            className="h-6 w-6 text-blue-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-            />
-          </svg>
+          <RefreshCwIcon className="h-6 w-6 text-blue-600" aria-hidden="true" />
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-sm font-semibold text-gray-900">
@@ -81,20 +69,7 @@ export function UpdateNotification(): ReactElement | null {
           className="shrink-0"
           aria-label="閉じる"
         >
-          <svg
-            className="size-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <XIcon className="size-5" aria-hidden="true" />
         </Button>
       </div>
     </div>

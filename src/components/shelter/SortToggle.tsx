@@ -1,3 +1,4 @@
+import { ArrowDownAZIcon } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { cn } from '@/lib/utils';
 
@@ -49,16 +50,7 @@ export function SortToggle({
         aria-label="名前順でソート"
         className="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2 data-[state=on]:bg-blue-500 data-[state=on]:text-white data-[state=on]:shadow-md"
       >
-        <svg
-          className="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M3 6h18M7 12h14M11 18h10" />
-        </svg>
+        <ArrowDownAZIcon className="h-4 w-4" aria-hidden="true" />
         <span>名前順</span>
       </ToggleGroupItem>
     </ToggleGroup>

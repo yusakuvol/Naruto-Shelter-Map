@@ -1,3 +1,4 @@
+import { SmartphoneIcon, XIcon } from 'lucide-react';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -32,20 +33,10 @@ export function InstallPrompt(): ReactElement | null {
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">
-          <svg
+          <SmartphoneIcon
             className="h-6 w-6 text-blue-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
             aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-            />
-          </svg>
+          />
         </div>
         <div className="flex-1">
           <h3 className="text-sm font-semibold text-gray-900">
@@ -70,20 +61,7 @@ export function InstallPrompt(): ReactElement | null {
           className="shrink-0"
           aria-label="閉じる"
         >
-          <svg
-            className="size-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <XIcon className="size-5" aria-hidden="true" />
         </Button>
       </div>
     </div>

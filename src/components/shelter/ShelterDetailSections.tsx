@@ -1,3 +1,11 @@
+import {
+  Building2Icon,
+  CheckIcon,
+  ClockIcon,
+  PawPrintIcon,
+  UserIcon,
+  XIcon,
+} from 'lucide-react';
 import type {
   Accessibility,
   Facilities,
@@ -13,20 +21,7 @@ export function FacilitiesSection({
   return (
     <section>
       <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <svg
-          className="h-5 w-5 text-gray-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-          />
-        </svg>
+        <Building2Icon className="h-5 w-5 text-gray-600" aria-hidden="true" />
         設備情報
       </h3>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -121,20 +116,7 @@ export function AccessibilitySection({
   return (
     <section>
       <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <svg
-          className="h-5 w-5 text-gray-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-          />
-        </svg>
+        <UserIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
         バリアフリー情報
       </h3>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -212,34 +194,14 @@ export function PetSection({ pets }: { pets: PetPolicy }): React.JSX.Element {
   return (
     <section>
       <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <svg
-          className="h-5 w-5 text-gray-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+        <PawPrintIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
         ペット同伴
       </h3>
       <div className="space-y-2">
         {pets.allowed ? (
           <div className="rounded-lg bg-green-50 px-3 py-2">
             <p className="flex items-center gap-2 text-sm font-medium text-green-900">
-              <svg
-                className="h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-              </svg>
+              <CheckIcon className="h-4 w-4" aria-hidden="true" />
               ペット同伴可
             </p>
             {pets.separateArea && (
@@ -252,14 +214,7 @@ export function PetSection({ pets }: { pets: PetPolicy }): React.JSX.Element {
         ) : (
           <div className="rounded-lg bg-red-50 px-3 py-2">
             <p className="flex items-center gap-2 text-sm font-medium text-red-900">
-              <svg
-                className="h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-              </svg>
+              <XIcon className="h-4 w-4" aria-hidden="true" />
               ペット同伴不可
             </p>
             {pets.notes && (
@@ -280,34 +235,14 @@ export function OperationStatusSection({
   return (
     <section>
       <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <svg
-          className="h-5 w-5 text-gray-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+        <ClockIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
         開設状況
       </h3>
       <div className="space-y-2">
         {operationStatus.isOpen ? (
           <div className="rounded-lg bg-green-50 px-3 py-2">
             <p className="flex items-center gap-2 text-sm font-medium text-green-900">
-              <svg
-                className="h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-              </svg>
+              <CheckIcon className="h-4 w-4" aria-hidden="true" />
               開設中
             </p>
             {operationStatus.lastUpdated && (
@@ -324,14 +259,7 @@ export function OperationStatusSection({
         ) : (
           <div className="rounded-lg bg-gray-50 px-3 py-2">
             <p className="flex items-center gap-2 text-sm font-medium text-gray-900">
-              <svg
-                className="h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-              </svg>
+              <XIcon className="h-4 w-4" aria-hidden="true" />
               閉鎖中
             </p>
             {operationStatus.lastUpdated && (
