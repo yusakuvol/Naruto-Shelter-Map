@@ -1,3 +1,4 @@
+import { AlertCircleIcon, LoaderCircleIcon } from 'lucide-react';
 import type { FC, ReactElement } from 'react';
 import type {
   GeolocationError,
@@ -20,15 +21,7 @@ function getButtonContent(
   if (state === 'loading') {
     return {
       icon: (
-        <svg
-          className="h-5 w-5 animate-spin"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <circle cx="12" cy="12" r="10" />
-        </svg>
+        <LoaderCircleIcon className="h-5 w-5 animate-spin" aria-hidden="true" />
       ),
       label: '現在地を取得中',
       iconColor: 'text-blue-600',
@@ -37,17 +30,7 @@ function getButtonContent(
 
   if (state === 'error') {
     return {
-      icon: (
-        <svg
-          className="h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      icon: <AlertCircleIcon className="h-5 w-5" aria-hidden="true" />,
       label: getErrorMessage(error),
       iconColor: 'text-red-600',
     };

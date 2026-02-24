@@ -1,3 +1,4 @@
+import { InfoIcon, RefreshCwIcon } from 'lucide-react';
 import { ChatPanel } from '@/components/chat/ChatPanel';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterList } from '@/components/shelter/ShelterList';
@@ -82,20 +83,7 @@ export function DesktopSidebar({
                   aria-hidden
                 />
               ) : (
-                <svg
-                  className="size-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
+                <RefreshCwIcon className="size-4" aria-hidden />
               )}
             </Button>
             <Button
@@ -105,20 +93,7 @@ export function DesktopSidebar({
               aria-label="利用規約を表示"
               title="利用規約"
             >
-              <svg
-                className="size-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <InfoIcon className="size-4" aria-hidden />
             </Button>
           </div>
         </div>
