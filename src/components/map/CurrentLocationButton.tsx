@@ -95,7 +95,7 @@ export const CurrentLocationButton: FC<CurrentLocationButtonProps> = ({
         // Googleマップ風: 円形、白背景、影
         'flex h-12 w-12 items-center justify-center rounded-full bg-card shadow-lg transition-all',
         'hover:shadow-xl active:shadow-md',
-        'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+        'focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
         'disabled:cursor-not-allowed disabled:opacity-75',
         iconColor,
         className

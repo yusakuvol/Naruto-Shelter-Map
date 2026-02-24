@@ -98,7 +98,7 @@ function ShelterCardComponent({
                 e.stopPropagation();
                 onToggleFavorite(id);
               }}
-              className="flex items-center justify-center rounded-full p-2.5 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="flex items-center justify-center rounded-full p-2.5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
               aria-label={
                 isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
               }

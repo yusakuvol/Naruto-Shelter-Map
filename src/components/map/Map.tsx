@@ -1,3 +1,4 @@
+import { InfoIcon, RefreshCwIcon } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MapGL, {
   Marker,
@@ -202,30 +203,20 @@ export function ShelterMap({
               type="button"
               onClick={() => onRefresh()}
               disabled={isRefreshing}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-60"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-lg transition-all hover:bg-accent hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:opacity-60"
               aria-label="避難所データを最新に更新"
               title="通信して最新の避難所データを取得します"
             >
               {isRefreshing ? (
                 <span
-                  className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                  className="h-4 w-4 animate-spin rounded-full border-2 border-primary/30 border-t-primary"
                   aria-hidden
                 />
               ) : (
-                <svg
-                  className="h-4 w-4 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <RefreshCwIcon
+                  className="h-4 w-4 text-muted-foreground"
                   aria-hidden
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
+                />
               )}
             </button>
           )}
@@ -233,24 +224,11 @@ export function ShelterMap({
             <button
               type="button"
               onClick={onShowTerms}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-lg transition-all hover:bg-accent hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
               aria-label="利用規約を表示"
               title="利用規約"
             >
-              <svg
-                className="h-4 w-4 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <InfoIcon className="h-4 w-4 text-muted-foreground" aria-hidden />
             </button>
           )}
         </div>
@@ -271,12 +249,12 @@ export function ShelterMap({
             >
               {/* 外側のパルスアニメーション */}
               <div
-                className="absolute h-6 w-6 animate-ping rounded-full bg-blue-400 opacity-75"
+                className="absolute h-6 w-6 animate-ping rounded-full bg-primary/60 opacity-75"
                 aria-hidden="true"
               />
               {/* 内側の固定円 */}
               <div
-                className="relative h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-lg"
+                className="relative h-4 w-4 rounded-full border-2 border-background bg-primary shadow-lg"
                 aria-hidden="true"
               />
             </div>

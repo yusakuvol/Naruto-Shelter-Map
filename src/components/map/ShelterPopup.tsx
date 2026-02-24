@@ -48,7 +48,7 @@ export function ShelterPopup({
           <button
             type="button"
             onClick={() => onShowDetail?.(shelter)}
-            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-secondary-foreground bg-secondary hover:bg-secondary/80 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-secondary-foreground bg-secondary hover:bg-secondary/80 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
             aria-label={`${name}の詳細を見る`}
           >
             <InfoIcon className="h-4 w-4" aria-hidden="true" />
@@ -64,7 +64,7 @@ export function ShelterPopup({
               );
               window.open(url, '_blank', 'noopener,noreferrer');
             }}
-            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
             aria-label={`${name}への経路案内`}
           >
             <MapIcon className="h-4 w-4" aria-hidden="true" />

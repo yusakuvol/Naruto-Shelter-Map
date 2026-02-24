@@ -28,7 +28,7 @@ export function InstallPrompt(): ReactElement | null {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 z-50 rounded-lg bg-card p-4 shadow-xl ring-1 ring-border lg:left-auto lg:right-4 lg:w-96"
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 right-4 z-50 rounded-lg bg-card p-4 shadow-xl ring-1 ring-border lg:left-auto lg:right-4 lg:w-96"
       role="alert"
     >
       <div className="flex items-start gap-3">
