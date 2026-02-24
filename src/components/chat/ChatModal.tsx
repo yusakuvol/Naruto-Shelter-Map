@@ -44,7 +44,7 @@ export function ChatModal({
           <DialogClose asChild>
             <button
               type="button"
-              className="rounded p-2 text-muted-foreground hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring"
+              className="flex min-h-11 min-w-11 items-center justify-center rounded p-2 text-muted-foreground hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring"
               aria-label="閉じる"
             >
               <XIcon className="h-5 w-5" aria-hidden="true" />

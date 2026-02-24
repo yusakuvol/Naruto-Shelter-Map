@@ -2,6 +2,7 @@ import {
   AlertTriangleIcon,
   CheckIcon,
   CopyIcon,
+  HeartIcon,
   LocateIcon,
   MapIcon,
   MapPinIcon,
@@ -82,45 +83,22 @@ export function ShelterDetailModal({
               <button
                 type="button"
                 onClick={() => onToggleFavorite(id)}
-                className="rounded-full p-2 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-full p-2 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                 aria-label={
                   isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
                 }
               >
-                {isFavorite ? (
-                  <svg
-                    className="h-6 w-6 fill-red-500"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="h-6 w-6 stroke-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                )}
+                <HeartIcon
+                  className={`h-6 w-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-muted-foreground/70'}`}
+                  aria-hidden="true"
+                />
               </button>
             )}
             <DialogClose asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full"
+                className="size-11 rounded-full"
                 aria-label="閉じる"
               >
                 <XIcon className="size-6" aria-hidden="true" />
