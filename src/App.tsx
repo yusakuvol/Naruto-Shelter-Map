@@ -123,6 +123,9 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
         <div className="absolute bottom-[calc(8.5rem+env(safe-area-inset-bottom))] right-4 z-10">
           <ChatFab onClick={() => setChatModalOpen(true)} />
         </div>
+        <p className="absolute bottom-[max(0.5rem,env(safe-area-inset-bottom))] left-2 z-10 text-[10px] text-muted-foreground/70">
+          Designed by Yusaku Matsukawa
+        </p>
       </div>
 
       {/* デスクトップレイアウト */}

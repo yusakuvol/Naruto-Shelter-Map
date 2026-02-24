@@ -198,6 +198,12 @@ export function DesktopSidebar({
           />
         )}
       </nav>
+
+      <footer className="border-t px-4 py-2">
+        <p className="text-xs text-muted-foreground">
+          Designed by Yusaku Matsukawa
+        </p>
+      </footer>
     </aside>
   );
 }
