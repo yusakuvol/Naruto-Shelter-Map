@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 import { usePWAInstall } from '@/hooks/usePWAInstall';
 
 /**
@@ -54,30 +55,23 @@ export function InstallPrompt(): ReactElement | null {
             ホーム画面に追加して、オフラインでも避難所情報を確認できます。
           </p>
           <div className="mt-3 flex gap-2">
-            <button
-              type="button"
-              onClick={handleInstall}
-              className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
+            <Button size="sm" onClick={handleInstall}>
               インストール
-            </button>
-            <button
-              type="button"
-              onClick={handleDismiss}
-              className="rounded-md bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-            >
+            </Button>
+            <Button variant="secondary" size="sm" onClick={handleDismiss}>
               後で
-            </button>
+            </Button>
           </div>
         </div>
-        <button
-          type="button"
+        <Button
+          variant="ghost"
+          size="icon-sm"
           onClick={handleDismiss}
-          className="flex-shrink-0 text-gray-400 hover:text-gray-500"
+          className="shrink-0"
           aria-label="閉じる"
         >
           <svg
-            className="h-5 w-5"
+            className="size-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -90,7 +84,7 @@ export function InstallPrompt(): ReactElement | null {
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
-        </button>
+        </Button>
       </div>
     </div>
   );

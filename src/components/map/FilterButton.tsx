@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
+import { Button } from '@/components/ui/button';
 import { useFilter } from '@/contexts/FilterContext';
 
 export function FilterButton() {
@@ -10,14 +11,10 @@ export function FilterButton() {
   return (
     <>
       {/* フィルタボタン */}
-      <button
-        type="button"
+      <Button
+        variant="outline"
         onClick={() => setIsOpen(!isOpen)}
-        className={`
-          flex items-center gap-2 rounded-full bg-white px-4 py-2.5 shadow-lg
-          transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-          ${hasActiveFilters ? 'border-2 border-blue-500' : 'border border-gray-200'}
-        `}
+        className={`rounded-full bg-white shadow-lg hover:shadow-xl ${hasActiveFilters ? 'border-2 border-blue-500' : ''}`}
         aria-label="フィルタ"
         aria-expanded={isOpen}
       >
@@ -27,7 +24,7 @@ export function FilterButton() {
             {selectedDisasters.length}
           </span>
         )}
-      </button>
+      </Button>
 
       {/* フィルタドロワー */}
       {isOpen && (

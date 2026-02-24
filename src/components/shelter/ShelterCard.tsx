@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { memo, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import type { Coordinates } from '@/lib/geo';
 import {
   calculateBearing,
@@ -213,8 +214,9 @@ function ShelterCardComponent({
         {/* アクションボタン */}
         <div className="flex items-center gap-2 pt-2 border-t border-gray-200">
           {/* 詳細を見るボタン（onShowDetail ありなら地図側でモーダルを開く） */}
-          <button
-            type="button"
+          <Button
+            variant="secondary"
+            size="sm"
             onClick={(e) => {
               e.stopPropagation();
               if (onShowDetail) {
@@ -223,11 +225,10 @@ function ShelterCardComponent({
                 setIsDetailOpen(true);
               }
             }}
-            className="flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             aria-label={`${name}の詳細を見る`}
           >
             <svg
-              className="h-4 w-4"
+              className="size-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -241,13 +242,15 @@ function ShelterCardComponent({
               />
             </svg>
             <span className="truncate">詳細</span>
-          </button>
+          </Button>
 
           {/* 経路案内ボタン（距離がある場合のみ） */}
           {distance !== null && distance !== undefined && (
             <>
-              <button
-                type="button"
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1"
                 onClick={(e) => {
                   e.stopPropagation();
                   const [lng, lat] = shelter.geometry.coordinates;
@@ -258,11 +261,10 @@ function ShelterCardComponent({
                   );
                   window.open(url, '_blank', 'noopener,noreferrer');
                 }}
-                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label={`${name}への経路案内`}
               >
                 <svg
-                  className="h-4 w-4"
+                  className="size-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -276,7 +278,7 @@ function ShelterCardComponent({
                   />
                 </svg>
                 <span className="truncate">経路案内</span>
-              </button>
+              </Button>
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <span
                   className="whitespace-nowrap"

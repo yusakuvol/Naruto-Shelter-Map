@@ -2,6 +2,7 @@ import { ChatPanel } from '@/components/chat/ChatPanel';
 import { DisasterTypeFilter } from '@/components/filter/DisasterTypeFilter';
 import { ShelterList } from '@/components/shelter/ShelterList';
 import { type SortMode, SortToggle } from '@/components/shelter/SortToggle';
+import { Button } from '@/components/ui/button';
 import type { Coordinates } from '@/lib/geo';
 import type { ShelterFeature } from '@/types/shelter';
 
@@ -67,22 +68,22 @@ export function DesktopSidebar({
             鳴門避難マップ
           </h1>
           <div className="flex items-center gap-1.5">
-            <button
-              type="button"
+            <Button
+              variant="outline"
+              size="icon-sm"
               onClick={() => void onRefresh()}
               disabled={isRefreshing}
-              className="flex items-center justify-center rounded-lg border border-gray-300 bg-white p-1.5 text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-60"
               aria-label="避難所データを最新に更新"
               title="通信して最新の避難所データを取得します"
             >
               {isRefreshing ? (
                 <span
-                  className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                  className="size-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
                   aria-hidden
                 />
               ) : (
                 <svg
-                  className="h-4 w-4"
+                  className="size-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -96,16 +97,16 @@ export function DesktopSidebar({
                   />
                 </svg>
               )}
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="outline"
+              size="icon-sm"
               onClick={onShowTerms}
-              className="flex items-center justify-center rounded-lg border border-gray-300 bg-white p-1.5 text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
               aria-label="利用規約を表示"
               title="利用規約"
             >
               <svg
-                className="h-4 w-4"
+                className="size-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -118,7 +119,7 @@ export function DesktopSidebar({
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-            </button>
+            </Button>
           </div>
         </div>
         <p className="text-sm text-gray-700">

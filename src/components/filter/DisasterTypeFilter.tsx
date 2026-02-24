@@ -1,4 +1,6 @@
 import type { ReactElement } from 'react';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useFilter } from '@/contexts/FilterContext';
 import type { DisasterType } from '@/types/shelter';
 
@@ -136,14 +138,14 @@ export function DisasterTypeFilter(): ReactElement {
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-gray-900">災害種別</h3>
         {selectedDisasters.length > 0 && (
-          <button
-            type="button"
+          <Button
+            variant="link"
+            size="xs"
             onClick={clearFilters}
-            className="text-xs text-blue-600 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             aria-label="フィルタをクリア"
           >
             クリア
-          </button>
+          </Button>
         )}
       </div>
 
@@ -154,25 +156,15 @@ export function DisasterTypeFilter(): ReactElement {
           return (
             <label
               key={disaster}
+              htmlFor={`filter-${disaster}`}
               className={`flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 transition-colors ${
                 isSelected ? 'bg-blue-50 hover:bg-blue-100' : 'hover:bg-gray-50'
               }`}
             >
-              <input
-                type="checkbox"
+              <Checkbox
+                id={`filter-${disaster}`}
                 checked={isSelected}
-                onChange={() => toggleDisaster(disaster)}
-                className="h-4 w-4 cursor-pointer appearance-none rounded border-2 bg-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-0"
-                style={{
-                  backgroundColor: isSelected ? '#2563eb' : 'white',
-                  borderColor: isSelected ? '#2563eb' : '#d1d5db',
-                  backgroundImage: isSelected
-                    ? "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E\")"
-                    : 'none',
-                  backgroundSize: 'contain',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
+                onCheckedChange={() => toggleDisaster(disaster)}
                 aria-label={`${disaster}で絞り込む`}
               />
               <IconComponent
