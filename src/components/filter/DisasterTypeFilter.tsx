@@ -134,9 +134,9 @@ export function DisasterTypeFilter(): ReactElement {
   const { selectedDisasters, toggleDisaster, clearFilters } = useFilter();
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+    <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-gray-900">災害種別</h3>
+        <h3 className="text-sm font-semibold text-foreground">災害種別</h3>
         {selectedDisasters.length > 0 && (
           <Button
             variant="link"
@@ -158,7 +158,9 @@ export function DisasterTypeFilter(): ReactElement {
               key={disaster}
               htmlFor={`filter-${disaster}`}
               className={`flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 transition-colors ${
-                isSelected ? 'bg-blue-50 hover:bg-blue-100' : 'hover:bg-gray-50'
+                isSelected
+                  ? 'bg-primary/10 hover:bg-primary/15'
+                  : 'hover:bg-accent'
               }`}
             >
               <Checkbox
@@ -169,12 +171,12 @@ export function DisasterTypeFilter(): ReactElement {
               />
               <IconComponent
                 className={`h-5 w-5 shrink-0 transition-colors ${
-                  isSelected ? 'text-blue-600' : 'text-gray-600'
+                  isSelected ? 'text-primary' : 'text-muted-foreground'
                 }`}
               />
               <span
                 className={`text-sm transition-colors ${
-                  isSelected ? 'text-blue-900 font-medium' : 'text-gray-700'
+                  isSelected ? 'text-primary font-medium' : 'text-foreground/80'
                 }`}
               >
                 {disaster}
@@ -185,8 +187,8 @@ export function DisasterTypeFilter(): ReactElement {
       </div>
 
       {selectedDisasters.length > 0 && (
-        <div className="mt-3 border-t border-gray-200 pt-3">
-          <p className="text-xs text-gray-600">
+        <div className="mt-3 border-t border-border pt-3">
+          <p className="text-xs text-muted-foreground">
             {selectedDisasters.length}件の災害種別でフィルタ中
           </p>
         </div>

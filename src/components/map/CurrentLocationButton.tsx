@@ -24,7 +24,7 @@ function getButtonContent(
         <LoaderCircleIcon className="h-5 w-5 animate-spin" aria-hidden="true" />
       ),
       label: '現在地を取得中',
-      iconColor: 'text-blue-600',
+      iconColor: 'text-primary',
     };
   }
 
@@ -32,7 +32,7 @@ function getButtonContent(
     return {
       icon: <AlertCircleIcon className="h-5 w-5" aria-hidden="true" />,
       label: getErrorMessage(error),
-      iconColor: 'text-red-600',
+      iconColor: 'text-destructive',
     };
   }
 
@@ -45,7 +45,7 @@ function getButtonContent(
         </svg>
       ),
       label: '現在地を表示中',
-      iconColor: 'text-blue-600',
+      iconColor: 'text-primary',
     };
   }
 
@@ -57,7 +57,7 @@ function getButtonContent(
       </svg>
     ),
     label: '現在地を表示',
-    iconColor: 'text-gray-700',
+    iconColor: 'text-muted-foreground',
   };
 }
 
@@ -93,9 +93,9 @@ export const CurrentLocationButton: FC<CurrentLocationButtonProps> = ({
       disabled={state === 'loading'}
       className={cn(
         // Googleマップ風: 円形、白背景、影
-        'flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg transition-all',
+        'flex h-12 w-12 items-center justify-center rounded-full bg-card shadow-lg transition-all',
         'hover:shadow-xl active:shadow-md',
-        'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+        'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
         'disabled:cursor-not-allowed disabled:opacity-75',
         iconColor,
         className

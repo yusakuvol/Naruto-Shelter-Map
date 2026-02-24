@@ -66,9 +66,9 @@ export function ShelterDetailModal({
         className="bottom-0 left-0 right-0 top-auto max-h-[90vh] w-full max-w-lg translate-x-0 translate-y-0 gap-0 overflow-y-auto rounded-t-2xl border-0 p-0 shadow-2xl sm:bottom-auto sm:left-[50%] sm:right-auto sm:top-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-2xl"
       >
         {/* ヘッダー */}
-        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 rounded-t-2xl border-b border-gray-200 bg-white p-4">
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 rounded-t-2xl border-b border-border bg-card p-4">
           <div className="flex-1">
-            <DialogTitle className="text-lg font-bold text-gray-900 leading-tight">
+            <DialogTitle className="text-lg font-bold text-foreground leading-tight">
               {name}
             </DialogTitle>
             <DialogDescription className="sr-only">
@@ -82,7 +82,7 @@ export function ShelterDetailModal({
               <button
                 type="button"
                 onClick={() => onToggleFavorite(id)}
-                className="rounded-full p-2 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                className="rounded-full p-2 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                 aria-label={
                   isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
                 }
@@ -133,9 +133,9 @@ export function ShelterDetailModal({
         <div className="p-4 space-y-4">
           {/* 住所 */}
           <section>
-            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
+            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
               <MapPinIcon
-                className="h-5 w-5 text-gray-600"
+                className="h-5 w-5 text-muted-foreground"
                 aria-hidden="true"
               />
               所在地
@@ -143,7 +143,7 @@ export function ShelterDetailModal({
             <button
               type="button"
               onClick={() => copyAddress(address)}
-              className="group flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              className="group flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors rounded focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               aria-label={`住所をコピー: ${address}`}
             >
               <span>{address}</span>
@@ -154,7 +154,7 @@ export function ShelterDetailModal({
                 />
               ) : (
                 <CopyIcon
-                  className="h-4 w-4 shrink-0 text-gray-400 group-hover:text-blue-500 transition-colors"
+                  className="h-4 w-4 shrink-0 text-muted-foreground/70 group-hover:text-primary transition-colors"
                   aria-hidden="true"
                 />
               )}
@@ -163,8 +163,8 @@ export function ShelterDetailModal({
 
           {/* 距離（ある場合のみ） */}
           {distance !== null && distance !== undefined && (
-            <section className="rounded-lg bg-blue-50 p-3">
-              <p className="flex items-center gap-2 text-sm text-blue-900">
+            <section className="rounded-lg bg-primary/10 p-3">
+              <p className="flex items-center gap-2 text-sm text-primary">
                 <LocateIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">
                   現在地から {formatDistance(distance)}
@@ -175,9 +175,9 @@ export function ShelterDetailModal({
 
           {/* 災害種別 */}
           <section>
-            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
+            <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
               <AlertTriangleIcon
-                className="h-5 w-5 text-gray-600"
+                className="h-5 w-5 text-muted-foreground"
                 aria-hidden="true"
               />
               対応災害種別
@@ -198,30 +198,30 @@ export function ShelterDetailModal({
           {/* 収容人数（ある場合のみ） */}
           {capacity && (
             <section>
-              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
+              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
                 <UsersIcon
-                  className="h-5 w-5 text-gray-600"
+                  className="h-5 w-5 text-muted-foreground"
                   aria-hidden="true"
                 />
                 収容人数
               </h3>
-              <p className="text-sm text-gray-700">{capacity}人</p>
+              <p className="text-sm text-foreground/80">{capacity}人</p>
             </section>
           )}
 
           {/* 連絡先（ある場合のみ） */}
           {contact && (
             <section>
-              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
+              <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
                 <PhoneIcon
-                  className="h-5 w-5 text-gray-600"
+                  className="h-5 w-5 text-muted-foreground"
                   aria-hidden="true"
                 />
                 連絡先
               </h3>
               <a
                 href={`tel:${contact}`}
-                className="text-sm text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 rounded"
+                className="text-sm text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
               >
                 {contact}
               </a>
@@ -249,8 +249,8 @@ export function ShelterDetailModal({
           )}
 
           {/* データソース */}
-          <section className="border-t border-gray-200 pt-4">
-            <p className="text-sm text-gray-600">
+          <section className="border-t border-border pt-4">
+            <p className="text-sm text-muted-foreground">
               データ提供: {shelter.properties.source}
               <br />
               更新日: {shelter.properties.updatedAt}
@@ -259,7 +259,7 @@ export function ShelterDetailModal({
         </div>
 
         {/* フッター: アクションボタン */}
-        <div className="sticky bottom-0 border-t border-gray-200 bg-white p-4">
+        <div className="sticky bottom-0 border-t border-border bg-card p-4">
           <Button
             className="w-full py-3"
             size="lg"

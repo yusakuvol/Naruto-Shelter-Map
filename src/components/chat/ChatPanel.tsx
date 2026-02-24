@@ -165,12 +165,12 @@ export function ChatPanel({
         />
 
         {isLoading && (
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             避難所データを読み込み中です。
           </p>
         )}
         {!isLoading && isEmpty && (
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             避難所について質問してみてください。例：「津波対応の避難所は？」「一番近い避難所は？」
           </p>
         )}
@@ -208,14 +208,14 @@ function LLMStatusBanner({
   switch (status) {
     case 'idle':
       return (
-        <div className="mb-3 rounded-lg border border-blue-200 bg-blue-50 p-3">
-          <p className="mb-2 text-xs text-blue-800">
+        <div className="mb-3 rounded-lg border border-primary/30 bg-primary/10 p-3">
+          <p className="mb-2 text-xs text-primary">
             AIモデルを有効にすると、より自然な回答が得られます。
           </p>
           <button
             type="button"
             onClick={onInit}
-            className="rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+            className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           >
             AIモデルを有効にする
           </button>
@@ -223,17 +223,17 @@ function LLMStatusBanner({
       );
     case 'checking':
       return (
-        <div className="mb-3 rounded-lg bg-gray-50 p-3">
-          <p className="text-xs text-gray-600">WebGPU を確認中...</p>
+        <div className="mb-3 rounded-lg bg-muted p-3">
+          <p className="text-xs text-muted-foreground">WebGPU を確認中...</p>
         </div>
       );
     case 'downloading':
       return (
-        <div className="mb-3 rounded-lg border border-blue-200 bg-blue-50 p-3">
-          <p className="mb-1 text-xs font-medium text-blue-800">
+        <div className="mb-3 rounded-lg border border-primary/30 bg-primary/10 p-3">
+          <p className="mb-1 text-xs font-medium text-primary">
             AIモデルをダウンロード中...
           </p>
-          <p className="text-xs text-blue-600 break-all">{progress}</p>
+          <p className="text-xs text-primary/80 break-all">{progress}</p>
         </div>
       );
     case 'ready':

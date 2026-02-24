@@ -34,8 +34,8 @@ export function ChatModal({
         showCloseButton={false}
         className="inset-0 flex max-w-none translate-x-0 translate-y-0 flex-col gap-0 rounded-none border-0 p-0 pb-[env(safe-area-inset-bottom)]"
       >
-        <header className="flex shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 py-3">
-          <DialogTitle className="text-lg font-bold text-gray-900">
+        <header className="flex shrink-0 items-center justify-between border-b border-border bg-card px-4 py-3">
+          <DialogTitle className="text-lg font-bold text-foreground">
             避難所について質問
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -44,7 +44,7 @@ export function ChatModal({
           <DialogClose asChild>
             <button
               type="button"
-              className="rounded p-2 text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="rounded p-2 text-muted-foreground hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring"
               aria-label="閉じる"
             >
               <XIcon className="h-5 w-5" aria-hidden="true" />

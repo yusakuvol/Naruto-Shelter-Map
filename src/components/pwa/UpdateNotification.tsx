@@ -32,19 +32,19 @@ export function UpdateNotification(): ReactElement | null {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 z-50 rounded-lg bg-white p-4 shadow-xl ring-1 ring-black ring-opacity-5 lg:left-auto lg:right-4 lg:w-96"
+      className="fixed bottom-4 left-4 right-4 z-50 rounded-lg bg-card p-4 shadow-xl ring-1 ring-border lg:left-auto lg:right-4 lg:w-96"
       role="alert"
       aria-live="polite"
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">
-          <RefreshCwIcon className="h-6 w-6 text-blue-600" aria-hidden="true" />
+          <RefreshCwIcon className="h-6 w-6 text-primary" aria-hidden="true" />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-semibold text-gray-900">
+          <h3 className="text-sm font-semibold text-foreground">
             アプリの更新が利用可能です
           </h3>
-          <p className="mt-1 text-sm text-gray-600">
+          <p className="mt-1 text-sm text-muted-foreground">
             最新バージョンを利用するには、ページを更新してください。
           </p>
           <div className="mt-3 flex gap-2">

@@ -46,8 +46,8 @@ export class ErrorBoundary extends Component<
       }
 
       return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 px-4">
-          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
+        <div className="flex min-h-screen flex-col items-center justify-center bg-muted px-4">
+          <div className="w-full max-w-md rounded-lg bg-card p-6 shadow-lg">
             {/* エラーアイコン */}
             <div className="mb-4 flex justify-center">
               <div className="rounded-full bg-red-100 p-3">
@@ -59,10 +59,10 @@ export class ErrorBoundary extends Component<
             </div>
 
             {/* エラーメッセージ */}
-            <h2 className="mb-2 text-center text-xl font-bold text-gray-900">
+            <h2 className="mb-2 text-center text-xl font-bold text-foreground">
               エラーが発生しました
             </h2>
-            <p className="mb-6 text-center text-sm text-gray-600">
+            <p className="mb-6 text-center text-sm text-muted-foreground">
               申し訳ございません。予期しないエラーが発生しました。
               <br />
               ページを再読み込みしてお試しください。
@@ -70,11 +70,11 @@ export class ErrorBoundary extends Component<
 
             {/* エラー詳細（開発環境のみ） */}
             {process.env.NODE_ENV === 'development' && (
-              <details className="mb-4 rounded bg-gray-100 p-3">
-                <summary className="cursor-pointer text-sm font-semibold text-gray-700">
+              <details className="mb-4 rounded bg-muted p-3">
+                <summary className="cursor-pointer text-sm font-semibold text-foreground/80">
                   エラー詳細（開発環境のみ）
                 </summary>
-                <pre className="mt-2 overflow-x-auto text-xs text-gray-600">
+                <pre className="mt-2 overflow-x-auto text-xs text-muted-foreground">
                   {this.state.error.message}
                   {'\n\n'}
                   {this.state.error.stack}
@@ -87,7 +87,7 @@ export class ErrorBoundary extends Component<
               <button
                 type="button"
                 onClick={this.reset}
-                className="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors"
+                className="w-full rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
               >
                 もう一度試す
               </button>
@@ -96,7 +96,7 @@ export class ErrorBoundary extends Component<
                 onClick={() => {
                   window.location.href = '/';
                 }}
-                className="w-full rounded-lg bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors"
+                className="w-full rounded-lg bg-secondary px-4 py-2 text-sm font-semibold text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
               >
                 ホームに戻る
               </button>

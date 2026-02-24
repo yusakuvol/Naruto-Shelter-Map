@@ -25,17 +25,19 @@ export function NetworkError({
       <div className="w-full max-w-sm text-center">
         {/* エラーアイコン */}
         <div className="mb-4 flex justify-center">
-          <div className="rounded-full bg-gray-100 p-3">
+          <div className="rounded-full bg-muted p-3">
             <WifiOffIcon
-              className="h-12 w-12 text-gray-400"
+              className="h-12 w-12 text-muted-foreground/70"
               aria-hidden="true"
             />
           </div>
         </div>
 
         {/* エラーメッセージ */}
-        <h3 className="mb-2 text-lg font-semibold text-gray-900">{message}</h3>
-        <p className="mb-6 text-sm text-gray-600">
+        <h3 className="mb-2 text-lg font-semibold text-foreground">
+          {message}
+        </h3>
+        <p className="mb-6 text-sm text-muted-foreground">
           ネットワーク接続を確認してから、
           <br />
           再度お試しください。

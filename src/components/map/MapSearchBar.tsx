@@ -40,7 +40,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
     >
       <div
         className={`
-          flex items-center rounded-lg bg-white shadow-lg transition-shadow
+          flex items-center rounded-lg bg-card shadow-lg transition-shadow
           ${isFocused ? 'shadow-2xl' : 'shadow-lg hover:shadow-xl'}
         `}
       >
@@ -49,7 +49,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
           <button
             type="button"
             onClick={onMenuClick}
-            className="flex h-11 w-11 items-center justify-center text-gray-600 transition-colors hover:text-gray-900"
+            className="flex h-11 w-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
             aria-label="メニュー"
           >
             <MenuIcon className="h-6 w-6" aria-hidden="true" />
@@ -57,7 +57,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
         )}
 
         {/* 検索アイコン */}
-        <div className="flex h-11 w-11 items-center justify-center text-gray-400">
+        <div className="flex h-11 w-11 items-center justify-center text-muted-foreground/70">
           <SearchIcon className="h-5 w-5" aria-hidden="true" />
         </div>
 
@@ -69,7 +69,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          className="flex-1 border-none bg-transparent py-3 pr-2 text-gray-900 placeholder-gray-500 outline-none"
+          className="flex-1 border-none bg-transparent py-3 pr-2 text-foreground placeholder-muted-foreground outline-none"
           aria-label="避難所を検索"
         />
 
@@ -78,7 +78,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
           <button
             type="button"
             onClick={handleClear}
-            className="flex h-11 w-11 items-center justify-center text-gray-400 transition-colors hover:text-gray-600"
+            className="flex h-11 w-11 items-center justify-center text-muted-foreground/70 transition-colors hover:text-muted-foreground"
             aria-label="検索をクリア"
           >
             <XIcon className="h-5 w-5" aria-hidden="true" />
@@ -90,7 +90,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
           <button
             type="button"
             onClick={onCurrentLocationClick}
-            className="flex h-11 w-11 items-center justify-center text-gray-600 transition-colors hover:text-gray-900"
+            className="flex h-11 w-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
             aria-label="現在地を表示"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
