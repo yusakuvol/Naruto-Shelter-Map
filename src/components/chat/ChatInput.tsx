@@ -29,7 +29,7 @@ export function ChatInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex gap-2 border-t border-gray-200 bg-white p-2"
+      className="flex gap-2 border-t border-border bg-card p-2"
       aria-label="避難所について質問"
     >
       <Input

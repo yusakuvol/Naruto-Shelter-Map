@@ -20,8 +20,11 @@ export function FacilitiesSection({
 }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <Building2Icon className="h-5 w-5 text-gray-600" aria-hidden="true" />
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
+        <Building2Icon
+          className="h-5 w-5 text-muted-foreground"
+          aria-hidden="true"
+        />
         設備情報
       </h3>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -115,8 +118,11 @@ export function AccessibilitySection({
 }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <UserIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
+        <UserIcon
+          className="h-5 w-5 text-muted-foreground"
+          aria-hidden="true"
+        />
         バリアフリー情報
       </h3>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -193,8 +199,11 @@ export function AccessibilitySection({
 export function PetSection({ pets }: { pets: PetPolicy }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <PawPrintIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
+        <PawPrintIcon
+          className="h-5 w-5 text-muted-foreground"
+          aria-hidden="true"
+        />
         ペット同伴
       </h3>
       <div className="space-y-2">
@@ -234,8 +243,11 @@ export function OperationStatusSection({
 }): React.JSX.Element {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-gray-900">
-        <ClockIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
+      <h3 className="mb-2 flex items-center gap-2 text-base font-semibold text-foreground">
+        <ClockIcon
+          className="h-5 w-5 text-muted-foreground"
+          aria-hidden="true"
+        />
         開設状況
       </h3>
       <div className="space-y-2">
@@ -257,18 +269,18 @@ export function OperationStatusSection({
             )}
           </div>
         ) : (
-          <div className="rounded-lg bg-gray-50 px-3 py-2">
-            <p className="flex items-center gap-2 text-sm font-medium text-gray-900">
+          <div className="rounded-lg bg-muted px-3 py-2">
+            <p className="flex items-center gap-2 text-sm font-medium text-foreground">
               <XIcon className="h-4 w-4" aria-hidden="true" />
               閉鎖中
             </p>
             {operationStatus.lastUpdated && (
-              <p className="mt-1 text-sm text-gray-800">
+              <p className="mt-1 text-sm text-foreground/80">
                 最終更新: {operationStatus.lastUpdated}
               </p>
             )}
             {operationStatus.notes && (
-              <p className="mt-1 text-sm text-gray-800">
+              <p className="mt-1 text-sm text-foreground/80">
                 {operationStatus.notes}
               </p>
             )}

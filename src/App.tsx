@@ -23,10 +23,12 @@ const ShelterMap = lazy(() =>
 );
 
 const MAP_LOADING_FALLBACK = (
-  <div className="flex h-full w-full items-center justify-center bg-gray-100">
+  <div className="flex h-full w-full items-center justify-center bg-muted">
     <div className="text-center">
-      <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
-      <p className="mt-4 text-sm text-gray-600">地図を読み込んでいます...</p>
+      <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
+      <p className="mt-4 text-sm text-muted-foreground">
+        地図を読み込んでいます...
+      </p>
     </div>
   </div>
 );
@@ -90,8 +92,8 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
-          <p className="mt-4 text-sm text-gray-600">読み込み中...</p>
+          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
+          <p className="mt-4 text-sm text-muted-foreground">読み込み中...</p>
         </div>
       </div>
     );

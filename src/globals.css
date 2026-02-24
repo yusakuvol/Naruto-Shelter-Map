@@ -32,12 +32,12 @@
   /* リンクのデフォルトスタイル */
   a:not(.skip-link):not([class*="maplibre"]) {
     @apply underline underline-offset-2;
-    @apply text-blue-600 hover:text-blue-700;
+    @apply text-primary hover:text-primary/80;
   }
 
   /* リンクのフォーカススタイル */
   a:focus-visible {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+    @apply outline-none ring-2 ring-ring ring-offset-2;
   }
 
   /* 地図コンテナのCLS対策 */
@@ -52,7 +52,7 @@
 
 /* MapLibre Popup カスタムスタイル */
 .maplibregl-popup-content {
-  @apply rounded-2xl shadow-lg bg-white;
+  @apply rounded-2xl shadow-lg bg-card;
   padding: 0 !important;
   border-radius: 1rem !important; /* 角丸を確実に適用 */
 }
@@ -62,7 +62,7 @@
 }
 
 .shelter-popup .maplibregl-popup-close-button {
-  @apply text-gray-400 hover:text-gray-600;
+  @apply text-muted-foreground hover:text-foreground;
   font-size: 20px;
   padding: 8px;
 }

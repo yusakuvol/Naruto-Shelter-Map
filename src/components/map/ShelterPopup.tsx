@@ -28,8 +28,8 @@ export function ShelterPopup({
       className="shelter-popup"
     >
       <div className="p-4">
-        <h3 className="mb-2 text-base font-bold text-gray-900">{name}</h3>
-        <div className="space-y-1 text-sm text-gray-700 mb-3">
+        <h3 className="mb-2 text-base font-bold text-foreground">{name}</h3>
+        <div className="space-y-1 text-sm text-foreground/80 mb-3">
           <p>
             <span className="font-semibold">住所:</span> {address}
           </p>
@@ -47,7 +47,7 @@ export function ShelterPopup({
           <button
             type="button"
             onClick={() => onShowDetail?.(shelter)}
-            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-secondary-foreground bg-secondary hover:bg-secondary/80 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             aria-label={`${name}の詳細を見る`}
           >
             <svg
@@ -76,7 +76,7 @@ export function ShelterPopup({
               );
               window.open(url, '_blank', 'noopener,noreferrer');
             }}
-            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             aria-label={`${name}への経路案内`}
           >
             <svg

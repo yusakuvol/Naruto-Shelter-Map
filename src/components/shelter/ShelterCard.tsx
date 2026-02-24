@@ -68,9 +68,9 @@ function ShelterCardComponent({
       {/* biome-ignore lint/a11y/useSemanticElements: ボタンネストを避けるためdivを使用 */}
       <div
         className={cn(
-          'w-full cursor-pointer rounded-xl border bg-white p-4 text-left transition-all hover:shadow-lg',
-          onClick && 'hover:border-blue-300',
-          isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
+          'w-full cursor-pointer rounded-xl border bg-card p-4 text-left transition-all hover:shadow-lg',
+          onClick && 'hover:border-primary/50',
+          isSelected && 'ring-2 ring-ring bg-primary/10 border-primary/50'
         )}
         onClick={onClick}
         role="button"
@@ -86,7 +86,7 @@ function ShelterCardComponent({
       >
         {/* ヘッダー: 名前 + お気に入りボタン */}
         <div className="mb-2 flex items-start justify-between gap-2">
-          <h3 className="flex-1 text-base font-semibold text-gray-900 leading-tight">
+          <h3 className="flex-1 text-base font-semibold text-foreground leading-tight">
             {name}
           </h3>
           {/* お気に入りボタン */}
@@ -97,7 +97,7 @@ function ShelterCardComponent({
                 e.stopPropagation();
                 onToggleFavorite(id);
               }}
-              className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              className="flex items-center justify-center rounded-full p-1 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               aria-label={
                 isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
               }
@@ -135,13 +135,13 @@ function ShelterCardComponent({
 
         {/* 距離と方向（Google Maps風） */}
         {distance !== null && distance !== undefined && (
-          <div className="mb-2 flex items-center gap-2 text-sm text-gray-600">
-            <span className="font-medium text-gray-900">
+          <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">
               {formatDistance(distance)}
             </span>
             {directionJa && (
               <>
-                <span className="text-gray-400">•</span>
+                <span className="text-muted-foreground/70">•</span>
                 <span>{directionJa}方向</span>
               </>
             )}
@@ -149,16 +149,16 @@ function ShelterCardComponent({
         )}
 
         {/* 住所（常に表示） */}
-        <p className="flex items-start gap-1.5 text-sm text-gray-600 mb-2">
+        <p className="flex items-start gap-1.5 text-sm text-muted-foreground mb-2">
           <MapPinIcon
-            className="mt-0.5 h-4 w-4 shrink-0 text-gray-400"
+            className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/70"
             aria-hidden="true"
           />
           <span className="flex-1 leading-tight">{address}</span>
         </p>
 
         {/* 追加情報（コンパクトに1行で表示） */}
-        <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-gray-800">
+        <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-foreground">
           {/* 災害種別 */}
           <span className="flex items-center gap-1">
             <AlertTriangleIcon
@@ -180,7 +180,7 @@ function ShelterCardComponent({
         </div>
 
         {/* アクションボタン */}
-        <div className="flex items-center gap-2 pt-2 border-t border-gray-200">
+        <div className="flex items-center gap-2 pt-2 border-t border-border">
           {/* 詳細を見るボタン（onShowDetail ありなら地図側でモーダルを開く） */}
           <Button
             variant="secondary"
@@ -221,7 +221,7 @@ function ShelterCardComponent({
                 <MapIcon className="size-4" aria-hidden="true" />
                 <span className="truncate">経路案内</span>
               </Button>
-              <div className="flex items-center gap-2 text-sm text-gray-700">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span
                   className="whitespace-nowrap"
                   title={`徒歩: ${formatTravelTime(
@@ -230,7 +230,7 @@ function ShelterCardComponent({
                 >
                   🚶 {formatTravelTime(estimateWalkingTime(distance))}
                 </span>
-                <span className="text-gray-500">|</span>
+                <span className="text-muted-foreground/70">|</span>
                 <span
                   className="whitespace-nowrap"
                   title={`車: ${formatTravelTime(

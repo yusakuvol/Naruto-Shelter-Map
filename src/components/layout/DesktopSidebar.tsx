@@ -52,12 +52,12 @@ export function DesktopSidebar({
 }: DesktopSidebarProps): React.JSX.Element {
   return (
     <aside
-      className="flex h-full w-96 flex-col border-r bg-white"
+      className="flex h-full w-96 flex-col border-r bg-card"
       aria-label="避難所フィルタとリスト"
     >
       <header className="border-b p-4">
         <div className="mb-2 flex items-center justify-between gap-2">
-          <h1 className="flex items-center gap-2 text-xl font-bold text-gray-900">
+          <h1 className="flex items-center gap-2 text-xl font-bold text-foreground">
             <img
               src="/icon.svg"
               alt=""
@@ -79,7 +79,7 @@ export function DesktopSidebar({
             >
               {isRefreshing ? (
                 <span
-                  className="size-4 animate-spin rounded-full border-2 border-gray-300 border-t-blue-600"
+                  className="size-4 animate-spin rounded-full border-2 border-primary/30 border-t-primary"
                   aria-hidden
                 />
               ) : (
@@ -97,7 +97,7 @@ export function DesktopSidebar({
             </Button>
           </div>
         </div>
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-muted-foreground">
           {listFilter === 'chat'
             ? '避難所について質問'
             : listFilter === 'favorites'
@@ -105,7 +105,7 @@ export function DesktopSidebar({
               : `${filteredShelters.length}件の避難所`}
           {listFilter === 'all' &&
             filteredShelters.length !== allSheltersCount && (
-              <span className="ml-1 text-gray-700">
+              <span className="ml-1 text-muted-foreground">
                 （全{allSheltersCount}件中）
               </span>
             )}
@@ -114,7 +114,7 @@ export function DesktopSidebar({
 
       <div className="border-b p-4">
         <div
-          className="flex rounded-lg border border-gray-200 p-1"
+          className="flex rounded-lg border border-border p-1"
           role="tablist"
           aria-label="リストの表示"
         >
@@ -124,8 +124,8 @@ export function DesktopSidebar({
             aria-selected={listFilter === 'all'}
             className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
               listFilter === 'all'
-                ? 'bg-gray-100 text-gray-900'
-                : 'text-gray-600 hover:bg-gray-50'
+                ? 'bg-accent text-accent-foreground'
+                : 'text-muted-foreground hover:bg-accent/50'
             }`}
             onClick={() => onListFilterChange('all')}
           >
@@ -137,8 +137,8 @@ export function DesktopSidebar({
             aria-selected={listFilter === 'favorites'}
             className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
               listFilter === 'favorites'
-                ? 'bg-gray-100 text-gray-900'
-                : 'text-gray-600 hover:bg-gray-50'
+                ? 'bg-accent text-accent-foreground'
+                : 'text-muted-foreground hover:bg-accent/50'
             }`}
             onClick={() => onListFilterChange('favorites')}
           >
@@ -150,8 +150,8 @@ export function DesktopSidebar({
             aria-selected={listFilter === 'chat'}
             className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
               listFilter === 'chat'
-                ? 'bg-gray-100 text-gray-900'
-                : 'text-gray-600 hover:bg-gray-50'
+                ? 'bg-accent text-accent-foreground'
+                : 'text-muted-foreground hover:bg-accent/50'
             }`}
             onClick={() => onListFilterChange('chat')}
           >

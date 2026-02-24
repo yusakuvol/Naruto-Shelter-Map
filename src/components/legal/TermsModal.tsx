@@ -28,8 +28,8 @@ export function TermsModal({
         className="bottom-0 left-0 right-0 top-auto max-h-[90vh] w-full max-w-lg translate-x-0 translate-y-0 gap-0 overflow-y-auto rounded-t-2xl border-0 p-0 shadow-2xl sm:bottom-auto sm:left-[50%] sm:right-auto sm:top-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-2xl"
       >
         {/* ヘッダー */}
-        <div className="sticky top-0 z-10 flex items-center justify-between rounded-t-2xl border-b border-gray-200 bg-white p-4">
-          <DialogTitle className="text-lg font-bold text-gray-900">
+        <div className="sticky top-0 z-10 flex items-center justify-between rounded-t-2xl border-b border-border bg-card p-4">
+          <DialogTitle className="text-lg font-bold text-foreground">
             利用規約
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -38,7 +38,7 @@ export function TermsModal({
           <DialogClose asChild>
             <button
               type="button"
-              className="rounded-full p-2 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              className="rounded-full p-2 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               aria-label="閉じる"
             >
               <XIcon className="h-6 w-6" aria-hidden="true" />
@@ -47,7 +47,7 @@ export function TermsModal({
         </div>
 
         {/* コンテンツ */}
-        <div className="space-y-6 p-4 text-sm leading-relaxed text-gray-700">
+        <div className="space-y-6 p-4 text-sm leading-relaxed text-foreground/80">
           <TermsSection title="第1条（サービス概要）">
             <p>
               本サービス「鳴門避難マップ」（以下「本サービス」）は、
@@ -127,8 +127,10 @@ export function TermsModal({
             </p>
           </TermsSection>
 
-          <section className="border-t border-gray-200 pt-4">
-            <p className="text-xs text-gray-500">制定日: 2026年2月20日</p>
+          <section className="border-t border-border pt-4">
+            <p className="text-xs text-muted-foreground">
+              制定日: 2026年2月20日
+            </p>
           </section>
         </div>
       </DialogContent>
@@ -145,7 +147,7 @@ function TermsSection({
 }): React.ReactNode {
   return (
     <section>
-      <h3 className="mb-2 text-sm font-semibold text-gray-900">{title}</h3>
+      <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
       {children}
     </section>
   );
