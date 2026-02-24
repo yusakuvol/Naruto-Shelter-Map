@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import {
   AlertTriangleIcon,
   InfoIcon,
@@ -21,6 +20,7 @@ import {
   formatTravelTime,
   generateNavigationURL,
 } from '@/lib/navigation';
+import { cn } from '@/lib/utils';
 import type { ShelterFeature } from '@/types/shelter';
 import { ShelterCardBadges } from './ShelterCardBadges';
 import { ShelterDetailModal } from './ShelterDetailModal';
@@ -67,7 +67,7 @@ function ShelterCardComponent({
     <>
       {/* biome-ignore lint/a11y/useSemanticElements: ボタンネストを避けるためdivを使用 */}
       <div
-        className={clsx(
+        className={cn(
           'w-full cursor-pointer rounded-xl border bg-white p-4 text-left transition-all hover:shadow-lg',
           onClick && 'hover:border-blue-300',
           isSelected && 'ring-2 ring-blue-500 bg-blue-50 border-blue-300'
