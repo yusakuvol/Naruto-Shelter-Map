@@ -1,4 +1,4 @@
-import { clsx } from 'clsx';
+import { cn } from '@/lib/utils';
 import type { ShelterFeature } from '@/types/shelter';
 
 interface ShelterCardBadgesProps {
@@ -92,7 +92,7 @@ export function ShelterCardBadges({
 
       {pets && (
         <span
-          className={clsx(
+          className={cn(
             'flex items-center gap-1 rounded-full px-2 py-0.5 text-xs',
             pets.allowed
               ? 'bg-green-50 text-green-700'

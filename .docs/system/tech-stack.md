@@ -46,9 +46,10 @@
 
 | 技術 | 用途・理由 |
 |------|------------|
-| **framer-motion** | アニメーション（ボトムシート等）。 |
+| **shadcn/ui** | Radix UI ベースのコンポーネント集（Dialog, Drawer, Button, Badge, Toggle 等）。コピー&カスタマイズ方式。 |
+| **lucide-react** | アイコンライブラリ。ツリーシェイク可能な個別インポート。 |
 | **@tanstack/react-virtual** | 仮想スクロール（避難所リスト）。 |
-| **clsx / tailwind-merge** | 条件付きクラス・クラス結合。 |
+| **clsx / tailwind-merge** | `cn()` ユーティリティでクラス結合。`src/lib/utils.ts` で定義。 |
 | **Context API** | フィルタ等のグローバルに近い状態。 |
 
 ---
