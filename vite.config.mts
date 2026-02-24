@@ -1,4 +1,5 @@
 import path from 'node:path';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -6,6 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     VitePWA({
       registerType: 'prompt', // ユーザーが手動で更新を承認するまで待つ（next-pwa の skipWaiting: false に相当）
       includeAssets: ['favicon.ico', 'icons/*', 'data/*', 'manifest.json'],

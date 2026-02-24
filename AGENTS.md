@@ -4,8 +4,8 @@
 >
 > このドキュメントは、AI Coding Agents（Claude, Cursor, GitHub Copilot, etc.）がプロジェクトを理解し、適切なコードを生成するための標準規格です。
 
-**Last Updated:** 2026-02-14
-**Project Version:** 1.0.0
+**Last Updated:** 2026-02-24
+**Project Version:** 1.1.0
 **AI Agent Compatibility:** Claude Code, Cursor, GitHub Copilot, Windsurf
 
 ---
@@ -63,6 +63,8 @@
 | **React**        | UI ライブラリ（React 19）                                                       |
 | **TypeScript**   | 型安全性                                                                        |
 | **Tailwind CSS** | スタイリング（v4 Lightning CSS 統合、システムフォント使用）                     |
+| **shadcn/ui**    | Radix UI ベースの UI コンポーネント集（Dialog, Drawer, Button, Badge, Toggle 等） |
+| **lucide-react** | アイコンライブラリ（ツリーシェイク可能な個別インポート）                        |
 
 ### 地図・データ
 
@@ -113,6 +115,7 @@ naruto-shelter-map/
 │   ├── globals.css               # グローバルスタイル（Tailwind v4）
 │   ├── vite-env.d.ts             # Vite クライアント型
 │   ├── components/               # Reactコンポーネント（機能別サブフォルダ）
+│   │   ├── ui/                  # shadcn/ui コンポーネント（Button, Dialog, Drawer 等）
 │   │   ├── map/                 # 地図・マーカー・コントロール
 │   │   ├── shelter/             # 避難所リスト・カード・詳細モーダル
 │   │   ├── filter/              # 災害種別フィルタ
@@ -532,6 +535,7 @@ git branch -d feature/shelter-filter
 
 | バージョン | 日付       | 変更内容                                                                 |
 | ---------- | ---------- | ------------------------------------------------------------------------ |
+| 1.5.0      | 2026-02-24 | shadcn/ui デザインリプレース（Dialog, Drawer, Button, Badge, Toggle, lucide-react アイコン） |
 | 1.4.0      | 2026-02-12 | Next.js から Vite + React に移行（ADR-003）、PWA は vite-plugin-pwa       |
 | 1.3.0      | 2025-12-27 | 隣接地域対応（藍住町、北島町、松茂町、板野町）、ダークモード非対応を明記 |
 | 1.2.0      | 2025-12-06 | ビルド設定改善（Webpack 明示指定）、UI 改善完了、システムフォント採用    |

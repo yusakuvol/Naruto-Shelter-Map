@@ -1,11 +1,11 @@
-import { lazy, Suspense, useId } from 'react';
+import { lazy, Suspense, useEffect, useId } from 'react';
+import { toast } from 'sonner';
 import { Router } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
 import { ChatFab } from '@/components/chat/ChatFab';
 import { ChatModal } from '@/components/chat/ChatModal';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
-import { RefreshErrorToast } from '@/components/error/RefreshErrorToast';
 import { DesktopSidebar } from '@/components/layout/DesktopSidebar';
 import { TermsModal } from '@/components/legal/TermsModal';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
@@ -13,6 +13,7 @@ import { OfflineIndicator } from '@/components/pwa/OfflineIndicator';
 import { ServiceWorkerRegistration } from '@/components/pwa/ServiceWorkerRegistration';
 import { UpdateNotification } from '@/components/pwa/UpdateNotification';
 import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
+import { Toaster } from '@/components/ui/sonner';
 import { FilterProvider } from '@/contexts/FilterContext';
 import { useHomePageState } from '@/hooks/useHomePageState';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
@@ -64,6 +65,19 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     closeTerms,
   } = useHomePageState();
 
+  // リフレッシュエラーを Sonner toast で表示
+  useEffect(() => {
+    if (refreshError) {
+      const message =
+        refreshError.message.includes('fetch') ||
+        refreshError.message.includes('Network')
+          ? 'オフラインのため更新できません'
+          : refreshError.message;
+      toast.warning(message);
+      clearRefreshError();
+    }
+  }, [refreshError, clearRefreshError]);
+
   if (error) {
     return (
       <div className="flex min-h-screen items-center justify-center">
@@ -85,10 +99,6 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
 
   return (
     <>
-      {refreshError && (
-        <RefreshErrorToast error={refreshError} onClose={clearRefreshError} />
-      )}
-
       {/* モバイルレイアウト */}
       <div className="relative flex h-screen flex-col lg:hidden">
         <main id={mainContentId} className="relative min-h-0 flex-1">
@@ -198,6 +208,7 @@ function App() {
       <OfflineIndicator />
       <InstallPrompt />
       <UpdateNotification />
+      <Toaster position="bottom-center" />
     </div>
   );
 }

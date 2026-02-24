@@ -44,7 +44,10 @@ naruto-shelter-map/
 │   │   ├── filter/                 # 災害種別フィルタ
 │   │   ├── icons/
 │   │   ├── map/                    # 地図・マーカー・コントロール
-│   │   ├── mobile/                 # ボトムシート等
+│   │   ├── layout/                 # デスクトップサイドバー等
+│   │   ├── legal/                  # 利用規約モーダル
+│   │   ├── chat/                   # AI チャット（FAB・モーダル・パネル）
+│   │   ├── ui/                     # shadcn/ui コンポーネント（Button, Dialog, Drawer, Badge 等）
 │   │   ├── pwa/                    # PWA インストール・オフライン表示
 │   │   └── shelter/                # 避難所リスト・カード・詳細モーダル
 │   │

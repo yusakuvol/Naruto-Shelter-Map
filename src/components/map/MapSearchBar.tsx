@@ -1,3 +1,4 @@
+import { MenuIcon, SearchIcon, XIcon } from 'lucide-react';
 import type { ChangeEvent, FC } from 'react';
 import { useState } from 'react';
 
@@ -51,29 +52,13 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
             className="flex h-11 w-11 items-center justify-center text-gray-600 transition-colors hover:text-gray-900"
             aria-label="メニュー"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <MenuIcon className="h-6 w-6" aria-hidden="true" />
           </button>
         )}
 
         {/* 検索アイコン */}
         <div className="flex h-11 w-11 items-center justify-center text-gray-400">
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
+          <SearchIcon className="h-5 w-5" aria-hidden="true" />
         </div>
 
         {/* 検索入力 */}
@@ -96,15 +81,7 @@ export const MapSearchBar: FC<MapSearchBarProps> = ({
             className="flex h-11 w-11 items-center justify-center text-gray-400 transition-colors hover:text-gray-600"
             aria-label="検索をクリア"
           >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <XIcon className="h-5 w-5" aria-hidden="true" />
           </button>
         )}
 
