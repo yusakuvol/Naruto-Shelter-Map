@@ -1,10 +1,18 @@
 import {
+  AccessibilityIcon,
   Building2Icon,
   CheckIcon,
   ClockIcon,
+  DropletIcon,
+  EyeIcon,
+  FlameIcon,
+  HandIcon,
   PawPrintIcon,
+  SnowflakeIcon,
   UserIcon,
+  WifiIcon,
   XIcon,
+  ZapIcon,
 } from 'lucide-react';
 import type {
   Accessibility,
@@ -30,79 +38,37 @@ export function FacilitiesSection({
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
         {facilities.toilet && (
           <div className="flex items-center gap-2 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M5 5h2v9H5zm7 0h-1v9h1zm4 0h-2v9h2zM8 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z" />
-            </svg>
+            <ToiletIcon className="h-4 w-4" aria-hidden="true" />
             トイレ
           </div>
         )}
         {facilities.water && (
           <div className="flex items-center gap-2 rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-            </svg>
+            <DropletIcon className="h-4 w-4" aria-hidden="true" />
             水道
           </div>
         )}
         {facilities.electricity && (
           <div className="flex items-center gap-2 rounded-lg bg-yellow-50 px-3 py-2 text-sm text-yellow-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M7 2v11h3v9l7-12h-4l4-8z" />
-            </svg>
+            <ZapIcon className="h-4 w-4" aria-hidden="true" />
             電気
           </div>
         )}
         {facilities.heating && (
           <div className="flex items-center gap-2 rounded-lg bg-orange-50 px-3 py-2 text-sm text-orange-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M11.71 19.29l-1.42 1.42a1 1 0 01-1.42 0l-1.42-1.42a1 1 0 010-1.42l1.42-1.42 1.42 1.42a1 1 0 010 1.42zm-4.95-4.95L5.34 12.92a1 1 0 010-1.42l1.42-1.42a1 1 0 011.42 0l1.42 1.42-1.42 1.42a1 1 0 01-1.42 0zm11.48 0l-1.42-1.42 1.42-1.42a1 1 0 011.42 0l1.42 1.42a1 1 0 010 1.42l-1.42 1.42a1 1 0 01-1.42 0zm-4.95-4.95l-1.42-1.42 1.42-1.42a1 1 0 011.42 0l1.42 1.42a1 1 0 010 1.42l-1.42 1.42a1 1 0 01-1.42 0zM12 10a2 2 0 100 4 2 2 0 000-4z" />
-            </svg>
+            <FlameIcon className="h-4 w-4" aria-hidden="true" />
             暖房
           </div>
         )}
         {facilities.airConditioning && (
           <div className="flex items-center gap-2 rounded-lg bg-cyan-50 px-3 py-2 text-sm text-cyan-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z" />
-            </svg>
+            <SnowflakeIcon className="h-4 w-4" aria-hidden="true" />
             冷房
           </div>
         )}
         {facilities.wifi && (
           <div className="flex items-center gap-2 rounded-lg bg-purple-50 px-3 py-2 text-sm text-purple-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
-            </svg>
+            <WifiIcon className="h-4 w-4" aria-hidden="true" />
             Wi-Fi
           </div>
         )}
@@ -128,66 +94,31 @@ export function AccessibilitySection({
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {accessibility.wheelchairAccessible && (
           <div className="flex items-center gap-2 rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9c0-1.1.9-2 2-2h3c1.1 0 2 .9 2 2v3h5v5h2V9z" />
-            </svg>
+            <AccessibilityIcon className="h-4 w-4" aria-hidden="true" />
             車椅子対応
           </div>
         )}
         {accessibility.elevator && (
           <div className="flex items-center gap-2 rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7.5 15c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1-4.5h-2v-5h2v5zm1-8h-4V4h4v1.5z" />
-            </svg>
+            <ElevatorIcon className="h-4 w-4" aria-hidden="true" />
             エレベーター
           </div>
         )}
         {accessibility.multipurposeToilet && (
           <div className="flex items-center gap-2 rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M5 5h2v9H5zm7 0h-1v9h1zm4 0h-2v9h2zM8 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z" />
-            </svg>
+            <ToiletIcon className="h-4 w-4" aria-hidden="true" />
             多目的トイレ
           </div>
         )}
         {accessibility.brailleBlocks && (
           <div className="flex items-center gap-2 rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
-            </svg>
+            <EyeIcon className="h-4 w-4" aria-hidden="true" />
             点字ブロック
           </div>
         )}
         {accessibility.signLanguageSupport && (
           <div className="flex items-center gap-2 rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900">
-            <svg
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z" />
-            </svg>
+            <HandIcon className="h-4 w-4" aria-hidden="true" />
             手話対応
           </div>
         )}
@@ -288,5 +219,39 @@ export function OperationStatusSection({
         )}
       </div>
     </section>
+  );
+}
+
+/** トイレアイコン（lucide に適切な代替がないため独自SVG） */
+function ToiletIcon({
+  className,
+  ...props
+}: React.SVGProps<SVGSVGElement>): React.JSX.Element {
+  return (
+    <svg
+      className={className}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M5 5h2v9H5zm7 0h-1v9h1zm4 0h-2v9h2zM8 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z" />
+    </svg>
+  );
+}
+
+/** エレベーターアイコン（lucide に適切な代替がないため独自SVG） */
+function ElevatorIcon({
+  className,
+  ...props
+}: React.SVGProps<SVGSVGElement>): React.JSX.Element {
+  return (
+    <svg
+      className={className}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7.5 15c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1-4.5h-2v-5h2v5zm1-8h-4V4h4v1.5z" />
+    </svg>
   );
 }

@@ -1,3 +1,4 @@
+import { InfoIcon, MapIcon } from 'lucide-react';
 import { Popup } from 'react-map-gl/maplibre';
 import { generateNavigationURL } from '@/lib/navigation';
 import type { ShelterFeature } from '@/types/shelter';
@@ -50,20 +51,7 @@ export function ShelterPopup({
             className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-secondary-foreground bg-secondary hover:bg-secondary/80 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             aria-label={`${name}の詳細を見る`}
           >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
+            <InfoIcon className="h-4 w-4" aria-hidden="true" />
             <span>詳細を見る</span>
           </button>
           <button
@@ -79,20 +67,7 @@ export function ShelterPopup({
             className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             aria-label={`${name}への経路案内`}
           >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-              />
-            </svg>
+            <MapIcon className="h-4 w-4" aria-hidden="true" />
             <span>経路案内を開く</span>
           </button>
         </div>
