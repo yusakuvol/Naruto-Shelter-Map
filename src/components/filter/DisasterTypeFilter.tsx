@@ -1,3 +1,4 @@
+import { ActivityIcon, FlameIcon, WavesIcon } from 'lucide-react';
 import type { ReactElement } from 'react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -12,122 +13,53 @@ const DISASTER_TYPES: readonly DisasterType[] = [
   '火災',
 ] as const;
 
-// 災害種別アイコン（JIS Z8210 災害種別一般図記号に準拠したデザイン）
-// 内閣府「避難場所等の図記号の標準化」で使われる図材に合わせており、
-// 自治体の避難標識などで見慣れた形で直感的に識別しやすくする。
-
-// 洪水（JIS 6.5.1）: 上昇した水面を表す二重の波
-function FloodIcon({ className }: { className?: string }) {
+// 津波: 大きく立ち上がる波（JIS Z8210 6.5.3 参考）
+function TsunamiIcon({ className }: { className?: string }): ReactElement {
   return (
     <svg
       className={className}
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      viewBox="0 0 24 24"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M2 10c2.5 1 5 1 7.5 0s5-1 7.5 0M2 15c2.5 1 5 1 7.5 0s5-1 7.5 0"
-      />
+      <path d="M7 21c0-6 1.5-9 3-11.5S14 8 14 10.5c0 0 .5-4 2.5-6.5S20 3 20 6v15" />
+      <path d="M3 21h18" />
     </svg>
   );
 }
 
-// 津波（JIS 6.5.3）: 海面から盛り上がった波
-function TsunamiIcon({ className }: { className?: string }) {
+// 土砂災害: 山体にジグザグの亀裂（JIS Z8210 6.5.4 参考）
+function LandslideIcon({ className }: { className?: string }): ReactElement {
   return (
     <svg
       className={className}
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      viewBox="0 0 24 24"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M2 20c4-6 8-6 12 0 4 6 8 6 12 0"
-      />
-    </svg>
-  );
-}
-
-// 土砂災害（JIS 6.5.4）: 崖と大小複数の岩石
-function LandslideIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 20V8l7-4 7 16H5z"
-      />
-      <circle cx="8" cy="16" r="1.5" strokeWidth={2} />
-      <circle cx="14" cy="18" r="1" strokeWidth={2} />
-      <circle cx="18" cy="15" r="1.2" strokeWidth={2} />
-    </svg>
-  );
-}
-
-// 地震: 地震波（揺れの波形。避難標識等でよく使われる表現）
-function EarthquakeIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M2 12h3l2-4 2 4 2-6 2 6h3"
-      />
-    </svg>
-  );
-}
-
-// 火災（JIS 6.5.5）: 炎（一般的な火災アイコン）
-function FireIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.5-7 1.832 1.832 3 4.5 3 6.5a7.98 7.98 0 01-1.343 4.657z"
-      />
+      <path d="M2 21h20L14 3 2 21z" />
+      <path d="M14 3l-4 8 3 3-4 7" />
     </svg>
   );
 }
 
 const DISASTER_ICONS: Record<
   DisasterType,
-  ({ className }: { className?: string }) => ReactElement
+  React.ComponentType<{ className?: string }>
 > = {
-  洪水: FloodIcon,
+  洪水: WavesIcon,
   津波: TsunamiIcon,
   土砂災害: LandslideIcon,
-  地震: EarthquakeIcon,
-  火災: FireIcon,
+  地震: ActivityIcon,
+  火災: FlameIcon,
 };
 
 export function DisasterTypeFilter(): ReactElement {
