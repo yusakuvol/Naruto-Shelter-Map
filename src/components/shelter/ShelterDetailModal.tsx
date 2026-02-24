@@ -83,7 +83,7 @@ export function ShelterDetailModal({
               <button
                 type="button"
                 onClick={() => onToggleFavorite(id)}
-                className="flex min-h-11 min-w-11 items-center justify-center rounded-full p-2 transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-full p-2 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
                 aria-label={
                   isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'
                 }
@@ -121,7 +121,7 @@ export function ShelterDetailModal({
             <button
               type="button"
               onClick={() => copyAddress(address)}
-              className="group flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors rounded focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="group flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors rounded focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
               aria-label={`住所をコピー: ${address}`}
             >
               <span>{address}</span>
@@ -199,7 +199,7 @@ export function ShelterDetailModal({
               </h3>
               <a
                 href={`tel:${contact}`}
-                className="text-sm text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
+                className="text-sm text-primary hover:underline focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 rounded"
               >
                 {contact}
               </a>

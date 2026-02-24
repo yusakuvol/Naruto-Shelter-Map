@@ -32,7 +32,7 @@ export function SortToggle({
         value="distance"
         aria-label="距離順でソート"
         title={disabled ? '現在地を取得してください' : '距離順でソート'}
-        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:shadow-md"
+        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:shadow-sm"
       >
         <CrosshairIcon className="h-4 w-4" aria-hidden="true" />
         <span>距離順</span>
@@ -41,7 +41,7 @@ export function SortToggle({
       <ToggleGroupItem
         value="name"
         aria-label="名前順でソート"
-        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:shadow-md"
+        className="flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:shadow-sm"
       >
         <ArrowDownAZIcon className="h-4 w-4" aria-hidden="true" />
         <span>名前順</span>
