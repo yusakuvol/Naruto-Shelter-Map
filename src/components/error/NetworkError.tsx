@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Button } from '@/components/ui/button';
 
 interface NetworkErrorProps {
   message?: string;
@@ -51,13 +52,9 @@ export function NetworkError({
 
         {/* リトライボタン */}
         {onRetry && (
-          <button
-            type="button"
-            onClick={onRetry}
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors"
-          >
+          <Button onClick={onRetry}>
             <svg
-              className="h-4 w-4"
+              className="size-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -71,7 +68,7 @@ export function NetworkError({
               />
             </svg>
             再試行
-          </button>
+          </Button>
         )}
       </div>
     </div>

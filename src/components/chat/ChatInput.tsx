@@ -1,4 +1,6 @@
 import { type FormEvent, useCallback, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 interface ChatInputProps {
   onSubmit: (query: string) => void;
@@ -30,24 +32,24 @@ export function ChatInput({
       className="flex gap-2 border-t border-gray-200 bg-white p-2"
       aria-label="避難所について質問"
     >
-      <input
+      <Input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
         disabled={disabled}
-        className="min-w-0 flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:bg-gray-100 disabled:text-gray-500"
+        className="min-w-0 flex-1"
         aria-label="質問を入力"
         autoComplete="off"
       />
-      <button
+      <Button
         type="submit"
         disabled={disabled || value.trim().length === 0}
-        className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:opacity-50"
+        size="sm"
         aria-label="送信"
       >
         送信
-      </button>
+      </Button>
     </form>
   );
 }

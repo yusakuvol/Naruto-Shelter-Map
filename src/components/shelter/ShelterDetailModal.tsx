@@ -1,5 +1,7 @@
 import { clsx } from 'clsx';
 import { useEffect, useId, useRef } from 'react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import type { Coordinates } from '@/lib/geo';
 import { formatDistance } from '@/lib/geo';
@@ -143,15 +145,16 @@ export function ShelterDetailModal({
                 )}
               </button>
             )}
-            <button
+            <Button
               ref={closeButtonRef}
-              type="button"
+              variant="ghost"
+              size="icon"
               onClick={onClose}
-              className="rounded-full p-2 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              className="rounded-full"
               aria-label="閉じる"
             >
               <svg
-                className="h-6 w-6"
+                className="size-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -164,7 +167,7 @@ export function ShelterDetailModal({
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -276,12 +279,13 @@ export function ShelterDetailModal({
             </h3>
             <div className="flex flex-wrap gap-2">
               {disasterTypes.map((disasterType) => (
-                <span
+                <Badge
                   key={disasterType}
-                  className="inline-flex items-center rounded-full bg-orange-50 px-3 py-1 text-xs font-medium text-orange-900 border border-orange-200"
+                  variant="outline"
+                  className="bg-orange-50 text-orange-900 border-orange-200"
                 >
                   {disasterType}
-                </span>
+                </Badge>
               ))}
             </div>
           </section>
@@ -371,8 +375,9 @@ export function ShelterDetailModal({
 
         {/* フッター: アクションボタン */}
         <div className="sticky bottom-0 border-t border-gray-200 bg-white p-4">
-          <button
-            type="button"
+          <Button
+            className="w-full py-3"
+            size="lg"
             onClick={() => {
               const url = generateNavigationURL(
                 { latitude: lat, longitude: lng },
@@ -381,10 +386,9 @@ export function ShelterDetailModal({
               );
               window.open(url, '_blank', 'noopener,noreferrer');
             }}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors"
           >
             <svg
-              className="h-5 w-5"
+              className="size-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -398,7 +402,7 @@ export function ShelterDetailModal({
               />
             </svg>
             経路案内を表示
-          </button>
+          </Button>
         </div>
       </div>
     </div>
