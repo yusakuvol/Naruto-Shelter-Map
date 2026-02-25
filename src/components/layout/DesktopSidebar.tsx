@@ -142,7 +142,7 @@ export function DesktopSidebar({
             }`}
             onClick={() => onListFilterChange('favorites')}
           >
-            お気に入り{favorites.size > 0 && ` (${favorites.size})`}
+            お気に入り
           </button>
           <button
             type="button"
