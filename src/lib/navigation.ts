@@ -116,6 +116,10 @@ export function estimateDrivingTime(distanceInMeters: number): number {
  * @returns フォーマットされた文字列（例: "15分", "1時間30分"）
  */
 export function formatTravelTime(minutes: number): string {
+  if (minutes <= 0) {
+    return '1分未満';
+  }
+
   if (minutes < 60) {
     return `${minutes}分`;
   }
