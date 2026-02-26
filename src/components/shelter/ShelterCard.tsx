@@ -208,19 +208,19 @@ function ShelterCardComponent({
                 <span
                   className="whitespace-nowrap"
                   title={`徒歩: ${formatTravelTime(
-                    estimateWalkingTime(distance)
+                    estimateWalkingTime(distance * 1000)
                   )}`}
                 >
-                  🚶 {formatTravelTime(estimateWalkingTime(distance))}
+                  🚶 {formatTravelTime(estimateWalkingTime(distance * 1000))}
                 </span>
                 <span className="text-muted-foreground/70">|</span>
                 <span
                   className="whitespace-nowrap"
                   title={`車: ${formatTravelTime(
-                    estimateDrivingTime(distance)
+                    estimateDrivingTime(distance * 1000)
                   )}`}
                 >
-                  🚗 {formatTravelTime(estimateDrivingTime(distance))}
+                  🚗 {formatTravelTime(estimateDrivingTime(distance * 1000))}
                 </span>
               </div>
             </>

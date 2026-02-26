@@ -149,8 +149,8 @@ describe('formatTravelTime', () => {
     expect(formatTravelTime(180)).toBe('3時間');
   });
 
-  it('0分の場合', () => {
-    expect(formatTravelTime(0)).toBe('0分');
+  it('0分の場合は「1分未満」', () => {
+    expect(formatTravelTime(0)).toBe('1分未満');
   });
 
   it('1分の場合', () => {
