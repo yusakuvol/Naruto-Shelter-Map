@@ -22,7 +22,12 @@ import {
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import type { Coordinates } from '@/lib/geo';
 import { formatDistance } from '@/lib/geo';
-import { generateNavigationURL } from '@/lib/navigation';
+import {
+  estimateDrivingTime,
+  estimateWalkingTime,
+  formatTravelTime,
+  generateNavigationURL,
+} from '@/lib/navigation';
 import type { ShelterFeature } from '@/types/shelter';
 import {
   AccessibilitySection,
@@ -139,15 +144,24 @@ export function ShelterDetailModal({
             </button>
           </section>
 
-          {/* 距離（ある場合のみ） */}
+          {/* 距離・所要時間（ある場合のみ） */}
           {distance !== null && distance !== undefined && (
-            <section className="rounded-lg bg-primary/10 p-3">
+            <section className="rounded-lg bg-primary/10 p-3 space-y-2">
               <p className="flex items-center gap-2 text-sm text-primary">
                 <LocateIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">
                   現在地から {formatDistance(distance)}
                 </span>
               </p>
+              <div className="flex items-center gap-3 text-sm text-primary/80 pl-1">
+                <span>
+                  🚶 {formatTravelTime(estimateWalkingTime(distance * 1000))}
+                </span>
+                <span className="text-primary/40">|</span>
+                <span>
+                  🚗 {formatTravelTime(estimateDrivingTime(distance * 1000))}
+                </span>
+              </div>
             </section>
           )}
 

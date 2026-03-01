@@ -13,7 +13,7 @@ export function ChatFab({
     <button
       type="button"
       onClick={onClick}
-      className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+      className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-lg transition-all hover:bg-accent hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
       aria-label={ariaLabel}
     >
       <MessageCircleIcon className="h-6 w-6" aria-hidden="true" />

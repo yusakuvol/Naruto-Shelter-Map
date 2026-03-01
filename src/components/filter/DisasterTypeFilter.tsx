@@ -117,14 +117,6 @@ export function DisasterTypeFilter(): ReactElement {
           );
         })}
       </div>
-
-      {selectedDisasters.length > 0 && (
-        <div className="mt-3 border-t border-border pt-3">
-          <p className="text-xs text-muted-foreground">
-            {selectedDisasters.length}件の災害種別でフィルタ中
-          </p>
-        </div>
-      )}
     </div>
   );
 }

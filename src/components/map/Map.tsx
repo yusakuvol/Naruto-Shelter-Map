@@ -6,6 +6,7 @@ import MapGL, {
   useMap,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre';
+import { ChatFab } from '@/components/chat/ChatFab';
 import type {
   Coordinates,
   GeolocationError,
@@ -33,6 +34,8 @@ interface MapProps {
   isRefreshing?: boolean;
   /** 利用規約モーダルを開く */
   onShowTerms?: () => void;
+  /** モバイル用: チャットモーダルを開く */
+  onOpenChat?: () => void;
 }
 
 // 地図の移動を制御する内部コンポーネント
@@ -94,6 +97,7 @@ export function ShelterMap({
   onRefresh,
   isRefreshing = false,
   onShowTerms,
+  onOpenChat,
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
@@ -220,17 +224,6 @@ export function ShelterMap({
               )}
             </button>
           )}
-          {onShowTerms && (
-            <button
-              type="button"
-              onClick={onShowTerms}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-lg transition-all hover:bg-accent hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
-              aria-label="利用規約を表示"
-              title="利用規約"
-            >
-              <InfoIcon className="h-4 w-4 text-muted-foreground" aria-hidden />
-            </button>
-          )}
         </div>
 
         {markers}
@@ -270,8 +263,29 @@ export function ShelterMap({
         )}
       </MapGL>
 
-      {/* 現在地ボタン - モバイル: 右下、PC: 右下 */}
-      <div className="absolute bottom-20 right-4 z-10 lg:bottom-10 lg:right-4">
+      {/* モバイル用右側ボタン群（上: チャット → 中: 現在地 → 下: 規約） */}
+      <div className="absolute bottom-[calc(2rem+env(safe-area-inset-bottom))] right-4 z-10 flex flex-col items-end gap-3 lg:hidden">
+        {onOpenChat && <ChatFab onClick={onOpenChat} />}
+        <CurrentLocationButton
+          onClick={handleLocationButtonClick}
+          state={state}
+          error={error}
+        />
+        {onShowTerms && (
+          <button
+            type="button"
+            onClick={onShowTerms}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-lg transition-all hover:bg-accent hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            aria-label="利用規約を表示"
+            title="利用規約"
+          >
+            <InfoIcon className="h-4 w-4 text-muted-foreground" aria-hidden />
+          </button>
+        )}
+      </div>
+
+      {/* デスクトップ用現在地ボタン */}
+      <div className="absolute bottom-10 right-4 z-10 hidden lg:block">
         <CurrentLocationButton
           onClick={handleLocationButtonClick}
           state={state}
