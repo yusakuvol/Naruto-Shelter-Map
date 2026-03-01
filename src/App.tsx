@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect, useId } from 'react';
 import { toast } from 'sonner';
 import { Router } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
-import { ChatFab } from '@/components/chat/ChatFab';
 import { ChatModal } from '@/components/chat/ChatModal';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { NetworkError } from '@/components/error/NetworkError';
@@ -117,13 +116,11 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               onRefresh={refresh}
               isRefreshing={isRefreshing}
               onShowTerms={openTerms}
+              onOpenChat={() => setChatModalOpen(true)}
             />
           </Suspense>
         </main>
-        <div className="absolute bottom-[calc(8.5rem+env(safe-area-inset-bottom))] right-4 z-10">
-          <ChatFab onClick={() => setChatModalOpen(true)} />
-        </div>
-        <p className="absolute bottom-[max(0.5rem,env(safe-area-inset-bottom))] left-2 z-10 text-[10px] text-muted-foreground/70">
+        <p className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-2 z-10 text-[10px] text-muted-foreground/70">
           Designed by Yusaku Matsukawa
         </p>
       </div>

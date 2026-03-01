@@ -117,7 +117,6 @@ export function DisasterTypeFilter(): ReactElement {
           );
         })}
       </div>
-
     </div>
   );
 }

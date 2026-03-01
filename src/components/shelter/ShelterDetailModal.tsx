@@ -154,9 +154,13 @@ export function ShelterDetailModal({
                 </span>
               </p>
               <div className="flex items-center gap-3 text-sm text-primary/80 pl-1">
-                <span>🚶 {formatTravelTime(estimateWalkingTime(distance * 1000))}</span>
+                <span>
+                  🚶 {formatTravelTime(estimateWalkingTime(distance * 1000))}
+                </span>
                 <span className="text-primary/40">|</span>
-                <span>🚗 {formatTravelTime(estimateDrivingTime(distance * 1000))}</span>
+                <span>
+                  🚗 {formatTravelTime(estimateDrivingTime(distance * 1000))}
+                </span>
               </div>
             </section>
           )}
