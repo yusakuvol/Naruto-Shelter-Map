@@ -6,6 +6,7 @@ import MapGL, {
   useMap,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre';
+import { AISuggestionBanner } from '@/components/ai/AISuggestionBanner';
 import { ChatFab } from '@/components/chat/ChatFab';
 import type {
   Coordinates,
@@ -262,6 +263,18 @@ export function ShelterMap({
           />
         )}
       </MapGL>
+
+      {/* モバイル用AIサジェストバナー（左側、右ボタン群と重ならないよう right-20） */}
+      <div className="absolute bottom-[calc(2rem+env(safe-area-inset-bottom))] left-4 right-20 z-10 lg:hidden">
+        <AISuggestionBanner
+          shelters={shelters}
+          userPosition={position ?? null}
+          {...(onOpenChat ? { onOpenChat } : {})}
+          {...(onShelterSelect
+            ? { onShelterSelect: (id: string) => onShelterSelect(id) }
+            : {})}
+        />
+      </div>
 
       {/* モバイル用右側ボタン群（上: チャット → 中: 現在地 → 下: 規約） */}
       <div className="absolute bottom-[calc(2rem+env(safe-area-inset-bottom))] right-4 z-10 flex flex-col items-end gap-3 lg:hidden">
