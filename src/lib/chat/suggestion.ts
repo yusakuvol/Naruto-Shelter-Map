@@ -1,9 +1,5 @@
-import {
-  calculateDistance,
-  formatDistance,
-  toCoordinates,
-} from '@/lib/geo';
 import type { Coordinates } from '@/lib/geo';
+import { calculateDistance, formatDistance, toCoordinates } from '@/lib/geo';
 import type { DisasterType, ShelterFeature } from '@/types/shelter';
 
 export interface AISuggestion {
