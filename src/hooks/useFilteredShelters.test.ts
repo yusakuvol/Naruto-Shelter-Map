@@ -2,6 +2,7 @@
 
 import { act, renderHook } from '@testing-library/react';
 import type { ReactElement, ReactNode } from 'react';
+import { createElement } from 'react';
 import { describe, expect, it } from 'vitest';
 import { FilterProvider, useFilter } from '@/contexts/FilterContext';
 import type { DisasterType, ShelterFeature } from '@/types/shelter';
@@ -27,7 +28,7 @@ function makeShelter(
 }
 
 function wrapper({ children }: { children: ReactNode }): ReactElement {
-  return <FilterProvider>{children}</FilterProvider>;
+  return createElement(FilterProvider, null, children);
 }
 
 const shelters = [
