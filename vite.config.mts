@@ -1,10 +1,17 @@
 import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  test: {
+    coverage: {
+      provider: 'v8',
+      // hooks 配下すべてをカバレッジ対象とする（test:coverage 用）
+      include: ['src/hooks/*.ts'],
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
