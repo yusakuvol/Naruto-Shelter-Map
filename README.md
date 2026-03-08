@@ -46,6 +46,16 @@
 | CI/CD | GitHub Actions |
 | Lint | Biome |
 
+## Architecture
+
+主要な技術選定の経緯は ADR（Architecture Decision Record）にまとめています。
+
+| ADR | 概要 |
+|-----|------|
+| [ADR-001: PWA フレームワーク選定](.docs/architecture/adr-001-pwa-framework.md) | 当初 Next.js + next-pwa を採用（現在は ADR-003 で置き換え） |
+| [ADR-002: 地図ライブラリ選定](.docs/architecture/adr-002-map-library.md) | ライセンスとコストを考慮し MapLibre GL JS を採用 |
+| [ADR-003: Vite 移行](.docs/architecture/adr-003-framework-vite.md) | SSR 不要のため Next.js から Vite + React へ移行 |
+
 ## Data
 
 避難所データは [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html) を元に、GitHub Actions で毎週自動取得・更新しています。
