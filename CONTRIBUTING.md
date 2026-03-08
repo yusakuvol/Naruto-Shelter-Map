@@ -54,3 +54,31 @@ git commit -m "feat(scope): 変更内容"
 git push -u origin feature/my-feature
 gh pr create --title "feat(scope): 変更内容" --body "## Summary\n- 変更の説明"
 ```
+
+## コミットメッセージ規約
+
+[Conventional Commits](https://www.conventionalcommits.org/ja/) に従います。
+
+```
+<type>(<scope>): <subject>
+```
+
+### Type 一覧
+
+| Type | 用途 |
+|---|---|
+| `feat` | 新機能 |
+| `fix` | バグ修正 |
+| `docs` | ドキュメント |
+| `style` | フォーマット（動作に影響なし） |
+| `refactor` | リファクタリング |
+| `perf` | パフォーマンス改善 |
+| `chore` | ビルド・設定変更 |
+
+### 例
+
+```
+feat(map): MapLibre のクラスタリング表示を追加
+fix(filter): 津波フィルタが反映されない問題を修正
+docs(readme): Architecture セクションを追加
+```
