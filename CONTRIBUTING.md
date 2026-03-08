@@ -105,3 +105,13 @@ pnpm build
 ```
 
 すべてのチェックが通ってからコミットしてください。
+
+## データ更新スクリプト
+
+避難所データは `scripts/` 配下のスクリプトで管理しています。通常は GitHub Actions が毎週自動実行しますが、手動でも実行できます。
+
+| スクリプト | コマンド | 説明 |
+|---|---|---|
+| `fetch-shelters.ts` | `pnpm tsx scripts/fetch-shelters.ts` | 国土地理院 API から避難所データを取得し `public/data/shelters.geojson` を更新 |
+| `validate-shelters.ts` | `pnpm validate:shelters` | 座標・住所の整合性チェック、対象地域の範囲外データを検出 |
+| `geocode-shelters.ts` | `pnpm geocode:shelters` | Nominatim API で住所→座標の整合性を検証（レート制限あり、約 2.5 分） |
