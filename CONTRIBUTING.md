@@ -82,3 +82,26 @@ feat(map): MapLibre のクラスタリング表示を追加
 fix(filter): 津波フィルタが反映されない問題を修正
 docs(readme): Architecture セクションを追加
 ```
+
+## コード品質チェック
+
+コミット前に以下を必ず実行してください。CI でも同じチェックが走ります。
+
+```bash
+# Lint（Biome）
+pnpm lint
+
+# Lint エラーの自動修正
+pnpm lint:fix
+
+# 型チェック（TypeScript）
+pnpm type-check
+
+# テスト
+pnpm test:run
+
+# ビルド確認（推奨）
+pnpm build
+```
+
+すべてのチェックが通ってからコミットしてください。
