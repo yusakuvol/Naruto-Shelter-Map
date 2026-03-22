@@ -57,7 +57,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
     "@vitest/coverage-v8": "^4.0.18",
-    "jsdom": "^28.1.0",
+    "jsdom": "^29.0.1",
     "shadcn": "^3.8.5",
     "tailwindcss": "^4.2.2",
     "tsx": "^4.21.0",
