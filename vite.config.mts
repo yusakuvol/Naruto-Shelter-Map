@@ -126,10 +126,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks: {
-          webllm: ['@mlc-ai/web-llm'],
+        manualChunks(id): string | undefined {
+          if (id.includes('@mlc-ai/web-llm')) {
+            return 'webllm';
+          }
+          return undefined;
         },
       },
     },
