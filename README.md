@@ -31,6 +31,12 @@
 
 スマートフォンにインストールしておけば、**電波が届かない状況でも**最後に取得した避難所情報と地図を確認できます。データは国土地理院のオープンデータを活用し、毎週自動で更新されます。
 
+## Why
+
+災害時、基地局が被災して携帯電話の電波が途絶えるケースは少なくありません。そのような状況でも「一番近い避難所はどこか」を確認できる手段が必要だと考え、このアプリを開発しました。
+
+オフラインで動作する PWA として設計することで、事前にインストールしておけば通信障害時にも地図と避難所情報を参照できます。オープンデータとオープンソースのみで構成し、誰でも無料で利用・改善できることを重視しています。
+
 ## Features
 
 - **オフライン動作** — Service Worker で地図タイルと避難所データをキャッシュ
@@ -54,7 +60,44 @@
 
 ## Architecture
 
-主要な技術選定の経緯は ADR（Architecture Decision Record）にまとめています。
+### Offline-First 設計
+
+```mermaid
+flowchart LR
+    GSI["国土地理院\nオープンデータ"] -->|毎週自動取得| GHA["GitHub Actions"]
+    GHA -->|GeoJSON 生成| CF["Cloudflare Pages"]
+    CF -->|配信| SW["Service Worker"]
+    SW -->|キャッシュ| APP["アプリ"]
+
+    OSM["OpenStreetMap\nタイルサーバー"] -->|地図タイル| SW
+
+    style SW fill:#5A0FC8,color:#fff
+```
+
+- **Service Worker** が地図タイル・GeoJSON・フォント・スプライトをキャッシュ
+- オフライン時は最後にキャッシュされたデータで地図と避難所を表示
+- オンライン復帰時に StaleWhileRevalidate でデータを自動更新
+
+### データフロー
+
+```mermaid
+flowchart TD
+    A["国土地理院 API"] -->|CSV| B["GitHub Actions\n(週次)"]
+    B -->|変換・フィルタ| C["GeoJSON\n(public/data/)"]
+    C -->|ビルド| D["Cloudflare Pages"]
+    D -->|初回アクセス| E["ブラウザ"]
+    E -->|precache| F["Service Worker Cache"]
+    F -->|オフライン| E
+```
+
+### Technical Challenges
+
+- **地図タイルのオフラインキャッシュ** — ベクタータイル (.pbf) を CacheFirst 戦略で最大 2,000 エントリまでキャッシュ。閲覧済みエリアをオフラインで再表示可能にしつつ、ストレージ肥大を防止
+- **Mapbox → MapLibre 移行** — 従量課金リスクを回避するため、BSD-3-Clause ライセンスの MapLibre GL JS を採用。OSM Japan タイルサーバーと組み合わせてコストゼロで運用
+- **Next.js → Vite 移行** — SSR・API Routes が不要な SPA にとって Next.js はオーバーヘッド。Vite + React に移行し、HMR 高速化とビルドサイズ削減を実現（[ADR-003](.docs/architecture/adr-003-framework-vite.md)）
+- **災害時の視認性** — ライトテーマ固定、高コントラストな配色、大きなタップターゲットなど、緊急時でも迷わず操作できる UI を優先
+
+### ADR（Architecture Decision Record）
 
 | ADR | 概要 |
 |-----|------|
