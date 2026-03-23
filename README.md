@@ -93,8 +93,6 @@ flowchart TD
 ### Technical Challenges
 
 - **地図タイルのオフラインキャッシュ** — ベクタータイル (.pbf) を CacheFirst 戦略で最大 2,000 エントリまでキャッシュ。閲覧済みエリアをオフラインで再表示可能にしつつ、ストレージ肥大を防止
-- **Mapbox → MapLibre 移行** — 従量課金リスクを回避するため、BSD-3-Clause ライセンスの MapLibre GL JS を採用。OSM Japan タイルサーバーと組み合わせてコストゼロで運用
-- **Next.js → Vite 移行** — SSR・API Routes が不要な SPA にとって Next.js はオーバーヘッド。Vite + React に移行し、HMR 高速化とビルドサイズ削減を実現（[ADR-003](.docs/architecture/adr-003-framework-vite.md)）
 - **災害時の視認性** — ライトテーマ固定、高コントラストな配色、大きなタップターゲットなど、緊急時でも迷わず操作できる UI を優先
 
 ### ADR（Architecture Decision Record）
