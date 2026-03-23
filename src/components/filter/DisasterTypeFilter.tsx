@@ -68,7 +68,7 @@ export function DisasterTypeFilter(): ReactElement {
   return (
     <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-foreground">災害種別</h3>
+        <h2 className="text-sm font-semibold text-foreground">災害種別</h2>
         {selectedDisasters.length > 0 && (
           <Button
             variant="link"
