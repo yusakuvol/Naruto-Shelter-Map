@@ -17,6 +17,12 @@
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Accessibility-100-brightgreen?logo=lighthouse" alt="Accessibility: 100" />
+  <img src="https://img.shields.io/badge/Best_Practices-100-brightgreen?logo=lighthouse" alt="Best Practices: 100" />
+  <img src="https://img.shields.io/badge/SEO-91-brightgreen?logo=lighthouse" alt="SEO: 91" />
+</p>
+
 ---
 
 ## About
@@ -41,7 +47,7 @@
 |----------|-----------|
 | UI | React 19 ・ TypeScript ・ Tailwind CSS v4 |
 | Map | MapLibre GL JS 5 |
-| Build | Vite 6 ・ vite-plugin-pwa |
+| Build | Vite 8 ・ vite-plugin-pwa |
 | Hosting | Cloudflare Pages |
 | CI/CD | GitHub Actions |
 | Lint | Biome |

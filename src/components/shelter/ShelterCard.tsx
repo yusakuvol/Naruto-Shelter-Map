@@ -82,7 +82,6 @@ function ShelterCardComponent({
             onClick();
           }
         }}
-        aria-label={onClick ? `${name}の詳細` : undefined}
         aria-pressed={isSelected}
       >
         {/* ヘッダー: 名前 + お気に入りボタン */}

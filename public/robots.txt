@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://naruto-hinan.com/sitemap.xml
