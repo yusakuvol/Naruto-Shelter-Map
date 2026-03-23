@@ -31,6 +31,12 @@
 
 スマートフォンにインストールしておけば、**電波が届かない状況でも**最後に取得した避難所情報と地図を確認できます。データは国土地理院のオープンデータを活用し、毎週自動で更新されます。
 
+## Why
+
+災害時、基地局が被災して携帯電話の電波が途絶えるケースは少なくありません。そのような状況でも「一番近い避難所はどこか」を確認できる手段が必要だと考え、このアプリを開発しました。
+
+オフラインで動作する PWA として設計することで、事前にインストールしておけば通信障害時にも地図と避難所情報を参照できます。オープンデータとオープンソースのみで構成し、誰でも無料で利用・改善できることを重視しています。
+
 ## Features
 
 - **オフライン動作** — Service Worker で地図タイルと避難所データをキャッシュ
@@ -54,19 +60,46 @@
 
 ## Architecture
 
-主要な技術選定の経緯は ADR（Architecture Decision Record）にまとめています。
+### Offline-First 設計
 
-| ADR | 概要 |
-|-----|------|
-| [ADR-001: PWA フレームワーク選定](.docs/architecture/adr-001-pwa-framework.md) | 当初 Next.js + next-pwa を採用（現在は ADR-003 で置き換え） |
-| [ADR-002: 地図ライブラリ選定](.docs/architecture/adr-002-map-library.md) | ライセンスとコストを考慮し MapLibre GL JS を採用 |
-| [ADR-003: Vite 移行](.docs/architecture/adr-003-framework-vite.md) | SSR 不要のため Next.js から Vite + React へ移行 |
+```mermaid
+flowchart LR
+    GSI["国土地理院\nオープンデータ"] -->|毎週自動取得| GHA["GitHub Actions"]
+    GHA -->|GeoJSON 生成| CF["Cloudflare Pages"]
+    CF -->|配信| SW["Service Worker"]
+    SW -->|キャッシュ| APP["アプリ"]
+
+    OSM["OpenStreetMap\nタイルサーバー"] -->|地図タイル| SW
+
+    style SW fill:#5A0FC8,color:#fff
+```
+
+- **Service Worker** が地図タイル・GeoJSON・フォント・スプライトをキャッシュ
+- オフライン時は最後にキャッシュされたデータで地図と避難所を表示
+- オンライン復帰時に StaleWhileRevalidate でデータを自動更新
+
+### データフロー
+
+```mermaid
+flowchart TD
+    A["国土地理院 API"] -->|CSV| B["GitHub Actions\n(週次)"]
+    B -->|変換・フィルタ| C["GeoJSON\n(public/data/)"]
+    C -->|ビルド| D["Cloudflare Pages"]
+    D -->|初回アクセス| E["ブラウザ"]
+    E -->|precache| F["Service Worker Cache"]
+    F -->|オフライン| E
+```
+
+### Technical Challenges
+
+- **地図タイルのオフラインキャッシュ** — ベクタータイル (.pbf) を CacheFirst 戦略で最大 2,000 エントリまでキャッシュ。閲覧済みエリアをオフラインで再表示可能にしつつ、ストレージ肥大を防止
+- **災害時の視認性** — ライトテーマ固定、高コントラストな配色、大きなタップターゲットなど、緊急時でも迷わず操作できる UI を優先
 
 ## Data
 
-避難所データは [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html) を元に、GitHub Actions で毎週自動取得・更新しています。
+避難所データは [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html) を元に、GitHub Actions で毎週自動取得・更新しています。このデータは[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に基づき、出典を明示することで無償で利用可能です。
 
-地図タイルは [OpenStreetMap](https://www.openstreetmap.org/copyright) のデータを使用しています。
+地図タイルは [OpenStreetMap](https://www.openstreetmap.org/copyright) のデータを使用しています（ODbL ライセンス）。
 
 ## License
 
