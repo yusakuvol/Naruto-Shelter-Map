@@ -48,7 +48,6 @@ export function AISuggestionBanner({
   if (!suggestion || dismissed) return null;
 
   return (
-    // biome-ignore lint/a11y/useSemanticElements: div + role="status" はスタイリング上の要件
     <div
       className="rounded-xl border border-border bg-card/95 p-3 shadow-lg backdrop-blur-sm"
       role="status"
