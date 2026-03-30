@@ -22,7 +22,7 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     // テスト用の型定義
-    "types": ["vite/client", "vitest/globals"],
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
     // パス設定
     "paths": {
       "@/*": ["./src/*"]
