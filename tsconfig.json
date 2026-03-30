@@ -24,7 +24,6 @@
     // テスト用の型定義
     "types": ["vite/client", "vitest/globals"],
     // パス設定
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
