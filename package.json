@@ -23,6 +23,7 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:coverage:check": "vitest run --coverage --coverage.provider=v8 --coverage.include=src/hooks/useShelters.ts --coverage.include=src/hooks/useFilteredShelters.ts --coverage.thresholds.lines=100 --coverage.thresholds.branches=100 --coverage.thresholds.functions=100 --coverage.thresholds.statements=100",
+    "test:e2e": "playwright test",
     "validate:shelters": "tsx scripts/validate-shelters.ts",
     "geocode:shelters": "tsx scripts/geocode-shelters.ts",
     "release:patch": "pnpm version patch --git-tag-version true",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.9",
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/vite": "^4.2.2",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
