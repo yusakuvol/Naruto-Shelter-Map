@@ -3,7 +3,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import MapGL, {
   Marker,
   NavigationControl,
-  useMap,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre';
 import { AISuggestionBanner } from '@/components/ai/AISuggestionBanner';
@@ -17,6 +16,8 @@ import { MAP_STYLES } from '@/types/map';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
 import { FilterButton } from './FilterButton';
+import { LocationController } from './LocationController';
+import { MapController } from './MapController';
 import { ShelterPinMarker } from './ShelterPinMarker';
 import { ShelterPopup } from './ShelterPopup';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -37,53 +38,6 @@ interface MapProps {
   onShowTerms?: () => void;
   /** モバイル用: チャットモーダルを開く */
   onOpenChat?: () => void;
-}
-
-// 地図の移動を制御する内部コンポーネント
-function MapController({
-  selectedShelterId,
-  shelters,
-}: {
-  selectedShelterId?: string | null | undefined;
-  shelters: ShelterFeature[];
-}) {
-  const { current: map } = useMap();
-
-  useEffect(() => {
-    if (!selectedShelterId || !map) return;
-
-    const shelter = shelters.find((s) => s.properties.id === selectedShelterId);
-    if (!shelter) return;
-
-    const [lng, lat] = shelter.geometry.coordinates;
-
-    // 地図を滑らかに移動（現在のズームは維持）
-    const currentZoom = map.getZoom();
-    map.flyTo({
-      center: [lng, lat],
-      zoom: currentZoom,
-      duration: 1000,
-    });
-  }, [selectedShelterId, shelters, map]);
-
-  return null;
-}
-
-// 現在地を取得したら地図を移動する内部コンポーネント
-function LocationController({ position }: { position?: Coordinates | null }) {
-  const { current: map } = useMap();
-
-  useEffect(() => {
-    if (!position || !map) return;
-
-    map.flyTo({
-      center: [position.longitude, position.latitude],
-      zoom: 15,
-      duration: 1000,
-    });
-  }, [position, map]);
-
-  return null;
 }
 
 export function ShelterMap({
