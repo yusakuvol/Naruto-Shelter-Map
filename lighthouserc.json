@@ -1,8 +1,13 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./dist",
-      "numberOfRuns": 1
+      "url": ["http://localhost:4173"],
+      "startServerCommand": "pnpm preview --port 4173",
+      "startServerReadyPattern": "Local",
+      "numberOfRuns": 1,
+      "settings": {
+        "preset": "desktop"
+      }
     },
     "assert": {
       "assertions": {

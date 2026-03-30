@@ -47,15 +47,14 @@ jobs:
             const results = ${{ steps.lighthouse.outputs.manifest }};
             const summary = results[0].summary;
 
-            const score = (v) => Math.round(v * 100);
-            const emoji = (v) => v >= 0.9 ? '🟢' : v >= 0.5 ? '🟠' : '🔴';
+            const score = (v) => v != null ? Math.round(v * 100) : 'N/A';
+            const emoji = (v) => v == null ? '⚪' : v >= 0.9 ? '🟢' : v >= 0.5 ? '🟠' : '🔴';
 
             const categories = [
               ['Performance', summary.performance],
               ['Accessibility', summary.accessibility],
               ['Best Practices', summary['best-practices']],
               ['SEO', summary.seo],
-              ['PWA', summary.pwa],
             ];
 
             const rows = categories
