@@ -66,7 +66,7 @@ jobs:
             core.setOutput('comment', body);
 
       - name: Comment on PR
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: lighthouse
           message: ${{ steps.format.outputs.comment }}
