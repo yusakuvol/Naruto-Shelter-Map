@@ -1,0 +1,38 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended"],
+	"timezone": "Asia/Tokyo",
+	"schedule": ["before 3am on Monday"],
+	"minimumReleaseAge": "7 days",
+	"reviewers": ["yusakuvol"],
+	"labels": ["dependencies", "automated"],
+	"prConcurrentLimit": 10,
+	"automerge": true,
+	"automergeType": "pr",
+	"automergeStrategy": "squash",
+	"major": {
+		"automerge": false
+	},
+	"packageRules": [
+		{
+			"matchUpdateTypes": ["patch"],
+			"groupName": "patch-updates",
+			"commitMessagePrefix": "chore(deps)"
+		},
+		{
+			"matchUpdateTypes": ["minor"],
+			"groupName": "minor-updates",
+			"commitMessagePrefix": "chore(deps)"
+		},
+		{
+			"matchManagers": ["github-actions"],
+			"labels": ["dependencies", "github-actions", "automated"],
+			"prConcurrentLimit": 5,
+			"commitMessagePrefix": "chore(ci)"
+		},
+		{
+			"matchDepTypes": ["devDependencies"],
+			"commitMessagePrefix": "chore(deps-dev)"
+		}
+	]
+}
