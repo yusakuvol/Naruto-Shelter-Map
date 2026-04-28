@@ -1,35 +1,24 @@
-<svg width="512" height="512" viewBox="60 54 392 392" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#9dd5c5"/>
-      <stop offset="100%" stop-color="#3d8b7a"/>
-    </linearGradient>
-    <clipPath id="c">
-      <path d="M256 435 C256 435 385 295 385 195 C385 123.8 326.2 65 256 65 C185.8 65 127 123.8 127 195 C127 295 256 435 256 435Z"/>
-    </clipPath>
-  </defs>
-
-  <!-- Pin fill with gradient -->
-  <path d="M256 435 C256 435 385 295 385 195 C385 123.8 326.2 65 256 65 C185.8 65 127 123.8 127 195 C127 295 256 435 256 435Z" fill="url(#g)"/>
-
-  <!-- House and waves (clipped to pin) -->
-  <g clip-path="url(#c)">
-    <!-- House roof -->
-    <path d="M256 118 L342 200 L170 200Z" fill="white"/>
-    <!-- House body -->
-    <rect x="185" y="200" width="142" height="80" fill="white"/>
-    <!-- Door -->
-    <rect x="232" y="238" width="48" height="42" rx="2" fill="#2a5e52"/>
-
-    <!-- Wave patterns (渦潮 - Naruto whirlpool motif) -->
-    <g fill="none" stroke="white" stroke-linecap="round">
-      <path d="M140 305 C168 278 200 278 212 305 C220 322 202 338 185 332 C172 326 175 310 188 305" stroke-width="8"/>
-      <path d="M228 325 C262 295 298 298 308 328 C315 348 298 362 280 354 C265 348 268 332 282 326" stroke-width="8"/>
-      <path d="M322 300 C348 280 370 285 372 310 C374 328 358 338 345 330 C336 324 340 312 352 308" stroke-width="7"/>
-      <path d="M148 370 Q200 348 252 372 Q304 396 356 372" stroke-width="5" opacity="0.5"/>
-    </g>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="鳴門避難マップ">
+  <!-- 渦潮 (Naruto whirlpool waves) at the base -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 56 432 Q 256 396 456 432" stroke="#9ECAD9" stroke-width="14"/>
+    <path d="M 196 460 C 196 422 280 410 312 438 C 336 460 314 490 278 482 C 252 478 256 452 280 444" stroke="#5A95AB" stroke-width="16"/>
+    <path d="M 88 458 Q 130 440 172 462" stroke="#7BAFC4" stroke-width="12"/>
+    <path d="M 348 462 Q 388 444 424 460" stroke="#7BAFC4" stroke-width="12"/>
   </g>
 
-  <!-- Pin outline -->
-  <path d="M256 435 C256 435 385 295 385 195 C385 123.8 326.2 65 256 65 C185.8 65 127 123.8 127 195 C127 295 256 435 256 435Z" fill="none" stroke="#1a3a4a" stroke-width="14" stroke-linejoin="round"/>
+  <!-- Brown rooftop peeking from behind the pin -->
+  <path d="M 100 400 L 256 296 L 412 400 Z" fill="#8B6F5C"/>
+
+  <!-- Orange teardrop pin -->
+  <path d="M 256 348 C 256 348 372 244 372 168 C 372 104 320 52 256 52 C 192 52 140 104 140 168 C 140 244 256 348 256 348 Z" fill="#E97451"/>
+
+  <!-- White house silhouette inside the pin -->
+  <g fill="#FFFFFF">
+    <path d="M 198 178 L 256 130 L 314 178 Z"/>
+    <rect x="210" y="178" width="92" height="62"/>
+  </g>
+
+  <!-- Door cutout in pin color -->
+  <rect x="244" y="208" width="24" height="32" rx="2" fill="#E97451"/>
 </svg>
