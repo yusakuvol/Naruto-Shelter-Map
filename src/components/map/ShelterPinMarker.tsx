@@ -6,17 +6,22 @@ interface ShelterPinMarkerProps {
   isSelected: boolean;
 }
 
-/** 避難所種別に応じたピン本体の色 */
-function getShelterColor(type: string): string {
+type ShelterColorTokens = {
+  fill: string;
+  bg: string;
+};
+
+/** 避難所種別に応じた配色トークン (globals.css の --color-shelter-* に同期) */
+function getShelterTokens(type: string): ShelterColorTokens {
   switch (type) {
     case '指定避難所':
-      return '#2563eb';
+      return { fill: 'fill-shelter-designated', bg: 'bg-shelter-designated' };
     case '緊急避難場所':
-      return '#dc2626';
+      return { fill: 'fill-shelter-emergency', bg: 'bg-shelter-emergency' };
     case '両方':
-      return '#7c3aed';
+      return { fill: 'fill-shelter-both', bg: 'bg-shelter-both' };
     default:
-      return '#4b5563';
+      return { fill: 'fill-muted-foreground', bg: 'bg-muted-foreground' };
   }
 }
 
@@ -25,7 +30,7 @@ function ShelterPinMarkerComponent({
   isSelected,
 }: ShelterPinMarkerProps) {
   const { name, type } = shelter.properties;
-  const color = getShelterColor(type);
+  const tokens = getShelterTokens(type);
 
   return (
     <button
@@ -38,7 +43,7 @@ function ShelterPinMarkerComponent({
       aria-pressed={isSelected}
       title={`${name}\n種別: ${type}\n住所: ${shelter.properties.address}`}
     >
-      {/* ティアドロップ型ピン */}
+      {/* ロゴと同じティアドロップ + 家のシルエット */}
       <svg
         viewBox="0 0 56 76"
         className="block h-[38px] w-[28px]"
@@ -46,17 +51,18 @@ function ShelterPinMarkerComponent({
         aria-hidden="true"
       >
         <path
-          d="M28 0C12.536 0 0 12.536 0 28c0 6.83 4.2 15.2 9.8 22.4C16.1 59.2 28 76 28 76s11.9-16.8 18.2-25.6C51.8 43.2 56 34.83 56 28 56 12.536 43.464 0 28 0z"
-          fill={color}
+          d="M 28 76 C 28 76 56 49 56 30 C 56 13 43 0 28 0 C 13 0 0 13 0 30 C 0 49 28 76 28 76 Z"
+          className={tokens.fill}
         />
-        {/* 中央の白丸ドット */}
-        <circle cx="28" cy="26" r="9" fill="white" />
+        <g fill="white">
+          <path d="M 14 32 L 28 20 L 42 32 Z" />
+          <rect x="17" y="32" width="22" height="16" />
+        </g>
       </svg>
       {/* 選択時のパルスリング */}
       {isSelected && (
         <div
-          className="absolute -top-1 left-1/2 h-[30px] w-[30px] -translate-x-1/2 animate-ping rounded-full opacity-30"
-          style={{ backgroundColor: color }}
+          className={`absolute -top-1 left-1/2 h-[30px] w-[30px] -translate-x-1/2 animate-ping rounded-full opacity-30 ${tokens.bg}`}
           aria-hidden="true"
         />
       )}
