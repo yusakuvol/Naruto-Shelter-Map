@@ -248,8 +248,8 @@ function LLMStatusBanner({
       );
     case 'error':
       return (
-        <div className="mb-3 rounded-lg bg-red-50 p-3">
-          <p className="text-xs text-red-800">
+        <div className="mb-3 rounded-lg bg-destructive/10 p-3">
+          <p className="text-xs text-destructive">
             AIモデルの読み込みに失敗しました。キーワード検索で回答します。
           </p>
         </div>
