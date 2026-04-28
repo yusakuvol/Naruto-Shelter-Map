@@ -50,9 +50,9 @@ export class ErrorBoundary extends Component<
           <div className="w-full max-w-md rounded-lg bg-card p-6 shadow-lg">
             {/* エラーアイコン */}
             <div className="mb-4 flex justify-center">
-              <div className="rounded-full bg-red-100 p-3">
+              <div className="rounded-full bg-destructive/10 p-3">
                 <AlertTriangleIcon
-                  className="h-8 w-8 text-red-600"
+                  className="h-8 w-8 text-destructive"
                   aria-hidden="true"
                 />
               </div>

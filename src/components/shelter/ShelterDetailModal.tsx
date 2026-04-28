@@ -179,7 +179,7 @@ export function ShelterDetailModal({
                 <Badge
                   key={disasterType}
                   variant="outline"
-                  className="bg-orange-50 text-orange-900 border-orange-200"
+                  className="bg-amber-50 text-amber-900 border-amber-200"
                 >
                   {disasterType}
                 </Badge>

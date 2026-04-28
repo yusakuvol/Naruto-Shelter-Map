@@ -55,7 +55,7 @@ export function FacilitiesSection({
           </div>
         )}
         {facilities.heating && (
-          <div className="flex items-center gap-2 rounded-lg bg-orange-50 px-3 py-2 text-sm text-orange-900">
+          <div className="flex items-center gap-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">
             <FlameIcon className="h-4 w-4" aria-hidden="true" />
             暖房
           </div>
