@@ -20,81 +20,15 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'icons/*', 'data/*', 'manifest.json'],
       manifest: false, // public/manifest.json を静的利用する
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,geojson,json}'],
+        // 地図タイル（pmtiles）・フォント（pbf）も同梱・precache し、
+        // 初回インストール直後から完全オフラインで地図を表示できるようにする
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg,woff2,geojson,json,pbf,pmtiles}',
+        ],
         globIgnores: ['**/webllm-*.js'], // WebLLM はオンデマンド読み込み、precache 対象外
+        // basemap.pmtiles（約10MB）を precache するため上限を引き上げる
+        maximumFileSizeToCacheInBytes: 30 * 1024 * 1024,
         runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/data\/.*\.pbf/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'osm-vector-tiles',
-              expiration: { maxEntries: 2000, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/fonts\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'osm-fonts',
-              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/sprite.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'osm-sprites',
-              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/tile\.openstreetmap\.jp\/styles\/.*\/style\.json/i,
-            handler: 'StaleWhileRevalidate',
-            options: {
-              cacheName: 'osm-styles',
-              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 7 },
-            },
-          },
-          {
-            urlPattern: /\.pbf$/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'vector-tiles',
-              expiration: { maxEntries: 2000, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
-            urlPattern: /\/style\.json$/i,
-            handler: 'StaleWhileRevalidate',
-            options: {
-              cacheName: 'map-styles',
-              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 7 },
-            },
-          },
-          {
-            urlPattern: /\/fonts\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'map-fonts',
-              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
-            urlPattern: /\/sprite.*\.(?:png|json)$/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'map-sprites',
-              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/api\.maptiler\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'maptiler-tiles',
-              expiration: { maxEntries: 1000, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
           {
             urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
             handler: 'CacheFirst',

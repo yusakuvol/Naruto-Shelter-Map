@@ -7,12 +7,13 @@ import MapGL, {
 } from 'react-map-gl/maplibre';
 import { AISuggestionBanner } from '@/components/ai/AISuggestionBanner';
 import { ChatFab } from '@/components/chat/ChatFab';
+import { createMapStyle } from '@/config/mapStyle';
 import type {
   Coordinates,
   GeolocationError,
   GeolocationState,
 } from '@/hooks/useGeolocation';
-import { MAP_STYLES } from '@/types/map';
+import { registerPMTilesProtocol } from '@/lib/pmtilesProtocol';
 import type { ShelterFeature } from '@/types/shelter';
 import { CurrentLocationButton } from './CurrentLocationButton';
 import { FilterButton } from './FilterButton';
@@ -57,8 +58,11 @@ export function ShelterMap({
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
-  // 標準地図のみを使用
-  const styleUrl = MAP_STYLES.standard.url;
+  // 同梱 PMTiles（オフライン対応）の地図スタイルを使用
+  const mapStyle = useMemo(() => {
+    registerPMTilesProtocol();
+    return createMapStyle();
+  }, []);
 
   // 外部から渡された位置情報を使用、なければフォールバック
   const position = externalPosition ?? null;
@@ -140,7 +144,7 @@ export function ShelterMap({
           zoom: 12,
         }}
         style={{ width: '100%', height: '100%' }}
-        mapStyle={styleUrl}
+        mapStyle={mapStyle}
         onMove={handleMove}
       >
         <MapController
