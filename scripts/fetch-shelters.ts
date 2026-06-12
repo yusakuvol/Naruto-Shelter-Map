@@ -23,7 +23,7 @@
  *   - 指定されたファイルまたはURLからデータを読み込みます
  */
 
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { detectRegionFromAddress, REGIONS } from '../src/config/regions';
 import type {
@@ -66,6 +66,9 @@ const DATASET_TO_DISASTER_TYPE: Record<
 
 // タイル取得用のズームレベル（10が適切な粒度）
 const TILE_ZOOM_LEVEL = 10;
+
+// 出力先（updatedAt 引き継ぎのため既存データの読み込みにも使用）
+const OUTPUT_PATH = join(process.cwd(), 'public', 'data', 'shelters.geojson');
 
 /**
  * 緯度経度からタイル座標を計算
@@ -299,7 +302,6 @@ async function loadGSIData(filePath: string | undefined): Promise<unknown> {
     }
 
     // ファイルパスの場合は読み込み
-    const { readFile } = await import('node:fs/promises');
     const data = await readFile(filePath, 'utf-8');
     const json = JSON.parse(data);
 
@@ -543,15 +545,108 @@ function normalizeData(features: unknown[]): ShelterFeature[] {
 }
 
 /**
+ * キーを再帰的にソートしてJSON文字列化（プロパティ順序に依存しない内容比較用）
+ */
+function stableStringify(value: unknown): string {
+  if (Array.isArray(value)) {
+    return `[${value.map((v) => stableStringify(v)).join(',')}]`;
+  }
+  if (value !== null && typeof value === 'object') {
+    const entries = Object.entries(value as Record<string, unknown>)
+      .filter(([, v]) => v !== undefined)
+      .sort(([a], [b]) => (a < b ? -1 : 1));
+    return `{${entries
+      .map(([key, v]) => `${JSON.stringify(key)}:${stableStringify(v)}`)
+      .join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
+/**
+ * 避難所の同一判定キー（名称 + 住所）
+ * id は取得順に振り直されるため同一判定には使えない
+ */
+function shelterKey(feature: ShelterFeature): string {
+  return `${feature.properties.name}|${feature.properties.address}`;
+}
+
+/**
+ * 内容比較用のシグネチャ
+ *
+ * - id: 取得順で振り直されるため除外
+ * - updatedAt: 比較対象そのもののため除外
+ * - geometry: ジオコーディングステップが取得後に座標を補正するため除外
+ *   （補正前の生座標と既存の補正済み座標の差を「変更」と誤検出しないようにする）
+ */
+function contentSignature(feature: ShelterFeature): string {
+  const { id: _id, updatedAt: _updatedAt, ...rest } = feature.properties;
+  return stableStringify(rest);
+}
+
+/**
+ * 既存の shelters.geojson を読み込む（初回実行などで存在しない場合は null）
+ */
+async function loadExistingGeoJSON(): Promise<ShelterGeoJSON | null> {
+  try {
+    const data = await readFile(OUTPUT_PATH, 'utf-8');
+    return JSON.parse(data) as ShelterGeoJSON;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 内容が変わっていないレコードの updatedAt を既存データから引き継ぐ
+ *
+ * 全件に取得日を書き込むと、実変更がなくても毎週ファイル全体に差分が発生する。
+ * 内容が同一のレコードは既存の updatedAt を保持し、実変更があった週だけ
+ * git diff（= PR作成）が発生するようにする。
+ */
+function preserveUpdatedAt(
+  features: ShelterFeature[],
+  existing: ShelterGeoJSON | null
+): ShelterFeature[] {
+  if (!existing || !Array.isArray(existing.features)) {
+    console.log('ℹ️  既存データなし: 全件に取得日を設定します');
+    return features;
+  }
+
+  const existingMap = new Map<string, ShelterFeature>();
+  for (const feature of existing.features) {
+    existingMap.set(shelterKey(feature), feature);
+  }
+
+  let preserved = 0;
+  const result = features.map((feature): ShelterFeature => {
+    const prev = existingMap.get(shelterKey(feature));
+    if (prev && contentSignature(prev) === contentSignature(feature)) {
+      preserved++;
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          updatedAt: prev.properties.updatedAt,
+        },
+      };
+    }
+    return feature;
+  });
+
+  console.log(
+    `🔄 updatedAt 引き継ぎ: 変更なし ${preserved}件 / 新規・変更 ${result.length - preserved}件`
+  );
+
+  return result;
+}
+
+/**
  * GeoJSONファイルを保存
  */
 async function saveGeoJSON(data: ShelterGeoJSON): Promise<void> {
-  const outputPath = join(process.cwd(), 'public', 'data', 'shelters.geojson');
-
-  console.log(`💾 データを保存中: ${outputPath}`);
+  console.log(`💾 データを保存中: ${OUTPUT_PATH}`);
 
   const json = JSON.stringify(data, null, 2);
-  await writeFile(outputPath, json, 'utf-8');
+  await writeFile(OUTPUT_PATH, json, 'utf-8');
 
   console.log(`✅ 保存完了: ${data.features.length}件の避難所`);
 }
@@ -578,10 +673,16 @@ async function main(): Promise<void> {
     // 3. データ正規化
     const normalizedFeatures = normalizeData(regionFeatures);
 
-    // 4. GeoJSON形式で保存
+    // 4. 内容が変わっていないレコードは既存の updatedAt を保持
+    const featuresWithDates = preserveUpdatedAt(
+      normalizedFeatures,
+      await loadExistingGeoJSON()
+    );
+
+    // 5. GeoJSON形式で保存
     const geoJSON: ShelterGeoJSON = {
       type: 'FeatureCollection',
-      features: normalizedFeatures,
+      features: featuresWithDates,
     };
 
     await saveGeoJSON(geoJSON);
