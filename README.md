@@ -39,7 +39,7 @@
 
 ## Features
 
-- **オフライン動作** — Service Worker で地図タイルと避難所データをキャッシュ
+- **完全オフライン動作** — 対象地域の地図タイル（PMTiles）と避難所データを同梱・precache し、初回インストール直後から圏外でも地図を表示
 - **災害種別フィルタ** — 洪水・津波・土砂災害・地震・火災で絞り込み
 - **経路案内** — 選択した避難所への経路をワンタップで表示
 - **お気に入り** — よく使う避難所をブックマーク
@@ -65,18 +65,17 @@
 ```mermaid
 flowchart LR
     GSI["国土地理院\nオープンデータ"] -->|毎週自動取得| GHA["GitHub Actions"]
-    GHA -->|GeoJSON 生成| CF["Cloudflare Pages"]
+    PM["Protomaps\n(OpenStreetMap)"] -->|毎月タイル生成| GHA
+    GHA -->|GeoJSON / PMTiles| CF["Cloudflare Pages"]
     CF -->|配信| SW["Service Worker"]
-    SW -->|キャッシュ| APP["アプリ"]
-
-    OSM["OpenStreetMap\nタイルサーバー"] -->|地図タイル| SW
+    SW -->|precache| APP["アプリ"]
 
     style SW fill:#5A0FC8,color:#fff
 ```
 
-- **Service Worker** が地図タイル・GeoJSON・フォント・スプライトをキャッシュ
-- オフライン時は最後にキャッシュされたデータで地図と避難所を表示
-- オンライン復帰時に StaleWhileRevalidate でデータを自動更新
+- 対象5市町（鳴門市・藍住町・北島町・松茂町・板野町）の**地図タイルを PMTiles 1 ファイル（約 10 MB）に固めて同梱**し、フォント・スプライトも含めて Service Worker が precache（合計約 23 MB）
+- **初回アクセス（インストール）直後に圏外になっても、未閲覧エリアを含む対象地域全体の地図を表示可能**
+- 避難所データ（GeoJSON）も precache し、オンライン復帰時に StaleWhileRevalidate で自動更新
 
 ### データフロー
 
@@ -92,14 +91,14 @@ flowchart TD
 
 ### Technical Challenges
 
-- **地図タイルのオフラインキャッシュ** — ベクタータイル (.pbf) を CacheFirst 戦略で最大 2,000 エントリまでキャッシュ。閲覧済みエリアをオフラインで再表示可能にしつつ、ストレージ肥大を防止
+- **初回起動からの完全オフライン地図** — 従来の実行時キャッシュでは閲覧済みエリアしかオフライン表示できなかったため、対象地域のベクタータイルを PMTiles 1 ファイルに固めて同梱。Service Worker の precache は Range リクエストに対応しないため、Cache Storage から Blob を slice して読み出すカスタム Source で解決
 - **災害時の視認性** — ライトテーマ固定、高コントラストな配色、大きなタップターゲットなど、緊急時でも迷わず操作できる UI を優先
 
 ## Data
 
 避難所データは [国土地理院 指定緊急避難場所データ](https://www.gsi.go.jp/bousaichiri/hinanbasho.html) を元に、GitHub Actions で毎週自動取得・更新しています。このデータは[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に基づき、出典を明示することで無償で利用可能です。
 
-地図タイルは [OpenStreetMap](https://www.openstreetmap.org/copyright) のデータを使用しています（ODbL ライセンス）。
+地図タイルは [Protomaps](https://protomaps.com) のベースマップビルド（[OpenStreetMap](https://www.openstreetmap.org/copyright) データ・ODbL ライセンス）から対象地域を切り出して同梱しており、GitHub Actions で毎月自動更新しています。地図フォント（Noto Sans）は SIL Open Font License です。
 
 ## License
 
