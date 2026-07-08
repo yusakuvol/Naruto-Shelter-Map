@@ -59,7 +59,7 @@ function computeBbox(): string {
 
 /** pmtiles CLI のパスを解決する（PATH → キャッシュ → 自動ダウンロード） */
 async function resolvePmtilesCli(): Promise<string> {
-  const fromEnv = process.env['PMTILES_BIN'];
+  const fromEnv = process.env.PMTILES_BIN;
   if (fromEnv) {
     return fromEnv;
   }
@@ -140,7 +140,7 @@ async function fetchLatestBuildKey(): Promise<string> {
 }
 
 async function main(): Promise<void> {
-  const maxzoom = process.env['TILES_MAXZOOM'] ?? '15';
+  const maxzoom = process.env.TILES_MAXZOOM ?? '15';
   const bbox = computeBbox();
   console.log(`🗺️  対象範囲 bbox: ${bbox} / maxzoom: ${maxzoom}`);
 
