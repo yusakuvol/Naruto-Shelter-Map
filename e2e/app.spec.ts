@@ -1,21 +1,21 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('地図ページの基本表示', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-  });
-
   test('ページが正常に読み込まれる', async ({ page }) => {
+    await page.goto('/');
     // map-container が存在すること
-    const mapContainer = page.locator('.map-container').first();
+    const mapContainer = page.locator('.map-container');
     await expect(mapContainer).toBeAttached({ timeout: 10_000 });
+    await expect(mapContainer).toHaveCount(1);
   });
 
   test('タイトルが正しい', async ({ page }) => {
+    await page.goto('/');
     await expect(page).toHaveTitle(/鳴門/);
   });
 
   test('スクリーンリーダー用のステータスが存在する', async ({ page }) => {
+    await page.goto('/');
     const status = page.locator('[role="status"]');
     await expect(status.first()).toBeAttached();
   });
@@ -43,13 +43,18 @@ test.describe('オフライン対応', () => {
   test('Service Worker が登録される', async ({ page }) => {
     await page.goto('/');
 
-    const swRegistered = await page.evaluate(async () => {
-      if (!('serviceWorker' in navigator)) return false;
-      const registration = await navigator.serviceWorker.getRegistration('/');
-      return registration !== undefined;
-    });
-
-    expect(swRegistered).toBe(true);
+    await expect
+      .poll(
+        () =>
+          page.evaluate(async () => {
+            if (!('serviceWorker' in navigator)) return false;
+            const registration =
+              await navigator.serviceWorker.getRegistration('/');
+            return registration !== undefined;
+          }),
+        { timeout: 15_000 }
+      )
+      .toBe(true);
   });
 
   test('manifest.json が取得できる', async ({ page }) => {

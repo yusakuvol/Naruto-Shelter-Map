@@ -2,10 +2,19 @@ import { useEffect } from 'react';
 
 /**
  * Service Worker登録コンポーネント
- * 本番ビルドで vite-plugin-pwa が生成した sw.js を登録する
+ * 本番ビルドで vite-plugin-pwa が生成した sw.js を登録する。
+ * 初回の大量precacheが地図表示と競合しないよう、地図の準備完了後に登録する。
  */
-export function ServiceWorkerRegistration(): null {
+export function ServiceWorkerRegistration({
+  enabled,
+}: {
+  enabled: boolean;
+}): null {
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
+
     if (typeof window === 'undefined') {
       return;
     }
@@ -56,7 +65,7 @@ export function ServiceWorkerRegistration(): null {
       }
     };
 
-    // ページ読み込み完了後に登録
+    // 地図準備完了後、かつページ読み込み完了後に登録
     if (document.readyState === 'complete') {
       registerServiceWorker();
     } else {
@@ -67,7 +76,7 @@ export function ServiceWorkerRegistration(): null {
     return () => {
       window.removeEventListener('load', registerServiceWorker);
     };
-  }, []);
+  }, [enabled]);
 
   // このコンポーネントは何もレンダリングしない
   return null;

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useId } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useId, useState } from 'react';
 import { toast } from 'sonner';
 import { Router } from 'wouter';
 import { SkipLink } from '@/components/a11y/SkipLink';
@@ -15,6 +15,7 @@ import { ShelterDetailModal } from '@/components/shelter/ShelterDetailModal';
 import { Toaster } from '@/components/ui/sonner';
 import { FilterProvider } from '@/contexts/FilterContext';
 import { useHomePageState } from '@/hooks/useHomePageState';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { calculateDistance, toCoordinates } from '@/lib/geo';
 
 const ShelterMap = lazy(() =>
@@ -32,7 +33,13 @@ const MAP_LOADING_FALLBACK = (
   </div>
 );
 
-function HomePageContent({ mainContentId }: { mainContentId: string }) {
+interface HomePageContentProps {
+  mainContentId: string;
+  onMapReady: () => void;
+}
+
+function HomePageContent({ mainContentId, onMapReady }: HomePageContentProps) {
+  const isDesktop = useIsDesktop();
   const {
     filteredShelters,
     allSheltersCount,
@@ -87,22 +94,33 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
     );
   }
 
-  if (isLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
-          <p className="mt-4 text-sm text-muted-foreground">読み込み中...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
-      {/* モバイルレイアウト */}
-      <div className="relative flex h-screen flex-col lg:hidden">
-        <main id={mainContentId} className="relative min-h-0 flex-1">
+      <div className="relative flex h-screen flex-col lg:flex-row lg:overflow-hidden">
+        {isDesktop && (
+          <div className="h-full">
+            <DesktopSidebar
+              mainContentId={mainContentId}
+              filteredShelters={filteredShelters}
+              allSheltersCount={allSheltersCount}
+              listShelters={listShelters}
+              selectedShelterId={selectedShelterId}
+              onShelterSelect={setSelectedShelterId}
+              onShowDetail={openDetail}
+              onShowTerms={openTerms}
+              onRefresh={refresh}
+              isRefreshing={isRefreshing}
+              position={position ?? null}
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}
+              sortMode={sortMode}
+              onSortModeChange={setSortMode}
+              listFilter={listFilter}
+              onListFilterChange={setListFilter}
+            />
+          </div>
+        )}
+        <main id={mainContentId} className="relative h-full flex-1">
           <Suspense fallback={MAP_LOADING_FALLBACK}>
             <ShelterMap
               shelters={filteredShelters}
@@ -117,50 +135,22 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
               isRefreshing={isRefreshing}
               onShowTerms={openTerms}
               onOpenChat={() => setChatModalOpen(true)}
+              onMapReady={onMapReady}
             />
           </Suspense>
+          {isLoading && (
+            <div
+              className="absolute left-1/2 top-4 z-20 -translate-x-1/2 rounded-full border border-border bg-card/95 px-4 py-2 text-sm text-muted-foreground shadow-lg"
+              role="status"
+              aria-live="polite"
+            >
+              避難所データを読み込んでいます...
+            </div>
+          )}
         </main>
-        <p className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-2 z-10 text-[10px] text-muted-foreground/70">
+        <p className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-2 z-10 text-[10px] text-muted-foreground/70 lg:hidden">
           Designed by Yusaku Matsukawa
         </p>
-      </div>
-
-      {/* デスクトップレイアウト */}
-      <div className="hidden lg:flex lg:h-screen lg:flex-row lg:overflow-hidden">
-        <DesktopSidebar
-          mainContentId={mainContentId}
-          filteredShelters={filteredShelters}
-          allSheltersCount={allSheltersCount}
-          listShelters={listShelters}
-          selectedShelterId={selectedShelterId}
-          onShelterSelect={setSelectedShelterId}
-          onShowDetail={openDetail}
-          onShowTerms={openTerms}
-          onRefresh={refresh}
-          isRefreshing={isRefreshing}
-          position={position ?? null}
-          favorites={favorites}
-          onToggleFavorite={toggleFavorite}
-          sortMode={sortMode}
-          onSortModeChange={setSortMode}
-          listFilter={listFilter}
-          onListFilterChange={setListFilter}
-        />
-
-        <main id={mainContentId} className="relative h-full flex-1">
-          <Suspense fallback={MAP_LOADING_FALLBACK}>
-            <ShelterMap
-              shelters={filteredShelters}
-              selectedShelterId={selectedShelterId}
-              onShelterSelect={setSelectedShelterId}
-              onShowDetail={openDetail}
-              position={position}
-              geolocationState={geolocationState}
-              geolocationError={geolocationError}
-              onGetCurrentPosition={getCurrentPosition}
-            />
-          </Suspense>
-        </main>
       </div>
 
       {detailModalShelter && (
@@ -196,14 +186,27 @@ function HomePageContent({ mainContentId }: { mainContentId: string }) {
 
 function App() {
   const mainContentId = useId();
+  const [mapReady, setMapReady] = useState(false);
+  const handleMapReady = useCallback(() => setMapReady(true), []);
+
+  // 地図読み込みに失敗しても、次回のオフライン利用に備えて登録は継続する
+  useEffect(() => {
+    if (mapReady) return;
+    const timeoutId = window.setTimeout(() => setMapReady(true), 10_000);
+    return () => window.clearTimeout(timeoutId);
+  }, [mapReady]);
+
   return (
     <div className="font-sans antialiased">
       <SkipLink targetId={mainContentId} />
-      <ServiceWorkerRegistration />
+      <ServiceWorkerRegistration enabled={mapReady} />
       <ErrorBoundary>
         <FilterProvider>
           <Router>
-            <HomePageContent mainContentId={mainContentId} />
+            <HomePageContent
+              mainContentId={mainContentId}
+              onMapReady={handleMapReady}
+            />
           </Router>
         </FilterProvider>
       </ErrorBoundary>

@@ -39,6 +39,8 @@ interface MapProps {
   onShowTerms?: () => void;
   /** モバイル用: チャットモーダルを開く */
   onOpenChat?: () => void;
+  /** 初期地図の表示が完了したときに呼ぶ */
+  onMapReady?: () => void;
 }
 
 export function ShelterMap({
@@ -54,6 +56,7 @@ export function ShelterMap({
   isRefreshing = false,
   onShowTerms,
   onOpenChat,
+  onMapReady,
 }: MapProps) {
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
@@ -146,6 +149,7 @@ export function ShelterMap({
         style={{ width: '100%', height: '100%' }}
         mapStyle={mapStyle}
         onMove={handleMove}
+        {...(onMapReady ? { onLoad: onMapReady } : {})}
       >
         <MapController
           selectedShelterId={selectedShelterId}
