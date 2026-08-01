@@ -20,7 +20,7 @@ import { CurrentLocationButton } from './CurrentLocationButton';
 import { FilterButton } from './FilterButton';
 import { LocationController } from './LocationController';
 import { MapController } from './MapController';
-import { SHELTER_HIT_LAYER_ID, ShelterLayer } from './ShelterLayer';
+import { SHELTER_INTERACTIVE_LAYER_ID, ShelterLayer } from './ShelterLayer';
 import { ShelterListButton } from './ShelterListButton';
 import { ShelterPopup } from './ShelterPopup';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -148,7 +148,7 @@ export function ShelterMap({
         onClick={handleMapClick}
         onMouseEnter={() => setIsHoveringShelter(true)}
         onMouseLeave={() => setIsHoveringShelter(false)}
-        interactiveLayerIds={[SHELTER_HIT_LAYER_ID]}
+        interactiveLayerIds={[SHELTER_INTERACTIVE_LAYER_ID]}
         cursor={isHoveringShelter ? 'pointer' : 'grab'}
         {...(onMapReady ? { onLoad: onMapReady } : {})}
       >

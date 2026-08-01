@@ -7,6 +7,8 @@ import { ShelterMap } from './Map';
 
 const mockFlyTo = vi.fn();
 const mockGetZoom = vi.fn(() => 12);
+const mockHasImage = vi.fn(() => true);
+const mockIsStyleLoaded = vi.fn(() => true);
 
 vi.mock('react-map-gl/maplibre', () => {
   const MapGL = ({
@@ -52,18 +54,30 @@ vi.mock('react-map-gl/maplibre', () => {
       {children}
     </div>
   );
-  const Layer = ({ id }: { id: string }): React.ReactElement => (
-    <div data-testid={`layer-${id}`} />
+  const Layer = ({
+    id,
+    type,
+  }: {
+    id: string;
+    type: string;
+  }): React.ReactElement => (
+    <div data-testid={`layer-${id}`} data-layer-type={type} />
   );
   const Popup = ({
     children,
   }: {
     children: React.ReactNode;
   }): React.ReactElement => <div data-testid="popup">{children}</div>;
-  const useMap = (): {
-    current: { flyTo: typeof mockFlyTo; getZoom: typeof mockGetZoom };
-  } => ({
-    current: { flyTo: mockFlyTo, getZoom: mockGetZoom },
+  const useMap = () => ({
+    current: {
+      addImage: vi.fn(),
+      flyTo: mockFlyTo,
+      getZoom: mockGetZoom,
+      hasImage: mockHasImage,
+      isStyleLoaded: mockIsStyleLoaded,
+      off: vi.fn(),
+      on: vi.fn(),
+    },
   });
 
   return {
@@ -155,7 +169,10 @@ describe('ShelterMap', () => {
       'data-feature-count',
       '2'
     );
-    expect(screen.getByTestId('layer-shelter-marker')).toBeInTheDocument();
+    expect(screen.getByTestId('layer-shelter-marker')).toHaveAttribute(
+      'data-layer-type',
+      'symbol'
+    );
   });
 
   it('レイヤークリックで onShelterSelect が呼ばれる', async () => {
