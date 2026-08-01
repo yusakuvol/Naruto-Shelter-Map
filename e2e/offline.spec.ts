@@ -87,13 +87,12 @@ test.describe('完全オフライン対応（同梱PMTiles）', () => {
         .first()
     ).toBeVisible({ timeout: 15_000 });
 
-    // 5. 避難所マーカーを選択して詳細を確認できる
-    //    （現在地への移動でマーカーが画面外にあることがあるため click イベントを直接発火する）
+    // 5. アクセシブルな避難所一覧から選択して詳細を確認できる
     await page
-      .getByRole('button', { name: /を選択$/ })
-      .filter({ visible: true })
+      .getByRole('navigation', { name: '避難所一覧' })
+      .locator('[role="button"]')
       .first()
-      .dispatchEvent('click');
+      .click();
     await expect(
       page
         .getByRole('button', { name: /の詳細を見る$/ })

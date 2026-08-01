@@ -1,6 +1,7 @@
 import { InfoIcon, RefreshCwIcon } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MapGL, {
+  type MapLayerMouseEvent,
   Marker,
   NavigationControl,
   type ViewStateChangeEvent,
@@ -19,7 +20,8 @@ import { CurrentLocationButton } from './CurrentLocationButton';
 import { FilterButton } from './FilterButton';
 import { LocationController } from './LocationController';
 import { MapController } from './MapController';
-import { ShelterPinMarker } from './ShelterPinMarker';
+import { SHELTER_HIT_LAYER_ID, ShelterLayer } from './ShelterLayer';
+import { ShelterListButton } from './ShelterListButton';
 import { ShelterPopup } from './ShelterPopup';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
@@ -61,6 +63,7 @@ export function ShelterMap({
   const [selectedShelter, setSelectedShelter] = useState<ShelterFeature | null>(
     null
   );
+  const [isHoveringShelter, setIsHoveringShelter] = useState(false);
   // 同梱 PMTiles（オフライン対応）の地図スタイルを使用
   const mapStyle = useMemo(() => {
     registerPMTilesProtocol();
@@ -78,6 +81,26 @@ export function ShelterMap({
       onShelterSelect?.(shelter.properties.id);
     },
     [onShelterSelect]
+  );
+
+  const sheltersById = useMemo(
+    () => new Map(shelters.map((shelter) => [shelter.properties.id, shelter])),
+    [shelters]
+  );
+
+  const shelterGeoJSON = useMemo(
+    () => ({ type: 'FeatureCollection' as const, features: shelters }),
+    [shelters]
+  );
+
+  const handleMapClick = useCallback(
+    (event: MapLayerMouseEvent) => {
+      const id = event.features?.[0]?.properties?.id;
+      if (typeof id !== 'string') return;
+      const shelter = sheltersById.get(id);
+      if (shelter) handleMarkerClick(shelter);
+    },
+    [handleMarkerClick, sheltersById]
   );
 
   const handleClosePopup = useCallback(() => {
@@ -104,40 +127,13 @@ export function ShelterMap({
     setSelectedShelter(shelter);
   }, [selectedShelterId, shelters]);
 
-  // マーカーをメモ化してレンダリング最適化
-  const markers = useMemo(
-    () =>
-      shelters.map((shelter) => {
-        const coordinates = shelter.geometry.coordinates;
-        const lng = coordinates[0];
-        const lat = coordinates[1];
-
-        if (lng === undefined || lat === undefined) return null;
-
-        const isSelected = selectedShelterId === shelter.properties.id;
-
-        return (
-          <Marker
-            key={shelter.properties.id}
-            longitude={lng}
-            latitude={lat}
-            anchor="bottom"
-            onClick={() => handleMarkerClick(shelter)}
-          >
-            <ShelterPinMarker shelter={shelter} isSelected={isSelected} />
-          </Marker>
-        );
-      }),
-    [shelters, selectedShelterId, handleMarkerClick]
-  );
-
   return (
     <div className="map-container relative h-full w-full">
       {/* スクリーンリーダー用の説明 */}
       <div className="sr-only" role="status" aria-live="polite">
         地図: 鳴門市の避難所を表示しています。
         矢印キーで地図を移動、+/-キーでズーム、
-        Tabキーで避難所マーカーを選択できます。
+        避難所の選択には避難所一覧を利用できます。
       </div>
 
       <MapGL
@@ -149,6 +145,11 @@ export function ShelterMap({
         style={{ width: '100%', height: '100%' }}
         mapStyle={mapStyle}
         onMove={handleMove}
+        onClick={handleMapClick}
+        onMouseEnter={() => setIsHoveringShelter(true)}
+        onMouseLeave={() => setIsHoveringShelter(false)}
+        interactiveLayerIds={[SHELTER_HIT_LAYER_ID]}
+        cursor={isHoveringShelter ? 'pointer' : 'grab'}
         {...(onMapReady ? { onLoad: onMapReady } : {})}
       >
         <MapController
@@ -164,6 +165,13 @@ export function ShelterMap({
         {/* モバイル用: フィルタ + データ更新ボタン（横並び） */}
         <div className="absolute left-4 top-4 z-10 flex items-center gap-2 lg:hidden">
           <FilterButton />
+          <ShelterListButton
+            shelters={shelters}
+            selectedShelterId={selectedShelterId}
+            position={position}
+            onShelterSelect={onShelterSelect}
+            onShowDetail={onShowDetail}
+          />
           {onRefresh && (
             <button
               type="button"
@@ -188,7 +196,10 @@ export function ShelterMap({
           )}
         </div>
 
-        {markers}
+        <ShelterLayer
+          data={shelterGeoJSON}
+          selectedShelterId={selectedShelterId}
+        />
 
         {/* 現在地マーカー */}
         {position && (
