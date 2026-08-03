@@ -45,10 +45,16 @@ jobs:
         with:
           script: |
             const results = ${{ steps.lighthouse.outputs.manifest }};
-            const summary = results[0].summary;
+            const links = ${{ steps.lighthouse.outputs.links }};
+            const representative = results.find((result) => result.isRepresentativeRun) ?? results[0];
+            const summary = representative.summary;
+            const report = require('node:fs').readFileSync(representative.jsonPath, 'utf8');
+            const audits = JSON.parse(report).audits;
 
             const score = (v) => v != null ? Math.round(v * 100) : 'N/A';
             const emoji = (v) => v == null ? '⚪' : v >= 0.9 ? '🟢' : v >= 0.5 ? '🟠' : '🔴';
+            const ms = (id) => Math.round(audits[id].numericValue);
+            const domCount = Math.round(audits['dom-size'].numericValue);
 
             const categories = [
               ['Performance', summary.performance],
@@ -61,7 +67,18 @@ jobs:
               .map(([name, val]) => `| ${emoji(val)} ${name} | ${score(val)} |`)
               .join('\n');
 
-            const body = `## ⚡ Lighthouse Report\n\n| Category | Score |\n|----------|-------|\n${rows}\n\n[Full Report](${results[0].url})`;
+            const metrics = [
+              ['LCP', `${ms('largest-contentful-paint')} ms`],
+              ['TBT', `${ms('total-blocking-time')} ms`],
+              ['Speed Index', `${ms('speed-index')} ms`],
+              ['Main thread', `${ms('mainthread-work-breakdown')} ms`],
+              ['DOM elements', domCount],
+            ]
+              .map(([name, value]) => `| ${name} | ${value} |`)
+              .join('\n');
+
+            const reportUrl = links[representative.url] ?? Object.values(links)[0];
+            const body = `## ⚡ Lighthouse Report（3回計測の中央値）\n\n| Category | Score |\n|----------|-------|\n${rows}\n\n| Metric | Value |\n|--------|------:|\n${metrics}\n\n[Full Report](${reportUrl})`;
 
             core.setOutput('comment', body);
 
