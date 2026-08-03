@@ -7,6 +7,8 @@ test.describe('地図ページの基本表示', () => {
     const mapContainer = page.locator('.map-container');
     await expect(mapContainer).toBeAttached({ timeout: 10_000 });
     await expect(mapContainer).toHaveCount(1);
+    // 避難所はDOMマーカーではなくMapLibreレイヤーで描画する
+    await expect(page.locator('.maplibregl-marker')).toHaveCount(0);
   });
 
   test('タイトルが正しい', async ({ page }) => {
@@ -18,6 +20,51 @@ test.describe('地図ページの基本表示', () => {
     await page.goto('/');
     const status = page.locator('[role="status"]');
     await expect(status.first()).toBeAttached();
+  });
+
+  test('モバイルの避難所一覧から避難所を選択できる', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByRole('button', { name: '避難所一覧を表示' }).click();
+
+    await expect(page.getByRole('heading', { name: '避難所一覧' })).toBeVisible();
+    await page
+      .locator('[data-slot="drawer-content"] [role="button"]')
+      .first()
+      .click();
+
+    await expect(page.locator('[data-slot="drawer-content"]')).toBeHidden();
+    await expect(
+      page.locator('.shelter-popup').getByRole('button', {
+        name: /の詳細を見る$/,
+      })
+    ).toBeVisible();
+  });
+
+  test('地図レイヤーの避難所をクリックできる', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByText('382件の避難所')).toBeVisible();
+    const canvas = page.locator('canvas.maplibregl-canvas');
+    await expect(canvas).toBeVisible();
+
+    await expect
+      .poll(
+        async () => {
+          const bounds = await canvas.boundingBox();
+          if (!bounds) return false;
+          await canvas.click({
+            position: { x: bounds.width / 2, y: bounds.height / 2 },
+          });
+          return page.locator('.shelter-popup').isVisible();
+        },
+        { timeout: 10_000 }
+      )
+      .toBe(true);
+    await expect(
+      page.locator('.shelter-popup').getByRole('button', {
+        name: /の詳細を見る$/,
+      })
+    ).toBeVisible();
   });
 
   test('コンソールに致命的エラーがない', async ({ page }) => {

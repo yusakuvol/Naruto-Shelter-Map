@@ -1,4 +1,5 @@
 import maplibregl from 'maplibre-gl';
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-csp-worker.js?url';
 import { PMTiles, Protocol } from 'pmtiles';
 import { BASEMAP_PMTILES_PATH } from '@/config/mapStyle';
 import { CacheFirstPMTilesSource } from '@/lib/pmtilesSource';
@@ -15,6 +16,7 @@ export function registerPMTilesProtocol(): void {
   if (registered) {
     return;
   }
+  maplibregl.setWorkerUrl(maplibreWorkerUrl);
   const protocol = new Protocol();
   const url = `${window.location.origin}${BASEMAP_PMTILES_PATH}`;
   protocol.add(new PMTiles(new CacheFirstPMTilesSource(url)));

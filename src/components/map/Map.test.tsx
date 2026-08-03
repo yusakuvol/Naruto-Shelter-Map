@@ -7,13 +7,30 @@ import { ShelterMap } from './Map';
 
 const mockFlyTo = vi.fn();
 const mockGetZoom = vi.fn(() => 12);
+const mockHasImage = vi.fn(() => true);
+const mockIsStyleLoaded = vi.fn(() => true);
 
 vi.mock('react-map-gl/maplibre', () => {
   const MapGL = ({
     children,
+    onClick,
   }: {
     children: React.ReactNode;
-  }): React.ReactElement => <div data-testid="map-gl">{children}</div>;
+    onClick?: (event: {
+      features: Array<{ properties: { id: string } }>;
+    }) => void;
+  }): React.ReactElement => (
+    <div data-testid="map-gl">
+      <button
+        type="button"
+        data-testid="shelter-layer-click"
+        onClick={() => onClick?.({ features: [{ properties: { id: 's1' } }] })}
+      >
+        layer click
+      </button>
+      {children}
+    </div>
+  );
   const Marker = ({
     children,
     onClick,
@@ -26,31 +43,54 @@ vi.mock('react-map-gl/maplibre', () => {
     </button>
   );
   const NavigationControl = (): null => null;
+  const Source = ({
+    children,
+    data,
+  }: {
+    children: React.ReactNode;
+    data: { features: unknown[] };
+  }): React.ReactElement => (
+    <div data-testid="shelter-source" data-feature-count={data.features.length}>
+      {children}
+    </div>
+  );
+  const Layer = ({
+    id,
+    type,
+  }: {
+    id: string;
+    type: string;
+  }): React.ReactElement => (
+    <div data-testid={`layer-${id}`} data-layer-type={type} />
+  );
   const Popup = ({
     children,
   }: {
     children: React.ReactNode;
   }): React.ReactElement => <div data-testid="popup">{children}</div>;
-  const useMap = (): {
-    current: { flyTo: typeof mockFlyTo; getZoom: typeof mockGetZoom };
-  } => ({
-    current: { flyTo: mockFlyTo, getZoom: mockGetZoom },
+  const useMap = () => ({
+    current: {
+      addImage: vi.fn(),
+      flyTo: mockFlyTo,
+      getZoom: mockGetZoom,
+      hasImage: mockHasImage,
+      isStyleLoaded: mockIsStyleLoaded,
+      off: vi.fn(),
+      on: vi.fn(),
+    },
   });
 
-  return { default: MapGL, MapGL, Marker, NavigationControl, Popup, useMap };
+  return {
+    default: MapGL,
+    Layer,
+    MapGL,
+    Marker,
+    NavigationControl,
+    Popup,
+    Source,
+    useMap,
+  };
 });
-
-vi.mock('./ShelterPinMarker', () => ({
-  ShelterPinMarker: ({
-    shelter,
-  }: {
-    shelter: ShelterFeature;
-  }): React.ReactElement => (
-    <div data-testid={`pin-${shelter.properties.id}`}>
-      {shelter.properties.name}
-    </div>
-  ),
-}));
 
 vi.mock('./ShelterPopup', () => ({
   ShelterPopup: ({
@@ -85,6 +125,12 @@ vi.mock('./FilterButton', () => ({
   FilterButton: (): React.ReactElement => <div data-testid="filter-btn" />,
 }));
 
+vi.mock('./ShelterListButton', () => ({
+  ShelterListButton: (): React.ReactElement => (
+    <div data-testid="shelter-list-btn" />
+  ),
+}));
+
 vi.mock('@/components/ai/AISuggestionBanner', () => ({
   AISuggestionBanner: (): null => null,
 }));
@@ -116,14 +162,20 @@ function makeShelter(id: string, name: string): ShelterFeature {
 }
 
 describe('ShelterMap', () => {
-  it('避難所マーカーをレンダリングする', () => {
+  it('避難所をGeoJSONレイヤーとしてレンダリングする', () => {
     const shelters = [makeShelter('s1', 'A'), makeShelter('s2', 'B')];
     render(<ShelterMap shelters={shelters} />);
-    expect(screen.getByTestId('pin-s1')).toBeInTheDocument();
-    expect(screen.getByTestId('pin-s2')).toBeInTheDocument();
+    expect(screen.getByTestId('shelter-source')).toHaveAttribute(
+      'data-feature-count',
+      '2'
+    );
+    expect(screen.getByTestId('layer-shelter-marker')).toHaveAttribute(
+      'data-layer-type',
+      'symbol'
+    );
   });
 
-  it('マーカークリックで onShelterSelect が呼ばれる', async () => {
+  it('レイヤークリックで onShelterSelect が呼ばれる', async () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
     render(
@@ -132,7 +184,7 @@ describe('ShelterMap', () => {
         onShelterSelect={onSelect}
       />
     );
-    await user.click(screen.getByTestId('pin-s1'));
+    await user.click(screen.getByTestId('shelter-layer-click'));
     expect(onSelect).toHaveBeenCalledWith('s1');
   });
 

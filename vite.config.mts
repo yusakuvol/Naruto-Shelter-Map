@@ -50,9 +50,16 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: {
-      '@': path.resolve(import.meta.dirname, './src'),
-    },
+    alias: [
+      {
+        find: /^maplibre-gl$/,
+        replacement: path.resolve(
+          import.meta.dirname,
+          './node_modules/maplibre-gl/dist/maplibre-gl-csp.js'
+        ),
+      },
+      { find: '@', replacement: path.resolve(import.meta.dirname, './src') },
+    ],
   },
   optimizeDeps: {
     exclude: ['@mlc-ai/web-llm'],
