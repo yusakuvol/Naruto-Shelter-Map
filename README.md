@@ -8,8 +8,7 @@
   電波がなくても使える、鳴門市周辺の避難所マップ
 </p>
 
-<p align="center">
-  <a href="https://naruto-hinan.com"><strong>naruto-hinan.com</strong></a>
+<p align="center">  現在、セキュリティ確認のため公開を停止しています（2026-10-07）。
 </p>
 
 <p align="center">
