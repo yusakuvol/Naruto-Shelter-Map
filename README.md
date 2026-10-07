@@ -8,7 +8,8 @@
   電波がなくても使える、鳴門市周辺の避難所マップ
 </p>
 
-<p align="center">  現在、セキュリティ確認のため公開を停止しています（2026-10-07）。
+<p align="center">
+  現在停止中
 </p>
 
 <p align="center">
@@ -53,7 +54,7 @@
 | UI | React 19 ・ TypeScript ・ Tailwind CSS v4 |
 | Map | MapLibre GL JS 5 |
 | Build | Vite 8 ・ vite-plugin-pwa |
-| Hosting | Cloudflare Pages |
+| Hosting | Cloudflare Pages（現在停止中） |
 | CI/CD | GitHub Actions |
 | Lint | Biome |
 

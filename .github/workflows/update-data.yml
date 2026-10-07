@@ -1,9 +1,6 @@
 name: Update Shelter Data
 
 on:
-  # 毎週月曜日 3:00 JST (日曜日 18:00 UTC)
-  schedule:
-    - cron: "0 18 * * 0"
   # 手動実行を許可
   workflow_dispatch:
     inputs:

@@ -1,9 +1,6 @@
 name: Update Map Tiles
 
 on:
-  # 毎月2日 3:00 JST (1日 18:00 UTC)
-  schedule:
-    - cron: "0 18 1 * *"
   # 手動実行を許可
   workflow_dispatch:
     inputs:
