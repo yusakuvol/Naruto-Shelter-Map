@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://naruto-hinan.com"><strong>naruto-hinan.com</strong></a>
+  現在停止中
 </p>
 
 <p align="center">
@@ -54,7 +54,7 @@
 | UI | React 19 ・ TypeScript ・ Tailwind CSS v4 |
 | Map | MapLibre GL JS 5 |
 | Build | Vite 8 ・ vite-plugin-pwa |
-| Hosting | Cloudflare Pages |
+| Hosting | Cloudflare Pages（現在停止中） |
 | CI/CD | GitHub Actions |
 | Lint | Biome |
 
